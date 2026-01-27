@@ -22,6 +22,10 @@
 
 > &emsp;&emsp;***学习建议：本项目的学习建议是，先学习环境配置和部署，然后再学习模型的微调，最后再探索 Infra 算子优化。初学者可以从 LM Studio 或 vLLM 部署开始优先学习。***
 
+### 最新动态
+
+- *2025.12.11:* [*ROCm 7.10.0 Release Notes*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
+
 ## 项目意义
 
 &emsp;&emsp;什么是 ROCm？
@@ -50,9 +54,6 @@
 
 &emsp;&emsp;本项目拟围绕 ROCm 大模型应用全流程组织，包括环境配置、部署应用、微调训练、算子优化等：
 
-### 最新动态
-
-- *2025.12.11:* [*ROCm 7.10.0 Release Notes*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
 
 ### 项目结构
 
