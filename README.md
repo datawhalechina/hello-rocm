@@ -1,5 +1,5 @@
 <div align=center>
-  <h1>hello-rocm</h1>
+  <img src="./images/head.png" >
   <strong>AMD YES! 🚀</strong>
 </div>
 
