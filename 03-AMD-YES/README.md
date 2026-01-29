@@ -115,10 +115,8 @@ graph LR
     B --> C[集群部署（多卡）]
     
     A --> toy-cli
-    B --> Chat-甄嬛
     B --> 微信跳一跳
-    B --> AMchat-高等数学
-    B --> Tianji-天机
+    B --> Chat-甄嬛
     C --> happy-llm
 ```
 
