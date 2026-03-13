@@ -118,6 +118,7 @@ hello-rocm/
       • toy-cli - LLM 轻量化终端助手<br>
       • YOLOv10 微信跳一跳 - 游戏 AI 实战<br>
       • Chat-甄嬛 - 古风对话大模型<br>
+      • 智能旅行规划助手 - HelloAgents Agent 实战<br>
       • happy-llm - 分布式大模型训练
     </td>
   </tr>

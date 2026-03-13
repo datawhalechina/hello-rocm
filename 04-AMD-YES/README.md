@@ -27,6 +27,7 @@
 | [🧸 toy-cli](./01-toy-cli/README.md) ✅️ | [🚀 happy-llm](./06-happy-llm/README.md) 🚧 |
 | [🎮 微信跳一跳](./02-wechat-jump/README.md) ✅️| |
 | [🎭 Chat-甄嬛](./03-huanhuan-chat/README.md) ✅️| |
+| [✈️ 智能旅行规划助手](./05-hello-agents/智能旅行规划助手简易实战/README.md) ✅️| |
 
 </div>
 
@@ -44,7 +45,9 @@
 │   └── README.md
 ├── 03-huanhuan-chat/            # Chat-甄嬛
 │   └── README.md
-└── 04-happy-llm/                # Happy-LLM 分布式训练
+├── 04-happy-llm/                # Happy-LLM 分布式训练
+│   └── README.md
+└── 05-hello-agents/             # 智能旅行规划助手
     └── README.md
 ```
 
@@ -91,6 +94,19 @@
 
 ---
 
+### ✈️ 智能旅行规划助手
+
+[HelloAgents](https://github.com/datawhalechina/hello-agents) 旅行助手 - AI旅行规划Agent | [📖 详细文档](./05-hello-agents/智能旅行规划助手简易实战/AMD395×HelloAgents实战：智能旅行规划助手.md)
+
+- 基于 [HelloAgents](https://github.com/datawhalechina/hello-agents) 框架的智能旅行规划系统
+- 集成 MCP 协议调用高德地图 API 获取真实景点和天气信息
+- 在 AMD 395 AI PC 上本地运行 30B 参数大模型
+- 自动生成完整的旅行计划 Markdown 文档
+
+**亮点：** 本地部署，隐私安全，让 AI 帮你规划完美旅行！🗺️
+
+---
+
 ## 🔥 集群部署（多卡）
 
 进阶玩法，分布式训练部署！
@@ -113,16 +129,17 @@
 graph LR
     A[新手入门] --> B[本地运行（单卡）]
     B --> C[集群部署（多卡）]
-    
+
     A --> toy-cli
     B --> 微信跳一跳
     B --> Chat-甄嬛
+    B --> 智能旅行规划助手
     C --> happy-llm
 ```
 
 **推荐学习路径：**
 1. 先玩 `toy-cli` 熟悉大模型调用
-2. 然后选感兴趣的案例深入学习
+2. 然后选感兴趣的案例深入学习（游戏AI、对话模型、Agent应用）
 3. 挑战 `happy-llm` 进阶分布式
 
 ---
@@ -144,6 +161,7 @@ graph LR
 ## 📚 参考资源
 
 - [self-llm 完整教程](https://github.com/datawhalechina/self-llm)
+- [HelloAgents AI Agent 框架](https://github.com/datawhalechina/hello-agents)
 - [ROCm 官方文档](https://rocm.docs.amd.com/)
 - [hello-rocm 主项目](../)
 
