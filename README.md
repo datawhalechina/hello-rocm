@@ -44,7 +44,6 @@
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
       • <a href="./01-Deploy/models/Qwen3/env-prepare-ubuntu24-rocm7.md">环境准备</a><br>
-      • <a href="./01-Deploy/models/Qwen3/Ubuntu24.04-rocm7-infer-deploy.md">推理部署总览</a><br>
       • <a href="./01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
       • <a href="./01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM部署</a><br>
        • <a href="./01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama部署</a><br>
@@ -61,7 +60,6 @@
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
       • <a href="./01-Deploy/models/Qwen3/env-prepare-ubuntu24-rocm7.md">环境准备</a><br>
-      • <a href="./01-Deploy/models/Qwen3/Ubuntu24.04-rocm7-infer-deploy.md">推理部署总览</a><br>
       • <a href="./01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
       • <a href="./01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM部署</a><br>
        • <a href="./01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama部署</a><br>
