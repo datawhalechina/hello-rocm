@@ -61,9 +61,9 @@
 hello-rocm/
 ├── 01-Deploy/              # ROCm LLM Deployment Practice
 ├── 02-Fine-tune/           # ROCm LLM Fine-tuning Practice
-├── 03-AMD-YES/             # AMD Project Case Collection
-├── 04-Infra/               # ROCm Operator Optimization Practice
-└── 05-References/          # ROCm Quality Reference Materials
+├── 03-Infra/               # ROCm Operator Optimization Practice
+├── 04-References/          # ROCm Quality Reference Materials
+└── 05-AMD-YES/             # AMD Project Case Collection
 ```
 
 ### 01. Deploy - ROCm LLM Deployment
@@ -107,34 +107,12 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. AMD-YES - AMD Project Case Collection
-
-<p align="center">
-  <strong>✨ AMD Project Case Collection</strong><br>
-  <em>Community-driven AMD GPU project practices</em><br>
-  📖 <strong><a href="./03-AMD-YES/README.md">Getting Started with ROCm AMD-YES</a></strong>
-</p>
-
-<table align="center">
-  <tr>
-    <td valign="top" width="50%">
-      • AMchat - Advanced Mathematics<br>
-      • Chat-Huanhuan<br>
-      • Tianji<br>
-    </td>
-    <td valign="top" width="50%">
-      • Digital Life<br>
-      • happy-llm
-    </td>
-  </tr>
-</table>
-
-### 04. Infra - ROCm Operator Optimization
+### 03. Infra - ROCm Operator Optimization
 
 <p align="center">
   <strong>⚙️ ROCm Operator Optimization Practice</strong><br>
   <em>Migration and optimization guide from CUDA to ROCm</em><br>
-  📖 <strong><a href="./04-Infra/README.md">Getting Started with ROCm Infra</a></strong>
+  📖 <strong><a href="./03-Infra/README.md">Getting Started with ROCm Infra</a></strong>
 </p>
 
 <table align="center">
@@ -150,12 +128,12 @@ hello-rocm/
   </tr>
 </table>
 
-### 05. References - ROCm Quality Reference Materials
+### 04. References - ROCm Quality Reference Materials
 
 <p align="center">
   <strong>📚 ROCm Quality Reference Materials</strong><br>
   <em>Curated AMD official and community resources</em><br>
-  📖 <strong><a href="./05-References/README.md">ROCm References</a></strong>
+  📖 <strong><a href="./04-References/README.md">ROCm References</a></strong>
 </p>
 
 <table align="center">
@@ -167,6 +145,28 @@ hello-rocm/
     <td valign="top" width="50%">
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm Release Notes</a><br>
       • Related News
+    </td>
+  </tr>
+</table>
+
+### 05. AMD-YES - AMD Project Case Collection
+
+<p align="center">
+  <strong>✨ AMD Project Case Collection</strong><br>
+  <em>Community-driven AMD GPU project practices</em><br>
+  📖 <strong><a href="./05-AMD-YES/README.md">Getting Started with ROCm AMD-YES</a></strong>
+</p>
+
+<table align="center">
+  <tr>
+    <td valign="top" width="50%">
+      • AMchat - Advanced Mathematics<br>
+      • Chat-Huanhuan<br>
+      • Tianji<br>
+    </td>
+    <td valign="top" width="50%">
+      • Digital Life<br>
+      • happy-llm
     </td>
   </tr>
 </table>

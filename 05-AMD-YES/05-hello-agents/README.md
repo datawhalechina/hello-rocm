@@ -166,7 +166,7 @@ AMAP_API_KEY=your_amap_api_key_here
 git clone https://github.com/datawhalechina/hello-rocm.git
 
 # 进入项目目录
-cd hello-rocm/04-AMD-YES/05-hello-agents/智能旅行规划助手简易实战
+cd hello-rocm/05-AMD-YES/05-hello-agents/智能旅行规划助手简易实战
 ```
 
 ### 4.2 配置模型端点

@@ -37,7 +37,7 @@
 ## 📁 项目结构
 
 ```
-03-AMD-YES/
+05-AMD-YES/
 ├── README.md                    # 项目总览
 ├── 01-toy-cli/                  # LLM 轻量化终端助手
 │   └── README.md

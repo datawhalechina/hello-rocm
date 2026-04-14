@@ -61,9 +61,9 @@
 hello-rocm/
 ├── 01-Deploy/              # ROCm 大模型部署实践
 ├── 02-Fine-tune/           # ROCm 大模型微调实践
-├── 03-AMD-YES/             # AMD 实践案例集合
-├── 04-Infra/               # ROCm 算子优化实践
-└── 05-References/          # ROCm 优质参考资料
+├── 03-Infra/               # ROCm 算子优化实践
+├── 04-References/          # ROCm 优质参考资料
+└── 05-AMD-YES/             # AMD 实践案例集合
 ```
 
 ### 01. Deploy - ROCm 大模型部署
@@ -104,32 +104,12 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. AMD-YES - AMD 实践案例集合
-
-<p align="center">
-  <strong>✨ AMD 实践案例集合</strong><br>
-  <em>社区驱动的 AMD GPU 项目实践</em><br>
-  📖 <strong><a href="./03-AMD-YES/README.md">Getting Started with ROCm AMD-YES</a></strong>
-</p>
-
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;" align="center">
-      • toy-cli - LLM 轻量化终端助手<br>
-      • YOLOv10 微信跳一跳 - 游戏 AI 实战<br>
-      • Chat-甄嬛 - 古风对话大模型<br>
-      • 智能旅行规划助手 - HelloAgents Agent 实战<br>
-      • happy-llm - 分布式大模型训练
-    </td>
-  </tr>
-</table>
-
-### 04. Infra - ROCm 算子优化
+### 03. Infra - ROCm 算子优化
 
 <p align="center">
   <strong>⚙️ ROCm 算子优化实践</strong><br>
   <em>CUDA 到 ROCm 的迁移与优化指南</em><br>
-  📖 <strong><a href="./04-Infra/README.md">Getting Started with ROCm Infra</a></strong>
+  📖 <strong><a href="./03-Infra/README.md">Getting Started with ROCm Infra</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -143,12 +123,12 @@ hello-rocm/
   </tr>
 </table>
 
-### 05. References - ROCm 优质参考资料
+### 04. References - ROCm 优质参考资料
 
 <p align="center">
   <strong>📚 ROCm 优质参考资料</strong><br>
   <em>精选的 AMD 官方与社区资源</em><br>
-  📖 <strong><a href="./05-References/README.md">ROCm References</a></strong>
+  📖 <strong><a href="./04-References/README.md">ROCm References</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -158,6 +138,26 @@ hello-rocm/
       • <a href="https://github.com/amd">AMD GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm Release Notes</a><br>
       • 相关新闻
+    </td>
+  </tr>
+</table>
+
+### 05. AMD-YES - AMD 实践案例集合
+
+<p align="center">
+  <strong>✨ AMD 实践案例集合</strong><br>
+  <em>社区驱动的 AMD GPU 项目实践</em><br>
+  📖 <strong><a href="./05-AMD-YES/README.md">Getting Started with ROCm AMD-YES</a></strong>
+</p>
+
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;" align="center">
+      • toy-cli - LLM 轻量化终端助手<br>
+      • YOLOv10 微信跳一跳 - 游戏 AI 实战<br>
+      • Chat-甄嬛 - 古风对话大模型<br>
+      • 智能旅行规划助手 - HelloAgents Agent 实战<br>
+      • happy-llm - 分布式大模型训练
     </td>
   </tr>
 </table>
