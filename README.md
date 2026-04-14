@@ -24,7 +24,62 @@
 
 ### 最新动态
 
+- *2025.12.11:* [*ROCm 7.12.0 Release Notes*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
+
 - *2025.12.11:* [*ROCm 7.10.0 Release Notes*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
+
+### 已支持模型
+
+<p align="center">
+  <strong>✨ 主流大模型：环境配置 · 多框架推理 · 微调实践 ✨</strong><br>
+  <em>Ubuntu 24.04 + ROCm 7+ 教程（按模型分目录，持续扩充）</em><br>
+  📖 <strong><a href="./01-Deploy/README.md">查看部署模块与教程导航</a></strong> | 
+  🎯 <strong>环境准备</strong>：<a href="./01-Deploy/models/Qwen3/env-prepare-ubuntu24-rocm7.md">Qwen3</a> · <a href="./01-Deploy/models/Gemma4/env-prepare-ubuntu24-rocm7.md">Gemma4</a>
+</p>
+
+<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
+  <tr>
+    <td colspan="4" align="center" style="border: none !important;"><strong>Qwen3</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Qwen3/env-prepare-ubuntu24-rocm7.md">推理环境准备</a><br>
+      • <a href="./01-Deploy/models/Qwen3/Ubuntu24.04-rocm7-infer-deploy.md">推理部署总览</a><br>
+    </td>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
+      • <a href="./01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM部署</a><br>
+    </td>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama部署</a><br>
+      • <a href="./01-Deploy/models/Qwen3/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
+    </td>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./02-Fine-tune/models/Qwen3/01-Qwen3-0.6B-LoRA及SwanLab可视化记录.md">Qwen3-0.6B LoRA微调</a><br>
+      • <a href="./02-Fine-tune/models/Qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA微调</a><br>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center" style="border: none !important;"><strong>Gemma4</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Gemma4/env-prepare-ubuntu24-rocm7.md">环境准备</a><br>
+      • <a href="./01-Deploy/models/Gemma4/Ubuntu24.04-rocm7-infer-deploy.md">推理部署总览</a><br>
+    </td>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="./01-Deploy/models/Gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
+    </td>
+    <td valign="top" width="25%" style="border: none !important;">
+      • <a href="./01-Deploy/models/Gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="./01-Deploy/models/Gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+    </td>
+    <td valign="top" width="25%" style="border: none !important;">
+      &nbsp;
+    </td>
+  </tr>
+</table>
 
 ## 项目意义
 
