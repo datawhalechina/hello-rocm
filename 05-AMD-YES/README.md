@@ -1,164 +1,140 @@
-<div align="center">
-
-# AMD-YES 🎮
-
-**玩转 AMD GPU 的酷炫项目合集**
-
-让AI更有趣，让创意更自由 ✨
-
-</div>
-
-
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm-ED1C24)](https://rocm.docs.amd.com/)
-
+<div align=center>
+  <h1>AMD-YES 🎮</h1>
+  <strong>玩转 AMD GPU 的酷炫项目合集</strong>
 </div>
 
 <div align="center">
 
----
+*让AI更有趣，让创意更自由* ✨
+
+[返回主页](../README.md)
+
+</div>
 
 ## 🚀 快速导航
 
-
 | 本地运行（单卡） | 集群部署（多卡） |
 |---------|---------|
-| [🧸 toy-cli](./01-toy-cli/README.md) ✅️ | [🚀 happy-llm](./06-happy-llm/README.md) 🚧 |
+| [🧸 toy-cli](./01-toy-cli/README.md) ✅️ | [🚀 happy-llm](./04-happy-llm/README.md) ✅️ |
 | [🎮 微信跳一跳](./02-wechat-jump/README.md) ✅️| |
 | [🎭 Chat-甄嬛](./03-huanhuan-chat/README.md) ✅️| |
 | [✈️ 智能旅行规划助手](./05-hello-agents/智能旅行规划助手简易实战/README.md) ✅️| |
 
-</div>
-
 > ✅ 支持 | 🚧 开发中 
 
+## 简介
 
-## 📁 项目结构
+&emsp;&emsp;AMD-YES 精选了一系列使用 AMD GPU 和 ROCm 平台的优秀项目实例。无论你是想快速体验大模型应用、学习计算机视觉、还是深入学习分布式训练，都能在这里找到合适的案例项目。
 
-```
-05-AMD-YES/
-├── README.md                    # 项目总览
-├── 01-toy-cli/                  # LLM 轻量化终端助手
-│   └── README.md
-├── 02-wechat-jump/              # YOLOv10 微信跳一跳
-│   └── README.md
-├── 03-huanhuan-chat/            # Chat-甄嬛
-│   └── README.md
-├── 04-happy-llm/                # Happy-LLM 分布式训练
-│   └── README.md
-└── 05-hello-agents/             # 智能旅行规划助手
-    └── README.md
-```
+&emsp;&emsp;本模块分为两个阶段：首先在本地单卡快速上手各类应用，然后进阶到集群部署和分布式训练。每个项目都包含完整的代码和详细的教程指导。
+
+## 项目列表
+
+### 本地运行（单卡）
+
+适合个人开发者快速体验，一块 AMD 显卡就能玩转！
 
 ---
 
-## 💻 本地运行（单卡）
+#### 🧸 toy-cli - LLM 轻量化终端助手
 
-适合个人开发者快速体验，一块AMD显卡就能玩转！
+[toy-cli](https://github.com/KMnO4-zx/toy-cli) 是一个简化的代码 Agent，提供极简的命令行调用大模型接口。
 
-### 🧸 toy-cli
+- **适合人群**：初学者、想快速学习 API 调用的用户
+- **难度等级**：⭐
+- **预计时间**：30 分钟
 
-[toy-cli](https://github.com/KMnO4-zx/toy-cli) - LLM 轻量化终端助手 | [📖 详细文档](./01-toy-cli/README.md)
-
-- 简化的 Claude Code 风格的代码 Agent
-- 极简命令行调用大模型
-- 轻量级、易上手
-- 学习API调用的最佳入门项目
-
-**亮点：** 3分钟学会调用大模型，就是这么简单粗暴！
+📖 [开始学习 toy-cli](./01-toy-cli/README.md)
 
 ---
 
-### 🎮 基于 YOLOv10 微信跳一跳
+#### 🎮 YOLOv10 微信跳一跳
 
-[YOLOv10 微信跳一跳](https://github.com/KMnO4-zx/wechat-jump) - AI玩跳一跳 | [📖 详细文档](./02-wechat-jump/README.md)
+[YOLOv10 微信跳一跳](https://github.com/KMnO4-zx/wechat-jump) 是基于 YOLOv10 目标检测的自动化游戏 AI，实时识别跳跃目标，精准计算距离。
 
-- 基于YOLOv10目标检测的自动化游戏AI
-- 实时识别跳跃目标，精准计算距离
-- 计算机视觉+游戏AI的趣味实战
+- **适合人群**：对计算机视觉和游戏 AI 感兴趣的开发者
+- **难度等级**：⭐⭐
+- **预计时间**：1 小时
 
-**亮点：** 让AI替你刷分，告别手残党！🚀
-
----
-
-### 🎭 Chat-甄嬛
-
-[Chat-甄嬛](https://github.com/KMnO4-zx/huanhuan-chat) - 后宫语言模型 | [📖 详细文档](./03-huanhuan-chat/README.md)
-
-- 基于《甄嬛传》台词训练的LoRA微调模型
-- 完美模仿甄嬛的语气和说话风格
-- 从数据准备到微调部署的全流程教程
-
-**亮点：** 用AI重现甄嬛的优雅与智慧，古风对话体验拉满！
+📖 [开始学习微信跳一跳](./02-wechat-jump/README.md)
 
 ---
 
-### ✈️ 智能旅行规划助手
+#### 🎭 Chat-甄嬛 - 后宫语言模型
 
-[HelloAgents](https://github.com/datawhalechina/hello-agents) 旅行助手 - AI旅行规划Agent | [📖 详细文档](./05-hello-agents/智能旅行规划助手简易实战/AMD395×HelloAgents实战：智能旅行规划助手.md)
+[Chat-甄嬛](https://github.com/KMnO4-zx/huanhuan-chat) 是基于《甄嬛传》台词训练的 LoRA 微调模型，完美模仿甄嬛的语气和说话风格。
 
-- 基于 [HelloAgents](https://github.com/datawhalechina/hello-agents) 框架的智能旅行规划系统
-- 集成 MCP 协议调用高德地图 API 获取真实景点和天气信息
-- 在 AMD 395 AI PC 上本地运行 30B 参数大模型
-- 自动生成完整的旅行计划 Markdown 文档
+- **适合人群**：想学习模型微调和 LoRA 技术的开发者
+- **难度等级**：⭐⭐
+- **预计时间**：1.5 小时
 
-**亮点：** 本地部署，隐私安全，让 AI 帮你规划完美旅行！🗺️
+📖 [开始学习 Chat-甄嬛](./03-huanhuan-chat/README.md)
 
 ---
 
-## 🔥 集群部署（多卡）
+#### ✈️ 智能旅行规划助手
+
+[智能旅行规划助手](./05-hello-agents/智能旅行规划助手简易实战/README.md) 是基于 HelloAgents 框架的智能 Agent 应用，集成 MCP 协议调用高德地图 API，在 AMD GPU 上本地运行大模型。
+
+- **适合人群**：想学习 Agent 框架和 MCP 协议的开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：2 小时
+
+📖 [开始学习智能旅行规划助手](./05-hello-agents/智能旅行规划助手简易实战/AMD395×HelloAgents实战：智能旅行规划助手.md)
+
+---
+
+### 集群部署（多卡）
 
 进阶玩法，分布式训练部署！
 
-### 🚀 happy-llm
+---
 
-[Happy-LLM](https://github.com/datawhalechina/happy-llm) - 从零训练大模型 | [📖 详细文档](./04-happy-llm/README.md)
+#### 🚀 Happy-LLM - 从零训练大模型
 
-- 分布式多机多卡训练完整教程
-- 大模型核心原理深度剖析
-- 手把手复现完整训练流程
+[Happy-LLM](https://github.com/datawhalechina/happy-llm) 提供分布式多机多卡训练的完整教程，包括大模型核心原理讲解和手把手的训练流程实现。
 
-**进阶必备：** 想要玩转大模型集群训练？这个必须安排！💪
+- **适合人群**：想深入学习大模型训练的进阶开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：3 小时+
 
-
-
-## 🎯 学习路线图
-
-```mermaid
-graph LR
-    A[新手入门] --> B[本地运行（单卡）]
-    B --> C[集群部署（多卡）]
-
-    A --> toy-cli
-    B --> 微信跳一跳
-    B --> Chat-甄嬛
-    B --> 智能旅行规划助手
-    C --> happy-llm
-```
-
-**推荐学习路径：**
-1. 先玩 `toy-cli` 熟悉大模型调用
-2. 然后选感兴趣的案例深入学习（游戏AI、对话模型、Agent应用）
-3. 挑战 `happy-llm` 进阶分布式
+📖 [开始学习 Happy-LLM](./04-happy-llm/README.md)
 
 ---
 
+## 环境要求
 
-## 🤝 参与贡献
+### 硬件要求
 
-有好想法？来提交你的AMD项目！
+- AMD GPU（支持 ROCm 的显卡，如 RX 7000 系列、MI 系列等）
+- 建议显存 8GB 以上
 
-- 📝 补充教程文档
-- 🐛 修复Bug
-- 💡 分享你的项目
-- 📦 丰富侧端案例
+### 软件要求
 
-[贡献指南](../CONTRIBUTING.md)
+- 操作系统：Linux (Ubuntu 22.04+) 或 Windows 11
+- ROCm 7.10.0/7.2.0 或更高版本
+- Python 3.10+
 
----
+## 常见问题
 
-## 📚 参考资源
+<details>
+<summary>Q: 如何确认我的 AMD GPU 是否支持 ROCm？</summary>
+
+请参考 [ROCm 官方支持列表](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html) 查看支持的 GPU 型号。
+
+</details>
+
+<details>
+<summary>Q: 各个项目的学习顺序是什么？</summary>
+
+建议按以下顺序学习：
+1. 先从 `toy-cli` 开始，熟悉大模型调用基础
+2. 选择感兴趣的案例深入学习（游戏 AI、对话模型、Agent 应用）
+3. 完成基础项目后，挑战 `Happy-LLM` 进阶分布式训练
+
+</details>
+
+## 参考资源
 
 - [self-llm 完整教程](https://github.com/datawhalechina/self-llm)
 - [HelloAgents AI Agent 框架](https://github.com/datawhalechina/hello-agents)
@@ -169,8 +145,8 @@ graph LR
 
 <div align="center">
 
-**AMD YES! 让AI更有趣** 🚀
+**欢迎贡献更多项目案例！** 🎉
 
-Made with ❤️ by the hello-rocm community
+[提交 Issue](https://github.com/datawhalechina/hello-rocm/issues) | [提交 PR](https://github.com/datawhalechina/hello-rocm/pulls)
 
 </div>

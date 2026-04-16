@@ -1,0 +1,47 @@
+# 第六章：大模型训练流程实践 - 项目依赖
+
+# 核心 ML 框架
+torch==2.3.0+rocm7.2
+torchvision==0.18.0
+torchaudio==2.3.0
+numpy>=1.24.0
+
+# 分词和模型
+transformers==4.36.0
+tokenizers>=0.14.0
+sentencepiece>=0.1.99
+
+# 数据处理
+datasets==2.14.0
+pandas>=2.0.0
+tqdm>=4.66.0
+
+# 分布式训练
+deepspeed==0.13.0  # 分布式优化框架
+accelerate==0.24.0  # Hugging Face 分布式训练加速
+
+# 参数高效微调
+peft==0.7.0  # LoRA, QLoRA 等
+bitsandbytes>=0.41.0  # 4/8-bit 量化
+
+# 强化学习微调
+trl==0.7.0  # 强化学习微调库
+
+# 监控和日志
+tensorboard>=2.13.0
+wandb>=0.15.0
+python-dotenv>=1.0.0
+
+# 推理优化
+vllm>=0.2.0  # 高速推理引擎（可选）
+optimum>=1.12.0  # ONNX 优化（可选）
+
+# 开发工具（可选）
+jupyter>=1.0.0
+ipython>=8.0.0
+ipywidgets>=8.0.0
+
+# 文档和类型检查（可选）
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0

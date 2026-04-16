@@ -20,7 +20,7 @@
 ----------------
 windows 22.04
 python 3.12
-rocm 7.11.0
+rocm 7.12.0
 pytorch 2.9.1
 ----------------
 ```
@@ -43,7 +43,7 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 pip install -r requirements_rocm_windows.txt
 ```
 
-> 本项目使用 Ryzen AI MAX 395/370 运行测试，其他 Radeon 系列适配情况请查看 https://rocm.docs.amd.com/en/7.11.0-preview/rocm-for-ai/pytorch-comfyui.html
+> 本项目使用 Ryzen AI MAX 395/370 运行测试，其他 Radeon 系列适配情况请查看 https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html
 
 ### 安装 ADB 工具
 
