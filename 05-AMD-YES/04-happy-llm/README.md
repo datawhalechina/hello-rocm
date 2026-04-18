@@ -21,69 +21,21 @@
 
 &emsp;&emsp;通过本教程，你将深入理解大模型的工作原理，掌握在 AMD GPU 上高效训练 LLM 的技能。
 
-## 核心内容
+## 章节导航
 
 ### 📚 第五章：动手搭建大模型
 
-深入讲解大语言模型的核心原理和实现细节。
+使用纯 PyTorch 从零实现 LLaMA2 模型（8000万参数），并在 AMD ROCm 上完成预训练与 SFT 微调，无需依赖任何训练框架。
 
-#### 学习目标
-- ✅ 理解 Transformer 架构和注意力机制
-- ✅ 从零实现 LLaMA2 模型的完整结构
-- ✅ 掌握模型预训练的全流程
-- ✅ 实现参数高效的微调方法（LoRA）
-
-#### 主要内容
-- **5.1 - 动手实现 LLaMA2 大模型**
-  - 超参数定义与 ModelConfig 类设计
-  - RMSNorm 归一化层实现
-  - Attention 多头注意力机制
-  - 前馈网络（FFN）实现
-  - 完整 LLaMA2 模型架构
-
-- **5.2 - 预训练与微调**
-  - 数据加载与预处理
-  - 模型预训练流程
-  - 监督微调（SFT）实现
-  - 模型保存与导出
-
-📖 [进入第五章](./chapter5/README.md)
+📖 [章节教程](./chapter5/第五章%20动手搭建大模型.md) ｜ 🚀 [执行流程与脚本说明](./chapter5/README.md)
 
 ---
 
 ### 🔧 第六章：大模型训练流程实践
 
-使用主流框架实现工业级的大模型训练。
+基于 Transformers + DeepSpeed 框架，复现工业级预训练与 SFT 流程，支持 AMD ROCm 多卡分布式训练与 ZeRO 优化。
 
-#### 学习目标
-- ✅ 掌握 Transformers 框架的使用方法
-- ✅ 实现多卡分布式训练（DDP、DeepSpeed）
-- ✅ 学习参数高效微调技术（LoRA、QLoRA）
-- ✅ 优化训练性能与显存使用
-
-#### 主要内容
-- **6.1 - 框架介绍与基础**
-  - Transformers 框架概述
-  - Trainer API 讲解
-  - 配置文件与超参数设置
-
-- **6.2 - 预训练实践**
-  - 模型下载与初始化
-  - 数据集加载与处理
-  - 分布式预训练脚本
-  - 检查点保存与恢复
-
-- **6.3 - 微调实践**
-  - 监督微调（SFT）
-  - 参数高效微调（PEFT）
-  - DeepSpeed 零阶段优化
-  - 模型量化与推理优化
-
-- **6.4 - 偏好对齐**
-  - 强化学习微调（RLHF）
-  - DPO、IPO 等对齐方法
-
-📖 [进入第六章](./chapter6/README.md)
+📖 [章节教程](./chapter6/第六章%20大模型训练流程实践.md) ｜ 🚀 [执行流程与脚本说明](./chapter6/README.md)
 
 ---
 
@@ -284,7 +236,40 @@ cd chapter6/code
 ## 项目结构
 
 ```
-
+04-happy-llm/
+├── README.md                           # 本文件
+├── chapter5/                           # 第五章：从零搭建 LLaMA2 模型
+│   ├── README.md                       # 执行流程与参数说明
+│   ├── 第五章 动手搭建大模型.md          # 章节详细教程
+│   └── code/
+│       ├── 00_download_dataset.sh          # 步骤 0：下载数据集（Linux）
+│       ├── 00_windows_download_dataset.sh  # 步骤 0：下载数据集（Windows）
+│       ├── 01_deal_dataset.py              # 步骤 1：预处理数据集
+│       ├── 02_train_tokenizer.py           # 步骤 2：训练 BPE Tokenizer
+│       ├── 03_ddp_pretrain.py              # 步骤 3：DDP 多卡预训练
+│       ├── 04_ddp_sft_full.py              # 步骤 4：DDP 多卡 SFT 微调
+│       ├── 05_model_sample.py              # 步骤 5：推理测试
+│       ├── 06_export_model.py              # 步骤 6：导出 HuggingFace 格式
+│       ├── k_model.py                      # 模型定义（库文件）
+│       ├── dataset.py                      # 数据集类（库文件）
+│       ├── tokenizer_k/                    # 预训练好的 Tokenizer
+│       └── requirements.txt
+└── chapter6/                           # 第六章：基于 Transformers 的 LLM 训练
+    ├── README.md                       # 执行流程与参数说明
+    ├── 第六章 大模型训练流程实践.md      # 章节详细教程
+    ├── 6.4[WIP] 偏好对齐.md            # 6.4 节（施工中）
+    └── code/
+        ├── 00_download_model.py        # 步骤 0：下载基础模型
+        ├── 01_download_dataset.py      # 步骤 1a：下载数据集
+        ├── 01_process_dataset.ipynb    # 步骤 1b：数据集处理（Notebook）
+        ├── 02_pretrain.py              # 步骤 2：预训练脚本
+        ├── 02_pretrain.sh              # 步骤 2：DeepSpeed 启动脚本
+        ├── 02_pretrain.ipynb           # 步骤 2：预训练（Notebook）
+        ├── 03_finetune.py              # 步骤 3：SFT 微调脚本
+        ├── 03_finetune.sh              # 步骤 3：DeepSpeed 启动脚本
+        ├── ds_config_zero2.json        # DeepSpeed ZeRO-2 配置
+        ├── whole.ipynb                 # 完整流程 Notebook
+        └── requirements.txt
 ```
 
 ---

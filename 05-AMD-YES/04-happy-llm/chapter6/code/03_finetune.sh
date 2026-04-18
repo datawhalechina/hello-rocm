@@ -1,6 +1,6 @@
 CUDA_VISIBLE_DEVICES=0,1
 
-deepspeed finetune.py \
+deepspeed 03_finetune.py \
     --model_name_or_path autodl-tmp/qwen-1.5b \
     --train_files autodl-tmp/dataset/sft_data/BelleGroup/train_3.5M_CN.json \
     --per_device_train_batch_size 16 \

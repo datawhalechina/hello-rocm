@@ -46,12 +46,18 @@ class ModelConfig(PretrainedConfig):
 class RMSNorm(nn.Module):
     def __init__(self, dim: int, eps: float):
         super().__init__()
+        # `eps` avoids division-by-zero issues.
         # eps是为了防止除以0的情况
         self.eps = eps
+        # `weight` is a learnable parameter initialized to ones.
         # weight是一个可学习的参数，全部初始化为1
         self.weight = nn.Parameter(torch.ones(dim))
 
     def _norm(self, x):
+        # Core RMSNorm computation.
+        # `x.pow(2).mean(-1, keepdim=True)` computes the mean square value.
+        # `torch.rsqrt` gives the reciprocal square root, and `eps` keeps the denominator safe.
+        # Multiplying by `x` produces the normalized result.
         # 计算RMSNorm的核心部分
         # x.pow(2).mean(-1, keepdim=True)计算了输入x的平方的均值
         # torch.rsqrt是平方根的倒数，这样就得到了RMSNorm的分母部分，再加上eps防止分母为0
@@ -59,38 +65,55 @@ class RMSNorm(nn.Module):
         return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
 
     def forward(self, x):
+        # Forward pass for RMSNorm.
+        # Cast to float for stable normalization, cast back afterwards, and then apply the learnable scale.
         # forward函数是模型的前向传播
         # 首先将输入x转为float类型，然后进行RMSNorm，最后再转回原来的数据类型
         # 最后乘以weight，这是RMSNorm的一个可学习的缩放因子
         output = self._norm(x.float()).type_as(x)
         return output * self.weight
 
+# Compute the cosine and sine parts used by rotary embeddings.
+# Note: `dim` should be `dim // n_head` because rotary embedding is applied per head.
 # 获得旋转嵌入的实部和虚部
 # 注意：此处的dim应为 dim//n_head，因为我们是对每个head进行旋转嵌入
 def precompute_freqs_cis(dim: int, end: int, theta: float = 10000.0):
+    # Build the base frequencies for rotary position encoding.
+    # The sequence starts at 0 with step size 2 and covers half the head dimension.
+    # After normalizing by `dim` and taking the reciprocal power of `theta`, we obtain the frequencies.
     # torch.arange(0, dim, 2)[: (dim // 2)].float()生成了一个从0开始，步长为2的序列，长度为dim的一半
     # 然后每个元素除以dim，再取theta的倒数，得到频率
     freqs = 1.0 / (theta ** (torch.arange(0, dim, 2)[: (dim // 2)].float() / dim))
+    # Create the position indices from 0 to `end - 1`.
     # 生成一个从0到end的序列，长度为end
     t = torch.arange(end, device=freqs.device)
+    # Compute the outer product so each row corresponds to one position.
     # 计算外积，得到一个二维矩阵，每一行是t的元素乘以freqs的元素
     freqs = torch.outer(t, freqs).float()
+    # Cosine is the real part.
     # 计算频率的余弦值，得到实部
     freqs_cos = torch.cos(freqs)
+    # Sine is the imaginary part.
     # 计算频率的正弦值，得到虚部
     freqs_sin = torch.sin(freqs)
     return freqs_cos, freqs_sin
 
+# Reshape the frequency tensor so it can be broadcast against `x`.
 # 此函数的作用是将freqs_cis调整为与x的形状相同，以便能够与x进行广播操作
 def reshape_for_broadcast(freqs_cis: torch.Tensor, x: torch.Tensor):
+    # Get the number of dimensions in `x`.
     # 获取x的维度数
     ndim = x.ndim
+    # Ensure the sequence dimension exists.
     # 断言，确保1在x的维度范围内
     assert 0 <= 1 < ndim
+    # Ensure the frequency tensor matches the sequence length and head dimension.
     # 断言，确保freqs_cis的形状与x的第二维和最后一维相同
     assert freqs_cis.shape == (x.shape[1], x.shape[-1])
+    # Build a shape that keeps the sequence and feature dimensions while broadcasting the others.
     # 构造一个新的形状，除了第二维和最后一维，其他维度都为1，这样做是为了能够将freqs_cis与x进行广播操作
     shape = [d if i == 1 or i == ndim - 1 else 1 for i, d in enumerate(x.shape)]
+    # Reshape and return the broadcast-ready tensor.
     # 将freqs_cis调整为新的形状，并返回
     return freqs_cis.view(shape)
 
@@ -101,20 +124,24 @@ def apply_rotary_emb(
     freqs_sin: torch.Tensor
 ) -> Tuple[torch.Tensor, torch.Tensor]:
 
+    # Convert query and key tensors to float and split real and imaginary parts.
     # 将查询和键张量转换为浮点数，并重塑形状以分离实部和虚部
     xq_r, xq_i = xq.float().reshape(xq.shape[:-1] + (-1, 2)).unbind(-1)
     xk_r, xk_i = xk.float().reshape(xk.shape[:-1] + (-1, 2)).unbind(-1)
 
+    # Reshape the frequency tensors for broadcasting.
     # 重新塑形频率张量以进行广播
     freqs_cos = reshape_for_broadcast(freqs_cos, xq_r)
     freqs_sin = reshape_for_broadcast(freqs_sin, xq_r)
 
+    # Apply the rotation to obtain the rotated real and imaginary components.
     # 应用旋转，分别计算旋转后的实部和虚部
     xq_out_r = xq_r * freqs_cos - xq_i * freqs_sin
     xq_out_i = xq_r * freqs_sin + xq_i * freqs_cos
     xk_out_r = xk_r * freqs_cos - xk_i * freqs_sin
     xk_out_i = xk_r * freqs_sin + xk_i * freqs_cos
 
+    # Merge the last two dimensions back to the original tensor layout.
     # 将最后两个维度合并，并还原为原始张量的形状
     xq_out = torch.stack([xq_out_r, xq_out_i], dim=-1).flatten(3)
     xk_out = torch.stack([xk_out_r, xk_out_i], dim=-1).flatten(3)
@@ -122,81 +149,108 @@ def apply_rotary_emb(
     return xq_out.type_as(xq), xk_out.type_as(xk)
 
 def repeat_kv(x: torch.Tensor, n_rep: int) -> torch.Tensor:
+    # Extract the tensor shape: batch size, sequence length, KV head count, and head dimension.
     # 获取输入张量的形状：批量大小、序列长度、键/值对头的数量、每个头的维度大小
     bs, slen, n_kv_heads, head_dim = x.shape
     
+    # Return immediately when no repetition is needed.
     # 如果重复次数为1，则不需要重复，直接返回原始张量
     if n_rep == 1:
         return x
     
+    # Expand and reshape the tensor to repeat KV heads.
     # 对张量进行扩展和重塑操作以重复键值对
     return (
-        x[:, :, :, None, :]  # 在第四个维度（头的维度前）添加一个新的维度
-        .expand(bs, slen, n_kv_heads, n_rep, head_dim)  # 将新添加的维度扩展到n_rep大小，实现重复的效果
-        .reshape(bs, slen, n_kv_heads * n_rep, head_dim)  # 重新塑形，合并键/值对头的数量和重复次数的维度
+        x[:, :, :, None, :]  # Insert a new axis before the head dimension.
+        # 在第四个维度（头的维度前）添加一个新的维度
+        .expand(bs, slen, n_kv_heads, n_rep, head_dim)  # Expand the new axis to `n_rep` copies.
+        # 将新添加的维度扩展到n_rep大小，实现重复的效果
+        .reshape(bs, slen, n_kv_heads * n_rep, head_dim)  # Merge the KV-head axis with the repetition axis.
+        # 重新塑形，合并键/值对头的数量和重复次数的维度
     )
 
 class Attention(nn.Module):
     def __init__(self, args: ModelConfig):
         super().__init__()
+        # Decide how many KV heads to use, defaulting to the full head count when unspecified.
         # 根据是否指定n_kv_heads，确定用于键（key）和值（value）的头的数量。
         self.n_kv_heads = args.n_heads if args.n_kv_heads is None else args.n_kv_heads
+        # Ensure the total number of heads is divisible by the number of KV heads.
         # 确保总头数可以被键值头数整除。
         assert args.n_heads % self.n_kv_heads == 0
 
+        # Model-parallel size, fixed to 1 here.
         # 模型并行处理大小，默认为1。
         model_parallel_size = 1
+        # Number of attention heads handled locally.
         # 本地计算头数，等于总头数除以模型并行处理大小。
         self.n_local_heads = args.n_heads // model_parallel_size
+        # Number of local KV heads.
         # 本地键值头数，等于键值头数除以模型并行处理大小。
         self.n_local_kv_heads = self.n_kv_heads // model_parallel_size
+        # Repetition factor used to expand keys and values.
         # 重复次数，用于扩展键和值的尺寸。
         self.n_rep = self.n_local_heads // self.n_local_kv_heads
+        # Per-head hidden dimension.
         # 每个头的维度，等于模型维度除以头的总数。
         self.head_dim = args.dim // args.n_heads
 
+        # Projection matrices for Q, K, and V.
         # 定义权重矩阵。
         self.wq = nn.Linear(args.dim, args.n_heads * self.head_dim, bias=False)
         self.wk = nn.Linear(args.dim, self.n_kv_heads * self.head_dim, bias=False)
         self.wv = nn.Linear(args.dim, self.n_kv_heads * self.head_dim, bias=False)
+        # Output projection.
         # 输出权重矩阵。
         self.wo = nn.Linear(args.n_heads * self.head_dim, args.dim, bias=False)
 
+        # Attention and residual dropouts.
         # 定义dropout。
         self.attn_dropout = nn.Dropout(args.dropout)
         self.resid_dropout = nn.Dropout(args.dropout)
+        # Keep the dropout probability for flash-attention calls.
         # 保存dropout概率。
         self.dropout = args.dropout
 
+        # Check whether Flash Attention is available (PyTorch >= 2.0).
         # 检查是否使用Flash Attention（需要PyTorch >= 2.0）。
         self.flash = hasattr(torch.nn.functional, 'scaled_dot_product_attention')
         if not self.flash:
+            # Fall back to manual attention and create a causal mask.
             # 若不支持Flash Attention，则使用手动实现的注意力机制，并设置mask。
             print("WARNING: using slow attention. Flash Attention requires PyTorch >= 2.0")
+            # Create an upper-triangular mask to hide future positions.
             # 创建一个上三角矩阵，用于遮蔽未来信息。
             mask = torch.full((1, 1, args.max_seq_len, args.max_seq_len), float("-inf"))
             mask = torch.triu(mask, diagonal=1)
+            # Register it as a buffer.
             # 注册为模型的缓冲区
             self.register_buffer("mask", mask)
 
     def forward(self, x: torch.Tensor, freqs_cos: torch.Tensor, freqs_sin: torch.Tensor, attention_mask: Optional[torch.Tensor] = None):
+        # Get batch size and sequence length: [batch_size, seq_len, dim].
         # 获取批次大小和序列长度，[batch_size, seq_len, dim]
         bsz, seqlen, _ = x.shape
 
+        # Compute query, key, and value projections.
         # 计算查询（Q）、键（K）、值（V）。
         xq, xk, xv = self.wq(x), self.wk(x), self.wv(x)
+        # Reshape tensors into head format.
         # 调整形状以适应头的维度。
         xq = xq.view(bsz, seqlen, self.n_local_heads, self.head_dim)
         xk = xk.view(bsz, seqlen, self.n_local_kv_heads, self.head_dim)
         xv = xv.view(bsz, seqlen, self.n_local_kv_heads, self.head_dim)
 
+        # Apply rotary positional embeddings.
         # 应用旋转位置嵌入（RoPE）。
         xq, xk = apply_rotary_emb(xq, xk, freqs_cos, freqs_sin)
 
+        # Repeat keys and values to match the attention-head count.
         # 对键和值进行扩展以适应重复次数。
         xk = repeat_kv(xk, self.n_rep)
         xv = repeat_kv(xv, self.n_rep)
 
+        # Move the head axis forward for attention computation.
         # 将头作为批次维度处理。
         xq = xq.transpose(1, 2)
         xk = xk.transpose(1, 2)
@@ -205,8 +259,10 @@ class Attention(nn.Module):
         if attention_mask is not None:
             key_padding_mask = attention_mask[:, None, None, :].to(dtype=torch.bool)
 
+        # Choose Flash Attention or the manual path based on availability.
         # 根据是否支持Flash Attention，选择实现方式。
         if self.flash:
+            # Flash Attention path.
             # 使用Flash Attention。
             if key_padding_mask is not None:
                 causal_mask = torch.ones((seqlen, seqlen), dtype=torch.bool, device=x.device).tril()
@@ -229,6 +285,7 @@ class Attention(nn.Module):
                     is_causal=True,
                 )
         else:
+            # Manual attention path.
             # 使用手动实现的注意力机制。
             scores = torch.matmul(xq, xk.transpose(2, 3)) / math.sqrt(self.head_dim)
             assert hasattr(self, 'mask')
@@ -239,9 +296,11 @@ class Attention(nn.Module):
             scores = self.attn_dropout(scores)
             output = torch.matmul(scores, xv)
 
+        # Restore the time dimension and merge heads.
         # 恢复时间维度并合并头。
         output = output.transpose(1, 2).contiguous().view(bsz, seqlen, -1)
 
+        # Final projection back into the residual stream.
         # 最终投影回残差流。
         output = self.wo(output)
         output = self.resid_dropout(output)
@@ -250,22 +309,31 @@ class Attention(nn.Module):
 class MLP(nn.Module):
     def __init__(self, dim: int, hidden_dim: int, multiple_of: int, dropout: float):
         super().__init__()
+        # If `hidden_dim` is missing, start from `4 * dim`, shrink to two thirds,
+        # and round up to a multiple of `multiple_of`.
         # 如果没有指定隐藏层的维度，我们将其设置为输入维度的4倍
         # 然后将其减少到2/3，最后确保它是multiple_of的倍数
         if hidden_dim is None:
             hidden_dim = 4 * dim
             hidden_dim = int(2 * hidden_dim / 3)
             hidden_dim = multiple_of * ((hidden_dim + multiple_of - 1) // multiple_of)
+        # First projection from model dimension to hidden dimension.
         # 定义第一层线性变换，从输入维度到隐藏维度
         self.w1 = nn.Linear(dim, hidden_dim, bias=False)
+        # Second projection back to model dimension.
         # 定义第二层线性变换，从隐藏维度到输入维度
         self.w2 = nn.Linear(hidden_dim, dim, bias=False)
+        # Third projection used by the gated MLP branch.
         # 定义第三层线性变换，从输入维度到隐藏维度
         self.w3 = nn.Linear(dim, hidden_dim, bias=False)
+        # Dropout to reduce overfitting.
         # 定义dropout层，用于防止过拟合
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
+        # Forward pass for the gated MLP.
+        # Apply the first projection with SiLU, gate it with the third projection,
+        # and project back through the second projection plus dropout.
         # 前向传播函数
         # 首先，输入x通过第一层线性变换和SILU激活函数
         # 然后，结果乘以输入x通过第三层线性变换的结果

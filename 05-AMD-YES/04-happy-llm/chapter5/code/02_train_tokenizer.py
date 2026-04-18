@@ -15,7 +15,9 @@ from typing import Generator
 random.seed(42)
 
 def read_texts_from_jsonl(file_path: str) -> Generator[str, None, None]:
-    """读取JSONL文件并安全提取文本数据"""
+    """Read a JSONL file and safely extract text fields.
+    读取JSONL文件并安全提取文本数据
+    """
     with open(file_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
             try:
@@ -31,7 +33,9 @@ def read_texts_from_jsonl(file_path: str) -> Generator[str, None, None]:
                 continue
 
 def create_tokenizer_config(save_dir: str) -> None:
-    """创建完整的tokenizer配置文件"""
+    """Create full tokenizer config files.
+    创建完整的tokenizer配置文件
+    """
     config = {
         "add_bos_token": False,
         "add_eos_token": False,
@@ -59,10 +63,12 @@ def create_tokenizer_config(save_dir: str) -> None:
         )
     }
 
+    # Save main config file
     # 保存主配置文件
     with open(os.path.join(save_dir, "tokenizer_config.json"), "w", encoding="utf-8") as f:
         json.dump(config, f, ensure_ascii=False, indent=4)
 
+    # Create special_tokens_map.json
     # 创建special_tokens_map.json
     special_tokens_map = {
         "bos_token": "<|im_start|>",
@@ -75,15 +81,21 @@ def create_tokenizer_config(save_dir: str) -> None:
         json.dump(special_tokens_map, f, ensure_ascii=False, indent=4)
 
 def train_tokenizer(data_path: str, save_dir: str, vocab_size: int = 8192) -> None:
-    """训练并保存自定义tokenizer"""
+    """Train and save a custom tokenizer.
+    训练并保存自定义tokenizer
+    """
     os.makedirs(save_dir, exist_ok=True)
     
+    # Initialize tokenizer
     # 初始化tokenizer
     tokenizer = Tokenizer(models.BPE(unk_token="<unk>"))
-    tokenizer.normalizer = NFKC()  # 添加文本规范化
+    # Add text normalization
+    # 添加文本规范化
+    tokenizer.normalizer = NFKC()
     tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
     tokenizer.decoder = decoders.ByteLevel()
 
+    # Configure special tokens
     # 配置特殊token
     special_tokens = [
         "<unk>", 
@@ -93,15 +105,19 @@ def train_tokenizer(data_path: str, save_dir: str, vocab_size: int = 8192) -> No
         "<|im_end|>"
     ]
 
+    # Configure trainer
     # 配置训练器
     trainer = trainers.BpeTrainer(
         vocab_size=vocab_size,
         special_tokens=special_tokens,
-        min_frequency=2,  # 提高低频词过滤
+        # Increase low-frequency token filtering
+        # 提高低频词过滤
+        min_frequency=2,
         show_progress=True,
         initial_alphabet=pre_tokenizers.ByteLevel.alphabet()
     )
 
+    # Train tokenizer
     # 训练tokenizer
     print(f"Training tokenizer with data from {data_path}")
     # texts = read_texts_from_jsonl(data_path)
@@ -112,6 +128,7 @@ def train_tokenizer(data_path: str, save_dir: str, vocab_size: int = 8192) -> No
             trainer=trainer
         )
 
+    # Validate special-token mapping
     # 验证特殊token映射
     try:
         assert tokenizer.token_to_id("<unk>") == 0
@@ -123,27 +140,33 @@ def train_tokenizer(data_path: str, save_dir: str, vocab_size: int = 8192) -> No
         print("Special tokens mapping error:", e)
         raise
 
+    # Save tokenizer file
     # 保存tokenizer文件
     tokenizer.save(os.path.join(save_dir, "tokenizer.json"))
     
+    # Create config files
     # 创建配置文件
     create_tokenizer_config(save_dir)
     print(f"Tokenizer saved to {save_dir}")
 
 def eval_tokenizer(tokenizer_path: str) -> None:
-    """评估tokenizer功能"""
+    """Evaluate tokenizer behavior.
+    评估tokenizer功能
+    """
     try:
         tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
     except Exception as e:
         print(f"Error loading tokenizer: {e}")
         return
 
+    # Test basic properties
     # 测试基本属性
     print("\n=== Tokenizer基本信息 ===")
     print(f"Vocab size: {len(tokenizer)}")
     print(f"Special tokens: {tokenizer.all_special_tokens}")
     print(f"Special token IDs: {tokenizer.all_special_ids}")
 
+    # Test chat template
     # 测试聊天模板
     messages = [
         {"role": "system", "content": "你是一个AI助手。"},
@@ -161,12 +184,14 @@ def eval_tokenizer(tokenizer_path: str) -> None:
     )
     print("Generated prompt:\n", prompt, sep="")
 
+    # Test encode/decode behavior
     # 测试编码解码
     print("\n=== 编码解码测试 ===")
     encoded = tokenizer(prompt, truncation=True, max_length=256)
     decoded = tokenizer.decode(encoded["input_ids"], skip_special_tokens=False)
     print("Decoded text matches original:", decoded == prompt)
 
+    # Test special token handling
     # 测试特殊token处理
     print("\n=== 特殊token处理 ===")
     test_text = "<|im_start|>user\nHello<|im_end|>"
@@ -177,10 +202,12 @@ def eval_tokenizer(tokenizer_path: str) -> None:
     print("Special tokens preserved:", decoded == test_text)
 
 def main():
+    # Configure paths; dataset should be seq_monkey_datawhale.jsonl
     # 配置路径 数据集为 seq_monkey_datawhale.jsonl
     data_path = "your data path"
     save_dir = "tokenizer_k"
 
+    # Train tokenizer
     # 训练tokenizer
     train_tokenizer(
         data_path=data_path,
@@ -188,6 +215,7 @@ def main():
         vocab_size=6144
     )
 
+    # Evaluate tokenizer
     # 评估tokenizer
     eval_tokenizer(save_dir)
 

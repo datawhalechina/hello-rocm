@@ -18,7 +18,7 @@
 | [🧸 toy-cli](./01-toy-cli/README.md) ✅️ | [🚀 happy-llm](./04-happy-llm/README.md) ✅️ |
 | [🎮 微信跳一跳](./02-wechat-jump/README.md) ✅️| |
 | [🎭 Chat-甄嬛](./03-huanhuan-chat/README.md) ✅️| |
-| [✈️ 智能旅行规划助手](./05-hello-agents/智能旅行规划助手简易实战/README.md) ✅️| |
+| [✈️ 智能旅行规划助手](./05-hello-agents/README.md) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 
@@ -112,8 +112,8 @@
 ### 软件要求
 
 - 操作系统：Linux (Ubuntu 22.04+) 或 Windows 11
-- ROCm 7.10.0/7.2.0 或更高版本
-- Python 3.10+
+- ROCm 7.12.0/7.2.0 或更高版本
+- Python 3.10~3.12
 
 ## 常见问题
 

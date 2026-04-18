@@ -1,4 +1,5 @@
 '''
+Pretraining script.
 预训练脚本
 '''
 
@@ -36,10 +37,12 @@ import swanlab
 logger = logging.getLogger(__name__)
 
 
+# Hyperparameter dataclasses.
 # 超参类
 @dataclass
 class ModelArguments:
     """
+    Model-related arguments.
     关于模型的参数
     """
 
@@ -71,6 +74,7 @@ class ModelArguments:
 @dataclass
 class DataTrainingArguments:
     """
+    Training-data-related arguments.
     关于训练的参数
     """
 
@@ -91,13 +95,16 @@ class DataTrainingArguments:
                 
 def main():
 
+    # Parse script arguments.
     # 加载脚本参数
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
+    # Initialize SwanLab.
     # 初始化 SwanLab
     # swanlab.init(project="pretrain", experiment_name="from_scrach")
     
+    # Configure logging.
     # 设置日志
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -105,6 +112,7 @@ def main():
         handlers=[logging.StreamHandler(sys.stdout)],
     )
 
+    # Set the log verbosity to INFO.
     # 将日志级别设置为 INFO
     transformers.utils.logging.set_verbosity_info()
     log_level = training_args.get_process_log_level()
@@ -114,6 +122,7 @@ def main():
     transformers.utils.logging.enable_default_handler()
     transformers.utils.logging.enable_explicit_format()
 
+    # Log the overall training runtime context.
     # 训练整体情况记录
     logger.warning(
         f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
@@ -121,6 +130,7 @@ def main():
     )
     logger.info(f"Training/evaluation parameters {training_args}")
 
+    # Check whether an existing checkpoint is available.
     # 检查 checkpoint
     last_checkpoint = None
     if os.path.isdir(training_args.output_dir):
@@ -134,11 +144,14 @@ def main():
                 f"从 {last_checkpoint}恢复训练"
             )
 
+    # Set the random seed.
     # 设置随机数种子.
     set_seed(training_args.seed)
 
+    # Initialize the model.
     # 初始化模型
     if model_args.config_name is not None:
+        # Initialize from scratch.
         # from scrach
         config = AutoConfig.from_pretrained(model_args.config_name)
         logger.warning("你正在从零初始化一个模型")
@@ -157,11 +170,13 @@ def main():
         logger.error("config_name 和 model_name_or_path 不能均为空")
         raise ValueError("config_name 和 model_name_or_path 不能均为空")
 
+    # Initialize the tokenizer.
     # 初始化 Tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_args.tokenizer_name)
     logger.info("完成 tokenzier 加载")
     logger.info(f"tokenzier 配置地址：{model_args.tokenizer_name}")
 
+    # Load the pretraining dataset.
     # 加载预训练数据
     ds = load_dataset('json', data_files=data_args.train_files)
     logger.info("完成训练集加载")
@@ -169,16 +184,19 @@ def main():
     logger.info(f'训练文件总数:{len(ds["train"])}')
     # logger.info(f"训练集采样：{ds["train"][0]}")
 
+    # Tokenize the text corpus.
     # 文本 tokenize
     column_names = list(ds["train"].features)
     logger.info('训练集特征：', column_names)
     text_column_name = "text" if "text" in column_names else column_names[0]
 
+    # Tokenization helper.
     # tokenize 函数
     def tokenize_function(examples):
         output = tokenizer([item for item in examples[text_column_name]])
         return output
 
+    # Run dataset preprocessing on the main process first.
     # 仅主进程进行数据预处理
     with training_args.main_process_first(desc="dataset map tokenization"):
         tokenized_datasets = ds.map(
@@ -190,6 +208,7 @@ def main():
             desc="Running tokenizer on dataset"
         )
 
+    # Chunk the tokenized text into fixed-length blocks.
     # 文本切块
     if data_args.block_size is None:
         block_size = tokenizer.model_max_length
@@ -207,10 +226,13 @@ def main():
         block_size = min(data_args.block_size, tokenizer.model_max_length)
 
     def group_texts(examples):
+        # Concatenate all text segments.
         # 将文本段拼接起来
         concatenated_examples = {k: list(chain(*examples[k])) for k in examples.keys()}
+        # Compute the total concatenated length.
         # 计算拼起来的整体长度
         total_length = len(concatenated_examples[list(examples.keys())[0]])
+        # Truncate to a multiple of the block size when needed.
         # 如果长度太长，进行分块
         if total_length >= block_size:
             total_length = (total_length // block_size) * block_size
@@ -242,6 +264,7 @@ def main():
         data_collator=default_data_collator
     )
 
+    # Resume from a checkpoint if requested or discovered.
     # 从 checkpoint 加载
     checkpoint = None
     if training_args.resume_from_checkpoint is not None:

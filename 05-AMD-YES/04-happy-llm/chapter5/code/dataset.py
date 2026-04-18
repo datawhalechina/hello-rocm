@@ -14,13 +14,16 @@ class PretrainDataset(Dataset):
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.padding = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else 0
+        # Precompute byte offsets for line starts
         # 预计算每行的起始字节偏移量
         self._offsets = []
         with open(data_path, 'rb') as f:
             self._offsets.append(0)
             while f.readline():
                 self._offsets.append(f.tell())
-        self._total_lines = len(self._offsets) - 1  # 最后一个 tell() 是 EOF
+        # The last tell() points to EOF
+        # 最后一个 tell() 是 EOF
+        self._total_lines = len(self._offsets) - 1
 
     def __len__(self):
         return self._total_lines
@@ -33,9 +36,11 @@ class PretrainDataset(Dataset):
         text = f"{self.tokenizer.bos_token}{sample['text']}"
         input_id = self.tokenizer(text).data['input_ids'][:self.max_length]
         text_len = len(input_id)
+        # Remaining part for sequences shorter than max length
         # 没满最大长度的剩余部分
         padding_len = self.max_length - text_len
         input_id = input_id + [self.padding] * padding_len
+        # 0 means the position does not contribute to loss
         # 0表示不计算损失
         loss_mask = [1] * text_len + [0] * padding_len
 
@@ -63,6 +68,7 @@ class SFTDataset(Dataset):
         return self._total_lines
 
     def generate_loss_mask(self, input_ids):
+        # Build loss mask: 0 means no loss, 1 means compute loss
         # 生成 loss mask, 0 表示不计算损失, 1 表示计算损失
         mask = [0] * len(input_ids)
         a_sequence = self.tokenizer("<|im_start|>assistant\n")['input_ids']  # <|im_start|>assistant\n
@@ -71,6 +77,7 @@ class SFTDataset(Dataset):
         i = 0
         
         while i <= n - a_length:
+            # Check whether current position matches target subsequence
             # 检查当前位置是否匹配目标子序列
             match = True
             for k in range(a_length):
@@ -78,6 +85,7 @@ class SFTDataset(Dataset):
                     match = False
                     break
             if match:
+                # Find the first eos_token_id after the matched subsequence
                 # 从子序列结束的位置开始查找第一个 4 (eos_token_id)
                 j = None
                 for idx in range(i + a_length, n):
@@ -87,11 +95,13 @@ class SFTDataset(Dataset):
                 if j is not None:
                     start = i + a_length
                     end = j  # 结束位置设为j（包含4）
+                    # Mark interval as 1 (including start to end)
                     # 标记区间为1（包括start到end）
                     if start <= end:
                         for pos in range(start, end + 1):
                             if pos < len(mask):
                                 mask[pos] = 1
+                # Skip current subsequence to avoid overlap matches
                 # 跳过当前子序列，避免重叠匹配
                 i += a_length
             else:
@@ -106,9 +116,11 @@ class SFTDataset(Dataset):
         text = self.tokenizer.apply_chat_template(sample, tokenize=False, add_generation_prompt=False)
         input_id = self.tokenizer(text).data['input_ids'][:self.max_length]
         text_len = len(input_id)
+        # Remaining part for sequences shorter than max length
         # 没满最大长度的剩余部分
         padding_len = self.max_length - text_len
         input_id = input_id + [self.padding] * padding_len
+        # 0 means the position does not contribute to loss
         # 0表示不计算损失
         loss_mask = self.generate_loss_mask(input_id)
 

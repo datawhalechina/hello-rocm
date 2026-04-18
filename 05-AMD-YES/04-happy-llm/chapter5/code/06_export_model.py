@@ -11,10 +11,12 @@ def count_parameters(model):
 
 
 def export_model(tokenizer_path, model_config, model_ckpt_path, save_directory):
+    # Register custom class and config
     # 注册自定义类和配置
     ModelConfig.register_for_auto_class()
     Transformer.register_for_auto_class("AutoModelForCausalLM")
 
+    # Load tokenizer
     # 加载tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         tokenizer_path,
@@ -24,22 +26,27 @@ def export_model(tokenizer_path, model_config, model_ckpt_path, save_directory):
     if tokenizer.pad_token_id is not None:
         model_config.pad_token_id = tokenizer.pad_token_id
 
+    # Initialize model
     # 初始化模型
     model = Transformer(model_config)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+    # Load model weights
     # 加载模型权重
     state_dict = torch.load(model_ckpt_path, map_location=device)
+    # Remove optional redundant prefix
     # 移除可能存在的多余前缀
     unwanted_prefix = '_orig_mod.'
     for k in list(state_dict.keys()):
         if k.startswith(unwanted_prefix):
             state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
     
+    # Load weights into model
     # 加载权重到模型
     model.load_state_dict(state_dict, strict=False)
     print(f'模型参数: {count_parameters(model)/1e6:.2f}M = {count_parameters(model)/1e9:.2f}B')
 
+    # Save full model and tokenizer
     # 保存完整模型和tokenizer
     model.save_pretrained(save_directory, safe_serialization=False)
     tokenizer.save_pretrained(save_directory)
@@ -47,6 +54,7 @@ def export_model(tokenizer_path, model_config, model_ckpt_path, save_directory):
 
 
 if __name__ == '__main__':
+    # Example usage
     # 示例用法
     config = ModelConfig(
         dim=1024,

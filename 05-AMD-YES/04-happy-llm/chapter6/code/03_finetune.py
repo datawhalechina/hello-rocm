@@ -1,4 +1,5 @@
 '''
+SFT script.
 SFT 脚本
 '''
 
@@ -40,10 +41,12 @@ from tqdm import tqdm
 logger = logging.getLogger(__name__)
 
 
+# Dataclass for model arguments
 # 超参类
 @dataclass
 class ModelArguments:
     """
+    Model-related arguments.
     关于模型的参数
     """
 
@@ -51,6 +54,7 @@ class ModelArguments:
         default=None,
         metadata={
             "help": (
+                    "Path to pretrained model weights"
                 "预训练模型参数地址"
             )
         },
@@ -59,6 +63,7 @@ class ModelArguments:
         default=None,
         metadata={
             "help": (
+                    "Training dtype, bfloat16 is recommended"
                 "模型训练使用的数据类型，推荐 bfloat16"
             ),
             "choices": ["auto", "bfloat16", "float16", "float32"],
@@ -69,6 +74,7 @@ class ModelArguments:
 @dataclass
 class DataTrainingArguments:
     """
+    Data-related training arguments.
     关于训练的参数
     """
 
@@ -77,58 +83,78 @@ class DataTrainingArguments:
         default=None,
         metadata={
             "help": (
+                    "Maximum text block length"
                 "最大文本块长度"
             )
         },
     )
 
+# Instruction text preprocessing
 # 指令文本处理
+# Reference: https://github.com/QwenLM/Qwen/blob/main/finetune.py
 # 参考：https://github.com/QwenLM/Qwen/blob/main/finetune.py
 def preprocess(sources, tokenizer, max_len, system_message: str = "You are a helpful assistant."):
+    # Prompt template
     # prompt 模板
     roles = {"human": "<|im_start|>human", "assistant": "<|im_start|>assistant"}
 
+    # Some tokenizer-specific tokens need explicit definitions
     # 不同的 tokenizer 需要特别定义
+    # BOS token
     # BOS
     im_start = tokenizer("<|im_start|>").input_ids
+    # EOS token
     # EOS
     im_end = tokenizer("<|im_end|>").input_ids
+    # PAD token
     # PAD
     IGNORE_TOKEN_ID = tokenizer.pad_token_id
+    # Newline token
     # 换行符
     nl_tokens = tokenizer('\n').input_ids
+    # Role identifiers
     # 角色标识符
     _system = tokenizer('system').input_ids + nl_tokens
     _user = tokenizer('human').input_ids + nl_tokens
     _assistant = tokenizer('assistant').input_ids + nl_tokens
 
+    # Concatenate multi-turn dialogue
     # 拼接多轮对话
     input_ids, targets = [], []
     for i in tqdm(range(len(sources))):
         source = sources[i]
+        # Start from the user turn
         # 从 user 开始
         if source[0]["from"] != "human":
             source = source[1:]
+        # Input and output token sequences
         # 分别是输入和输出
         input_id, target = [], []
+        # System prompt: BOS + system + message + EOS + newline
         # system: 【BOS】system\nYou are a helpful assistant.【EOS】\n
         system = im_start + _system + tokenizer(system_message).input_ids + im_end + nl_tokens
         input_id += system
+        # No loss should be applied to system prompt tokens
         # system 不需要拟合
         target += im_start + [IGNORE_TOKEN_ID] * (len(system)-3) + im_end + nl_tokens
         assert len(input_id) == len(target)
+        # Append each turn in order
         # 依次拼接
         for j, sentence in enumerate(source):
             role = roles[sentence["from"]]
+            # user: <|im_start|>human\ninstruction【EOS】\n
             # user：<|im_start|>human\ninstruction【EOS】\n
+            # assistant: <|im_start|>assistant\nresponse【EOS】\n
             # assistant：<|im_start|>assistant\nresponse【EOS】\n
             _input_id = tokenizer(role).input_ids + nl_tokens + \
                 tokenizer(sentence["value"]).input_ids + im_end + nl_tokens
             input_id += _input_id
             if role == '<|im_start|>human':
+                # User tokens are excluded from loss
                 # user 不需要拟合
                 _target = im_start + [IGNORE_TOKEN_ID] * (len(_input_id)-3) + im_end + nl_tokens
             elif role == '<|im_start|>assistant':
+                # Assistant response tokens contribute to loss
                 # assistant 需要拟合
                 _target = im_start + [IGNORE_TOKEN_ID] * len(tokenizer(role).input_ids) + \
                     _input_id[len(tokenizer(role).input_ids)+1:-2] + im_end + nl_tokens
@@ -137,6 +163,7 @@ def preprocess(sources, tokenizer, max_len, system_message: str = "You are a hel
                 raise NotImplementedError
             target += _target
         assert len(input_id) == len(target)
+        # Apply final padding
         # 最后进行 PAD
         input_id += [tokenizer.pad_token_id] * (max_len - len(input_id))
         target += [IGNORE_TOKEN_ID] * (max_len - len(target))
@@ -151,6 +178,7 @@ def preprocess(sources, tokenizer, max_len, system_message: str = "You are a hel
         labels=targets,
         attention_mask=input_ids.ne(tokenizer.pad_token_id),
     )
+# Custom dataset wrapper
 # 自定义一个 Dataset
 from typing import Dict
 
@@ -158,6 +186,7 @@ class SupervisedDataset(Dataset):
 
     def __init__(self, raw_data, tokenizer, max_len: int):
         super(SupervisedDataset, self).__init__()
+        # Load and preprocess data
         # 加载并预处理数据
         sources = [example["conversations"] for example in raw_data]
         data_dict = preprocess(sources, tokenizer, max_len)
@@ -179,13 +208,16 @@ class SupervisedDataset(Dataset):
                 
 def main():
 
+    # Load script arguments
     # 加载脚本参数
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
+    # Initialize SwanLab
     # 初始化 SwanLab
     swanlab.init(project="sft", experiment_name="qwen-1.5b")
     
+    # Configure logging
     # 设置日志
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -193,6 +225,7 @@ def main():
         handlers=[logging.StreamHandler(sys.stdout)],
     )
 
+    # Set logging verbosity to INFO
     # 将日志级别设置为 INFO
     transformers.utils.logging.set_verbosity_info()
     log_level = training_args.get_process_log_level()
@@ -202,6 +235,7 @@ def main():
     transformers.utils.logging.enable_default_handler()
     transformers.utils.logging.enable_explicit_format()
 
+    # Log overall training state
     # 训练整体情况记录
     logger.warning(
         f"Process rank: {training_args.local_rank}, device: {training_args.device}, n_gpu: {training_args.n_gpu}"
@@ -209,6 +243,7 @@ def main():
     )
     logger.info(f"Training/evaluation parameters {training_args}")
 
+    # Check checkpoint state
     # 检查 checkpoint
     last_checkpoint = None
     if os.path.isdir(training_args.output_dir):
@@ -222,9 +257,11 @@ def main():
                 f"从 {last_checkpoint}恢复训练"
             )
 
+    # Set random seed
     # 设置随机数种子.
     set_seed(training_args.seed)
 
+    # Initialize model
     # 初始化模型
     logger.warning("加载预训练模型")
     logger.info(f"模型参数地址：{model_args.model_name_or_path}")
@@ -232,10 +269,12 @@ def main():
     n_params = sum({p.data_ptr(): p.numel() for p in model.parameters()}.values())
     logger.info(f"继承一个预训练模型 - Total size={n_params/2**20:.2f}M params")
 
+    # Initialize tokenizer
     # 初始化 Tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_args.model_name_or_path)
     logger.info("完成 tokenzier 加载")
 
+    # Load fine-tuning data
     # 加载微调数据
     with open(data_args.train_files) as f:
         lst = [json.loads(line) for line in f.readlines()[:10000]]
@@ -254,6 +293,7 @@ def main():
         tokenizer=tokenizer
     )
 
+    # Load from checkpoint if provided
     # 从 checkpoint 加载
     checkpoint = None
     if training_args.resume_from_checkpoint is not None:

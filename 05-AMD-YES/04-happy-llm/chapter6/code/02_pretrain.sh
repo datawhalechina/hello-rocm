@@ -1,6 +1,6 @@
 CUDA_VISIBLE_DEVICES=0,1
 
-deepspeed pretrain.py \
+deepspeed 02_pretrain.py \
     --config_name autodl-tmp/qwen-1.5b \
     --tokenizer_name autodl-tmp/qwen-1.5b \
     --train_files autodl-tmp/dataset/pretrain_data/mobvoi_seq_monkey_general_open_corpus_small.jsonl \

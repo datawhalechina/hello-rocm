@@ -17,16 +17,21 @@ from dataset import SFTDataset
 
 import swanlab
 
+# Suppress warnings
 # 忽略警告
 warnings.filterwarnings('ignore')
 
 
 def Logger(content):
-    """日志记录器"""
+    """Simple logger.
+    日志记录器
+    """
     print(content)
 
 def get_lr(it, all):
-    """获取学习率"""
+    """Compute learning rate.
+    获取学习率
+    """
     # 1) linear warmup for warmup_iters steps
     # 1) 预热迭代的线性预热
     warmup_iters = args.warmup_iters
@@ -49,18 +54,22 @@ def get_lr(it, all):
     return min_lr + coeff * (args.learning_rate - min_lr)
 
 def train_epoch(epoch):
-    """训练一个epoch"""
+    """Train one epoch.
+    训练一个epoch
+    """
     start_time = time.time()
     for step, (X, Y, loss_mask) in enumerate(train_loader):
         X = X.to(args.device)
         Y = Y.to(args.device)
         loss_mask = loss_mask.to(args.device)
 
+        # Get learning rate and update optimizer
         # 获取学习率并更新优化器
         lr = get_lr(epoch * iter_per_epoch + step, args.epochs * iter_per_epoch)
         for param_group in optimizer.param_groups:
             param_group['lr'] = lr
 
+        # Forward pass
         # 前向传播
         with ctx:
             out = model(X, Y)
@@ -68,9 +77,11 @@ def train_epoch(epoch):
             loss_mask = loss_mask.view(-1)
             loss = torch.sum(loss * loss_mask) / loss_mask.sum()
 
+        # Backward pass
         # 反向传播
         scaler.scale(loss).backward()
 
+        # Update weights
         # 更新权重
         if (step + 1) % args.accumulation_steps == 0:
             scaler.unscale_(optimizer)
@@ -81,6 +92,7 @@ def train_epoch(epoch):
 
             optimizer.zero_grad(set_to_none=True)
 
+        # Print logs
         # 打印日志
         if step % args.log_interval == 0:
             spend_time = time.time() - start_time
@@ -99,16 +111,19 @@ def train_epoch(epoch):
                     "lr": optimizer.param_groups[-1]['lr']
                 })
 
+        # Save model checkpoint
         # 保存模型
         if (step + 1) % args.save_interval == 0:
             model.eval()
             ckp = f'{args.save_dir}/sft_dim{lm_config.dim}_layers{lm_config.n_layers}_vocab_size{lm_config.vocab_size}.pth'
 
+            # Handle multi-GPU state saving
             # 处理多卡保存
             state_dict = model.module.state_dict() if isinstance(model, torch.nn.DataParallel) else model.state_dict()
             torch.save(state_dict, ckp)
             model.train()
         
+        # Periodically save model
         # 定期保存模型
         if (step + 1) % 20000 == 0:
             model.eval()
@@ -120,19 +135,26 @@ def train_epoch(epoch):
 
 
 def init_model():
-    """初始化模型"""
+    """Initialize model and tokenizer.
+    初始化模型
+    """
     def count_parameters(model):
-        """计算模型参数量"""
+        """Count trainable parameters.
+        计算模型参数量
+        """
         return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
+    # Load tokenizer
     # 加载分词器
     tokenizer = AutoTokenizer.from_pretrained('./tokenizer_k/')
     if tokenizer.pad_token_id is not None:
         lm_config.pad_token_id = tokenizer.pad_token_id
 
+    # Initialize model
     # 初始化模型
     model = Transformer(lm_config)
 
+    # Load pretrained weights
     # 加载预训练权重
     ckp = './base_model_215M/pretrain_1024_18_6144.pth'
     state_dict = torch.load(ckp, map_location=args.device)
@@ -142,6 +164,7 @@ def init_model():
             state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
     model.load_state_dict(state_dict, strict=False)
     
+    # Initialize multi-GPU wrapper if available
     # 多卡初始化
     num_gpus = torch.cuda.device_count()
     if num_gpus > 1:
@@ -169,20 +192,24 @@ if __name__ == "__main__":
     parser.add_argument("--warmup_iters", type=int, default=0, help="预热迭代次数")
     parser.add_argument("--log_interval", type=int, default=100, help="日志记录间隔")
     parser.add_argument("--save_interval", type=int, default=1000, help="模型保存间隔")
+    # Add multi-GPU argument
     # 添加多卡参数
     parser.add_argument("--gpus", type=str, default='0,1,2,3', help="逗号分隔的GPU ID (例如 '0,1,2')")
 
     args = parser.parse_args()
 
+    # Set visible GPUs
     # 设置可见GPU
     if args.gpus is not None:
         os.environ["CUDA_VISIBLE_DEVICES"] = args.gpus
+        # Automatically set the primary device to the first GPU
         # 自动设置主设备为第一个GPU
         if torch.cuda.is_available():
             args.device = "cuda:0"
         else:
             args.device = "cpu"
 
+    # Initialize SwanLab
     # 初始化swanlab
     if args.use_swanlab:
         run = swanlab.init(
@@ -191,6 +218,7 @@ if __name__ == "__main__":
             config=args,
         )
 
+    # Model configuration
     # 模型配置
     lm_config = ModelConfig(
         dim=1024,
@@ -202,12 +230,15 @@ if __name__ == "__main__":
     torch.manual_seed(42)
     device_type = "cuda" if "cuda" in args.device else "cpu"
 
+    # Context manager for autocast
     # 上下文管理器
     ctx = nullcontext() if device_type == "cpu" else torch.cuda.amp.autocast()
 
+    # Initialize model and tokenizer
     # 初始化模型和分词器
     model, tokenizer = init_model()
     
+    # Create dataset and dataloader
     # 创建数据集和数据加载器
     train_ds = SFTDataset(args.data_path, tokenizer, max_length=max_seq_len)
     train_loader = DataLoader(
@@ -219,10 +250,12 @@ if __name__ == "__main__":
         num_workers=args.num_workers
     )
 
+    # Grad scaler and optimizer
     # 缩放器和优化器
     scaler = torch.cuda.amp.GradScaler(enabled=(args.dtype in ['float16', 'bfloat16']))
     optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate)
 
+    # Start training
     # 开始训练
     iter_per_epoch = len(train_loader)
     for epoch in range(args.epochs):

@@ -8,14 +8,16 @@ import argparse
 
 class TextGenerator:
     def __init__(self, 
-                 checkpoint='./base_model_215M/pretrain_1024_18_6144.pth',  # 模型检查点路径
-                 tokenizer_model_path='./tokenizer_k/',  # 分词器模型路径
-                 seed=42,  # 随机种子，确保可重复性
-                 device=None,  # 设备，优先使用 CUDA，如果没有可用的 CUDA，则使用 CPU
-                 dtype="bfloat16"):  # 数据类型，默认为 float32，可以选择 float16 或 bfloat16
+                 checkpoint='./base_model_215M/pretrain_1024_18_6144.pth',  # Model checkpoint path
+                 tokenizer_model_path='./tokenizer_k/',  # Tokenizer path
+                 seed=42,  # Random seed for reproducibility
+                 device=None,  # Device, prefer CUDA and fall back to CPU
+                 dtype="bfloat16"):  # Data type, can be float32/float16/bfloat16
         """
+        Initialize TextGenerator by loading model, tokenizer, and runtime settings.
         初始化 TextGenerator 类，加载模型、设置设备和分词器等。
         """
+        # Model loading configuration
         # 模型加载配置
         self.checkpoint = checkpoint  # 保存的模型检查点路径
         self.tokenizer_model_path = tokenizer_model_path  # 分词器模型文件路径
@@ -24,18 +26,22 @@ class TextGenerator:
         self.dtype = dtype  # 模型的浮点数类型
         self.device_type = 'cuda' if 'cuda' in self.device else 'cpu'  # 判断当前设备是否为 CUDA
         
+        # Set random seeds for reproducible generation
         # 设置随机种子，确保生成的可重复性
         torch.manual_seed(seed)  # 设置 CPU 随机种子
         torch.cuda.manual_seed(seed)  # 设置 CUDA 随机种子
         torch.backends.cuda.matmul.allow_tf32 = True  # 允许 CUDA 使用 TF32 精度进行矩阵乘法运算
         torch.backends.cudnn.allow_tf32 = True  # 允许 cuDNN 使用 TF32 精度加速
         
+        # Select autocast context based on dtype
         # 根据 dtype 选择适当的自动混合精度上下文
         ptdtype = {'float32': torch.float32, 'bfloat16': torch.bfloat16, 'float16': torch.float16}[self.dtype]
         self.ctx = nullcontext() if self.device_type == 'cpu' else torch.amp.autocast(device_type=self.device_type, dtype=ptdtype)
+        # Initialize tokenizer
         # 初始化分词器
         self.tokenizer = AutoTokenizer.from_pretrained(self.tokenizer_model_path)  # 根据指定的路径加载分词器
 
+        # Load model checkpoint
         # 加载模型检查点文件
         checkpoint_dict = torch.load(self.checkpoint, map_location=self.device)  # 加载模型参数 # 初始化模型参数
         self.model = Transformer(
@@ -51,11 +57,14 @@ class TextGenerator:
                 checkpoint_dict[k[len(sunwanted_prefix):]] = checkpoint_dict.pop(k)
         self.model.load_state_dict(checkpoint_dict, strict=False)
         
+        # Count trainable parameters
         # 计算模型参数量
         num_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
         print(f"Model has {num_params / 1e6:.3f} M parameters.")
+        # Switch to eval mode to disable training-only layers such as dropout
         # 设置模型为评估模式（evaluation mode），防止训练模式下的 dropout 等操作影响结果
         self.model.eval()
+        # Move model to the target device
         # 将模型放置到正确的设备上（GPU 或 CPU）
         self.model.to(self.device)
 
@@ -67,12 +76,13 @@ class TextGenerator:
         return self.tokenizer.apply_chat_template(message, tokenize=False, add_generation_prompt=True)
 
     def sft_sample(self, 
-               start="Hello!",  # 生成文本的起始提示词，可以是任意字符串
-               num_samples=3,  # 生成样本的数量，默认生成 3 个样本
-               max_new_tokens=256,  # 每个样本生成的最大 token 数，默认最多生成 256 个 token
-               temperature=0.7,  # 控制生成的随机性，1.0 为标准，值越大越随机
-               top_k=300):  # 保留概率最高的 top_k 个 token，限制生成时的选择范围
+             start="Hello!",  # Prompt prefix for generation
+             num_samples=3,  # Number of generated samples
+             max_new_tokens=256,  # Maximum new tokens per sample
+             temperature=0.7,  # Sampling temperature
+             top_k=300):  # Restrict sampling to top-k tokens
         """
+         Generate samples from a chat-style prompt.
         根据给定的起始文本生成样本。
         
         :param start: 生成文本的起始提示词
@@ -83,26 +93,33 @@ class TextGenerator:
         :return: 生成的文本样本列表
         """
         start = self.chat_template(start)
+        # Encode prompt into token IDs
         # 将起始文本编码为 token id 序列
         start_ids = self.tokenizer(start).data['input_ids']
-        # print('start_ids:', start_ids)
         x = (torch.tensor(start_ids, dtype=torch.long, device=self.device)[None, ...])  # 将编码后的 token id 转为 PyTorch 张量
         generated_texts = []  # 用于保存生成的文本样本
-        with torch.no_grad():  # 禁用梯度计算，提升效率
-            with self.ctx:  # 进入自动混合精度的上下文（如果是 GPU 并使用 float16 时）
-                for k in range(num_samples):  # 循环生成指定数量的样本
+        # Disable gradients for faster inference
+        # 禁用梯度计算，提升效率
+        with torch.no_grad():
+            # Enter autocast context when enabled on GPU
+            # 进入自动混合精度的上下文（如果是 GPU 并使用 float16 时）
+            with self.ctx:
+                # Generate the requested number of samples
+                # 循环生成指定数量的样本
+                for k in range(num_samples):
                     y = self.model.generate(x, self.tokenizer.eos_token_id, max_new_tokens, temperature=temperature, top_k=top_k)  # 生成文本
                     generated_texts.append(self.tokenizer.decode(y[0].tolist()))  # 解码生成的 token 序列为可读文本
         return generated_texts  # 返回生成的文本样本
 
 
     def pretrain_sample(self, 
-               start="Hello!",  # 生成文本的起始提示词，可以是任意字符串
-               num_samples=3,  # 生成样本的数量，默认生成 3 个样本
-               max_new_tokens=256,  # 每个样本生成的最大 token 数，默认最多生成 256 个 token
-               temperature=0.7,  # 控制生成的随机性，1.0 为标准，值越大越随机
-               top_k=300):  # 保留概率最高的 top_k 个 token，限制生成时的选择范围
+             start="Hello!",  # Prompt prefix for generation
+             num_samples=3,  # Number of generated samples
+             max_new_tokens=256,  # Maximum new tokens per sample
+             temperature=0.7,  # Sampling temperature
+             top_k=300):  # Restrict sampling to top-k tokens
         """
+         Generate samples from a plain pretraining-style prompt.
         根据给定的起始文本生成样本。
         
         :param start: 生成文本的起始提示词
@@ -112,20 +129,26 @@ class TextGenerator:
         :param top_k: 限制生成时选择的 token 范围
         :return: 生成的文本样本列表
         """
+        # If start begins with 'FILE:', load prompt text from file
         # 如果 start 是以 'FILE:' 开头，表示从文件中读取起始文本
         if start.startswith('FILE:'):
             with open(start[5:], 'r', encoding='utf-8') as f:
                 start = f.read()  # 读取文件内容作为起始文本
         
+        # Encode prompt into token IDs
         # 将起始文本编码为 token id 序列
         start_ids = self.tokenizer(start).data['input_ids']
-        # print('start_ids:', start_ids)
         x = (torch.tensor(start_ids, dtype=torch.long, device=self.device)[None, ...])  # 将编码后的 token id 转为 PyTorch 张量
-        # print(x.shape)
         generated_texts = []  # 用于保存生成的文本样本
-        with torch.no_grad():  # 禁用梯度计算，提升效率
-            with self.ctx:  # 进入自动混合精度的上下文（如果是 GPU 并使用 float16 时）
-                for k in range(num_samples):  # 循环生成指定数量的样本
+        # Disable gradients for faster inference
+        # 禁用梯度计算，提升效率
+        with torch.no_grad():
+            # Enter autocast context when enabled on GPU
+            # 进入自动混合精度的上下文（如果是 GPU 并使用 float16 时）
+            with self.ctx:
+                # Generate the requested number of samples
+                # 循环生成指定数量的样本
+                for k in range(num_samples):
                     y = self.model.generate(x, max_new_tokens=max_new_tokens, temperature=temperature, top_k=top_k)  # 生成文本
                     generated_texts.append(self.tokenizer.decode(y[0].tolist()))  # 解码生成的 token 序列为可读文本
         
@@ -139,10 +162,10 @@ if __name__ == "__main__":
         '<|im_start|>中国矿业大学（北京）地球科学与测绘工程学院',
     ]
 
-    generator = TextGenerator(checkpoint='./base_model_215M/pretrain_1024_18_6144.pth')  # 初始化生成器
+    generator = TextGenerator(checkpoint='./base_model_215M/pretrain_1024_18_6144.pth')  # Initialize generator
     for i in range(len(pretrain_prompt_datas)):
         samples = generator.pretrain_sample(start=pretrain_prompt_datas[i], num_samples=1, max_new_tokens=120, temperature=0.75)
-        print(f"\nSample {i+1}:\n{pretrain_prompt_datas[i]}{samples[0]}\n{'-'*20}")  # 打印生成的样本并用分隔线分割
+        print(f"\nSample {i+1}:\n{pretrain_prompt_datas[i]}{samples[0]}\n{'-'*20}")  # Print sample output with separator
 
     print("\n ------------------- SFT Sample ------------------- \n")
 
@@ -152,9 +175,9 @@ if __name__ == "__main__":
         "1+12等于多少？",
         "你是谁？"
     ]
-    generator = TextGenerator(checkpoint='./sft_model_215M/sft_dim1024_layers18_vocab_size6144.pth')  # 初始化生成器
+    generator = TextGenerator(checkpoint='./sft_model_215M/sft_dim1024_layers18_vocab_size6144.pth')  # Initialize generator
     for i in range(len(sft_prompt_datas)):
         samples = generator.sft_sample(start=sft_prompt_datas[i], num_samples=1, max_new_tokens=128, temperature=0.6)
-        print(f"\nSample {i+1}:\nQuestion: {sft_prompt_datas[i]} \nAI answer: {samples[0]}\n{'-'*20}")  # 打印生成的样本并用分隔线分割
+        print(f"\nSample {i+1}:\nQuestion: {sft_prompt_datas[i]} \nAI answer: {samples[0]}\n{'-'*20}")  # Print sample output with separator
 
     
