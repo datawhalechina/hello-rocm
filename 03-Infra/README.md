@@ -19,11 +19,22 @@
 
 ```
 03-Infra/
-├── 第1章-拥抱AMD-AI算力新时代.md
-├── 第2章-解密AI加速器-从软件栈到硬件架构.md
-├── 第 3 章：迈入 ROCm 编程世界——手写一个“PyTorch 算子”.md
-├── 第 4 章：迈入 ROCm 编程世界——手写一个“PyTorch 算子”.md
-└── images/                    # 章节配图与实验截图
+├── 01-embrace-amd-ai/
+│   ├── README.md
+│   └── images/
+├── 02-decode-ai-accelerator/
+│   ├── README.md
+│   ├── code/
+│   └── images/
+├── 03-handwrite-rocm-operator/
+│   ├── README.md
+│   ├── code/
+│   └── images/
+├── 04-custom-pytorch-operator/
+│   ├── README.md
+│   ├── code/
+│   └── images/
+└── README.md
 ```
 
 ## 教程列表
@@ -36,7 +47,7 @@
 - **难度等级**：⭐⭐
 - **预计时间**：2～3 小时
 
-📖 [阅读第 1 章](./第1章-拥抱AMD-AI算力新时代.md)
+📖 [阅读第 1 章](./01-embrace-amd-ai/README.md)
 
 ---
 
@@ -48,7 +59,7 @@
 - **难度等级**：⭐⭐⭐
 - **预计时间**：3～4 小时
 
-📖 [阅读第 2 章](./第2章-解密AI加速器-从软件栈到硬件架构.md)
+📖 [阅读第 2 章](./02-decode-ai-accelerator/README.md)
 
 ---
 
@@ -60,19 +71,19 @@
 - **难度等级**：⭐⭐⭐
 - **预计时间**：2～3 小时
 
-📖 [阅读第 3 章](<./第 3 章：迈入 ROCm 编程世界——手写一个“PyTorch 算子”.md>)
+📖 [阅读第 3 章](./03-handwrite-rocm-operator/README.md)
 
 ---
 
-### 第 4 章：迈入 ROCm 编程世界——手写一个「PyTorch 算子」（深化）
+### 第 4 章：为 PyTorch 编写自定义 ROCm 算子
 
-&emsp;&emsp;在上一章基础上强化 **软硬件映射**（Thread / Wavefront / Work-Group 与 AMD 硬件对应）、**Profiling** 与 **rocBLAS GEMM** 实战（含算力利用率等），更贴近「算子开发与性能分析」工作流。
+&emsp;&emsp;从 PyTorch 的 Python 调用链出发，用 **C++ Extension** 机制将 HIP Kernel 注册为自定义算子；实战 **Fused Swish** 算子、**Grid-Stride Loop** 优化、**Autograd** 自动求导集成，并通过 **内存墙基准测试** 量化带宽瓶颈，完成从「手写 Kernel」到「PyTorch 可调用算子」的完整闭环。
 
-- **适合人群**：希望系统掌握 HIP 写法与性能测量、并对接数学库的开发者
-- **难度等级**：⭐⭐⭐
-- **预计时间**：2～3 小时
+- **适合人群**：希望将自定义 HIP 算子集成到 PyTorch 训练/推理流程的开发者
+- **难度等级**：⭐⭐⭐⭐
+- **预计时间**：3～4 小时
 
-📖 [阅读第 4 章](<./第 4 章：迈入 ROCm 编程世界——手写一个“PyTorch 算子”.md>)
+📖 [阅读第 4 章](./04-custom-pytorch-operator/README.md)
 
 ---
 
