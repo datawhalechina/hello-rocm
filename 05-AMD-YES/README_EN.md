@@ -19,6 +19,7 @@
 | [🎮 WeChat Jump](./02-wechat-jump/README_EN.md) ✅️| |
 | [🎭 Chat-Huanhuan](./03-huanhuan-chat/README_EN.md) ✅️| |
 | [✈️ Smart Travel Planner](./05-hello-agents/README_EN.md) ✅️| |
+| [🦞 OpenClaw Private Assistant](./06-openclaw/README_EN.md) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
@@ -87,6 +88,18 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Estimated Time**: 2 hours
 
 📖 [Start Learning Smart Travel Planner](./05-hello-agents/smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-en.md)
+
+---
+
+#### 🦞 OpenClaw - Fully Private Local AI Agent Platform
+
+[OpenClaw](https://github.com/ValueCell-ai/ClawX) is a unified message processing and AI agent platform. Deploy a large model locally on AMD 395 Max for a fully private personal AI assistant.
+
+- **Target Audience**: Developers wanting to learn AI Agent platforms and local privacy deployment
+- **Difficulty Level**: ⭐⭐⭐
+- **Estimated Time**: 1.5 hours
+
+📖 [Start Learning OpenClaw](./06-openclaw/README_EN.md)
 
 ---
 

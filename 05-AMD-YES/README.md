@@ -19,6 +19,7 @@
 | [🎮 微信跳一跳](./02-wechat-jump/README.md) ✅️| |
 | [🎭 Chat-甄嬛](./03-huanhuan-chat/README.md) ✅️| |
 | [✈️ 智能旅行规划助手](./05-hello-agents/README.md) ✅️| |
+| [🦞 OpenClaw 全隐私助手](./06-openclaw/README.md) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 
@@ -87,6 +88,18 @@
 - **预计时间**：2 小时
 
 📖 [开始学习智能旅行规划助手](./05-hello-agents/smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-zh.md)
+
+---
+
+#### 🦞 OpenClaw - 全隐私本地 AI 智能体平台
+
+[OpenClaw](https://github.com/ValueCell-ai/ClawX) 是一个统一的消息处理与 AI 智能体平台，在 AMD 395 Max 上本地部署大模型，实现完全隐私的个人 AI 助手。
+
+- **适合人群**：想学习 AI Agent 平台和本地隐私部署的开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：1.5 小时
+
+📖 [开始学习 OpenClaw](./06-openclaw/README.md)
 
 ---
 
