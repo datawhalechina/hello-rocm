@@ -1,5 +1,5 @@
 <div align=center>
-  <img src="../../images/head.png" >
+  <img src="../../docs/public/images/head.png" >
   <strong>AMD YES! 🚀</strong>
 </div>
 
