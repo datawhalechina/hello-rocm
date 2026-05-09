@@ -13,7 +13,7 @@
 ### YOLOv10 WeChat Jump Training and Control Loop
 
 <div align='center'>
-    <img src="./images/wechat_jump_yolo_rocm_flow_en.png" alt="Figure 5.2.1 YOLOv10 WeChat Jump training and control loop" width="95%">
+    <img src="/images/amd-yes/wechat-jump/wechat_jump_yolo_rocm_flow_en.png" alt="Figure 5.2.1 YOLOv10 WeChat Jump training and control loop" width="95%">
 </div>
 
 ***OK, next I will guide you step-by-step to implement the training and usage process for WeChat Jump automation. Let's experience it together!***
@@ -31,7 +31,7 @@ pytorch 2.9.1
 ----------------
 ```
 
-> 📖 For ROCm + PyTorch base environment installation, see [00-Environment](../../00-Environment/README_en.md). Continue below after completing that setup.
+> 📖 For ROCm + PyTorch base environment installation, see [00-Environment](/environment/index_en). Continue below after completing that setup.
 
 Install project-specific dependencies:
 
@@ -52,7 +52,7 @@ ADB (Android Debug Bridge) is a command-line tool used for communicating with An
 2. After downloading and extracting, add the extracted path to the system environment variables
 
 <div align='center'>
-		<img src="./images/env.png" alt="Environment variable configuration" width="90%">
+		<img src="/images/amd-yes/wechat-jump/env.png" alt="Environment variable configuration" width="90%">
 		<p>Example of environment variable configuration</p>
 </div>
 

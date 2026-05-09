@@ -41,7 +41,7 @@ Ollama / LM Studio / 玲珑"智玲同学"（三选一）
 ----------------
 ```
 
-> 本文默认学习者使用的是 AMD 395 AI PC 或其他搭载 AMD ROCm 支持的显卡设备。关于本地模型部署，请参考 [Getting Started with ROCm Deploy](../../01-Deploy/README.md)
+> 本文默认学习者使用的是 AMD 395 AI PC 或其他搭载 AMD ROCm 支持的显卡设备。关于本地模型部署，请参考 [Getting Started with ROCm Deploy](/deploy/)
 
 ### 1.1 安装 Python 依赖
 
@@ -262,8 +262,8 @@ smart-travel-planner/
 - [MCP 协议规范](https://modelcontextprotocol.io/)
 - [高德地图 API 文档](https://lbs.amap.com/api/)
 - [AMD ROCm 文档](https://rocm.docs.amd.com/)
-- [中文详细教程](./smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-zh.md)
-- [English Tutorial](./smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-en.md)
+- [中文详细教程](/amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner-zh.md)
+- [English Tutorial](/amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner-en.md)
 
 ---
 

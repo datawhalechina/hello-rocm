@@ -1,6 +1,6 @@
 # Fine-tune
 
-[中文](./README.md) | [Back to Home](../README_EN.md)
+[中文](./) | [Back to Home](/)
 
 This chapter collects fine-tuning materials, a general tutorial, and model-specific experiment notes for running LLM fine-tuning on AMD GPU / ROCm environments. It walks through environment setup, dataset construction, LoRA fine-tuning, and LoRA weight merging.
 
@@ -8,8 +8,8 @@ This chapter collects fine-tuning materials, a general tutorial, and model-speci
 
 | Example | Description | Document |
 |:---|:---|:---|
-| Qwen3-0.6B-LoRA | LoRA fine-tuning with Qwen3-0.6B, including SwanLab training visualization | [View note](./models/Qwen3/01-Qwen3-0.6B-LoRA及SwanLab可视化记录.md) |
-| Gemma4-E4B-LoRA | Fine-tuning Gemma 4 E4B-it on the `dair-ai/emotion` dataset | [View note](./models/Gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.md) |
+| Qwen3-0.6B-LoRA | LoRA fine-tuning with Qwen3-0.6B, including SwanLab training visualization | [View note](/fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md) |
+| Gemma4-E4B-LoRA | Fine-tuning Gemma 4 E4B-it on the `dair-ai/emotion` dataset | [View note](/fine-tune/gemma4/gemma4-e4b-lora-swanlab.md) |
 
 Contributions are welcome. Feel free to add more model examples for edge deployment and AMD GPU fine-tuning experiments.
 
@@ -23,11 +23,11 @@ The example environment is based on AMD Ryzen AI Max+ 395. Although this machine
 
 ### Environment Setup
 
-This section focuses on the Python virtual environment and training dependencies. For ROCm base installation, Windows/Ubuntu prerequisites, driver versions, Visual Studio requirements, and GPU architecture mapping, refer to [00-Environment](../00-Environment/README_EN.md).
+This section focuses on the Python virtual environment and training dependencies. For ROCm base installation, Windows/Ubuntu prerequisites, driver versions, Visual Studio requirements, and GPU architecture mapping, refer to [00-Environment](/environment/index_en).
 
-For Windows + Ryzen AI Max+ 395, see [Windows 11 Installation](../00-Environment/README_EN.md#1-windows-11-installation) and [Install ROCm + PyTorch](../00-Environment/README_EN.md#15-install-rocm--pytorch). ROCm 7.12.0 and later support installing ROCm-related Python packages into a virtual environment via pip / uv pip.
+For Windows + Ryzen AI Max+ 395, see [Windows 11 Installation](/environment/index_en#1-windows-11-installation) and [Install ROCm + PyTorch](/environment/index_en#15-install-rocm--pytorch). ROCm 7.12.0 and later support installing ROCm-related Python packages into a virtual environment via pip / uv pip.
 
-![ROCm screenshot](./images/rocm.png)
+![ROCm screenshot](/images/fine-tune/rocm.png)
 
 The following commands use AMD Ryzen AI Max+ 395 (`gfx1151`) on Windows as the example. In this tutorial, `uv` is used as a replacement for conda/venv and as the pip installation entrypoint. Do not use `uv add` / `uv sync` to manage ROCm PyTorch.
 

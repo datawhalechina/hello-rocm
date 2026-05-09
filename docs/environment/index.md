@@ -12,7 +12,7 @@
 
 *统一环境基线 · ROCm 7.12.0 · 所有后续章节的前置依赖*
 
-[返回主页](../README.md) | [English](./README_en.md)
+[返回主页](/) | [English](index_en)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 &emsp;&emsp;本章节是整个 **hello-rocm** 项目的环境基线参考。统一以 **ROCm 7.12.0**（Technology Preview，2026-03-26 发布）为目标版本，覆盖 Windows 和 Ubuntu 双平台的安装、校验与卸载流程。
 
-&emsp;&emsp;后续所有章节（01-Deploy、02-Fine-tune 等）的环境准备均以本章为基准。如需使用其他 ROCm 版本或其他 GPU 架构，请参考 [GPU 架构对照表](./rocm-gpu-architecture-table.md) 进行对应替换。
+&emsp;&emsp;后续所有章节（01-Deploy、02-Fine-tune 等）的环境准备均以本章为基准。如需使用其他 ROCm 版本或其他 GPU 架构，请参考 [GPU 架构对照表](/environment/rocm-gpu-architecture-table) 进行对应替换。
 
 > 💡 **平台建议**：Windows 已支持 ROCm 体验与推理验证，但 ROCm 生态工具链（如 rocminfo、amd-smi、多卡支持、容器化部署等）在 **Ubuntu** 上支持更完整。**建议使用 Ubuntu 24.04 作为主力开发环境**，Windows 可作为快速体验或轻量推理使用。
 
@@ -46,7 +46,7 @@
 
 ## 目录
 
-- [GPU 架构对照表（独立文件）](./rocm-gpu-architecture-table.md)
+- [GPU 架构对照表（独立文件）](/environment/rocm-gpu-architecture-table)
 - [一、Windows 安装](#一windows-11-安装)
 - [二、Ubuntu 安装](#二ubuntu-2404-安装)
 - [三、校验安装](#三校验安装)
@@ -69,7 +69,7 @@
 | **Adrenalin 驱动** | **必须 26.3.1**（[⬇️ 下载](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-3-1.html#Downloads)） |
 | **Visual Studio 2022**（可选） | Community 版即可，安装时勾选「使用 C++ 的桌面开发」（[⬇️ 下载](https://visualstudio.microsoft.com/zh-hans/downloads/)）。AMD Quark 等需要编译自定义算子时必需 |
 
-![Visual Studio 安装勾选「使用 C++ 的桌面开发」](./images/visual_studil_c++_desktop_installer.png)
+![Visual Studio 安装勾选「使用 C++ 的桌面开发」](/images/environment/visual_studil_c++_desktop_installer.png)
 
 ### 1.2 卸载冲突软件
 
@@ -130,7 +130,7 @@ uv pip install -r requirements.txt
 > | Radeon RX 7900 XTX / 7800 XT | `https://repo.amd.com/rocm/whl/gfx110X-all/` |
 > | Instinct MI300X / MI325X | `https://repo.amd.com/rocm/whl/gfx94X-dcgpu/` |
 >
-> 完整对照请查阅 [GPU 架构对照表](./rocm-gpu-architecture-table.md) 或 [官方兼容性矩阵](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html)。
+> 完整对照请查阅 [GPU 架构对照表](/environment/rocm-gpu-architecture-table) 或 [官方兼容性矩阵](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html)。
 
 > 🚀 **国内加速提示**：对于非 ROCm 的普通 PyPI 包，可配置镜像源加速下载：
 > ```bash
@@ -178,7 +178,7 @@ uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ torch torchvis
 uv pip install -r requirements.txt
 ```
 
-> 💡 其他 GPU 替换 `--index-url` 即可，对照表见 [Windows 1.5 节](#15-安装-rocm--pytorch) 或 [GPU 架构对照表](./rocm-gpu-architecture-table.md)。
+> 💡 其他 GPU 替换 `--index-url` 即可，对照表见 [Windows 1.5 节](#15-安装-rocm--pytorch) 或 [GPU 架构对照表](/environment/rocm-gpu-architecture-table)。
 
 ### 2.3 备选：一键安装脚本
 
@@ -285,7 +285,7 @@ rm -rf .venv
 | Ryzen AI Max 395 | gfx1151 | `https://repo.amd.com/rocm/whl/gfx1151/`  |
 | Ryzen AI PRO 400 | gfx1150 | `https://repo.amd.com/rocm/whl/gfx1150/`  |
 
-完整对照表见 [GPU 架构对照表](./rocm-gpu-architecture-table.md)。
+完整对照表见 [GPU 架构对照表](/environment/rocm-gpu-architecture-table)。
 
 ---
 

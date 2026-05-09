@@ -7,7 +7,7 @@
 
 *Get LLMs running on AMD GPUs with ROCm—from zero to deployed*
 
-[Back to project home](../README_en.md) · [简体中文](./README.md)
+[Back to project home](/) · [简体中文](./)
 
 </div>
 
@@ -36,8 +36,8 @@
 - **Level**: ⭐⭐  
 - **Time**: ~1 hour  
 
-📖 [Environment setup (Gemma4)](./models/Gemma4/env-prepare-ubuntu24-rocm7.md)  
-📎 Also see: [Qwen3 variant](./models/Qwen3/env-prepare-ubuntu24-rocm7.md)
+📖 [Environment setup (Gemma4)](/deploy/gemma4/env-prepare-ubuntu24-rocm7.md)  
+📎 Also see: [Qwen3 variant](/deploy/qwen3/env-prepare-ubuntu24-rocm7.md)
 
 ---
 
@@ -49,7 +49,7 @@
 - **Level**: ⭐  
 - **Time**: ~15 minutes  
 
-📖 [Gemma 4 model overview](./models/Gemma4/gemma4_model.md)
+📖 [Gemma 4 model overview](/deploy/gemma4/gemma4_model.md)
 
 ---
 
@@ -61,8 +61,8 @@
 - **Level**: ⭐  
 - **Time**: ~30 minutes  
 
-📖 [LM Studio tutorial (Gemma4)](./models/Gemma4/lm-studio-rocm7-deploy.md)  
-📎 Also see: [Qwen3 version](./models/Qwen3/lm-studio-rocm7-deploy.md)
+📖 [LM Studio tutorial (Gemma4)](/deploy/gemma4/lm-studio-rocm7-deploy.md)  
+📎 Also see: [Qwen3 version](/deploy/qwen3/lm-studio-rocm7-deploy.md)
 
 ---
 
@@ -74,8 +74,8 @@
 - **Level**: ⭐⭐  
 - **Time**: ~1 hour  
 
-📖 [vLLM tutorial (Gemma4)](./models/Gemma4/vllm-rocm7-deploy.md)  
-📎 Also see: [Qwen3 version](./models/Qwen3/vllm-rocm7-deploy.md)
+📖 [vLLM tutorial (Gemma4)](/deploy/gemma4/vllm-rocm7-deploy.md)  
+📎 Also see: [Qwen3 version](/deploy/qwen3/vllm-rocm7-deploy.md)
 
 ---
 
@@ -87,8 +87,8 @@
 - **Level**: ⭐⭐  
 - **Time**: ~1 hour  
 
-📖 [Ollama tutorial (Gemma4)](./models/Gemma4/ollama-rocm7-deploy.md)  
-📎 Also see: [Qwen3 version](./models/Qwen3/ollama-rocm7-deploy.md)
+📖 [Ollama tutorial (Gemma4)](/deploy/gemma4/ollama-rocm7-deploy.md)  
+📎 Also see: [Qwen3 version](/deploy/qwen3/ollama-rocm7-deploy.md)
 
 ---
 
@@ -100,8 +100,8 @@
 - **Level**: ⭐⭐⭐  
 - **Time**: ~1.5 hours  
 
-📖 [llama.cpp tutorial (Gemma4)](./models/Gemma4/llamacpp-rocm7-deploy.md)  
-📎 Also see: [Qwen3 version](./models/Qwen3/llamacpp-rocm7-deploy.md)
+📖 [llama.cpp tutorial (Gemma4)](/deploy/gemma4/llamacpp-rocm7-deploy.md)  
+📎 Also see: [Qwen3 version](/deploy/qwen3/llamacpp-rocm7-deploy.md)
 
 ---
 

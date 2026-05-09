@@ -131,8 +131,8 @@ echo "=================================================="
 
 截图示例：
 
-<img src="./images/image11.png" style="width:5.75in;height:3.25in" />
-<img src="./images/image12.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/gemma4/image11.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/gemma4/image12.png" style="width:5.75in;height:3.25in" />
 
 ---
 
@@ -353,6 +353,6 @@ echo "=================================================="
 
 示例效果截图：
 
-<img src="./images/image13.png" style="width:5.75in;height:3.25in" />
-<img src="./images/image14.png" style="width:5.75in;height:3.25in" />
-<img src="./images/image15.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/gemma4/image13.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/gemma4/image14.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/gemma4/image15.png" style="width:5.75in;height:3.25in" />

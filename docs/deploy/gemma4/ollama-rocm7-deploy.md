@@ -79,6 +79,6 @@ awk 'NR==1{count=$1} NR==2{duration=$1/1e9} END{printf "tokens/s: %.2f\n", count
 
 截图示例：
 
-<img src="./images/image6.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/gemma4/image6.png" style="width:5.75in;height:3.25in" />
 
 > 若需体验 Gemma 4 的多模态能力（图像 / 视频 / 音频输入），请选用 Ollama 中标注支持 `vision` / `multimodal` 的 Gemma 4 tag，并通过 `/api/chat` 接口随消息传入 `images` 字段（Base64 编码图片）即可。具体参数请以 Ollama 最新文档为准。

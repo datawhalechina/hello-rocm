@@ -14,7 +14,7 @@
 ### toy-cli Local Agent Call Chain
 
 <div align='center'>
-    <img src="./images/toy_cli_rocm_agent_flow_en.png" alt="Figure 5.1.1 toy-cli local LLM Agent call chain" width="95%">
+    <img src="/images/amd-yes/toy-cli/toy_cli_rocm_agent_flow_en.png" alt="Figure 5.1.1 toy-cli local LLM Agent call chain" width="95%">
 </div>
 
 ***OK, next I will guide you through the hands-on process of implementing toy-cli installation and usage step by step. Let's experience it together~***
@@ -29,7 +29,7 @@ LM Studio
 python 3.12
 ----------------
 ```
-> This guide assumes that learners are using a graphics card supported by AMD ROCm or an AI PC device with Ryzen AI series chips. For loading large models locally with LM Studio, please refer to [Getting Started with ROCm Deploy](../../01-Deploy/README_EN.md)
+> This guide assumes that learners are using a graphics card supported by AMD ROCm or an AI PC device with Ryzen AI series chips. For loading large models locally with LM Studio, please refer to [Getting Started with ROCm Deploy](/deploy/index_en)
 
 First, switch pip sources to accelerate downloads and install dependencies
 
@@ -47,7 +47,7 @@ pip install requests python-dotenv chardet
 ### 2.1 Loading AgentCPM-explore Model in LM-Studio
 
 <div align='center'>
-	<img src="./images/AgentCPM-Explore-GGUF.png" alt="alt text" width="90%">
+	<img src="/images/amd-yes/toy-cli/AgentCPM-Explore-GGUF.png" alt="alt text" width="90%">
 	<p>AgentCPM-explore model</p>
 </div>
 
@@ -60,14 +60,14 @@ AgentCPM-Explore is a high-performance open-source intelligent agent base model 
 Check the endpoint address in LM-Studio (default: `http://127.0.0.1:1234`):
 
 <div align='center'>
-	<img src="./images/config_model.png" alt="alt text" width="90%">
+	<img src="/images/amd-yes/toy-cli/config_model.png" alt="alt text" width="90%">
 	<p>AgentCPM-explore model</p>
 </div>
 
 Use AMD ROCm as the inference engine:
 
 <div align='center'>
-	<img src="./images/ROCm_config.png" alt="alt text" width="90%">
+	<img src="/images/amd-yes/toy-cli/ROCm_config.png" alt="alt text" width="90%">
 	<p>AgentCPM-explore model</p>
 </div>
 

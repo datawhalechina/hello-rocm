@@ -77,6 +77,6 @@ awk 'NR==1{count=$1} NR==2{duration=$1/1e9} END{printf "tokens/s: %.2f\n", count
 
 截图示例：
 
-<img src="./images/image6.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/qwen3/image6.png" style="width:5.75in;height:3.25in" />
 
 

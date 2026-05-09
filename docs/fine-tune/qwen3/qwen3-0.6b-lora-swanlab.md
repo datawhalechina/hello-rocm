@@ -2,7 +2,7 @@
 
 ## 环境配置
 
-请参考 [README](../../README.md#环境配置) 中的环境配置部分，安装适配 ROCm 的 `PyTorch`，然后安装以下依赖：
+请参考 [README](..//#环境配置) 中的环境配置部分，安装适配 ROCm 的 `PyTorch`，然后安装以下依赖：
 
 ```bash
 uv pip install -r ../../requirements.txt
@@ -43,7 +43,7 @@ print(f"模型下载完成，保存路径为：{model_dir}")
 }
 ```
 
-所有的示例微调数据集位于 [02-Fine-tune/datasets](../../datasets/huanhuan.json)
+所有的示例微调数据集位于 [02-Fine-tune/datasets](https://github.com/datawhalechina/hello-rocm/blob/main/src/fine-tune/datasets/huanhuan.json)
 
 ## 数据准备
 
@@ -244,7 +244,7 @@ TrainOutput(global_step=699, training_loss=2.6425710331557988, metrics={'train_r
 
 训练完成后，打开 `SwanLab` ，可以查看训练过程中记录的参数和可视化的训练 loss 曲线：
 
-![alt text](./images/image-1.png)
+![alt text](/images/fine-tune/qwen3/image-1.png)
 
 示例的训练记录公开链接如下，供参考
 

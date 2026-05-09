@@ -20,7 +20,7 @@ https://lmstudio.ai/
 
 示意图：
 
-<img src="./images/image1.png" style="width:5.75in;height:2.27083in" />
+<img src="/images/deploy/qwen3/image1.png" style="width:5.75in;height:2.27083in" />
 
 ---
 
@@ -61,13 +61,13 @@ sudo chmod 4755 chrome-sandbox
 
 在 LM Studio 中选择 **ROCm 版本的 llama.cpp 后端** 安装：
 
-<img src="./images/image2.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/qwen3/image2.png" style="width:5.75in;height:3.8125in" />
 
 需要注意，目前 LM Studio 所提供的 ROCm 版本 llama.cpp 所支持的架构列表（不同 GPU 架构支持状况）：
 
-<img src="./images/image3.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/qwen3/image3.png" style="width:5.75in;height:3.8125in" />
 
-<img src="./images/image4.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/qwen3/image4.png" style="width:5.75in;height:3.8125in" />
 
 ---
 
@@ -79,6 +79,6 @@ sudo chmod 4755 chrome-sandbox
 
 截图示例：
 
-<img src="./images/image5.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/qwen3/image5.png" style="width:5.75in;height:3.8125in" />
 
 

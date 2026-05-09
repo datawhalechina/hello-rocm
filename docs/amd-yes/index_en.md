@@ -7,7 +7,7 @@
 
 *Making AI more fun, unleashing creativity* ✨
 
-[Back to Home](../README_EN.md)
+[Back to Home](/)
 
 </div>
 
@@ -15,11 +15,11 @@
 
 | Local Run (Single GPU) | Cluster Deployment (Multi-GPU) |
 |---------|---------|
-| [🧸 toy-cli](./01-toy-cli/README_EN.md) ✅️ | [🚀 happy-llm](./04-happy-llm/README_EN.md) ✅️ |
-| [🎮 WeChat Jump](./02-wechat-jump/README_EN.md) ✅️| |
-| [🎭 Chat-Huanhuan](./03-huanhuan-chat/README_EN.md) ✅️| |
-| [✈️ Smart Travel Planner](./05-hello-agents/README_EN.md) ✅️| |
-| [🦞 OpenClaw Private Assistant](./06-openclaw/README_EN.md) ✅️| |
+| [🧸 toy-cli](/amd-yes/toy-cli_en) ✅️ | [🚀 happy-llm](/amd-yes/happy-llm/index_en) ✅️ |
+| [🎮 WeChat Jump](/amd-yes/wechat-jump_en) ✅️| |
+| [🎭 Chat-Huanhuan](/amd-yes/huanhuan-chat_en) ✅️| |
+| [✈️ Smart Travel Planner](/amd-yes/hello-agents/index_en) ✅️| |
+| [🦞 OpenClaw Private Assistant](/amd-yes/openclaw_en) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
@@ -32,7 +32,7 @@ This module is divided into two stages: First, quickly get started with various 
 ### AMD-YES Learning Path
 
 <div align='center'>
-    <img src="./images/amd_yes_project_overview_en.png" alt="Figure 5.1 AMD-YES project learning path overview" width="95%">
+    <img src="/images/amd-yes/overview/amd_yes_project_overview_en.png" alt="Figure 5.1 AMD-YES project learning path overview" width="95%">
 </div>
 
 ## Project List
@@ -51,7 +51,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐
 - **Estimated Time**: 30 minutes
 
-📖 [Start Learning toy-cli](./01-toy-cli/README_EN.md)
+📖 [Start Learning toy-cli](/amd-yes/toy-cli_en)
 
 ---
 
@@ -63,7 +63,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐
 - **Estimated Time**: 1 hour
 
-📖 [Start Learning WeChat Jump](./02-wechat-jump/README_EN.md)
+📖 [Start Learning WeChat Jump](/amd-yes/wechat-jump_en)
 
 ---
 
@@ -75,19 +75,19 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐
 - **Estimated Time**: 1.5 hours
 
-📖 [Start Learning Chat-Huanhuan](./03-huanhuan-chat/README_EN.md)
+📖 [Start Learning Chat-Huanhuan](/amd-yes/huanhuan-chat_en)
 
 ---
 
 #### ✈️ Smart Travel Planner
 
-[Smart Travel Planner](./05-hello-agents/README_EN.md) is an intelligent Agent application based on the HelloAgents framework, integrating MCP protocol to call Amap API, running large models locally on AMD GPU.
+[Smart Travel Planner](/amd-yes/hello-agents/index_en) is an intelligent Agent application based on the HelloAgents framework, integrating MCP protocol to call Amap API, running large models locally on AMD GPU.
 
 - **Target Audience**: Developers wanting to learn Agent frameworks and MCP protocol
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 2 hours
 
-📖 [Start Learning Smart Travel Planner](./05-hello-agents/smart-travel-planner/docs/amd395-helloagents-smart-travel-planner-en.md)
+📖 [Start Learning Smart Travel Planner](/amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner-en.md)
 
 ---
 
@@ -99,7 +99,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 1.5 hours
 
-📖 [Start Learning OpenClaw](./06-openclaw/README_EN.md)
+📖 [Start Learning OpenClaw](/amd-yes/openclaw_en)
 
 ---
 
@@ -117,7 +117,7 @@ Advanced usage – distributed training and deployment!
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 3+ hours
 
-📖 [Start Learning Happy-LLM](./04-happy-llm/README_EN.md)
+📖 [Start Learning Happy-LLM](/amd-yes/happy-llm/index_en)
 
 ---
 

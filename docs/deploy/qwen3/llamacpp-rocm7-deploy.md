@@ -25,7 +25,7 @@
 - https://github.com/lemonade-sdk/llamacpp-rocm  
 - https://github.com/lemonade-sdk/llamacpp-rocm/releases
 
-<img src="./images/image7.png" style="width:5.75in;height:5.10417in" />
+<img src="/images/deploy/qwen3/image7.png" style="width:5.75in;height:5.10417in" />
 
 ---
 
@@ -39,7 +39,7 @@ amd-smi
 
 示例输出（可看到 GPU 型号、驱动版本、ROCm 版本）：
 
-<img src="./images/image8.png" style="width:5.75in;height:4.01042in" />
+<img src="/images/deploy/qwen3/image8.png" style="width:5.75in;height:4.01042in" />
 
 若输出正常，说明可以使用 GPU 进行推理。
 
@@ -115,7 +115,7 @@ curl -s -X POST http://127.0.0.1:8080/v1/completions \
 
 截图示例：
 
-<img src="./images/image9.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/qwen3/image9.png" style="width:5.75in;height:3.25in" />
 
 测试结果示例（Qwen3-8B Q4_K_M，ctx=4096）：
 
@@ -213,7 +213,7 @@ cd /workspace/llama.cpp
 
 截图示例：
 
-<img src="./images/image10.png" style="width:5.75in;height:3.25in" />
+<img src="/images/deploy/qwen3/image10.png" style="width:5.75in;height:3.25in" />
 
 测试结果（Qwen3-8B Q4_K_M，ctx=4096）：
 

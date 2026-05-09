@@ -7,7 +7,7 @@
 
 *零基础快速上手 AMD GPU 大模型部署*
 
-[返回主页](../README.md) · [English](./README_EN.md)
+[返回主页](/) · [English](index_en)
 
 </div>
 
@@ -36,8 +36,8 @@
 - **难度等级**：⭐⭐
 - **预计时间**：1 小时
 
-📖 [开始学习环境准备教程（Gemma4）](./models/Gemma4/env-prepare-ubuntu24-rocm7.md)  
-📎 参考：[Qwen3 版本](./models/Qwen3/env-prepare-ubuntu24-rocm7.md)
+📖 [开始学习环境准备教程（Gemma4）](/deploy/gemma4/env-prepare-ubuntu24-rocm7.md)  
+📎 参考：[Qwen3 版本](/deploy/qwen3/env-prepare-ubuntu24-rocm7.md)
 
 ---
 
@@ -49,7 +49,7 @@
 - **难度等级**：⭐
 - **预计时间**：15 分钟
 
-📖 [阅读 Gemma 4 模型介绍](./models/Gemma4/gemma4_model.md)
+📖 [阅读 Gemma 4 模型介绍](/deploy/gemma4/gemma4_model.md)
 
 ---
 
@@ -61,8 +61,8 @@
 - **难度等级**：⭐
 - **预计时间**：30 分钟
 
-📖 [开始学习 LM Studio 部署教程（Gemma4）](./models/Gemma4/lm-studio-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](./models/Qwen3/lm-studio-rocm7-deploy.md)
+📖 [开始学习 LM Studio 部署教程（Gemma4）](/deploy/gemma4/lm-studio-rocm7-deploy.md)  
+📎 参考：[Qwen3 版本](/deploy/qwen3/lm-studio-rocm7-deploy.md)
 
 ---
 
@@ -74,8 +74,8 @@
 - **难度等级**：⭐⭐
 - **预计时间**：1 小时
 
-📖 [开始学习 vLLM 部署教程（Gemma4）](./models/Gemma4/vllm-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](./models/Qwen3/vllm-rocm7-deploy.md)
+📖 [开始学习 vLLM 部署教程（Gemma4）](/deploy/gemma4/vllm-rocm7-deploy.md)  
+📎 参考：[Qwen3 版本](/deploy/qwen3/vllm-rocm7-deploy.md)
 
 ---
 
@@ -87,8 +87,8 @@
 - **难度等级**：⭐⭐
 - **预计时间**：1 小时
 
-📖 [开始学习 Ollama 部署教程（Gemma4）](./models/Gemma4/ollama-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](./models/Qwen3/ollama-rocm7-deploy.md)
+📖 [开始学习 Ollama 部署教程（Gemma4）](/deploy/gemma4/ollama-rocm7-deploy.md)  
+📎 参考：[Qwen3 版本](/deploy/qwen3/ollama-rocm7-deploy.md)
 
 ---
 
@@ -100,8 +100,8 @@
 - **难度等级**：⭐⭐⭐
 - **预计时间**：1.5 小时
 
-📖 [开始学习 llama.cpp 部署教程（Gemma4）](./models/Gemma4/llamacpp-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](./models/Qwen3/llamacpp-rocm7-deploy.md)
+📖 [开始学习 llama.cpp 部署教程（Gemma4）](/deploy/gemma4/llamacpp-rocm7-deploy.md)  
+📎 参考：[Qwen3 版本](/deploy/qwen3/llamacpp-rocm7-deploy.md)
 
 ---
 

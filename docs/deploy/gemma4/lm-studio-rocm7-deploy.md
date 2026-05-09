@@ -20,7 +20,7 @@ https://lmstudio.ai/
 
 示意图：
 
-<img src="./images/image1.png" style="width:5.75in;height:2.27083in" />
+<img src="/images/deploy/gemma4/image1.png" style="width:5.75in;height:2.27083in" />
 
 ---
 
@@ -61,13 +61,13 @@ sudo chmod 4755 chrome-sandbox
 
 在 LM Studio 中选择 **ROCm 版本的 llama.cpp 后端** 安装：
 
-<img src="./images/image2.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/gemma4/image2.png" style="width:5.75in;height:3.8125in" />
 
 需要注意，目前 LM Studio 所提供的 ROCm 版本 llama.cpp 所支持的架构列表（不同 GPU 架构支持状况）：
 
-<img src="./images/image3.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/gemma4/image3.png" style="width:5.75in;height:3.8125in" />
 
-<img src="./images/image4.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/gemma4/image4.png" style="width:5.75in;height:3.8125in" />
 
 ---
 
@@ -95,6 +95,6 @@ gemma-4-E4B-it GGUF
 
 截图示例：
 
-<img src="./images/image5.png" style="width:5.75in;height:3.8125in" />
+<img src="/images/deploy/gemma4/image5.png" style="width:5.75in;height:3.8125in" />
 
 > 若需体验 Gemma 4 的图像 / 视频 / 音频多模态能力，请使用 LM Studio 中标注支持 **Vision / Multimodal** 的 Gemma 4 GGUF 包（通常附带 `mmproj` 投影文件），然后在对话窗口直接拖入图片或音频即可。

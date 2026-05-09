@@ -19,7 +19,7 @@ Chat-Zhenxuan realizes, starting with "Zhenxuan's Tale" as an entry point, a com
 ### Chat-Zhenxuan LoRA Fine-Tuning Pipeline
 
 <div align='center'>
-    <img src="./images/huanhuan_lora_pipeline_en.png" alt="Figure 5.3.1 Chat-Zhenxuan LoRA fine-tuning pipeline" width="95%">
+    <img src="/images/amd-yes/huanhuan-chat/huanhuan_lora_pipeline_en.png" alt="Figure 5.3.1 Chat-Zhenxuan LoRA fine-tuning pipeline" width="95%">
 </div>
 
 ***Alright, next I will guide you through implementing Chat-Zhenxuan's training process step by step. Let's experience it together~***
@@ -37,7 +37,7 @@ PyTorch 2.9.1
 ----------------
 ```
 
-> 📖 For ROCm + PyTorch base environment installation, see [00-Environment](../../00-Environment/README_en.md). Continue below after completing that setup.
+> 📖 For ROCm + PyTorch base environment installation, see [00-Environment](/environment/index_en). Continue below after completing that setup.
 
 Install project-specific dependencies:
 

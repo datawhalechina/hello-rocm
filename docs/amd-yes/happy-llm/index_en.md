@@ -24,7 +24,7 @@
 ### Happy-LLM ROCm Training Route
 
 <div align='center'>
-    <img src="./images/happy_llm_rocm_training_pipeline_en.png" alt="Figure 5.4.1 Happy-LLM ROCm training route" width="95%">
+    <img src="/images/amd-yes/happy-llm/happy_llm_rocm_training_pipeline_en.png" alt="Figure 5.4.1 Happy-LLM ROCm training route" width="95%">
 </div>
 
 ## Original Project Chapter Overview
@@ -61,7 +61,7 @@ Happy-LLM's complete tutorial consists of 7 chapters + 1 extra chapter, divided 
 
 Implement the LLaMA2 model with 80 million parameters entirely in pure PyTorch from zero, completing pre-training and SFT fine-tuning on AMD ROCm without relying on any training framework.
 
-📖 [Chapter Tutorial](./chapter5/chapter5-hands-on-llm-building.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter5/README_EN.md)
+📖 [Chapter Tutorial](/amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building) ｜ 🚀 [Execution Process and Script Instructions](/amd-yes/happy-llm/chapter5/index_en)
 
 ---
 
@@ -69,7 +69,7 @@ Implement the LLaMA2 model with 80 million parameters entirely in pure PyTorch f
 
 Based on the Transformers + DeepSpeed framework, reproduce production-grade pre-training and SFT workflows with support for AMD ROCm multi-card distributed training and ZeRO optimization.
 
-📖 [Chapter Tutorial](./chapter6/chapter6-llm-training-workflow-practice.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter6/README_EN.md)
+📖 [Chapter Tutorial](/amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice) ｜ 🚀 [Execution Process and Script Instructions](/amd-yes/happy-llm/chapter6/index_en)
 
 ---
 
@@ -94,7 +94,7 @@ Based on the Transformers + DeepSpeed framework, reproduce production-grade pre-
 
 ### Step 1: Environment Preparation
 
-> 📖 For ROCm + PyTorch base environment installation, see [00-Environment](../../00-Environment/README_en.md). Continue below after completing that setup.
+> 📖 For ROCm + PyTorch base environment installation, see [00-Environment](/environment/index_en). Continue below after completing that setup.
 
 ```bash
 cd 04-happy-llm
@@ -104,7 +104,7 @@ uv pip install -r ./chapter5/code/requirements.txt
 uv pip install -r ./chapter6/code/requirements.txt
 ```
 
-> This project was tested with 4×AMD Radeon™ AI PRO R9700 (gfx1201). For other architectures, replace the `--index-url` in [00-Environment](../../00-Environment/README_en.md).
+> This project was tested with 4×AMD Radeon™ AI PRO R9700 (gfx1201). For other architectures, replace the `--index-url` in [00-Environment](/environment/index_en).
 
 ### Step 2: Choose Your Learning Path
 

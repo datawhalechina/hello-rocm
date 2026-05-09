@@ -12,7 +12,7 @@
 
 *Unified environment baseline · ROCm 7.12.0 · Prerequisite for all subsequent chapters*
 
-[Back to Home](../README.md) | [中文](./README.md)
+[Back to Home](/) | [中文](./)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 &emsp;&emsp;This chapter serves as the environment baseline for the entire **hello-rocm** project. It targets **ROCm 7.12.0** (Technology Preview, released 2026-03-26) and covers installation, verification, and uninstallation on both Windows and Ubuntu.
 
-&emsp;&emsp;All subsequent chapters (01-Deploy, 02-Fine-tune, etc.) depend on this setup. To use a different ROCm version or GPU architecture, refer to the [GPU Architecture Reference Table](./rocm-gpu-architecture-table.md) for substitutions.
+&emsp;&emsp;All subsequent chapters (01-Deploy, 02-Fine-tune, etc.) depend on this setup. To use a different ROCm version or GPU architecture, refer to the [GPU Architecture Reference Table](/environment/rocm-gpu-architecture-table) for substitutions.
 
 > 💡 **Platform recommendation**: Windows supports ROCm for quick inference and experimentation, but the full ROCm toolchain (rocminfo, amd-smi, multi-GPU, containerized deployment, etc.) is best supported on **Ubuntu**. **We recommend Ubuntu 24.04 as the primary development environment**; Windows works well for lightweight inference and quick testing.
 
@@ -46,7 +46,7 @@
 
 ## Table of Contents
 
-- [GPU Architecture Reference Table (separate file)](./rocm-gpu-architecture-table.md)
+- [GPU Architecture Reference Table (separate file)](/environment/rocm-gpu-architecture-table)
 - [1. Windows Installation](#1-windows-11-installation)
 - [2. Ubuntu Installation](#2-ubuntu-2404-installation)
 - [3. Verify Installation](#3-verify-installation)
@@ -69,7 +69,7 @@
 | **Adrenalin Driver** | **Must be 26.3.1** ([⬇️ Download](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-3-1.html#Downloads)) |
 | **Visual Studio 2022** (Optional) | Community edition, select "Desktop development with C++" ([⬇️ Download](https://visualstudio.microsoft.com/downloads/)). Required for AMD Quark or custom op compilation |
 
-![Visual Studio installer — select "Desktop development with C++"](./images/visual_studil_c++_desktop_installer.png)
+![Visual Studio installer — select "Desktop development with C++"](/images/environment/visual_studil_c++_desktop_installer.png)
 
 ### 1.2 Remove Conflicting Software
 
@@ -130,7 +130,7 @@ uv pip install -r requirements.txt
 > | Radeon RX 7900 XTX / 7800 XT | `https://repo.amd.com/rocm/whl/gfx110X-all/` |
 > | Instinct MI300X / MI325X | `https://repo.amd.com/rocm/whl/gfx94X-dcgpu/` |
 >
-> Full reference: [GPU Architecture Table](./rocm-gpu-architecture-table.md) or [Official Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html).
+> Full reference: [GPU Architecture Table](/environment/rocm-gpu-architecture-table) or [Official Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html).
 
 ---
 
@@ -172,7 +172,7 @@ uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ torch torchvis
 uv pip install -r requirements.txt
 ```
 
-> 💡 For other GPUs, replace `--index-url` — see [Section 1.5](#15-install-rocm--pytorch) or [GPU Architecture Table](./rocm-gpu-architecture-table.md).
+> 💡 For other GPUs, replace `--index-url` — see [Section 1.5](#15-install-rocm--pytorch) or [GPU Architecture Table](/environment/rocm-gpu-architecture-table).
 
 ### 2.3 Alternative: One-Click Install Script
 
@@ -276,7 +276,7 @@ Simply replace the `--index-url` or apt package name with the corresponding valu
 | Ryzen AI Max 395 | gfx1151 | `https://repo.amd.com/rocm/whl/gfx1151/` |
 | Ryzen AI PRO 400 | gfx1150 | `https://repo.amd.com/rocm/whl/gfx1150/` | 
 
-Full reference: [GPU Architecture Table](./rocm-gpu-architecture-table.md)
+Full reference: [GPU Architecture Table](/environment/rocm-gpu-architecture-table)
 
 ---
 

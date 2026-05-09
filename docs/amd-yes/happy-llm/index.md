@@ -13,7 +13,7 @@
 ### Happy-LLM ROCm 训练路线
 
 <div align='center'>
-    <img src="./images/happy_llm_rocm_training_pipeline_zh.png" alt="图5.4.1 Happy-LLM ROCm 训练路线图" width="95%">
+    <img src="/images/amd-yes/happy-llm/happy_llm_rocm_training_pipeline_zh.png" alt="图5.4.1 Happy-LLM ROCm 训练路线图" width="95%">
 </div>
 
 <br>
@@ -56,7 +56,7 @@ Happy-LLM 完整教程共 7 章 + 1 个扩展篇，分为 **基础理论** 和 *
 
 使用纯 PyTorch 从零实现 LLaMA2 模型（8000万参数），并在 AMD ROCm 上完成预训练与 SFT 微调，无需依赖任何训练框架。
 
-📖 [章节教程](./chapter5/第五章%20动手搭建大模型.md) ｜ 🚀 [执行流程与脚本说明](./chapter5/README.md)
+📖 [章节教程](/amd-yes/happy-llm/chapter5/第五章%20动手搭建大模型) ｜ 🚀 [执行流程与脚本说明](/amd-yes/happy-llm/chapter5/)
 
 ---
 
@@ -64,7 +64,7 @@ Happy-LLM 完整教程共 7 章 + 1 个扩展篇，分为 **基础理论** 和 *
 
 基于 Transformers + DeepSpeed 框架，复现工业级预训练与 SFT 流程，支持 AMD ROCm 多卡分布式训练与 ZeRO 优化。
 
-📖 [章节教程](./chapter6/第六章%20大模型训练流程实践.md) ｜ 🚀 [执行流程与脚本说明](./chapter6/README.md)
+📖 [章节教程](/amd-yes/happy-llm/chapter6/第六章%20大模型训练流程实践) ｜ 🚀 [执行流程与脚本说明](/amd-yes/happy-llm/chapter6/)
 
 ---
 
@@ -89,7 +89,7 @@ Happy-LLM 完整教程共 7 章 + 1 个扩展篇，分为 **基础理论** 和 *
 
 ### 第一步：环境准备
 
-> 📖 ROCm + PyTorch 基础环境安装请参考 [00-Environment](../../00-Environment/README.md)，完成后再继续以下步骤。
+> 📖 ROCm + PyTorch 基础环境安装请参考 [00-Environment](/environment/)，完成后再继续以下步骤。
 
 ```bash
 cd 04-happy-llm
@@ -99,7 +99,7 @@ uv pip install -r ./chapter5/code/requirements.txt
 uv pip install -r ./chapter6/code/requirements.txt
 ```
 
-> 本项目使用 4×AMD Radeon™ AI PRO R9700（gfx1201）运行测试，其他架构请在 [00-Environment](../../00-Environment/README.md) 中替换对应的 `--index-url`。
+> 本项目使用 4×AMD Radeon™ AI PRO R9700（gfx1201）运行测试，其他架构请在 [00-Environment](/environment/) 中替换对应的 `--index-url`。
 
 ### 第二步：选择学习路径
 

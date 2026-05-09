@@ -1,4 +1,4 @@
-﻿# AMD395 × HelloAgents Hands-on: Smart Travel Planner
+# AMD395 × HelloAgents Hands-on: Smart Travel Planner
 
 This tutorial demonstrates how to build a local smart travel-planning agent on AMD AI PC using:
 
@@ -49,7 +49,7 @@ The sample script currently runs with a built-in Hangzhou example. Update the va
 
 ## Output
 
-The generated result is saved as Markdown (example: [hangzhou-3-day-mcp.md](../examples/hangzhou-3-day-mcp.md)).
+The generated result is saved as Markdown (example: [hangzhou-3-day-mcp.md](https://github.com/datawhalechina/hello-rocm/blob/main/src/amd-yes/hello-agents/smart-travel-planner/examples/hangzhou-3-day-mcp.md)).
 
 ## Architecture Notes
 
