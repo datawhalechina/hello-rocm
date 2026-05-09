@@ -14,8 +14,8 @@
     "Cascadia Code", "JetBrains Mono", "SFMono-Regular", Consolas,
     "Liberation Mono", Menlo, monospace;
 
-  --vp-layout-max-width: 1480px;
-  --vp-sidebar-width: 260px;
+  --vp-layout-max-width: 1760px;
+  --vp-sidebar-width: 320px;
   --vp-nav-height: 66px;
 
   --vp-c-bg: #f8fbfe;
