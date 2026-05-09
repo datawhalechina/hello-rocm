@@ -448,7 +448,6 @@ export default defineConfig({
   description: 'AMD ROCm tutorials and examples',
   base: '/hello-rocm/',
   cleanUrls: true,
-  srcExclude: ['en/index.md'],
   lastUpdated: true,
   rewrites: {
     'en/:rest*': ':rest*'
