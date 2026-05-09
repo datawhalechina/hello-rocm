@@ -1,0 +1,170 @@
+:root {
+  --amd-primary: #012a4a;
+  --amd-secondary: #005a9c;
+  --amd-accent: #ed1c24;
+  --amd-highlight: #00c8ff;
+
+  --vp-font-family-base:
+    "Segoe UI Variable", "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans CJK SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-heading:
+    "Segoe UI Variable", "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans CJK SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-mono:
+    "Cascadia Code", "JetBrains Mono", "SFMono-Regular", Consolas,
+    "Liberation Mono", Menlo, monospace;
+
+  --vp-layout-max-width: 1480px;
+  --vp-sidebar-width: 260px;
+  --vp-nav-height: 66px;
+
+  --vp-c-bg: #f8fbfe;
+  --vp-c-bg-alt: #eef5fa;
+  --vp-c-bg-soft: #e3eef7;
+  --vp-c-bg-elv: #ffffff;
+
+  --vp-c-text-1: #102030;
+  --vp-c-text-2: #4d6070;
+  --vp-c-text-3: #748494;
+
+  --vp-c-divider: rgba(1, 42, 74, 0.13);
+  --vp-c-divider-light: rgba(1, 42, 74, 0.08);
+  --vp-c-gutter: rgba(1, 42, 74, 0.06);
+
+  --vp-c-default-1: #405466;
+  --vp-c-default-2: #607284;
+  --vp-c-default-3: #8292a0;
+  --vp-c-default-soft: rgba(1, 42, 74, 0.09);
+
+  --vp-c-brand-1: var(--amd-primary);
+  --vp-c-brand-2: var(--amd-secondary);
+  --vp-c-brand-3: #0077c8;
+  --vp-c-brand-soft: rgba(0, 90, 156, 0.11);
+
+  --vp-c-tip-1: var(--amd-secondary);
+  --vp-c-tip-2: #0077c8;
+  --vp-c-tip-3: var(--amd-highlight);
+  --vp-c-tip-soft: rgba(0, 200, 255, 0.13);
+
+  --vp-c-warning-1: #9a5a00;
+  --vp-c-warning-2: #c47900;
+  --vp-c-warning-3: #f4a300;
+  --vp-c-warning-soft: rgba(244, 163, 0, 0.14);
+
+  --vp-c-danger-1: #b6151b;
+  --vp-c-danger-2: var(--amd-accent);
+  --vp-c-danger-3: #ff4a50;
+  --vp-c-danger-soft: rgba(237, 28, 36, 0.13);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--amd-primary) 0%, var(--amd-secondary) 45%, var(--amd-accent) 100%);
+  --vp-home-hero-image-background-image:
+    radial-gradient(circle at 30% 28%, rgba(0, 90, 156, 0.26), transparent 44%),
+    radial-gradient(circle at 72% 24%, rgba(0, 200, 255, 0.22), transparent 40%),
+    radial-gradient(circle at 54% 78%, rgba(237, 28, 36, 0.16), transparent 36%);
+  --vp-home-hero-image-filter: blur(70px);
+
+  --vp-button-brand-border: rgba(1, 42, 74, 0.3);
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--amd-primary);
+  --vp-button-brand-hover-border: rgba(237, 28, 36, 0.36);
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: var(--amd-secondary);
+  --vp-button-brand-active-border: rgba(237, 28, 36, 0.42);
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: var(--amd-primary);
+
+  --vp-button-alt-border: rgba(0, 90, 156, 0.18);
+  --vp-button-alt-text: var(--vp-c-text-1);
+  --vp-button-alt-bg: rgba(255, 255, 255, 0.82);
+  --vp-button-alt-hover-border: rgba(0, 90, 156, 0.3);
+  --vp-button-alt-hover-text: var(--amd-secondary);
+  --vp-button-alt-hover-bg: rgba(255, 255, 255, 0.98);
+
+  --vp-code-copy-code-border-color: rgba(1, 42, 74, 0.16);
+  --vp-code-copy-code-bg: rgba(255, 255, 255, 0.94);
+  --vp-code-copy-code-hover-border-color: rgba(0, 90, 156, 0.34);
+  --vp-code-copy-code-hover-bg: rgba(238, 247, 253, 0.98);
+  --vp-code-copy-code-active-text: var(--amd-primary);
+
+  --vp-nav-bg-color: rgba(251, 253, 255, 0.78);
+  --vp-nav-screen-bg-color: rgba(251, 253, 255, 0.98);
+  --vp-sidebar-bg-color: rgba(241, 246, 251, 0.88);
+  --vp-local-nav-bg-color: rgba(251, 253, 255, 0.9);
+  --vp-backdrop-bg-color: rgba(1, 18, 32, 0.46);
+}
+
+.dark {
+  --vp-c-bg: #07131d;
+  --vp-c-bg-alt: #0b1d2c;
+  --vp-c-bg-soft: #10283c;
+  --vp-c-bg-elv: #0d2233;
+
+  --vp-c-text-1: #edf7ff;
+  --vp-c-text-2: #bdd0dd;
+  --vp-c-text-3: #8fa5b6;
+
+  --vp-c-divider: rgba(201, 231, 249, 0.14);
+  --vp-c-divider-light: rgba(201, 231, 249, 0.09);
+  --vp-c-gutter: rgba(201, 231, 249, 0.08);
+
+  --vp-c-default-1: #c5d6e2;
+  --vp-c-default-2: #98adbd;
+  --vp-c-default-3: #70889a;
+  --vp-c-default-soft: rgba(148, 178, 198, 0.15);
+
+  --vp-c-brand-1: var(--amd-highlight);
+  --vp-c-brand-2: #42d7ff;
+  --vp-c-brand-3: #7be5ff;
+  --vp-c-brand-soft: rgba(0, 200, 255, 0.17);
+
+  --vp-c-tip-1: var(--amd-highlight);
+  --vp-c-tip-2: #42d7ff;
+  --vp-c-tip-3: #7be5ff;
+  --vp-c-tip-soft: rgba(0, 200, 255, 0.17);
+
+  --vp-c-warning-1: #ffd180;
+  --vp-c-warning-2: #f6b64b;
+  --vp-c-warning-3: #c98216;
+  --vp-c-warning-soft: rgba(246, 182, 75, 0.16);
+
+  --vp-c-danger-1: #ff8a90;
+  --vp-c-danger-2: #ff5b62;
+  --vp-c-danger-3: var(--amd-accent);
+  --vp-c-danger-soft: rgba(237, 28, 36, 0.18);
+
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--amd-highlight) 0%, #7be5ff 46%, #ff6970 100%);
+  --vp-home-hero-image-background-image:
+    radial-gradient(circle at 28% 30%, rgba(0, 200, 255, 0.3), transparent 44%),
+    radial-gradient(circle at 74% 24%, rgba(0, 90, 156, 0.34), transparent 42%),
+    radial-gradient(circle at 54% 78%, rgba(237, 28, 36, 0.18), transparent 36%);
+
+  --vp-button-alt-border: rgba(0, 200, 255, 0.22);
+  --vp-button-alt-text: var(--vp-c-text-1);
+  --vp-button-alt-bg: rgba(13, 34, 51, 0.92);
+  --vp-button-alt-hover-border: rgba(0, 200, 255, 0.36);
+  --vp-button-alt-hover-text: var(--amd-highlight);
+  --vp-button-alt-hover-bg: rgba(13, 34, 51, 1);
+
+  --vp-code-copy-code-border-color: rgba(0, 200, 255, 0.22);
+  --vp-code-copy-code-bg: rgba(7, 19, 29, 0.94);
+  --vp-code-copy-code-hover-border-color: rgba(0, 200, 255, 0.38);
+  --vp-code-copy-code-hover-bg: rgba(10, 29, 44, 0.98);
+  --vp-code-copy-code-active-text: #d8f7ff;
+
+  --vp-nav-bg-color: rgba(7, 19, 29, 0.76);
+  --vp-nav-screen-bg-color: rgba(7, 19, 29, 0.98);
+  --vp-sidebar-bg-color: rgba(11, 29, 44, 0.88);
+  --vp-local-nav-bg-color: rgba(7, 19, 29, 0.9);
+  --vp-backdrop-bg-color: rgba(0, 5, 10, 0.58);
+}
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --vp-layout-max-width: 100%;
+  }
+}
