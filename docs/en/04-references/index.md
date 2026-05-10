@@ -185,13 +185,13 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 #### Ryzen APU Series (Laptop / Mobile)
 
-| Series | Models | LLVM Target | ROCm Support |
-|--------|--------|-------------|--------------|
-| Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | `gfx1151` | ✅ |
-| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | `gfx1151` | ✅ |
-| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | `gfx1150` | ✅ |
-| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | `gfx1150` | ✅ |
-| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | `gfx1103` | ✅ |
+| Series | Models | Graphics model (iGPU) | LLVM Target | ROCm Support |
+|--------|--------|------------------------|-------------|--------------|
+| Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | `gfx1151` | ✅ |
+| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | `gfx1151` | ✅ |
+| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | `gfx1150` | ✅ |
+| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | `gfx1150` | ✅ |
+| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | `gfx1103` | ✅ |
 
 > For the full support list, follow the [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip).
 
