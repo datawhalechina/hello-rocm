@@ -32,6 +32,16 @@
 
 > &emsp;&emsp;***학습 경로: [00-환경설정](../../docs/en/00-environment/index.md)을 먼저 완료하세요 (ROCm + PyTorch + **uv**), 그 다음 배포와 파인튜닝, 마지막으로 Infra/연산자 수준 주제를 다루세요. 환경이 준비되면 LM Studio나 vLLM이 시작하기 좋은 곳입니다.***
 
+### hello-rocm Skill: AI 도우미에서 이 프로젝트 사용하기
+
+&emsp;&emsp;Skills, Rules 또는 Agent 설정을 지원하는 AI 코딩 도구를 사용한다면 내장된 **hello-rocm Skill** 을 사용할 수 있습니다. 이 Skill은 저장소 구조, Reference 인덱스, GPU 아키텍처 표, 배포 튜토리얼, 문제 해결 목록을 바탕으로 적절한 문서와 공식 링크를 안내합니다.
+
+```text
+Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place, such as .claude/skills, .cursor/skills, or .agents/skills, then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
+```
+
+&emsp;&emsp;자세한 내용은 [hello-rocm Skill guide](../../docs/en/04-references/index.md#hello-rocm-skill)를 참고하세요.
+
 ### 최신 업데이트
 
 - *2026.3.11:* [*ROCm 7.12.0 릴리스 노트*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
@@ -197,7 +207,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 ROCm 참고 자료</strong><br>
   <em>공식 및 커뮤니티 리소스</em><br>
-  📖 <strong><a href="../../docs/en/04-references/references.md">ROCm 참고 자료</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/index.md">ROCm 참고 자료</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -206,6 +216,8 @@ hello-rocm/
       • <a href="https://rocm.docs.amd.com/">ROCm 공식 문서</a><br>
       • <a href="https://github.com/amd">AMD on GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm 릴리스 노트</a><br>
+      • <a href="../../docs/en/04-references/index.md#amd-gpu-architecture-whitepapers">AMD GPU 아키텍처 백서(CDNA / RDNA)</a><br>
+      • <a href="../../docs/en/04-references/index.md#frameworks-and-inference-services-rocm-quick-install-links">프레임워크 및 추론 서비스 ROCm 빠른 설치 링크</a><br>
       • 관련 뉴스
     </td>
   </tr>
@@ -223,7 +235,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — 경량 터미널 LLM 어시스턴트<br>
-      • WeChat “Jump Jump” with YOLOv10 — 게임 AI 데모<br>
+      • WeChat “Jump Jump” with YOLOv10 — 게임 AI 실전 (ROCm 환경에서 yolov10 훈련 및 사용)<br>
       • Chat-甄嬛 — 시대극 스타일 대화 모델<br>
       • Travel planner — HelloAgents 에이전트 데모<br>
       • happy-llm — 분산 LLM 학습
@@ -242,16 +254,21 @@ hello-rocm/
 
 &emsp;&emsp;먼저 **[规范指南](../../规范指南.md)** (구조, 명명, 이미지 — Qwen3 등 튜토리얼과 일관성 유지)를 읽어주시고, 이후 **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (이슈, PR 및 모델별 디렉토리 규칙)를 참고해 주세요.
 
+&emsp;&emsp;ROCm 사용, 모델 배포 또는 튜토리얼 학습 중 문제 해결이나 FAQ 관련 이슈가 있다면 **[커뮤니티 토론](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** 에도 참여해 주세요. 커뮤니티와 함께 경험을 공유하고, 문제를 제보하며, 튜토리얼을 개선할 수 있습니다.
+
 &emsp;&emsp;장기적으로 저장소 유지 관리를 도와주실 분은 연락 주세요. 관리자로 추가해 드리겠습니다.
 
 ## 감사의 말
 
 ### 핵심 기여자
 
-- [Zhixue Song (不要葱姜蒜) — 프로젝트 리드](https://github.com/KMnO4-zx) (Datawhale)
-- [Yu Chen — 프로젝트 리드](https://github.com/lucachen) (콘텐츠 — Google Developer Expert in Machine Learning)
-- [Jiahang Pan — 기여자](https://github.com/amdjiahangpan) (콘텐츠 — AMD 소프트웨어 엔지니어)
-- [Weihong Liu — 기여자](https://github.com/Weihong-Liu) (Datawhale)
+- [Zhixue Song (不要葱姜蒜) — 프로젝트 리드](https://github.com/KMnO4-zx) (Datawhale 멤버, self-llm 및 happy-llm 프로젝트 리드)
+- [Yu Chen — 프로젝트 리드](https://github.com/lucachen) (콘텐츠 크리에이터, Google Developer Expert in Machine Learning)
+- [Sizhou Chen — 기여자](https://github.com/jjyaoao) (Datawhale 멤버, hello-agents 프로젝트 리드)
+- [Jiahang Pan — 기여자](https://github.com/amdjiahangpan) (콘텐츠 크리에이터, AMD 소프트웨어 엔지니어)
+- [Weihong Liu — 기여자](https://github.com/Weihong-Liu) (Datawhale 멤버)
+- [Dongbo Hao — 기여자](https://github.com/wlkq151172) (Datawhale 멤버)
+- [Muling Ke — 기여자](https://github.com/1985312383) (Datawhale 멤버)
 
 > 더 많은 기여자는 언제나 환영합니다.
 

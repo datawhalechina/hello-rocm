@@ -33,6 +33,16 @@
 
 > &emsp;&emsp;***学习建议：建议先完成 [00-Environment](./docs/zh/00-environment/index.md) 中的环境安装（ROCm + PyTorch + uv），再学习部署与微调，最后探索 Infra 算子优化。初学者可在环境就绪后从 LM Studio 或 vLLM 部署开始。***
 
+### hello-rocm Skill：把本项目装进你的 AI 助手
+
+&emsp;&emsp;如果你使用支持 Skills、Rules 或 Agent 配置的 AI 编程工具，可以直接使用本项目内置的 **hello-rocm Skill**。它会根据本仓库的目录结构、Reference 索引、GPU 架构表、部署教程和排障清单，为你定位到具体文档与官方链接。
+
+```text
+请使用当前仓库的 src/hello-rocm-skill 作为 hello-rocm Skill；如果你的工具支持 Skills、Rules 或 Agent 配置，请把它安装或加载到合适位置（例如 .claude/skills、.cursor/skills 或 .agents/skills），然后根据该 Skill 帮我学习、部署和排查 AMD ROCm。
+```
+
+&emsp;&emsp;你可以这样问：我的 AMD GPU 能不能跑 ROCm？我想最快跑通一个本地大模型应该看哪篇？vLLM / Ollama / llama.cpp 在 ROCm 上怎么装？`torch.cuda.is_available()` 返回 False 怎么排查？更多说明见 [hello-rocm Skill 使用指南](./docs/zh/04-references/index.md#hello-rocm-skill)。
+
 ### 最新动态
 
 - *2026.3.11:* [*ROCm 7.12.0 Release Notes*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
@@ -208,7 +218,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 ROCm 优质参考资料</strong><br>
   <em>精选的 AMD 官方与社区资源</em><br>
-  📖 <strong><a href="./docs/zh/04-references/references.md">ROCm References</a></strong>
+  📖 <strong><a href="./docs/zh/04-references/index.md">ROCm References</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -217,6 +227,8 @@ hello-rocm/
       • <a href="https://rocm.docs.amd.com/">ROCm 官方文档</a><br>
       • <a href="https://github.com/amd">AMD GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm Release Notes</a><br>
+      • <a href="./docs/zh/04-references/index.md#amd-gpu-架构白皮书">AMD GPU 架构白皮书（CDNA / RDNA）</a><br>
+      • <a href="./docs/zh/04-references/index.md#框架与推理服务rocm-快速安装入口">框架与推理服务 ROCm 快速安装入口</a><br>
       • 相关新闻
     </td>
   </tr>
@@ -234,7 +246,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
       • toy-cli - LLM 轻量化终端助手<br>
-      • YOLOv10 微信跳一跳 - 游戏 AI 实战<br>
+      • YOLOv10 微信跳一跳 - 游戏 AI 实战（在 ROCm 环境下训练并使用 yolov10）<br>
       • Chat-甄嬛 - 古风对话大模型<br>
       • 智能旅行规划助手 - HelloAgents Agent 实战<br>
       • happy-llm - 分布式大模型训练
@@ -253,16 +265,21 @@ hello-rocm/
 
 &emsp;&emsp;参与前请先阅读 **[规范指南](./规范指南.md)**（目录、命名、配图与文档结构与 **Qwen3** 等教程对齐），再阅读 **[CONTRIBUTING.md](./CONTRIBUTING.md)**（Issue / PR 流程与模型专项目录约定）。
 
+&emsp;&emsp;如果你在使用 ROCm、部署模型或阅读教程时遇到故障排查与常见问题，也欢迎加入我们的 **[社区讨论](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，和社区一起补充经验、反馈问题、完善教程。
+
 &emsp;&emsp;想要深度参与的同学可以联系我们，我们会将你加入到项目的维护者中。
 
 ## 致谢
 ### 核心贡献者
 
 
-- [宋志学(不要葱姜蒜)-项目负责人](https://github.com/KMnO4-zx) （Datawhale成员）
+- [宋志学(不要葱姜蒜)-项目负责人](https://github.com/KMnO4-zx) （Datawhale成员，self-llm, happy-llm 项目负责人）
 - [陈榆-项目负责人](https://github.com/lucachen) （内容创作者-谷歌开发者机器学习技术专家）
+- [陈思州-项目成员](https://github.com/jjyaoao) (Datawhale 成员, hello-agents 项目负责人)
 - [潘嘉航-项目成员](https://github.com/amdjiahangpan) （内容创作者-AMD软件工程师）
 - [刘伟鸿-项目成员](https://github.com/Weihong-Liu) （Datawhale成员）
+- [郝东波-项目成员](https://github.com/wlkq151172) （Datawhale成员）
+- [柯慕灵-项目成员](https://github.com/1985312383)（Datawhale成员）
 > 注：欢迎更多贡献者加入！
 
 ### 其他

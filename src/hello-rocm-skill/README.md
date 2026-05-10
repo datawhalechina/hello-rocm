@@ -8,7 +8,7 @@
 |:---|:---|
 | 解释项目 | 说明 hello-rocm 是 ROCm 上的教程仓库、包含哪些章节（00–05） |
 | 学习路径 | 环境 → 部署推理 → 微调 → Infra；推理入门可从 LM Studio / vLLM 开始 |
-| 指路 | 指向仓库内具体 `README.md`、模型目录（如 `01-Deploy/models/Qwen3/`） |
+| 指路 | 指向仓库内具体文档、模型目录与 `04-references/index.md` 官方资源索引 |
 | 贡献 | 提示先读 `规范指南.md` 与 `CONTRIBUTING.md` |
 
 ## 安装方式
@@ -34,7 +34,12 @@ cp -r hello-rocm-skill .cursor/skills/
 ## 文件说明
 
 - `SKILL.md` — 元数据与 Agent 指令（核心）
-- `references/links-and-context.md` — 官方链接与补充上下文
+- `references/links-and-context.md` — 官方链接与补充上下文；与仓库正文 `docs/zh/04-references/index.md` / `docs/en/04-references/index.md` 对齐，便于快速索引框架、推理服务与 AMD GPU 架构资料
+
+## 页面指南
+
+- 中文：[hello-rocm Skill 使用指南](../../docs/zh/04-references/index.md#hello-rocm-skill)
+- English：[hello-rocm Skill guide](../../docs/en/04-references/index.md#hello-rocm-skill)
 
 ## License
 

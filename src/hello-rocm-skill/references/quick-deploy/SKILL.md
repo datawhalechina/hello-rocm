@@ -12,9 +12,9 @@ version: 0.1.0
 
 | 步骤 | 做什么 | 参考文件 |
 |------|--------|---------|
-| 1 | 确认 GPU 支持 ROCm | `04-References/README.md` 硬件兼容表 |
-| 2 | 安装 ROCm（pip 方式，最简单） | `01-Deploy/models/Gemma4/env-prepare-ubuntu24-rocm7.md` |
-| 3 | 安装 LM Studio | `01-Deploy/models/Gemma4/lm-studio-rocm7-deploy.md` |
+| 1 | 确认 GPU 架构与 ROCm pip 索引 | `docs/zh/00-environment/rocm-gpu-architecture-table.md` 或 `docs/en/00-environment/rocm-gpu-architecture-table.md` |
+| 2 | 安装 ROCm / PyTorch（pip 方式，最简单） | `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`，官方入口见 `docs/zh/04-references/index.md` 的“框架与推理服务” |
+| 3 | 安装 LM Studio | `docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md` |
 | 4 | 下载 Gemma4 模型并加载 | 同上 |
 | 5 | 开始对话 | 同上 |
 
@@ -30,4 +30,5 @@ python -c "import torch; print(torch.cuda.is_available())"  # PyTorch 确认 ROC
 
 - Windows 用户：确保 ROCm 7.12+ 版本（支持 Windows）
 - Linux 用户：推荐 Ubuntu 24.04
-- 如果 LM Studio 不工作，回退到 Ollama：`01-Deploy/models/Gemma4/ollama-rocm7-deploy.md`
+- 如果 LM Studio 不工作，回退到 Ollama：`docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md`
+- 需要查框架官方 ROCm 安装入口时，先看 `docs/zh/04-references/index.md` / `docs/en/04-references/index.md` 的“框架与推理服务”表。

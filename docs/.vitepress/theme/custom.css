@@ -734,6 +734,110 @@ html[lang^='zh'] .vp-doc div[class*='language-'] > .copy:hover.copied::after {
   font-size: 0.94rem;
 }
 
+.home-skill-copy-wrap {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.home-skill-copy {
+  width: 100%;
+  margin: 0 auto 1.25rem;
+  padding: 2rem 1.6rem;
+  border: 1px solid var(--vp-c-divider-light);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 200, 255, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.97)),
+    var(--vp-c-bg-elv);
+  box-shadow: 0 24px 54px rgba(1, 42, 74, 0.12);
+  text-align: center;
+}
+
+.dark .home-skill-copy {
+  background:
+    radial-gradient(circle at top left, rgba(0, 200, 255, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(13, 34, 51, 0.92), rgba(7, 19, 29, 0.98)),
+    var(--vp-c-bg-elv);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
+}
+
+.home-skill-eyebrow {
+  margin: 0 0 0.55rem !important;
+  color: var(--vp-c-brand-1) !important;
+  font-size: 0.82rem;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-skill-copy h2 {
+  margin: 0 auto 0.85rem !important;
+  padding: 0 !important;
+  font-family: var(--vp-font-family-heading);
+  font-size: clamp(1.45rem, 2.4vw, 2rem) !important;
+  line-height: 1.22 !important;
+}
+
+.home-skill-copy p {
+  max-width: 680px;
+  margin: 0.7rem auto !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+.home-skill-copy-button {
+  margin: 1.15rem auto 0.55rem;
+  padding: 0.9rem 1.35rem;
+  border: 1px solid rgba(1, 42, 74, 0.3);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--amd-primary) 0%, var(--amd-secondary) 58%, var(--amd-accent) 100%);
+  color: #fff;
+  box-shadow: 0 18px 34px rgba(0, 90, 156, 0.24);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 760;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.home-skill-copy-button:hover,
+.home-skill-copy-button:focus-visible {
+  border-color: rgba(237, 28, 36, 0.38);
+  box-shadow: 0 22px 42px rgba(0, 90, 156, 0.3);
+  transform: translateY(-2px);
+}
+
+.dark .home-skill-copy-button {
+  border-color: rgba(0, 200, 255, 0.24);
+  box-shadow: 0 18px 34px rgba(0, 200, 255, 0.18);
+}
+
+.home-skill-note {
+  font-size: 0.94rem;
+}
+
+@media (min-width: 640px) {
+  .home-skill-copy-wrap {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 960px) {
+  .home-skill-copy-wrap {
+    padding: 0 64px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .home-skill-copy-wrap {
+    max-width: 1152px;
+    padding: 0;
+  }
+}
+
 .VPFeatures {
   padding-top: 0.8rem;
 }

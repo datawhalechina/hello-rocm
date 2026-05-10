@@ -15,7 +15,7 @@ description: >-
 - **定位**：面向 **AMD ROCm** 的 **教程型** 开源仓库（主体是文档与 Notebook），补齐「CUDA 教程很多、ROCm 系统教程偏少」的空白。
 - **一句话**：教用户在 **AMD GPU + ROCm** 上完成大模型 **环境安装 → 部署推理 → 微调 →（进阶）算子与 Infra**，并与 **Datawhale / 社区** 共建内容。
 - **背景要点**（便于回答「为什么现在是 ROCm」类问题）：
-  - **ROCm 7.10+** 起支持类似 CUDA 的方式在 **Python 虚拟环境** 中安装；**Linux 与 Windows** 均可作为学习与推理环境（详见 `00-Environment/README.md`）。
+  - **ROCm 7.10+** 起支持类似 CUDA 的方式在 **Python 虚拟环境** 中安装；**Linux 与 Windows** 均可作为学习与推理环境（详见 `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`）。
   - AMD 对 ROCm 面向 AI 场景持续迭代；官方文档以 [ROCm 文档](https://rocm.docs.amd.com/) 与 [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 为准。
 
 ## 仓库目录结构（必读）
@@ -36,23 +36,23 @@ description: >-
 按 **README** 中的建议，向用户说明顺序时优先采用下面路径；可根据目标裁剪。
 
 1. **先环境（必做）**  
-   - 阅读并完成 **`00-Environment/README.md`**：对应平台的 ROCm、驱动、Python/`uv`、PyTorch 安装与校验。  
-   - 需要换 GPU 架构或 pip 源时，对照 **`00-Environment/rocm-gpu-architecture-table.md`**。  
+   - 阅读并完成 **`docs/zh/00-environment/index.md`** / **`docs/en/00-environment/index.md`**：对应平台的 ROCm、驱动、Python/`uv`、PyTorch 安装与校验。  
+   - 需要换 GPU 架构或 pip 源时，对照 **`docs/zh/00-environment/rocm-gpu-architecture-table.md`** / **`docs/en/00-environment/rocm-gpu-architecture-table.md`**。  
    - **平台提示**：Windows 适合体验与轻量推理；**完整工具链、多卡与工程化**更推荐 **Ubuntu 24.04**（见环境 README 中的说明）。
 
 2. **再推理部署（模型推理入门）**  
-   - 入口：**`01-Deploy/README.md`**。  
+   - 入口：**`docs/zh/01-deploy/index.md`** / **`docs/en/01-deploy/index.md`**。  
    - **零基础快速跑起来**：可在环境就绪后从 **LM Studio** 或 **vLLM** 入手（与 README「初学者」建议一致）。  
-   - 具体模型请进 **`01-Deploy/models/<系列名>/`**（如 `Qwen3`、`Gemma4`），按同目录下的 `*-rocm7-deploy.md` 分框架操作。
+   - 具体模型请进 **`docs/zh/01-deploy/<系列名>/`** / **`docs/en/01-deploy/<系列名>/`**（如 `qwen3`、`gemma4`），按同目录下的 `*-rocm7-deploy.md` 分框架操作。
 
 3. **然后微调**  
-   - 入口：**`02-Fine-tune/README.md`**，按 **`02-Fine-tune/models/<系列名>/`** 中的 Notebook/文档操作（含 SwanLab 等记录方式）。
+   - 入口：**`docs/zh/02-fine-tune/index.md`** / **`docs/en/02-fine-tune/index.md`**，按对应模型子目录中的 Notebook/文档操作（含 SwanLab 等记录方式）。
 
 4. **进阶：算子与 Infra**  
-   - 入口：**`03-Infra/README.md`**，面向已有 CUDA/底层经验、需要做迁移与性能分析的用户。
+   - 入口：**`docs/zh/03-infra/index.md`** / **`docs/en/03-infra/index.md`**，面向已有 CUDA/底层经验、需要做迁移与性能分析的用户。
 
 5. **扩展阅读与实践**  
-   - **`04-References/README.md`**：官方文档与新闻线索。  
+   - **`docs/zh/04-references/index.md` / `docs/en/04-references/index.md`**：面向 Skill 的官方资源索引，包括 AMD GPU 架构资料、框架与推理服务 ROCm 快速安装入口、AMD ROCm Blog 互相印证链接。  
    - **`05-AMD-YES/README.md`**：社区项目练手。
 
 ## 如何学「AMD」与「模型推理」（给用户的可复述要点）
@@ -64,8 +64,12 @@ description: >-
 ## 贡献与协作（简述）
 
 - 贡献文档或新模型教程前：先读 **`规范指南.md`**，再读 **`CONTRIBUTING.md`**（Issue/PR 与目录约定）。  
-- 新增部署文命名与结构应对齐 **`01-Deploy/models/Qwen3/`** 等现有范例。
+- 新增部署文命名与结构应对齐 **`docs/zh/01-deploy/qwen3/`** / **`docs/en/01-deploy/qwen3/`** 等现有范例。
 
 ## 何时查阅 references
 
-需要 **链接清单或更长背景** 时，可读 `references/links-and-context.md`（本 Skill 附属参考，非仓库正文）。
+需要 **链接清单、官方入口或更长背景** 时，可读 `references/links-and-context.md`（本 Skill 附属参考，非仓库正文），并同步参考仓库正文：
+
+- `docs/zh/04-references/index.md` / `docs/en/04-references/index.md`：官方资源索引，当前重点服务 Skill 的快速查阅，包括 GPU 架构资料、框架与推理服务 ROCm 快速安装入口、AMD ROCm Blog 互相印证链接。
+- `docs/zh/00-environment/rocm-gpu-architecture-table.md` / `docs/en/00-environment/rocm-gpu-architecture-table.md`：回答 GPU 架构、gfx 目标、pip 索引等问题。
+- 故障排查与常见问题社区讨论：<https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO>。

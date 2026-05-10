@@ -32,6 +32,16 @@
 
 > &emsp;&emsp;***Parcours d'apprentissage : Commencez par [00-Environnement](../../docs/en/00-environment/index.md) (ROCm + PyTorch + **uv**), puis le déploiement et le fine-tuning, et enfin les sujets d'infrastructure / niveau opérateur. Une fois votre environnement opérationnel, LM Studio ou vLLM est un bon point de départ.***
 
+### hello-rocm Skill : utiliser ce projet dans votre assistant IA
+
+&emsp;&emsp;Si vous utilisez un outil de codage IA compatible avec Skills, Rules ou une configuration Agent, vous pouvez utiliser le **hello-rocm Skill** intégré. Il s’appuie sur la structure du dépôt, l’index des références, la table d’architecture GPU, les tutoriels de déploiement et la liste de dépannage pour vous orienter vers le bon document et le bon lien officiel.
+
+```text
+Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place, such as .claude/skills, .cursor/skills, or .agents/skills, then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
+```
+
+&emsp;&emsp;Voir le [guide hello-rocm Skill](../../docs/en/04-references/index.md#hello-rocm-skill).
+
 ### Dernières mises à jour
 
 - *11 mars 2026 :* [*Notes de version de ROCm 7.12.0*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
@@ -197,7 +207,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 Références ROCm</strong><br>
   <em>Ressources officielles et communautaires</em><br>
-  📖 <strong><a href="../../docs/en/04-references/references.md">Références ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/index.md">Références ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -206,6 +216,8 @@ hello-rocm/
       • <a href="https://rocm.docs.amd.com/">Documentation officielle ROCm</a><br>
       • <a href="https://github.com/amd">AMD sur GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">Notes de version ROCm</a><br>
+      • <a href="../../docs/en/04-references/index.md#amd-gpu-architecture-whitepapers">Livres blancs sur l’architecture GPU AMD (CDNA / RDNA)</a><br>
+      • <a href="../../docs/en/04-references/index.md#frameworks-and-inference-services-rocm-quick-install-links">Liens rapides d’installation ROCm pour frameworks et services d’inférence</a><br>
       • Actualités connexes
     </td>
   </tr>
@@ -223,7 +235,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — assistant LLM léger en terminal<br>
-      • « Jump Jump » de WeChat avec YOLOv10 — démo d’IA de jeu<br>
+      • « Jump Jump » de WeChat avec YOLOv10 — IA de jeu en action (Entraîner et utiliser yolov10 sous ROCm)<br>
       • Chat-甄嬛 — modèle de dialogue de style historique<br>
       • Planificateur de voyage — démo d’agent HelloAgents<br>
       • happy-llm — apprentissage distribué de LLM
@@ -242,16 +254,21 @@ hello-rocm/
 
 &emsp;&emsp;Veuillez lire le **[Guide de normes](../../规范指南.md)** (structure, nommage, images — aligné sur les tutoriels comme Qwen3), puis **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (issues, PRs et conventions par répertoire de modèle).
 
+&emsp;&emsp;Si vous rencontrez des questions de dépannage ou de FAQ en utilisant ROCm, en déployant des modèles ou en lisant les tutoriels, vous pouvez aussi rejoindre la **[discussion communautaire](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** afin de partager vos retours, signaler des problèmes et améliorer les tutoriels avec la communauté.
+
 &emsp;&emsp;Si vous souhaitez aider à maintenir le dépôt à long terme, contactez-nous — nous pouvons vous ajouter en tant que mainteneur.
 
 ## Remerciements
 
 ### Contributeurs principaux
 
-- [Zhixue Song (不要葱姜蒜) — responsable du projet](https://github.com/KMnO4-zx) (Datawhale)
-- [Yu Chen — responsable du projet](https://github.com/lucachen) (contenu — Google Developer Expert en Machine Learning)
-- [Jiahang Pan — contributeur](https://github.com/amdjiahangpan) (contenu — ingénieur logiciel AMD)
-- [Weihong Liu — contributeur](https://github.com/Weihong-Liu) (Datawhale)
+- [Zhixue Song (不要葱姜蒜) — responsable du projet](https://github.com/KMnO4-zx) (membre Datawhale ; responsable des projets self-llm et happy-llm)
+- [Yu Chen — responsable du projet](https://github.com/lucachen) (créateur de contenu ; Google Developer Expert en Machine Learning)
+- [Sizhou Chen — contributeur](https://github.com/jjyaoao) (membre Datawhale ; responsable du projet hello-agents)
+- [Jiahang Pan — contributeur](https://github.com/amdjiahangpan) (créateur de contenu ; ingénieur logiciel AMD)
+- [Weihong Liu — contributeur](https://github.com/Weihong-Liu) (membre Datawhale)
+- [Dongbo Hao — contributeur](https://github.com/wlkq151172) (membre Datawhale)
+- [Muling Ke — contributeur](https://github.com/1985312383) (membre Datawhale)
 
 > D’autres contributeurs sont toujours les bienvenus.
 

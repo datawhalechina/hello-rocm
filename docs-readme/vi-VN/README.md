@@ -33,6 +33,16 @@
 
 > &emsp;&emsp;***Lộ trình học tập: Hoàn thành [00-Môi trường](../../docs/en/00-environment/index.md) trước (ROCm + PyTorch + **uv**), sau đó đến triển khai và tinh chỉnh, và cuối cùng là các chủ đề về Infra / cấp độ toán tử. Sau khi môi trường của bạn hoạt động, LM Studio hoặc vLLM là một điểm khởi đầu tốt.***
 
+### hello-rocm Skill: dùng dự án này trong trợ lý AI của bạn
+
+&emsp;&emsp;Nếu bạn dùng công cụ lập trình AI hỗ trợ Skills, Rules hoặc cấu hình Agent, bạn có thể dùng **hello-rocm Skill** tích hợp sẵn. Skill này dựa trên cấu trúc kho, chỉ mục Reference, bảng kiến trúc GPU, hướng dẫn triển khai và danh sách khắc phục sự cố để dẫn bạn tới tài liệu và liên kết chính thức phù hợp.
+
+```text
+Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place, such as .claude/skills, .cursor/skills, or .agents/skills, then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
+```
+
+&emsp;&emsp;Xem [hello-rocm Skill guide](../../docs/en/04-references/index.md#hello-rocm-skill).
+
 ### Cập nhật mới nhất
 
 - *11/03/2026:* [*Ghi chú phát hành ROCm 7.12.0*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
@@ -198,7 +208,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 Tài liệu tham khảo ROCm</strong><br>
   <em>Tài nguyên chính thức và cộng đồng</em><br>
-  📖 <strong><a href="../../docs/en/04-references/references.md">Tài liệu tham khảo ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/index.md">Tài liệu tham khảo ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -207,6 +217,8 @@ hello-rocm/
       • <a href="https://rocm.docs.amd.com/">Tài liệu chính thức ROCm</a><br>
       • <a href="https://github.com/amd">AMD trên GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">Ghi chú phát hành ROCm</a><br>
+      • <a href="../../docs/en/04-references/index.md#amd-gpu-architecture-whitepapers">Sách trắng kiến trúc GPU AMD (CDNA / RDNA)</a><br>
+      • <a href="../../docs/en/04-references/index.md#frameworks-and-inference-services-rocm-quick-install-links">Liên kết cài đặt nhanh ROCm cho framework và dịch vụ suy luận</a><br>
       • Tin tức liên quan
     </td>
   </tr>
@@ -224,7 +236,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — trình trợ lý dòng lệnh nhẹ<br>
-• WeChat “Jump Jump” với YOLOv10 — demo AI trò chơi<br>
+• WeChat “Jump Jump” với YOLOv10 — AI Trò chơi Thực chiến (Huấn luyện và sử dụng yolov10 trên ROCm)<br>
 • Chat-甄嬛 — mô hình hội thoại phong cách cổ trang<br>
 • Travel planner — demo tác nhân HelloAgents<br>
 • happy-llm — huấn luyện LLM phân tán
@@ -243,16 +255,21 @@ hello-rocm/
 
 &emsp;&emsp;Vui lòng đọc **[规范指南](../../规范指南.md)** (cấu trúc, đặt tên, hình ảnh — tuân thủ các hướng dẫn như Qwen3), sau đó **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (vấn đề, PR và quy ước thư mục theo từng mô hình).
 
+&emsp;&emsp;Nếu bạn gặp vấn đề về khắc phục sự cố hoặc FAQ khi sử dụng ROCm, triển khai mô hình hoặc đọc hướng dẫn, bạn cũng được chào đón tham gia **[thảo luận cộng đồng](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** để chia sẻ kinh nghiệm, báo cáo vấn đề và cùng cộng đồng cải thiện hướng dẫn.
+
 &emsp;&emsp;Nếu bạn muốn duy trì kho lưu trữ lâu dài, hãy liên hệ — chúng tôi có thể thêm bạn làm người bảo trì.
 
 ## Lời cảm ơn
 
 ### Người đóng góp chính
 
-- [Zhixue Song (不要葱姜蒜) — trưởng dự án](https://github.com/KMnO4-zx) (Datawhale)
-- [Yu Chen — trưởng dự án](https://github.com/lucachen) (nội dung — Chuyên gia Google về Học máy)
-- [Jiahang Pan — người đóng góp](https://github.com/amdjiahangpan) (nội dung — kỹ sư phần mềm AMD)
-- [Weihong Liu — người đóng góp](https://github.com/Weihong-Liu) (Datawhale)
+- [Zhixue Song (不要葱姜蒜) — trưởng dự án](https://github.com/KMnO4-zx) (thành viên Datawhale; trưởng dự án self-llm và happy-llm)
+- [Yu Chen — trưởng dự án](https://github.com/lucachen) (người sáng tạo nội dung; Google Developer Expert về Học máy)
+- [Sizhou Chen — người đóng góp](https://github.com/jjyaoao) (thành viên Datawhale; trưởng dự án hello-agents)
+- [Jiahang Pan — người đóng góp](https://github.com/amdjiahangpan) (người sáng tạo nội dung; kỹ sư phần mềm AMD)
+- [Weihong Liu — người đóng góp](https://github.com/Weihong-Liu) (thành viên Datawhale)
+- [Dongbo Hao — người đóng góp](https://github.com/wlkq151172) (thành viên Datawhale)
+- [Muling Ke — người đóng góp](https://github.com/1985312383) (thành viên Datawhale)
 
 > Luôn hoan nghênh thêm nhiều người đóng góp.
 

@@ -39,8 +39,9 @@ Start a new conversation and say: **"How do I deploy a model on my AMD GPU?"**
 ## What This Skill Does
 
 - Detects your experience level from what you say (no questionnaire)
-- Points you to the exact tutorial file you need in the hello-rocm project
+- Points you to the exact tutorial file or reference index you need in the hello-rocm project
 - Summarizes relevant content and suggests next steps
+- Uses `docs/en/04-references/index.md` / `docs/zh/04-references/index.md` as the quick lookup index for ROCm framework installs, inference services, AMD GPU architecture resources, and AMD ROCm Blog cross-references
 - Falls back to AMD official docs for version-specific or edge-case questions
 
 ## What This Skill Does NOT Do
@@ -64,6 +65,8 @@ Start a new conversation and say: **"How do I deploy a model on my AMD GPU?"**
 
 - [hello-rocm Project](https://github.com/datawhalechina/hello-rocm)
 - [ROCm Official Docs](https://rocm.docs.amd.com/)
+- [hello-rocm Skill guide](../../docs/en/04-references/index.md#hello-rocm-skill)
+- [hello-rocm Skill 使用指南](../../docs/zh/04-references/index.md#hello-rocm-skill)
 
 ## Version
 

@@ -32,6 +32,16 @@
 
 > &emsp;&emsp;***مسار التعلم: أكمل [00-Environment](../../docs/en/00-environment/index.md) أولاً (ROCm + PyTorch + **uv**)، ثم النشر والضبط الدقيق، وأخيرًا موضوعات Infra / مستوى المشغل. بعد أن تعمل بيئتك، يعد LM Studio أو vLLM نقطة بداية جيدة.***
 
+### hello-rocm Skill: استخدم هذا المشروع داخل مساعد الذكاء الاصطناعي
+
+&emsp;&emsp;إذا كنت تستخدم أداة برمجة بالذكاء الاصطناعي تدعم Skills أو Rules أو إعدادات Agent، يمكنك استخدام **hello-rocm Skill** المدمج. يعتمد هذا Skill على بنية المستودع وفهرس المراجع وجدول معماريات GPU ودروس النشر وقائمة استكشاف الأخطاء لتوجيهك إلى المستند والرابط الرسمي المناسب.
+
+```text
+Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place, such as .claude/skills, .cursor/skills, or .agents/skills, then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
+```
+
+&emsp;&emsp;راجع [دليل hello-rocm Skill](../../docs/en/04-references/index.md#hello-rocm-skill).
+
 ### آخر التحديثات
 
 - *2026.3.11:* [*ملاحظات إصدار ROCm 7.12.0*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
@@ -197,7 +207,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 مراجع ROCm</strong><br>
   <em>موارد رسمية ومجتمعية</em><br>
-  📖 <strong><a href="../../docs/en/04-references/references.md">مراجع ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/index.md">مراجع ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -206,6 +216,8 @@ hello-rocm/
       • <a href="https://rocm.docs.amd.com/">توثيق ROCm الرسمي</a><br>
       • <a href="https://github.com/amd">AMD على GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ملاحظات إصدار ROCm</a><br>
+      • <a href="../../docs/en/04-references/index.md#amd-gpu-architecture-whitepapers">الأوراق البيضاء لمعمارية AMD GPU ‏(CDNA / RDNA)</a><br>
+      • <a href="../../docs/en/04-references/index.md#frameworks-and-inference-services-rocm-quick-install-links">روابط التثبيت السريع لـ ROCm للأطر وخدمات الاستدلال</a><br>
       • أخبار ذات صلة
     </td>
   </tr>
@@ -223,7 +235,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — مساعد طرفية خفيف الوزن لنماذج اللغة<br>
-      • WeChat “Jump Jump” مع YOLOv10 — عرض توضيحي للذكاء الاصطناعي في الألعاب<br>
+      • WeChat “Jump Jump” مع YOLOv10 — ذكاء اصطناعي للألعاب عملياً (تدريب واستخدام yolov10 على ROCm)<br>
       • Chat-甄嬛 — نموذج حوار بأسلوب تاريخي<br>
       • مخطط السفر — عرض توضيحي لعامل HelloAgents<br>
       • happy-llm — تدريب موزع لنماذج اللغة الكبيرة
@@ -242,16 +254,21 @@ hello-rocm/
 
 &emsp;&emsp;يرجى قراءة **[دليل المعايير](../../规范指南.md)** (الهيكل، التسمية، الصور — متوافقة مع دروس مثل Qwen3)، ثم **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (المشكلات، طلبات السحب، واتفاقيات الدليل لكل نموذج).
 
+&emsp;&emsp;إذا واجهت مشكلات متعلقة باستكشاف الأخطاء أو الأسئلة الشائعة أثناء استخدام ROCm أو نشر النماذج أو قراءة الدروس، فنرحب بك أيضًا في **[نقاش المجتمع](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** لمشاركة الخبرات والإبلاغ عن المشكلات وتحسين الدروس مع المجتمع.
+
 &emsp;&emsp;إذا كنت ترغب في المساعدة في صيانة المستودع على المدى الطويل، تواصل معنا — يمكننا إضافتك كمشرف.
 
 ## شكر وتقدير
 
 ### المساهمون الأساسيون
 
-- [Zhixue Song (不要葱姜蒜) — قائد المشروع](https://github.com/KMnO4-zx) (Datawhale)
-- [Yu Chen — قائد المشروع](https://github.com/lucachen) (المحتوى — خبير Google في التعلم الآلي)
-- [Jiahang Pan — مساهم](https://github.com/amdjiahangpan) (المحتوى — مهندس برمجيات في AMD)
-- [Weihong Liu — مساهم](https://github.com/Weihong-Liu) (Datawhale)
+- [Zhixue Song (不要葱姜蒜) — قائد المشروع](https://github.com/KMnO4-zx) (عضو Datawhale؛ قائد مشروعي self-llm و happy-llm)
+- [Yu Chen — قائد المشروع](https://github.com/lucachen) (منشئ محتوى؛ خبير Google في التعلم الآلي)
+- [Sizhou Chen — مساهم](https://github.com/jjyaoao) (عضو Datawhale؛ قائد مشروع hello-agents)
+- [Jiahang Pan — مساهم](https://github.com/amdjiahangpan) (منشئ محتوى؛ مهندس برمجيات في AMD)
+- [Weihong Liu — مساهم](https://github.com/Weihong-Liu) (عضو Datawhale)
+- [Dongbo Hao — مساهم](https://github.com/wlkq151172) (عضو Datawhale)
+- [Muling Ke — مساهم](https://github.com/1985312383) (عضو Datawhale)
 
 > المزيد من المساهمين مرحب بهم دائمًا.
 

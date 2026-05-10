@@ -33,6 +33,16 @@
 
 > &emsp;&emsp;***學習建議：建議先完成 [00-Environment](../../docs/zh/00-environment/index.md) 中的環境安裝（ROCm + PyTorch + uv），再學習部署與微調，最後探索 Infra 算子優化。初學者可在環境就緒後從 LM Studio 或 vLLM 部署開始。***
 
+### hello-rocm Skill：把本項目裝進你的 AI 助手
+
+&emsp;&emsp;如果你使用支援 Skills、Rules 或 Agent 配置的 AI 編程工具，可以直接使用本項目內置的 **hello-rocm Skill**。它會根據本倉庫的目錄結構、Reference 索引、GPU 架構表、部署教程和排障清單，為你定位到具體文檔與官方鏈接。
+
+```text
+請使用當前倉庫的 src/hello-rocm-skill 作為 hello-rocm Skill；如果你的工具支援 Skills、Rules 或 Agent 配置，請把它安裝或載入到合適位置（例如 .claude/skills、.cursor/skills 或 .agents/skills），然後根據該 Skill 幫我學習、部署和排查 AMD ROCm。
+```
+
+&emsp;&emsp;更多說明見 [hello-rocm Skill 使用指南](../../docs/zh/04-references/index.md#hello-rocm-skill)。
+
 ### 最新動態
 
 - *2026.3.11:* [*ROCm 7.12.0 Release Notes*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
@@ -203,7 +213,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 ROCm 優質參考資料</strong><br>
   <em>精選的 AMD 官方與社區資源</em><br>
-  📖 <strong><a href="../../docs/zh/04-references/references.md">ROCm References</a></strong>
+  📖 <strong><a href="../../docs/zh/04-references/index.md">ROCm References</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -212,6 +222,8 @@ hello-rocm/
       • <a href="https://rocm.docs.amd.com/">ROCm 官方文檔</a><br>
       • <a href="https://github.com/amd">AMD GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm Release Notes</a><br>
+      • <a href="../../docs/zh/04-references/index.md#amd-gpu-架构白皮书">AMD GPU 架構白皮書（CDNA / RDNA）</a><br>
+      • <a href="../../docs/zh/04-references/index.md#框架与推理服务rocm-快速安装入口">框架與推理服務 ROCm 快速安裝入口</a><br>
       • 相關新聞
     </td>
   </tr>
@@ -229,7 +241,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
       • toy-cli - LLM 輕量化終端助手<br>
-      • YOLOv10 微信跳一跳 - 遊戲 AI 實戰<br>
+      • YOLOv10 微信跳一跳 - 遊戲 AI 實戰（在 ROCm 環境下訓練並使用 yolov10）<br>
       • Chat-甄嬛 - 古風對話大模型<br>
       • 智能旅行規劃助手 - HelloAgents Agent 實戰<br>
       • happy-llm - 分布式大模型訓練
@@ -248,16 +260,21 @@ hello-rocm/
 
 &emsp;&emsp;參與前請先閱讀 **[規範指南](../../規範指南.md)**（目錄、命名、配圖與文檔結構與 **Qwen3** 等教程對齊），再閱讀 **[CONTRIBUTING.md](../../CONTRIBUTING.md)**（Issue / PR 流程與模型專項目錄約定）。
 
+&emsp;&emsp;如果你在使用 ROCm、部署模型或閱讀教程時遇到故障排查與常見問題，也歡迎加入我們的 **[社區討論](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，和社區一起補充經驗、反饋問題、完善教程。
+
 &emsp;&emsp;想要深度參與的同學可以聯繫我們，我們會將你加入到項目的維護者中。
 
 ## 致謝
 ### 核心貢獻者
 
 
-- [宋志學(不要蔥姜蒜)-項目負責人](https://github.com/KMnO4-zx) （Datawhale成員）
+- [宋志學(不要蔥薑蒜)-項目負責人](https://github.com/KMnO4-zx) （Datawhale成員，self-llm、happy-llm 項目負責人）
 - [陳榆-項目負責人](https://github.com/lucachen) （內容創作者-谷歌開發者機器學習技術專家）
+- [陳思州-項目成員](https://github.com/jjyaoao) （Datawhale 成員，hello-agents 項目負責人）
 - [潘嘉航-項目成員](https://github.com/amdjiahangpan) （內容創作者-AMD軟體工程師）
 - [劉偉鴻-項目成員](https://github.com/Weihong-Liu) （Datawhale成員）
+- [郝東波-項目成員](https://github.com/wlkq151172) （Datawhale成員）
+- [柯慕靈-項目成員](https://github.com/1985312383)（Datawhale成員）
 > 註：歡迎更多貢獻者加入！
 
 ### 其他
