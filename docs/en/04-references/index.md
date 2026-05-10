@@ -78,16 +78,39 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 ### AMD GPU Architecture Whitepapers
 
-| Architecture | Focus | Official Resource |
-|--------------|-------|-------------------|
-| AMD CDNA Architecture | Data center GPUs and AI/HPC acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html) |
-| AMD CDNA 2 Architecture | Instinct MI200 series and matrix compute acceleration | [AMD CDNA 2 Architecture](https://www.amd.com/en/technologies/cdna-2.html) |
-| AMD CDNA 3 Architecture | Instinct MI300 series for generative AI and HPC | [AMD CDNA 3 Architecture](https://www.amd.com/en/technologies/cdna-3.html) |
-| AMD CDNA 4 Architecture | Instinct MI350 series and next-generation AI acceleration | [AMD CDNA 4 Architecture](https://www.amd.com/en/technologies/cdna-4.html) |
-| AMD RDNA Architecture | Radeon graphics and gaming GPUs | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) |
-| AMD RDNA 2 Architecture | Radeon RX 6000 series and Infinity Cache | [AMD RDNA 2 Architecture](https://www.amd.com/en/technologies/rdna-2.html) |
-| AMD RDNA 3 Architecture | Radeon RX 7000 series and chiplet GPUs | [AMD RDNA 3 Architecture](https://www.amd.com/en/technologies/rdna-3.html) |
-| AMD RDNA 4 Architecture | Radeon RX 9000 series and next-generation graphics/AI capabilities | [AMD RDNA 4 Architecture](https://www.amd.com/en/technologies/rdna-4.html) |
+| Architecture | Focus | Architecture overview | Whitepaper / Official resource |
+|--------------|-------|-----------------------|--------------------------------|
+| AMD CDNA Architecture | Instinct MI100 series and Exascale-class GPU compute | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf) |
+| AMD CDNA 2 Architecture | Instinct MI200 series, scientific computing, and machine learning acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 2 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf) |
+| AMD CDNA 3 Architecture | Instinct MI300 series for generative AI and HPC acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 3 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf) |
+| AMD CDNA 4 Architecture | Instinct MI350 series and next-generation AI compute acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 4 Architecture Whitepaper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-4-architecture-whitepaper.pdf) |
+| AMD RDNA Architecture | Radeon graphics and gaming GPUs | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) |
+
+### Architecture, Product, and LLVM Target Quick Map
+
+> For beginners, start from the product name, identify the architecture, then use the LLVM Target (`gfx`) to choose the ROCm / PyTorch installation index. See the “Supported GPU List” below for the full GPU list.
+
+#### CDNA: Data Center Instinct GPUs
+
+| Architecture | Typical products | LLVM Target | Main use |
+|--------------|------------------|-------------|----------|
+| CDNA 4 | AMD Instinct MI350 series (MI355X, MI350X) | `gfx950` | Next-generation AI training / inference and HPC |
+| CDNA 3 | AMD Instinct MI300 series (MI325X, MI300X, MI300A) | `gfx942` | Generative AI and HPC acceleration |
+| CDNA 2 | AMD Instinct MI200 series (MI250X, MI250, MI210) | `gfx90a` | Scientific computing and machine learning acceleration |
+| CDNA | AMD Instinct MI100 series | `gfx908` | Exascale-class GPU compute |
+
+#### RDNA: Radeon GPUs and Ryzen APUs
+
+| Architecture | Typical products / Graphics model | LLVM Target | Main use |
+|--------------|-----------------------------------|-------------|----------|
+| RDNA 4 | Radeon RX 9000 series (RX 9070 XT / 9070 GRE / 9070) and Radeon AI PRO R9000 series | `gfx1201` | Gaming GPUs, workstation graphics, and AI capabilities |
+| RDNA 4 | Radeon RX 9060 XT / 9060 series | `gfx1200` | Mainstream gaming GPUs |
+| RDNA 3.5 | Ryzen AI Max / Max PRO 300 (Radeon 8060S / 8050S) | `gfx1151` | Mobile / APU integrated GPUs |
+| RDNA 3.5 | Ryzen AI 300 / AI PRO 400 (Radeon 890M / 880M / 860M) | `gfx1150` | Mobile / APU integrated GPUs |
+| RDNA 3 | Radeon RX 7900 / PRO W7900 / PRO W7800 series | `gfx1100` | High-end consumer and workstation GPUs |
+| RDNA 3 | Radeon RX 7800 / 7700 / PRO W7700 / V710 series | `gfx1101` | Consumer and workstation GPUs |
+| RDNA 3 | Radeon RX 7600 series | `gfx1102` | Mainstream consumer GPUs |
+| RDNA 3 | Ryzen 200 series (Radeon 780M / 760M / 740M) | `gfx1103` | Mobile / APU integrated GPUs |
 
 ### Frameworks and Inference Services (ROCm Quick Install Links)
 
@@ -158,40 +181,40 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 #### Instinct Series (Data Center)
 
-| Series | Models | LLVM Target | ROCm Support |
-|--------|--------|-------------|--------------|
-| MI350 | MI355X, MI350X | `gfx950` | ✅ |
-| MI300 | MI325X, MI300X, MI300A | `gfx942` | ✅ |
-| MI200 | MI250X, MI250, MI210 | `gfx90a` | ✅ |
-| MI100 | MI100 | `gfx908` | ✅ |
+| Series | Models | Architecture | LLVM Target | ROCm Support |
+|--------|--------|--------------|-------------|--------------|
+| MI350 | MI355X, MI350X | CDNA 4 | `gfx950` | ✅ |
+| MI300 | MI325X, MI300X, MI300A | CDNA 3 | `gfx942` | ✅ |
+| MI200 | MI250X, MI250, MI210 | CDNA 2 | `gfx90a` | ✅ |
+| MI100 | MI100 | CDNA | `gfx908` | ✅ |
 
 #### Radeon PRO Series (Workstation)
 
-| Series | Models | LLVM Target | ROCm Support |
-|--------|--------|-------------|--------------|
-| AI PRO R9000 | R9700, R9600D | `gfx1201` | ✅ |
-| PRO W7000 | W7900 Dual Slot, W7900, W7800 48GB, W7800 | `gfx1100` | ✅ |
-| PRO W7700 | W7700, V710 | `gfx1101` | ✅ |
+| Series | Models | Architecture | LLVM Target | ROCm Support |
+|--------|--------|--------------|-------------|--------------|
+| AI PRO R9000 | R9700, R9600D | RDNA 4 | `gfx1201` | ✅ |
+| PRO W7000 | W7900 Dual Slot, W7900, W7800 48GB, W7800 | RDNA 3 | `gfx1100` | ✅ |
+| PRO W7700 | W7700, V710 | RDNA 3 | `gfx1101` | ✅ |
 
 #### Radeon RX Series (Consumer)
 
-| Series | Models | LLVM Target | ROCm Support |
-|--------|--------|-------------|--------------|
-| RX 9000 | RX 9070 XT, 9070 GRE, 9070 | `gfx1201` | ✅ |
-| RX 9000 | RX 9060 XT LP, 9060 XT, 9060 | `gfx1200` | ✅ |
-| RX 7000 | RX 7900 XTX, 7900 XT, 7900 GRE | `gfx1100` | ✅ |
-| RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | `gfx1101` | ✅ |
-| RX 7000 | RX 7600 | `gfx1102` | ✅ |
+| Series | Models | Architecture | LLVM Target | ROCm Support |
+|--------|--------|--------------|-------------|--------------|
+| RX 9000 | RX 9070 XT, 9070 GRE, 9070 | RDNA 4 | `gfx1201` | ✅ |
+| RX 9000 | RX 9060 XT LP, 9060 XT, 9060 | RDNA 4 | `gfx1200` | ✅ |
+| RX 7000 | RX 7900 XTX, 7900 XT, 7900 GRE | RDNA 3 | `gfx1100` | ✅ |
+| RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | RDNA 3 | `gfx1101` | ✅ |
+| RX 7000 | RX 7600 | RDNA 3 | `gfx1102` | ✅ |
 
 #### Ryzen APU Series (Laptop / Mobile)
 
-| Series | Models | Graphics model (iGPU) | LLVM Target | ROCm Support |
-|--------|--------|------------------------|-------------|--------------|
-| Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | `gfx1151` | ✅ |
-| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | `gfx1151` | ✅ |
-| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | `gfx1150` | ✅ |
-| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | `gfx1150` | ✅ |
-| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | `gfx1103` | ✅ |
+| Series | Models | Graphics model (iGPU) | Architecture | LLVM Target | ROCm Support |
+|--------|--------|------------------------|--------------|-------------|--------------|
+| Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | RDNA 3.5 | `gfx1151` | ✅ |
+| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | RDNA 3.5 | `gfx1151` | ✅ |
+| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` | ✅ |
+| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` | ✅ |
+| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
 
 > For the full support list, follow the [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip).
 

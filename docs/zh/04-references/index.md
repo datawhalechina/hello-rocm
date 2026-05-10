@@ -78,16 +78,39 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 ### AMD GPU 架构白皮书
 
-| 架构 | 适用方向 | 官方资料 |
-|------|----------|----------|
-| AMD CDNA 架构 | 数据中心 GPU 与 AI/HPC 加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html) |
-| AMD CDNA 2 架构 | Instinct MI200 系列与矩阵计算加速 | [AMD CDNA 2 Architecture](https://www.amd.com/en/technologies/cdna-2.html) |
-| AMD CDNA 3 架构 | Instinct MI300 系列与生成式 AI/HPC | [AMD CDNA 3 Architecture](https://www.amd.com/en/technologies/cdna-3.html) |
-| AMD CDNA 4 架构 | Instinct MI350 系列与新一代 AI 加速 | [AMD CDNA 4 Architecture](https://www.amd.com/en/technologies/cdna-4.html) |
-| AMD RDNA 架构 | Radeon 图形与游戏 GPU | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) |
-| AMD RDNA 2 架构 | Radeon RX 6000 系列与 Infinity Cache | [AMD RDNA 2 Architecture](https://www.amd.com/en/technologies/rdna-2.html) |
-| AMD RDNA 3 架构 | Radeon RX 7000 系列与 chiplet GPU | [AMD RDNA 3 Architecture](https://www.amd.com/en/technologies/rdna-3.html) |
-| AMD RDNA 4 架构 | Radeon RX 9000 系列与新一代图形/AI 能力 | [AMD RDNA 4 Architecture](https://www.amd.com/en/technologies/rdna-4.html) |
+| 架构 | 适用方向 | 架构概览 | 白皮书 / 官方资料 |
+|------|----------|----------|--------------------|
+| AMD CDNA 架构 | Instinct MI100 系列与 Exascale 级 GPU 计算 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf) |
+| AMD CDNA 2 架构 | Instinct MI200 系列、科学计算与机器学习加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 2 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf) |
+| AMD CDNA 3 架构 | Instinct MI300 系列与生成式 AI/HPC 加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 3 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf) |
+| AMD CDNA 4 架构 | Instinct MI350 系列与新一代 AI 计算加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 4 Architecture Whitepaper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-4-architecture-whitepaper.pdf) |
+| AMD RDNA 架构 | Radeon 图形与游戏 GPU | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) |
+
+### 架构、产品与 LLVM Target 速查
+
+> 对初学者来说，可以先用产品名称定位架构，再用 LLVM Target（gfx）选择 ROCm / PyTorch 安装索引。完整 GPU 清单见下方“支持的 GPU 列表”。
+
+#### CDNA：数据中心 Instinct GPU
+
+| 架构 | 典型产品 | LLVM Target | 主要方向 |
+|------|----------|-------------|----------|
+| CDNA 4 | AMD Instinct MI350 系列（MI355X, MI350X） | `gfx950` | 新一代 AI 训练 / 推理与 HPC |
+| CDNA 3 | AMD Instinct MI300 系列（MI325X, MI300X, MI300A） | `gfx942` | 生成式 AI 与 HPC 加速 |
+| CDNA 2 | AMD Instinct MI200 系列（MI250X, MI250, MI210） | `gfx90a` | 科学计算与机器学习加速 |
+| CDNA | AMD Instinct MI100 系列 | `gfx908` | Exascale 级 GPU 计算 |
+
+#### RDNA：Radeon 显卡与 Ryzen APU
+
+| 架构 | 典型产品 / Graphics model | LLVM Target | 主要方向 |
+|------|---------------------------|-------------|----------|
+| RDNA 4 | Radeon RX 9000 系列（RX 9070 XT / 9070 GRE / 9070）与 Radeon AI PRO R9000 系列 | `gfx1201` | 游戏显卡、工作站图形与 AI 能力 |
+| RDNA 4 | Radeon RX 9060 XT / 9060 系列 | `gfx1200` | 主流游戏显卡 |
+| RDNA 3.5 | Ryzen AI Max / Max PRO 300（Radeon 8060S / 8050S） | `gfx1151` | 移动端 / APU 集成 GPU |
+| RDNA 3.5 | Ryzen AI 300 / AI PRO 400（Radeon 890M / 880M / 860M） | `gfx1150` | 移动端 / APU 集成 GPU |
+| RDNA 3 | Radeon RX 7900 / PRO W7900 / PRO W7800 系列 | `gfx1100` | 高端消费级与工作站显卡 |
+| RDNA 3 | Radeon RX 7800 / 7700 / PRO W7700 / V710 系列 | `gfx1101` | 消费级与工作站显卡 |
+| RDNA 3 | Radeon RX 7600 系列 | `gfx1102` | 主流消费级显卡 |
+| RDNA 3 | Ryzen 200 系列（Radeon 780M / 760M / 740M） | `gfx1103` | 移动端 / APU 集成 GPU |
 
 ### 框架与推理服务（ROCm 快速安装入口）
 
@@ -158,40 +181,40 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 #### Instinct 系列（数据中心）
 
-| 系列 | 型号 | LLVM Target | ROCm 支持 |
-|------|------|-------------|-----------|
-| MI350 | MI355X, MI350X | `gfx950` | ✅ |
-| MI300 | MI325X, MI300X, MI300A | `gfx942` | ✅ |
-| MI200 | MI250X, MI250, MI210 | `gfx90a` | ✅ |
-| MI100 | MI100 | `gfx908` | ✅ |
+| 系列 | 型号 | 架构 | LLVM Target | ROCm 支持 |
+|------|------|------|-------------|-----------|
+| MI350 | MI355X, MI350X | CDNA 4 | `gfx950` | ✅ |
+| MI300 | MI325X, MI300X, MI300A | CDNA 3 | `gfx942` | ✅ |
+| MI200 | MI250X, MI250, MI210 | CDNA 2 | `gfx90a` | ✅ |
+| MI100 | MI100 | CDNA | `gfx908` | ✅ |
 
 #### Radeon PRO 系列（工作站）
 
-| 系列 | 型号 | LLVM Target | ROCm 支持 |
-|------|------|-------------|-----------|
-| AI PRO R9000 | R9700, R9600D | `gfx1201` | ✅ |
-| PRO W7000 | W7900 Dual Slot, W7900, W7800 48GB, W7800 | `gfx1100` | ✅ |
-| PRO W7700 | W7700, V710 | `gfx1101` | ✅ |
+| 系列 | 型号 | 架构 | LLVM Target | ROCm 支持 |
+|------|------|------|-------------|-----------|
+| AI PRO R9000 | R9700, R9600D | RDNA 4 | `gfx1201` | ✅ |
+| PRO W7000 | W7900 Dual Slot, W7900, W7800 48GB, W7800 | RDNA 3 | `gfx1100` | ✅ |
+| PRO W7700 | W7700, V710 | RDNA 3 | `gfx1101` | ✅ |
 
 #### Radeon RX 系列（消费级）
 
-| 系列 | 型号 | LLVM Target | ROCm 支持 |
-|------|------|-------------|-----------|
-| RX 9000 | RX 9070 XT, 9070 GRE, 9070 | `gfx1201` | ✅ |
-| RX 9000 | RX 9060 XT LP, 9060 XT, 9060 | `gfx1200` | ✅ |
-| RX 7000 | RX 7900 XTX, 7900 XT, 7900 GRE | `gfx1100` | ✅ |
-| RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | `gfx1101` | ✅ |
-| RX 7000 | RX 7600 | `gfx1102` | ✅ |
+| 系列 | 型号 | 架构 | LLVM Target | ROCm 支持 |
+|------|------|------|-------------|-----------|
+| RX 9000 | RX 9070 XT, 9070 GRE, 9070 | RDNA 4 | `gfx1201` | ✅ |
+| RX 9000 | RX 9060 XT LP, 9060 XT, 9060 | RDNA 4 | `gfx1200` | ✅ |
+| RX 7000 | RX 7900 XTX, 7900 XT, 7900 GRE | RDNA 3 | `gfx1100` | ✅ |
+| RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | RDNA 3 | `gfx1101` | ✅ |
+| RX 7000 | RX 7600 | RDNA 3 | `gfx1102` | ✅ |
 
 #### Ryzen APU 系列（笔记本/移动端）
 
-| 系列 | 型号 | Graphics model (iGPU) | LLVM Target | ROCm 支持 |
-|------|------|------------------------|-------------|-----------|
-| Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | `gfx1151` | ✅ |
-| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | `gfx1151` | ✅ |
-| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | `gfx1150` | ✅ |
-| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | `gfx1150` | ✅ |
-| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | `gfx1103` | ✅ |
+| 系列 | 型号 | Graphics model (iGPU) | 架构 | LLVM Target | ROCm 支持 |
+|------|------|------------------------|------|-------------|-----------|
+| Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | RDNA 3.5 | `gfx1151` | ✅ |
+| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | RDNA 3.5 | `gfx1151` | ✅ |
+| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` | ✅ |
+| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` | ✅ |
+| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
 
 > 完整支持列表请以 [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip) 为准。
 

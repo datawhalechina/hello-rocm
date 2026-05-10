@@ -25,16 +25,25 @@
 
 当用户询问“我的 GPU 属于什么架构”“CDNA / RDNA 有什么区别”“某个 gfx 目标对应什么架构”时，优先索引 `docs/zh/00-environment/rocm-gpu-architecture-table.md` / `docs/en/00-environment/rocm-gpu-architecture-table.md`，再补充下面 AMD 官方架构资料。
 
-| 架构 | AMD 官方资料 |
-|:---|:---|
-| CDNA | <https://www.amd.com/en/technologies/cdna.html> |
-| CDNA 2 | <https://www.amd.com/en/technologies/cdna-2.html> |
-| CDNA 3 | <https://www.amd.com/en/technologies/cdna-3.html> |
-| CDNA 4 | <https://www.amd.com/en/technologies/cdna-4.html> |
-| RDNA | <https://www.amd.com/en/technologies/rdna.html> |
-| RDNA 2 | <https://www.amd.com/en/technologies/rdna-2.html> |
-| RDNA 3 | <https://www.amd.com/en/technologies/rdna-3.html> |
-| RDNA 4 | <https://www.amd.com/en/technologies/rdna-4.html> |
+| 架构 | AMD 官方概览 | 白皮书 / 官方资料 |
+|:---|:---|:---|
+| CDNA | <https://www.amd.com/en/technologies/cdna.html#overview> | <https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf> |
+| CDNA 2 | <https://www.amd.com/en/technologies/cdna.html#overview> | <https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf> |
+| CDNA 3 | <https://www.amd.com/en/technologies/cdna.html#overview> | <https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf> |
+| CDNA 4 | <https://www.amd.com/en/technologies/cdna.html#overview> | <https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-4-architecture-whitepaper.pdf> |
+| RDNA | <https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab> | <https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab> |
+
+## Skill 快速索引：架构、产品与 LLVM Target
+
+| 架构 | 典型产品 / Graphics model | LLVM Target | 主要方向 |
+|:---|:---|:---|:---|
+| CDNA 4 | AMD Instinct MI350 系列（MI355X, MI350X） | `gfx950` | 新一代 AI 训练 / 推理与 HPC |
+| CDNA 3 | AMD Instinct MI300 系列（MI325X, MI300X, MI300A） | `gfx942` | 生成式 AI 与 HPC 加速 |
+| CDNA 2 | AMD Instinct MI200 系列（MI250X, MI250, MI210） | `gfx90a` | 科学计算与机器学习加速 |
+| CDNA | AMD Instinct MI100 系列 | `gfx908` | Exascale 级 GPU 计算 |
+| RDNA 4 | Radeon RX 9000 / Radeon AI PRO R9000 系列 | `gfx1201` / `gfx1200` | 游戏显卡、工作站图形与 AI 能力 |
+| RDNA 3.5 | Ryzen AI Max / AI 300 系列（Radeon 8060S / 8050S / 890M / 880M / 860M） | `gfx1151` / `gfx1150` | 移动端 / APU 集成 GPU |
+| RDNA 3 | Radeon RX 7000 / PRO W7000 / Ryzen 200 系列 | `gfx1100` / `gfx1101` / `gfx1102` / `gfx1103` | 消费级、工作站与 APU 集成 GPU |
 
 ## 社区讨论入口
 
