@@ -30,7 +30,7 @@
 
 &emsp;&emsp;**이 프로젝트는 주로 튜토리얼**로 구성되어 있어 학생과 미래 실무자들이 AMD ROCm을 체계적으로 학습할 수 있습니다. **누구든지 이슈를 열거나 풀 리퀘스트를 제출**하여 프로젝트를 함께 성장시키고 유지할 수 있습니다.
 
-> &emsp;&emsp;***학습 경로: [00-환경설정](../../00-Environment/README_EN.md)을 먼저 완료하세요 (ROCm + PyTorch + **uv**), 그 다음 배포와 파인튜닝, 마지막으로 Infra/연산자 수준 주제를 다루세요. 환경이 준비되면 LM Studio나 vLLM이 시작하기 좋은 곳입니다.***
+> &emsp;&emsp;***학습 경로: [00-환경설정](../../docs/en/00-environment/index.md)을 먼저 완료하세요 (ROCm + PyTorch + **uv**), 그 다음 배포와 파인튜닝, 마지막으로 Infra/연산자 수준 주제를 다루세요. 환경이 준비되면 LM Studio나 vLLM이 시작하기 좋은 곳입니다.***
 
 ### 최신 업데이트
 
@@ -43,7 +43,7 @@
 <p align="center">
   <strong>✨ 주요 LLM: 환경 · 멀티 프레임워크 추론 · 파인튜닝 ✨</strong><br>
   <em>통합 ROCm 설정 (Windows / Ubuntu) + ROCm 7+ · 모델별 튜토리얼 (계속 확장 중)</em><br>
- <a href="../../00-Environment/README_EN.md">00 — 환경 설정</a>
+ <a href="../../docs/en/00-environment/index.md">00 — 환경 설정</a>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -53,14 +53,14 @@
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/vllm-rocm7-deploy.md">vLLM</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../02-Fine-tune/models/Qwen3/01-Qwen3-0.6B-LoRA及SwanLab可视化记录.md">Qwen3-0.6B LoRA + SwanLab</a><br>
-      • <a href="../../02-Fine-tune/models/Qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
+      • <a href="../../docs/en/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md">Qwen3-0.6B LoRA + SwanLab</a><br>
+      • <a href="../../src/fine-tune/models/qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
     </td>
   </tr>
   <tr>
@@ -68,14 +68,14 @@
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../01-Deploy/models/Gemma4/gemma4_model.md">Gemma 4 모델 개요</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/gemma4_model.md">Gemma 4 모델 개요</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../02-Fine-tune/models/Gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Gemma4 E4B LoRA 파인튜닝 (TRL, Notebook)</a><br>
+      • <a href="../../src/fine-tune/models/gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Gemma4 E4B LoRA 파인튜닝 (TRL, Notebook)</a><br>
     </td>
   </tr>
 </table>
@@ -121,13 +121,13 @@ hello-rocm/
 <p align="center">
   <strong>🛠️ ROCm 환경 설치 및 설정</strong><br>
   <em>단일 베이스라인 · ROCm 7.12.0 · Windows / Ubuntu · uv + PyTorch</em><br>
-  📖 <strong><a href="../../00-Environment/README_KR.md">ROCm 환경 시작하기</a></strong>
+  📖 <strong><a href="../../docs/en/00-environment/index.md">ROCm 환경 시작하기</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • <a href="../../00-Environment/rocm-gpu-architecture-table.md">GPU 아키텍처 및 pip 인덱스 맵</a><br>
+      • <a href="../../docs/en/00-environment/rocm-gpu-architecture-table.md">GPU 아키텍처 및 pip 인덱스 맵</a><br>
       • Windows 11: 드라이버, 보안 전제 조건, 설치 흐름<br>
       • Ubuntu 24.04: uv 기반 설치 및 선택적 통합 설치 프로그램 스크립트<br>
       • 확인, 제거 및 GPU 대상 전환
@@ -140,7 +140,7 @@ hello-rocm/
 <p align="center">
   <strong>🚀 ROCm LLM 배포</strong><br>
   <em>AMD GPU에서 모델 실행까지 처음부터</em><br>
-  📖 <strong><a href="../../01-Deploy/README_KR.md">ROCm 배포 시작하기</a></strong>
+  📖 <strong><a href="../../docs/en/01-deploy/index.md">ROCm 배포 시작하기</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -160,7 +160,7 @@ hello-rocm/
 <p align="center">
   <strong>🔧 ROCm LLM 미세 조정</strong><br>
   <em>AMD GPU에서의 효율적인 미세 조정</em><br>
-  📖 <strong><a href="../../02-Fine-tune/README.md">ROCm 미세 조정 시작하기</a></strong>
+  📖 <strong><a href="../../docs/en/02-fine-tune/index.md">ROCm 미세 조정 시작하기</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -178,7 +178,7 @@ hello-rocm/
 <p align="center">
   <strong>⚙️ ROCm 인프라 및 연산자</strong><br>
   <em>하드웨어/소프트웨어 스택부터 HIP 수준 실습까지</em><br>
-  📖 <strong><a href="../../03-Infra/README.md">ROCm 인프라 시작하기</a></strong>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">ROCm 인프라 시작하기</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -197,7 +197,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 ROCm 참고 자료</strong><br>
   <em>공식 및 커뮤니티 리소스</em><br>
-  📖 <strong><a href="../../04-References/README.md">ROCm 참고 자료</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/references.md">ROCm 참고 자료</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -216,7 +216,7 @@ hello-rocm/
 <p align="center">
   <strong>✨ AMD 프로젝트 쇼케이스</strong><br>
   <em>AMD GPU에서의 커뮤니티 주도 예제</em><br>
-  📖 <strong><a href="../../05-AMD-YES/README.md">ROCm AMD-YES 시작하기</a></strong>
+  📖 <strong><a href="../../docs/en/05-amd-yes/index.md">ROCm AMD-YES 시작하기</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">

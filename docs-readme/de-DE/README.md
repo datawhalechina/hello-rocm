@@ -31,7 +31,7 @@
 
 &emsp;&emsp;**Dieses Projekt besteht hauptsächlich aus Tutorials**, damit Studierende und zukünftige Praktiker AMD ROCm strukturiert erlernen können. **Jeder ist herzlich eingeladen, Issues zu eröffnen oder Pull Requests einzureichen**, um das Projekt gemeinsam zu erweitern und zu pflegen.
 
-> &emsp;&emsp;***Lernpfad: Zuerst [00-Umgebung](../../00-Environment/README_EN.md) abschließen (ROCm + PyTorch + **uv**), dann Bereitstellung und Feinabstimmung, und schließlich Infra-/Operator-Themen. Sobald Ihre Umgebung funktioniert, ist LM Studio oder vLLM ein guter Startpunkt.***
+> &emsp;&emsp;***Lernpfad: Zuerst [00-Umgebung](../../docs/en/00-environment/index.md) abschließen (ROCm + PyTorch + **uv**), dann Bereitstellung und Feinabstimmung, und schließlich Infra-/Operator-Themen. Sobald Ihre Umgebung funktioniert, ist LM Studio oder vLLM ein guter Startpunkt.***
 
 ### Neueste Updates
 
@@ -44,7 +44,7 @@
 <p align="center">
   <strong>✨ Mainstream-LLMs: Umgebung · Multi-Framework-Inferenz · Feinabstimmung ✨</strong><br>
   <em>Einheitliche ROCm-Einrichtung (Windows / Ubuntu) + ROCm 7+ · Modellspezifische Tutorials (wachsend)</em><br>
- <a href="../../00-Environment/README_EN.md">00 — Umgebungseinrichtung</a>
+ <a href="../../docs/en/00-environment/index.md">00 — Umgebungseinrichtung</a>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -54,14 +54,14 @@
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/vllm-rocm7-deploy.md">vLLM</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../02-Fine-tune/models/Qwen3/01-Qwen3-0.6B-LoRA及SwanLab可视化记录.md">Qwen3-0.6B LoRA + SwanLab</a><br>
-      • <a href="../../02-Fine-tune/models/Qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
+      • <a href="../../docs/en/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md">Qwen3-0.6B LoRA + SwanLab</a><br>
+      • <a href="../../src/fine-tune/models/qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
     </td>
   </tr>
   <tr>
@@ -69,14 +69,14 @@
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../01-Deploy/models/Gemma4/gemma4_model.md">Gemma 4 Modellübersicht</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/gemma4_model.md">Gemma 4 Modellübersicht</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../02-Fine-tune/models/Gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Gemma4 E4B LoRA-Feinabstimmung (TRL, Notebook)</a><br>
+      • <a href="../../src/fine-tune/models/gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Gemma4 E4B LoRA-Feinabstimmung (TRL, Notebook)</a><br>
     </td>
   </tr>
 </table>
@@ -122,13 +122,13 @@ hello-rocm/
 <p align="center">
   <strong>🛠️ ROCm-Umgebungsinstallation & -Konfiguration</strong><br>
   <em>Einheitliche Basis · ROCm 7.12.0 · Windows / Ubuntu · uv + PyTorch</em><br>
-  📖 <strong><a href="../../00-Environment/README_DE.md">Erste Schritte mit der ROCm-Umgebung</a></strong>
+  📖 <strong><a href="../../docs/en/00-environment/index.md">Erste Schritte mit der ROCm-Umgebung</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • <a href="../../00-Environment/rocm-gpu-architecture-table.md">GPU-Architektur & pip-Index-Zuordnung</a><br>
+      • <a href="../../docs/en/00-environment/rocm-gpu-architecture-table.md">GPU-Architektur & pip-Index-Zuordnung</a><br>
       • Windows 11: Treiber, Sicherheitsvoraussetzungen, Installationsablauf<br>
       • Ubuntu 24.04: uv-basierte Installation und optionales einheitliches Installationsskript<br>
       • Überprüfung, Deinstallation und Wechsel der GPU-Ziele
@@ -141,7 +141,7 @@ hello-rocm/
 <p align="center">
   <strong>🚀 ROCm-LLM-Deployment</strong><br>
   <em>Von null zu einem laufenden Modell auf AMD-GPUs</em><br>
-  📖 <strong><a href="../../01-Deploy/README_DE.md">Erste Schritte mit ROCm-Deployment</a></strong>
+  📖 <strong><a href="../../docs/en/01-deploy/index.md">Erste Schritte mit ROCm-Deployment</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -161,7 +161,7 @@ hello-rocm/
 <p align="center">
   <strong>🔧 ROCm-LLM-Feintuning</strong><br>
   <em>Effizientes Feintuning auf AMD-GPUs</em><br>
-  📖 <strong><a href="../../02-Fine-tune/README.md">Erste Schritte mit ROCm-Feintuning</a></strong>
+  📖 <strong><a href="../../docs/en/02-fine-tune/index.md">Erste Schritte mit ROCm-Feintuning</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -179,7 +179,7 @@ hello-rocm/
 <p align="center">
   <strong>⚙️ ROCm-Infrastruktur & Operatoren</strong><br>
   <em>Vom Hardware/Software-Stack bis zur HIP-Praxis</em><br>
-  📖 <strong><a href="../../03-Infra/README.md">Erste Schritte mit ROCm-Infrastruktur</a></strong>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">Erste Schritte mit ROCm-Infrastruktur</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -198,7 +198,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 ROCm-Referenzen</strong><br>
   <em>Offizielle und Community-Ressourcen</em><br>
-  📖 <strong><a href="../../04-References/README.md">ROCm-Referenzen</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/references.md">ROCm-Referenzen</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -217,7 +217,7 @@ hello-rocm/
 <p align="center">
   <strong>✨ AMD-Projektvorstellungen</strong><br>
   <em>Community-getriebene Beispiele auf AMD-GPUs</em><br>
-  📖 <strong><a href="../../05-AMD-YES/README.md">Erste Schritte mit ROCm AMD-YES</a></strong>
+  📖 <strong><a href="../../docs/en/05-amd-yes/index.md">Erste Schritte mit ROCm AMD-YES</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">

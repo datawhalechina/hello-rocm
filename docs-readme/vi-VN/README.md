@@ -31,7 +31,7 @@
 
 &emsp;&emsp;**Dự án này chủ yếu là các hướng dẫn** để sinh viên và những người thực hành trong tương lai có thể học AMD ROCm một cách có cấu trúc. **Mọi người đều được chào đón mở issue hoặc gửi pull request** để cùng nhau phát triển và duy trì dự án.
 
-> &emsp;&emsp;***Lộ trình học tập: Hoàn thành [00-Môi trường](../../00-Environment/README_EN.md) trước (ROCm + PyTorch + **uv**), sau đó đến triển khai và tinh chỉnh, và cuối cùng là các chủ đề về Infra / cấp độ toán tử. Sau khi môi trường của bạn hoạt động, LM Studio hoặc vLLM là một điểm khởi đầu tốt.***
+> &emsp;&emsp;***Lộ trình học tập: Hoàn thành [00-Môi trường](../../docs/en/00-environment/index.md) trước (ROCm + PyTorch + **uv**), sau đó đến triển khai và tinh chỉnh, và cuối cùng là các chủ đề về Infra / cấp độ toán tử. Sau khi môi trường của bạn hoạt động, LM Studio hoặc vLLM là một điểm khởi đầu tốt.***
 
 ### Cập nhật mới nhất
 
@@ -44,7 +44,7 @@
 <p align="center">
   <strong>✨ Các LLM chính thống: môi trường · suy luận đa framework · tinh chỉnh ✨</strong><br>
   <em>Thiết lập ROCm thống nhất (Windows / Ubuntu) + ROCm 7+ · hướng dẫn theo từng mô hình (đang phát triển)</em><br>
- <a href="../../00-Environment/README_EN.md">00 — Thiết lập môi trường</a>
+ <a href="../../docs/en/00-environment/index.md">00 — Thiết lập môi trường</a>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -54,14 +54,14 @@
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../01-Deploy/models/Qwen3/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/vllm-rocm7-deploy.md">vLLM</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="../../01-Deploy/models/Qwen3/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/vllm-rocm7-deploy.md">vLLM</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="../../docs/en/01-deploy/qwen3/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../02-Fine-tune/models/Qwen3/01-Qwen3-0.6B-LoRA及SwanLab可视化记录.md">Qwen3-0.6B LoRA + SwanLab</a><br>
-      • <a href="../../02-Fine-tune/models/Qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
+      • <a href="../../docs/en/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md">Qwen3-0.6B LoRA + SwanLab</a><br>
+      • <a href="../../src/fine-tune/models/qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
     </td>
   </tr>
   <tr>
@@ -69,14 +69,14 @@
   </tr>
   <tr>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../01-Deploy/models/Gemma4/gemma4_model.md">Tổng quan mô hình Gemma 4</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
-      • <a href="../../01-Deploy/models/Gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/gemma4_model.md">Tổng quan mô hình Gemma 4</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/lm-studio-rocm7-deploy.md">LM Studio</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/vllm-rocm7-deploy.md">vLLM</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/ollama-rocm7-deploy.md">Ollama</a><br>
+      • <a href="../../docs/en/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../02-Fine-tune/models/Gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Tinh chỉnh LoRA Gemma4 E4B (TRL, Notebook)</a><br>
+      • <a href="../../src/fine-tune/models/gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Tinh chỉnh LoRA Gemma4 E4B (TRL, Notebook)</a><br>
     </td>
   </tr>
 </table>
@@ -122,13 +122,13 @@ hello-rocm/
 <p align="center">
   <strong>🛠️ Cài đặt & cấu hình môi trường ROCm</strong><br>
   <em>Cơ sở duy nhất · ROCm 7.12.0 · Windows / Ubuntu · uv + PyTorch</em><br>
-  📖 <strong><a href="../../00-Environment/README_VI.md">Bắt đầu với Môi trường ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/00-environment/index.md">Bắt đầu với Môi trường ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • <a href="../../00-Environment/rocm-gpu-architecture-table.md">Bản đồ kiến trúc GPU & chỉ mục pip</a><br>
+      • <a href="../../docs/en/00-environment/rocm-gpu-architecture-table.md">Bản đồ kiến trúc GPU & chỉ mục pip</a><br>
       • Windows 11: trình điều khiển, yêu cầu bảo mật, quy trình cài đặt<br>
       • Ubuntu 24.04: cài đặt dựa trên uv và script cài đặt hợp nhất tùy chọn<br>
       • Xác minh, gỡ cài đặt và chuyển đổi mục tiêu GPU
@@ -141,7 +141,7 @@ hello-rocm/
 <p align="center">
   <strong>🚀 Triển khai LLM trên ROCm</strong><br>
   <em>Từ con số 0 đến một mô hình đang chạy trên GPU AMD</em><br>
-  📖 <strong><a href="../../01-Deploy/README_VI.md">Bắt đầu với Triển khai ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/01-deploy/index.md">Bắt đầu với Triển khai ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -161,7 +161,7 @@ hello-rocm/
 <p align="center">
   <strong>🔧 Tinh chỉnh LLM trên ROCm</strong><br>
   <em>Tinh chỉnh hiệu quả trên GPU AMD</em><br>
-  📖 <strong><a href="../../02-Fine-tune/README.md">Bắt đầu với Tinh chỉnh ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/02-fine-tune/index.md">Bắt đầu với Tinh chỉnh ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -179,7 +179,7 @@ hello-rocm/
 <p align="center">
   <strong>⚙️ Hạ tầng & toán tử ROCm</strong><br>
   <em>Từ ngăn xếp phần cứng/phần mềm đến thực hành cấp độ HIP</em><br>
-  📖 <strong><a href="../../03-Infra/README.md">Bắt đầu với Hạ tầng ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">Bắt đầu với Hạ tầng ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -198,7 +198,7 @@ hello-rocm/
 <p align="center">
   <strong>📚 Tài liệu tham khảo ROCm</strong><br>
   <em>Tài nguyên chính thức và cộng đồng</em><br>
-  📖 <strong><a href="../../04-References/README.md">Tài liệu tham khảo ROCm</a></strong>
+  📖 <strong><a href="../../docs/en/04-references/references.md">Tài liệu tham khảo ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
@@ -217,7 +217,7 @@ hello-rocm/
 <p align="center">
   <strong>✨ Giới thiệu dự án AMD</strong><br>
   <em>Các ví dụ do cộng đồng đóng góp trên GPU AMD</em><br>
-  📖 <strong><a href="../../05-AMD-YES/README.md">Bắt đầu với ROCm AMD-YES</a></strong>
+  📖 <strong><a href="../../docs/en/05-amd-yes/index.md">Bắt đầu với ROCm AMD-YES</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">

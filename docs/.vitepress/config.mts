@@ -3,40 +3,40 @@ import mathjax3 from 'markdown-it-mathjax3'
 
 const zhNav: DefaultTheme.NavItem[] = [
   { text: '首页', link: '/zh/' },
-  { text: '基础环境', link: '/zh/environment/' },
-  { text: '大模型部署', link: '/zh/deploy/' },
-  { text: '大模型微调', link: '/zh/fine-tune/' },
-  { text: '算子优化', link: '/zh/infra/' },
-  { text: '参考资料', link: '/zh/references' },
-  { text: '实践案例', link: '/zh/amd-yes/' }
+  { text: '基础环境', link: '/zh/00-environment/' },
+  { text: '大模型部署', link: '/zh/01-deploy/' },
+  { text: '大模型微调', link: '/zh/02-fine-tune/' },
+  { text: '算子优化', link: '/zh/03-infra/' },
+  { text: '参考资料', link: '/zh/04-references/' },
+  { text: '实践案例', link: '/zh/05-amd-yes/' }
 ]
 
 const enNav: DefaultTheme.NavItem[] = [
   { text: 'Home', link: '/' },
-  { text: 'Environment', link: '/environment/' },
-  { text: 'Deploy', link: '/deploy/' },
-  { text: 'Fine-tune', link: '/fine-tune/' },
-  { text: 'Infra', link: '/infra/' },
-  { text: 'References', link: '/references' },
-  { text: 'AMD Practice', link: '/amd-yes/' }
+  { text: 'Environment', link: '/00-environment/' },
+  { text: 'Deploy', link: '/01-deploy/' },
+  { text: 'Fine-tune', link: '/02-fine-tune/' },
+  { text: 'Infra', link: '/03-infra/' },
+  { text: 'References', link: '/04-references/' },
+  { text: 'AMD Practice', link: '/05-amd-yes/' }
 ]
 
 const zhSidebar: DefaultTheme.Sidebar = {
-  '/zh/environment/': [
+  '/zh/00-environment/': [
     {
       text: '00-Environment',
       items: [
-        { text: 'ROCm 基础环境安装与配置', link: '/zh/environment/' },
-        { text: 'GPU 架构与 pip 索引对照表', link: '/zh/environment/rocm-gpu-architecture-table' }
+        { text: 'ROCm 基础环境安装与配置', link: '/zh/00-environment/' },
+        { text: 'GPU 架构与 pip 索引对照表', link: '/zh/00-environment/rocm-gpu-architecture-table' }
       ]
     }
   ],
 
-  '/zh/deploy/': [
+  '/zh/01-deploy/': [
     {
       text: '01-Deploy',
       items: [
-        { text: 'ROCm 大模型部署实践', link: '/zh/deploy/' },
+        { text: 'ROCm 大模型部署实践', link: '/zh/01-deploy/' },
         {
           text: 'models',
           collapsed: false,
@@ -45,23 +45,23 @@ const zhSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/deploy/qwen3/env-prepare-ubuntu24-rocm7' },
-                { text: 'LM Studio 零基础部署', link: '/zh/deploy/qwen3/lm-studio-rocm7-deploy' },
-                { text: 'vLLM 零基础部署', link: '/zh/deploy/qwen3/vllm-rocm7-deploy' },
-                { text: 'Ollama 零基础部署', link: '/zh/deploy/qwen3/ollama-rocm7-deploy' },
-                { text: 'llama.cpp 零基础部署', link: '/zh/deploy/qwen3/llamacpp-rocm7-deploy' }
+                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/01-deploy/qwen3/env-prepare-ubuntu24-rocm7' },
+                { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/qwen3/lm-studio-rocm7-deploy' },
+                { text: 'vLLM 零基础部署', link: '/zh/01-deploy/qwen3/vllm-rocm7-deploy' },
+                { text: 'Ollama 零基础部署', link: '/zh/01-deploy/qwen3/ollama-rocm7-deploy' },
+                { text: 'llama.cpp 零基础部署', link: '/zh/01-deploy/qwen3/llamacpp-rocm7-deploy' }
               ]
             },
             {
               text: 'Gemma4',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/deploy/gemma4/env-prepare-ubuntu24-rocm7' },
-                { text: 'Gemma 4 模型介绍', link: '/zh/deploy/gemma4/gemma4_model' },
-                { text: 'LM Studio 零基础部署', link: '/zh/deploy/gemma4/lm-studio-rocm7-deploy' },
-                { text: 'vLLM 零基础部署', link: '/zh/deploy/gemma4/vllm-rocm7-deploy' },
-                { text: 'Ollama 零基础部署', link: '/zh/deploy/gemma4/ollama-rocm7-deploy' },
-                { text: 'llama.cpp 零基础部署', link: '/zh/deploy/gemma4/llamacpp-rocm7-deploy' }
+                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/01-deploy/gemma4/env-prepare-ubuntu24-rocm7' },
+                { text: 'Gemma 4 模型介绍', link: '/zh/01-deploy/gemma4/gemma4_model' },
+                { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/gemma4/lm-studio-rocm7-deploy' },
+                { text: 'vLLM 零基础部署', link: '/zh/01-deploy/gemma4/vllm-rocm7-deploy' },
+                { text: 'Ollama 零基础部署', link: '/zh/01-deploy/gemma4/ollama-rocm7-deploy' },
+                { text: 'llama.cpp 零基础部署', link: '/zh/01-deploy/gemma4/llamacpp-rocm7-deploy' }
               ]
             }
           ]
@@ -70,11 +70,11 @@ const zhSidebar: DefaultTheme.Sidebar = {
     }
   ],
 
-  '/zh/fine-tune/': [
+  '/zh/02-fine-tune/': [
     {
       text: '02-Fine-tune',
       items: [
-        { text: 'ROCm 大模型微调实践', link: '/zh/fine-tune/' },
+        { text: 'ROCm 大模型微调实践', link: '/zh/02-fine-tune/' },
         {
           text: 'models',
           collapsed: false,
@@ -82,13 +82,13 @@ const zhSidebar: DefaultTheme.Sidebar = {
             {
               text: 'Qwen3',
               items: [
-                { text: 'Qwen3-0.6B LoRA 及 SwanLab 可视化记录', link: '/zh/fine-tune/qwen3/qwen3-0.6b-lora-swanlab' }
+                { text: 'Qwen3-0.6B LoRA 及 SwanLab 可视化记录', link: '/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab' }
               ]
             },
             {
               text: 'Gemma4',
               items: [
-                { text: 'Gemma4-E4B LoRA 及 SwanLab 可视化记录', link: '/zh/fine-tune/gemma4/gemma4-e4b-lora-swanlab' }
+                { text: 'Gemma4-E4B LoRA 及 SwanLab 可视化记录', link: '/zh/02-fine-tune/gemma4/gemma4-e4b-lora-swanlab' }
               ]
             }
           ]
@@ -97,82 +97,82 @@ const zhSidebar: DefaultTheme.Sidebar = {
     }
   ],
 
-  '/zh/infra/': [
+  '/zh/03-infra/': [
     {
       text: '03-Infra',
       items: [
-        { text: 'ROCm 算子优化实践', link: '/zh/infra/' },
+        { text: 'ROCm 算子优化实践', link: '/zh/03-infra/' },
         {
           text: '01-embrace-amd-ai',
           items: [
-            { text: '拥抱 AMD AI 算力新时代', link: '/zh/infra/embrace-amd-ai' }
+            { text: '拥抱 AMD AI 算力新时代', link: '/zh/03-infra/embrace-amd-ai' }
           ]
         },
         {
           text: '02-decode-ai-accelerator',
           items: [
-            { text: '解密 AI 加速器：从软件栈到硬件架构', link: '/zh/infra/decode-ai-accelerator' }
+            { text: '解密 AI 加速器：从软件栈到硬件架构', link: '/zh/03-infra/decode-ai-accelerator' }
           ]
         },
         {
           text: '03-handwrite-rocm-operator',
           items: [
-            { text: '迈入 ROCm 编程世界：手写 ROCm 算子', link: '/zh/infra/handwrite-rocm-operator' }
+            { text: '迈入 ROCm 编程世界：手写 ROCm 算子', link: '/zh/03-infra/handwrite-rocm-operator' }
           ]
         },
         {
           text: '04-custom-pytorch-operator',
           items: [
-            { text: '为 PyTorch 编写自定义 ROCm 算子', link: '/zh/infra/custom-pytorch-operator' }
+            { text: '为 PyTorch 编写自定义 ROCm 算子', link: '/zh/03-infra/custom-pytorch-operator' }
           ]
         }
       ]
     }
   ],
 
-  '/zh/amd-yes/': [
+  '/zh/05-amd-yes/': [
     {
       text: '05-AMD-YES',
       items: [
-        { text: 'AMD 实践案例集合', link: '/zh/amd-yes/' },
+        { text: 'AMD 实践案例集合', link: '/zh/05-amd-yes/' },
         {
           text: '01-toy-cli',
           items: [
-            { text: 'LLM 轻量化终端助手', link: '/zh/amd-yes/toy-cli' }
+            { text: 'LLM 轻量化终端助手', link: '/zh/05-amd-yes/toy-cli' }
           ]
         },
         {
           text: '02-wechat-jump',
           items: [
-            { text: 'YOLOv10 微信跳一跳', link: '/zh/amd-yes/wechat-jump' }
+            { text: 'YOLOv10 微信跳一跳', link: '/zh/05-amd-yes/wechat-jump' }
           ]
         },
         {
           text: '03-huanhuan-chat',
           items: [
-            { text: 'Chat-甄嬛：后宫语言模型', link: '/zh/amd-yes/huanhuan-chat' }
+            { text: 'Chat-甄嬛：后宫语言模型', link: '/zh/05-amd-yes/huanhuan-chat' }
           ]
         },
         {
           text: '04-happy-llm',
           collapsed: false,
           items: [
-            { text: 'Happy-LLM：从零训练大模型', link: '/zh/amd-yes/happy-llm/' },
+            { text: 'Happy-LLM：从零训练大模型', link: '/zh/05-amd-yes/happy-llm/' },
             {
               text: 'chapter5',
               collapsed: false,
               items: [
-                { text: '执行流程与脚本说明', link: '/zh/amd-yes/happy-llm/chapter5/' },
-                { text: '第五章 动手搭建大模型', link: '/zh/amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building' }
+                { text: '执行流程与脚本说明', link: '/zh/05-amd-yes/happy-llm/chapter5/' },
+                { text: '第五章 动手搭建大模型', link: '/zh/05-amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building' }
               ]
             },
             {
               text: 'chapter6',
               collapsed: false,
               items: [
-                { text: '执行流程与脚本说明', link: '/zh/amd-yes/happy-llm/chapter6/' },
-                { text: '第六章 大模型训练流程实践', link: '/zh/amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice' },
-                { text: '6.4 偏好对齐', link: '/zh/amd-yes/happy-llm/chapter6/chapter6-4-wip-preference-alignment' }
+                { text: '执行流程与脚本说明', link: '/zh/05-amd-yes/happy-llm/chapter6/' },
+                { text: '第六章 大模型训练流程实践', link: '/zh/05-amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice' },
+                { text: '6.4 偏好对齐', link: '/zh/05-amd-yes/happy-llm/chapter6/chapter6-4-wip-preference-alignment' }
               ]
             }
           ]
@@ -181,11 +181,11 @@ const zhSidebar: DefaultTheme.Sidebar = {
           text: '05-hello-agents',
           collapsed: false,
           items: [
-            { text: 'Hello Agents 智能体实践', link: '/zh/amd-yes/hello-agents/' },
+            { text: 'Hello Agents 智能体实践', link: '/zh/05-amd-yes/hello-agents/' },
             {
               text: 'smart-travel-planner',
               items: [
-                { text: '智能旅行规划助手', link: '/zh/amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner' }
+                { text: '智能旅行规划助手', link: '/zh/05-amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner' }
               ]
             }
           ]
@@ -193,39 +193,39 @@ const zhSidebar: DefaultTheme.Sidebar = {
         {
           text: '06-openclaw',
           items: [
-            { text: 'OpenClaw 全隐私本地 AI 智能体平台', link: '/zh/amd-yes/openclaw' }
+            { text: 'OpenClaw 全隐私本地 AI 智能体平台', link: '/zh/05-amd-yes/openclaw' }
           ]
         }
       ]
     }
   ],
 
-  '/zh/references': [
+  '/zh/04-references': [
     {
       text: '04-References',
       items: [
-        { text: 'ROCm 优质参考资料', link: '/zh/references' }
+        { text: 'ROCm 优质参考资料', link: '/zh/04-references/' }
       ]
     }
   ]
 }
 
 const enSidebar: DefaultTheme.Sidebar = {
-  '/environment/': [
+  '/00-environment/': [
     {
       text: '00-Environment',
       items: [
-        { text: 'ROCm Environment Setup', link: '/environment/' },
-        { text: 'GPU Architecture and pip Index Table', link: '/environment/rocm-gpu-architecture-table' }
+        { text: 'ROCm Environment Setup', link: '/00-environment/' },
+        { text: 'GPU Architecture and pip Index Table', link: '/00-environment/rocm-gpu-architecture-table' }
       ]
     }
   ],
 
-  '/deploy/': [
+  '/01-deploy/': [
     {
       text: '01-Deploy',
       items: [
-        { text: 'LLM Deployment on ROCm', link: '/deploy/' },
+        { text: 'LLM Deployment on ROCm', link: '/01-deploy/' },
         {
           text: 'models',
           collapsed: false,
@@ -234,23 +234,23 @@ const enSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/deploy/qwen3/env-prepare-ubuntu24-rocm7' },
-                { text: 'LM Studio Deployment', link: '/deploy/qwen3/lm-studio-rocm7-deploy' },
-                { text: 'vLLM Deployment', link: '/deploy/qwen3/vllm-rocm7-deploy' },
-                { text: 'Ollama Deployment', link: '/deploy/qwen3/ollama-rocm7-deploy' },
-                { text: 'llama.cpp Deployment', link: '/deploy/qwen3/llamacpp-rocm7-deploy' }
+                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/01-deploy/qwen3/env-prepare-ubuntu24-rocm7' },
+                { text: 'LM Studio Deployment', link: '/01-deploy/qwen3/lm-studio-rocm7-deploy' },
+                { text: 'vLLM Deployment', link: '/01-deploy/qwen3/vllm-rocm7-deploy' },
+                { text: 'Ollama Deployment', link: '/01-deploy/qwen3/ollama-rocm7-deploy' },
+                { text: 'llama.cpp Deployment', link: '/01-deploy/qwen3/llamacpp-rocm7-deploy' }
               ]
             },
             {
               text: 'Gemma4',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/deploy/gemma4/env-prepare-ubuntu24-rocm7' },
-                { text: 'Gemma 4 Model Introduction', link: '/deploy/gemma4/gemma4_model' },
-                { text: 'LM Studio Deployment', link: '/deploy/gemma4/lm-studio-rocm7-deploy' },
-                { text: 'vLLM Deployment', link: '/deploy/gemma4/vllm-rocm7-deploy' },
-                { text: 'Ollama Deployment', link: '/deploy/gemma4/ollama-rocm7-deploy' },
-                { text: 'llama.cpp Deployment', link: '/deploy/gemma4/llamacpp-rocm7-deploy' }
+                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/01-deploy/gemma4/env-prepare-ubuntu24-rocm7' },
+                { text: 'Gemma 4 Model Introduction', link: '/01-deploy/gemma4/gemma4_model' },
+                { text: 'LM Studio Deployment', link: '/01-deploy/gemma4/lm-studio-rocm7-deploy' },
+                { text: 'vLLM Deployment', link: '/01-deploy/gemma4/vllm-rocm7-deploy' },
+                { text: 'Ollama Deployment', link: '/01-deploy/gemma4/ollama-rocm7-deploy' },
+                { text: 'llama.cpp Deployment', link: '/01-deploy/gemma4/llamacpp-rocm7-deploy' }
               ]
             }
           ]
@@ -259,11 +259,11 @@ const enSidebar: DefaultTheme.Sidebar = {
     }
   ],
 
-  '/fine-tune/': [
+  '/02-fine-tune/': [
     {
       text: '02-Fine-tune',
       items: [
-        { text: 'LLM Fine-tuning on ROCm', link: '/fine-tune/' },
+        { text: 'LLM Fine-tuning on ROCm', link: '/02-fine-tune/' },
         {
           text: 'models',
           collapsed: false,
@@ -271,13 +271,13 @@ const enSidebar: DefaultTheme.Sidebar = {
             {
               text: 'Qwen3',
               items: [
-                { text: 'Qwen3-0.6B LoRA and SwanLab Records', link: '/fine-tune/qwen3/qwen3-0.6b-lora-swanlab' }
+                { text: 'Qwen3-0.6B LoRA and SwanLab Records', link: '/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab' }
               ]
             },
             {
               text: 'Gemma4',
               items: [
-                { text: 'Gemma4-E4B LoRA and SwanLab Records', link: '/fine-tune/gemma4/gemma4-e4b-lora-swanlab' }
+                { text: 'Gemma4-E4B LoRA and SwanLab Records', link: '/02-fine-tune/gemma4/gemma4-e4b-lora-swanlab' }
               ]
             }
           ]
@@ -286,82 +286,82 @@ const enSidebar: DefaultTheme.Sidebar = {
     }
   ],
 
-  '/infra/': [
+  '/03-infra/': [
     {
       text: '03-Infra',
       items: [
-        { text: 'ROCm Operator Optimization Practice', link: '/infra/' },
+        { text: 'ROCm Operator Optimization Practice', link: '/03-infra/' },
         {
           text: '01-embrace-amd-ai',
           items: [
-            { text: 'Embrace the AMD AI Computing Era', link: '/infra/embrace-amd-ai' }
+            { text: 'Embrace the AMD AI Computing Era', link: '/03-infra/embrace-amd-ai' }
           ]
         },
         {
           text: '02-decode-ai-accelerator',
           items: [
-            { text: 'Decode AI Accelerators', link: '/infra/decode-ai-accelerator' }
+            { text: 'Decode AI Accelerators', link: '/03-infra/decode-ai-accelerator' }
           ]
         },
         {
           text: '03-handwrite-rocm-operator',
           items: [
-            { text: 'Handwrite ROCm Operators', link: '/infra/handwrite-rocm-operator' }
+            { text: 'Handwrite ROCm Operators', link: '/03-infra/handwrite-rocm-operator' }
           ]
         },
         {
           text: '04-custom-pytorch-operator',
           items: [
-            { text: 'Custom ROCm Operators for PyTorch', link: '/infra/custom-pytorch-operator' }
+            { text: 'Custom ROCm Operators for PyTorch', link: '/03-infra/custom-pytorch-operator' }
           ]
         }
       ]
     }
   ],
 
-  '/amd-yes/': [
+  '/05-amd-yes/': [
     {
       text: '05-AMD-YES',
       items: [
-        { text: 'AMD Practice Showcases', link: '/amd-yes/' },
+        { text: 'AMD Practice Showcases', link: '/05-amd-yes/' },
         {
           text: '01-toy-cli',
           items: [
-            { text: 'Lightweight Terminal Assistant', link: '/amd-yes/toy-cli' }
+            { text: 'Lightweight Terminal Assistant', link: '/05-amd-yes/toy-cli' }
           ]
         },
         {
           text: '02-wechat-jump',
           items: [
-            { text: 'YOLOv10 WeChat Jump', link: '/amd-yes/wechat-jump' }
+            { text: 'YOLOv10 WeChat Jump', link: '/05-amd-yes/wechat-jump' }
           ]
         },
         {
           text: '03-huanhuan-chat',
           items: [
-            { text: 'Chat-Huanhuan', link: '/amd-yes/huanhuan-chat' }
+            { text: 'Chat-Huanhuan', link: '/05-amd-yes/huanhuan-chat' }
           ]
         },
         {
           text: '04-happy-llm',
           collapsed: false,
           items: [
-            { text: 'Happy-LLM ROCm Training', link: '/amd-yes/happy-llm/' },
+            { text: 'Happy-LLM ROCm Training', link: '/05-amd-yes/happy-llm/' },
             {
               text: 'chapter5',
               collapsed: false,
               items: [
-                { text: 'Execution Process and Scripts', link: '/amd-yes/happy-llm/chapter5/' },
-                { text: 'Chapter 5 Hands-on LLM Building', link: '/amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building' }
+                { text: 'Execution Process and Scripts', link: '/05-amd-yes/happy-llm/chapter5/' },
+                { text: 'Chapter 5 Hands-on LLM Building', link: '/05-amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building' }
               ]
             },
             {
               text: 'chapter6',
               collapsed: false,
               items: [
-                { text: 'Execution Process and Scripts', link: '/amd-yes/happy-llm/chapter6/' },
-                { text: 'Chapter 6 LLM Training Workflow Practice', link: '/amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice' },
-                { text: 'Chapter 6.4 Preference Alignment', link: '/amd-yes/happy-llm/chapter6/chapter6-4-wip-preference-alignment' }
+                { text: 'Execution Process and Scripts', link: '/05-amd-yes/happy-llm/chapter6/' },
+                { text: 'Chapter 6 LLM Training Workflow Practice', link: '/05-amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice' },
+                { text: 'Chapter 6.4 Preference Alignment', link: '/05-amd-yes/happy-llm/chapter6/chapter6-4-wip-preference-alignment' }
               ]
             }
           ]
@@ -370,11 +370,11 @@ const enSidebar: DefaultTheme.Sidebar = {
           text: '05-hello-agents',
           collapsed: false,
           items: [
-            { text: 'Hello Agents Practice', link: '/amd-yes/hello-agents/' },
+            { text: 'Hello Agents Practice', link: '/05-amd-yes/hello-agents/' },
             {
               text: 'smart-travel-planner',
               items: [
-                { text: 'Smart Travel Planner', link: '/amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner' }
+                { text: 'Smart Travel Planner', link: '/05-amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner' }
               ]
             }
           ]
@@ -382,18 +382,18 @@ const enSidebar: DefaultTheme.Sidebar = {
         {
           text: '06-openclaw',
           items: [
-            { text: 'OpenClaw Private Local AI Agent Platform', link: '/amd-yes/openclaw' }
+            { text: 'OpenClaw Private Local AI Agent Platform', link: '/05-amd-yes/openclaw' }
           ]
         }
       ]
     }
   ],
 
-  '/references': [
+  '/04-references': [
     {
       text: '04-References',
       items: [
-        { text: 'ROCm References', link: '/references' }
+        { text: 'ROCm References', link: '/04-references/' }
       ]
     }
   ]

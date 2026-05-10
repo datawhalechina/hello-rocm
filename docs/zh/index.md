@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 从环境配置开始
-      link: /zh/environment/
+      link: /zh/00-environment/
     - theme: alt
       text: 查看实践案例
-      link: /zh/amd-yes/
+      link: /zh/05-amd-yes/
     - theme: alt
       text: English
       link: /
@@ -22,42 +22,42 @@ hero:
 features:
   - title: 统一环境基线
     details: 先完成 ROCm、PyTorch 与 uv 环境配置，为后续部署、微调和算子实践建立统一前置条件。
-    link: /zh/environment/
+    link: /zh/00-environment/
   - title: 大模型部署
     details: 覆盖 LM Studio、vLLM、Ollama、llama.cpp 等常见框架在 AMD GPU 上的部署流程。
-    link: /zh/deploy/
+    link: /zh/01-deploy/
   - title: 大模型微调
     details: 以 Qwen3、Gemma4 等模型为例，记录 ROCm 环境下的 LoRA 微调实践。
-    link: /zh/fine-tune/
+    link: /zh/02-fine-tune/
   - title: 算子优化
     details: 从 AMD AI 硬件与 ROCm 软件栈出发，逐步进入 HIP 算子、PyTorch 自定义算子和性能优化。
-    link: /zh/infra/
+    link: /zh/03-infra/
   - title: 参考资料
     details: 收集 ROCm、AMD GPU、AI 开发相关的优质资料，方便进一步查阅。
-    link: /zh/references
+    link: /zh/04-references/
   - title: AMD 实践案例
     details: 汇总社区项目案例，包括本地智能体、模型训练、视觉应用和工具实践。
-    link: /zh/amd-yes/
+    link: /zh/05-amd-yes/
 ---
 
 ## 推荐学习路径
 
-1. 先阅读 [基础环境](/zh/environment/)，完成 ROCm、PyTorch 与 Python 工具链配置。
-2. 再进入 [大模型部署](/zh/deploy/)，从 LM Studio 或 vLLM 等推理部署流程开始验证环境。
-3. 环境稳定后继续阅读 [大模型微调](/zh/fine-tune/)，了解 ROCm 上的 LoRA 微调流程。
-4. 如果希望深入底层性能与扩展能力，可以继续学习 [算子优化](/zh/infra/)。
-5. 需要完整项目样例时，查看 [AMD 实践案例](/zh/amd-yes/)。
+1. 先阅读 [基础环境](/zh/00-environment/)，完成 ROCm、PyTorch 与 Python 工具链配置。
+2. 再进入 [大模型部署](/zh/01-deploy/)，从 LM Studio 或 vLLM 等推理部署流程开始验证环境。
+3. 环境稳定后继续阅读 [大模型微调](/zh/02-fine-tune/)，了解 ROCm 上的 LoRA 微调流程。
+4. 如果希望深入底层性能与扩展能力，可以继续学习 [算子优化](/zh/03-infra/)。
+5. 需要完整项目样例时，查看 [AMD 实践案例](/zh/05-amd-yes/)。
 
 ## 内容目录
 
 | 模块 | 内容 |
 | --- | --- |
-| [基础环境](/zh/environment/) | ROCm 基础环境安装、配置、校验与 GPU 架构对照 |
-| [大模型部署](/zh/deploy/) | Qwen3、Gemma4 等模型的多框架本地部署 |
-| [大模型微调](/zh/fine-tune/) | ROCm 环境下的大模型微调记录 |
-| [算子优化](/zh/infra/) | AMD AI 硬件、ROCm 软件栈、HIP 算子与 PyTorch 自定义算子 |
-| [参考资料](/zh/references) | ROCm 与 AMD AI 生态相关资料 |
-| [AMD 实践案例](/zh/amd-yes/) | 面向 AMD 平台的应用案例与社区项目 |
+| [基础环境](/zh/00-environment/) | ROCm 基础环境安装、配置、校验与 GPU 架构对照 |
+| [大模型部署](/zh/01-deploy/) | Qwen3、Gemma4 等模型的多框架本地部署 |
+| [大模型微调](/zh/02-fine-tune/) | ROCm 环境下的大模型微调记录 |
+| [算子优化](/zh/03-infra/) | AMD AI 硬件、ROCm 软件栈、HIP 算子与 PyTorch 自定义算子 |
+| [参考资料](/zh/04-references/) | ROCm 与 AMD AI 生态相关资料 |
+| [AMD 实践案例](/zh/05-amd-yes/) | 面向 AMD 平台的应用案例与社区项目 |
 
 ## 适合读者
 
