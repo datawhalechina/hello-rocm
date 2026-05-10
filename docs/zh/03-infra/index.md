@@ -1,6 +1,6 @@
 <div align=center>
   <h1>03-Infra</h1>
-  <strong>⚙️ ROCm 基础设施与算力编程</strong>
+  <strong>⚙️ ROCm 算子优化与 GPU 编程</strong>
 </div>
 
 <div align="center">
@@ -13,7 +13,7 @@
 
 ## 简介
 
-&emsp;&emsp;本模块面向希望在 **AMD GPU + ROCm** 上建立系统认知的开发者：从 AI 硬件与 ROCm 软件栈全景，到 PyTorch 调用链与 GPU 架构，再到用 **HIP** 手写算子、结合 **rocBLAS / MIOpen** 与性能测量，把「基础设施」讲清楚、练到位。
+&emsp;&emsp;本模块面向希望在 **AMD GPU + ROCm** 上建立系统认知的开发者：从 AI 硬件与 ROCm 软件栈全景，到 PyTorch 调用链与 GPU 架构，再到用 **HIP** 手写算子、结合 **rocBLAS / MIOpen** 与性能测量，把 ROCm 软件栈、GPU 编程与算子实践讲清楚、练到位。
 
 &emsp;&emsp;内容与仓库内 **第 1～4 章** 连载教程一一对应，默认实验环境为 **Ubuntu 22.04 / 24.04 + ROCm 7.x**，示例设备以 **AMD AI+ MAX395 / Radeon 8060S（gfx1151）** 等为主，读者可按自身显卡与 ROCm 版本对照阅读。目录结构如下：
 
@@ -138,7 +138,7 @@
 
 <div align="center">
 
-**欢迎贡献更多 Infra 与算子实践内容！** 🎉
+**欢迎贡献更多算子优化与 GPU 编程实践内容！** 🎉
 
 [提交 Issue](https://github.com/datawhalechina/hello-rocm/issues) | [提交 PR](https://github.com/datawhalechina/hello-rocm/pulls)
 

@@ -27,11 +27,11 @@
 
 &emsp;&emsp;AMD has committed to a **roughly six-week** ROCm release cadence with a strong focus on AI. The roadmap is exciting.
 
-&emsp;&emsp;There is still a shortage of systematic tutorials worldwide for ROCm LLM inference, deployment, training, fine-tuning, and infrastructure topics. **hello-rocm** exists to fill that gap.
+&emsp;&emsp;There is still a shortage of systematic tutorials worldwide for ROCm LLM inference, deployment, training, fine-tuning, and operator optimization / GPU programming topics. **hello-rocm** exists to fill that gap.
 
 &emsp;&emsp;**This project is primarily tutorials** so students and future practitioners can learn AMD ROCm in a structured way. **Anyone is welcome to open issues or submit pull requests** to grow and maintain the project together.
 
-> &emsp;&emsp;***Learning path: Finish [00-Environment](./docs/en/00-environment/index.md) first (ROCm + PyTorch + **uv**), then deployment and fine-tuning, and finally Infra / operator-level topics. After your environment works, LM Studio or vLLM is a good place to start.***
+> &emsp;&emsp;***Learning path: Finish [00-Environment](./docs/en/00-environment/index.md) first (ROCm + PyTorch + **uv**), then deployment and fine-tuning, and finally operator optimization and GPU programming topics. After your environment works, LM Studio or vLLM is a good place to start.***
 
 ### hello-rocm Skill: put this project inside your AI assistant
 
@@ -114,7 +114,7 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ## Roadmap and structure
 
-&emsp;&emsp;The repo follows the full ROCm LLM workflow: **unified baseline (00-Environment)**, deployment, fine-tuning, and Infra-style topics:
+&emsp;&emsp;The repo follows the full ROCm LLM workflow: **unified baseline (00-Environment)**, deployment, fine-tuning, and operator optimization / GPU programming topics:
 
 
 ### Repository layout
@@ -126,7 +126,7 @@ hello-rocm/
 │   │   ├── environment/    # ROCm baseline install & config
 │   │   ├── deploy/         # LLM deployment on ROCm
 │   │   ├── fine-tune/      # LLM fine-tuning on ROCm
-│   │   ├── infra/          # Infra / operators on ROCm
+│   │   ├── infra/          # Operator optimization / GPU programming on ROCm
 │   │   ├── amd-yes/        # Community AMD project showcases
 │   │   └── references.md   # Curated ROCm references
 │   └── zh/                 # 中文文档
@@ -191,12 +191,12 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Infra — operators & stack depth
+### 03. Infra — operator optimization & GPU programming
 
 <p align="center">
-  <strong>⚙️ ROCm Infra & operators</strong><br>
+  <strong>⚙️ ROCm Operator Optimization & GPU Programming</strong><br>
   <em>From hardware/software stack to HIP-level practice</em><br>
-  📖 <strong><a href="./docs/en/03-infra/index.md">Getting Started with ROCm Infra</a></strong>
+  📖 <strong><a href="./docs/en/03-infra/index.md">Getting Started with ROCm Operator Optimization</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">

@@ -27,11 +27,11 @@
 
 &emsp;&emsp;苏妈在发布会上宣布 ROCm 将保持 **每 6 周一个新版本** 的迭代节奏，并全力转向 AI 领域。前景令人振奋！
 
-&emsp;&emsp;然而，目前全球范围内缺乏系统的 ROCm 大模型推理、部署、训练、微调及 Infra 的学习教程。**hello-rocm** 应运而生，旨在填补这一空白。
+&emsp;&emsp;然而，目前全球范围内缺乏系统的 ROCm 大模型推理、部署、训练、微调及算子优化 / GPU 编程相关教程。**hello-rocm** 应运而生，旨在填补这一空白。
 
 &emsp;&emsp;**项目的主要内容就是教程，让更多的学生和未来的从业者了解和熟悉 AMD ROCm 的使用方法！任何人都可以提出 issue 或是提交 PR，共同构建维护这个项目。**
 
-> &emsp;&emsp;***学习建议：建议先完成 [00-Environment](./docs/zh/00-environment/index.md) 中的环境安装（ROCm + PyTorch + uv），再学习部署与微调，最后探索 Infra 算子优化。初学者可在环境就绪后从 LM Studio 或 vLLM 部署开始。***
+> &emsp;&emsp;***学习建议：建议先完成 [00-Environment](./docs/zh/00-environment/index.md) 中的环境安装（ROCm + PyTorch + uv），再学习部署与微调，最后探索算子优化与 GPU 编程。初学者可在环境就绪后从 LM Studio 或 vLLM 部署开始。***
 
 ### hello-rocm Skill：把本项目装进你的 AI 助手
 
@@ -199,7 +199,7 @@ hello-rocm/
 <p align="center">
   <strong>⚙️ ROCm 算子优化实践</strong><br>
   <em>CUDA 到 ROCm 的迁移与优化指南</em><br>
-  📖 <strong><a href="./docs/zh/03-infra/index.md">Getting Started with ROCm Infra</a></strong>
+  📖 <strong><a href="./docs/zh/03-infra/index.md">开始学习 ROCm 算子优化</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">

@@ -1,6 +1,6 @@
 <div align=center>
   <h1>03-Infra</h1>
-  <strong>⚙️ ROCm Infrastructure & GPU Programming</strong>
+  <strong>⚙️ ROCm Operator Optimization & GPU Programming</strong>
 </div>
 
 <div align="center">
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-&emsp;&emsp;This module is designed for developers who want to build a systematic understanding of **AMD GPU + ROCm**: from the AI hardware and ROCm software stack panorama, to the PyTorch call chain and GPU architecture, to writing **HIP** operators by hand and combining **rocBLAS / MIOpen** with performance measurement — covering all the "infrastructure" essentials with hands-on practice.
+&emsp;&emsp;This module is designed for developers who want to build a systematic understanding of **AMD GPU + ROCm**: from the AI hardware and ROCm software stack panorama, to the PyTorch call chain and GPU architecture, to writing **HIP** operators by hand and combining **rocBLAS / MIOpen** with performance measurement — covering the ROCm software stack, GPU programming, and operator practice with hands-on examples.
 
 &emsp;&emsp;The content corresponds one-to-one with the **Chapter 1–4** tutorial series in this repository. The default lab environment is **Ubuntu 22.04 / 24.04 + ROCm 7.x**, with example devices including **AMD AI+ MAX395 / Radeon 8060S (gfx1151)** and others. Readers can adapt according to their own GPU and ROCm version. The directory structure is as follows:
 
@@ -138,7 +138,7 @@ Chapters 1 & 2 focus on the **big picture and stack/hardware understanding**; Ch
 
 <div align="center">
 
-**Contributions of more Infra and operator practice content are welcome!** 🎉
+**Contributions of more operator optimization and GPU programming practice content are welcome!** 🎉
 
 [Submit an Issue](https://github.com/datawhalechina/hello-rocm/issues) | [Submit a PR](https://github.com/datawhalechina/hello-rocm/pulls)
 

@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: Unified environment baseline
-    details: Set up ROCm, PyTorch, and uv first so deployment, fine-tuning, and Infra tutorials share the same foundation.
+    details: Set up ROCm, PyTorch, and uv first so deployment, fine-tuning, and operator optimization tutorials share the same foundation.
     link: /00-environment/
   - title: LLM deployment
     details: Deploy models on AMD GPUs with LM Studio, vLLM, Ollama, llama.cpp, and related ROCm workflows.
@@ -45,7 +45,7 @@ features:
 1. Read [Environment](/00-environment/) first and finish the ROCm, PyTorch, and Python toolchain setup.
 2. Move to [Deploy](/01-deploy/) and validate your environment with LM Studio, vLLM, or another inference workflow.
 3. Continue with [Fine-tune](/02-fine-tune/) to understand LoRA fine-tuning on ROCm.
-4. Explore [Infra](/03-infra/) if you want to go deeper into low-level performance and operator development.
+4. Explore [Operator Optimization](/03-infra/) if you want to go deeper into low-level performance and operator development.
 5. Check [AMD Practice](/05-amd-yes/) when you need complete project examples.
 
 ## Content Map
@@ -55,7 +55,7 @@ features:
 | [Environment](/00-environment/) | ROCm installation, configuration, validation, and GPU architecture references |
 | [Deploy](/01-deploy/) | Multi-framework local deployment for models such as Qwen3 and Gemma4 |
 | [Fine-tune](/02-fine-tune/) | LLM fine-tuning notes and examples on ROCm |
-| [Infra](/03-infra/) | AMD AI hardware, ROCm software stack, HIP operators, and PyTorch custom operators |
+| [Operator Optimization](/03-infra/) | AMD AI hardware, ROCm software stack, HIP operators, and PyTorch custom operators |
 | [References](/04-references/) | ROCm and AMD AI ecosystem resources |
 | [AMD Practice](/05-amd-yes/) | Application cases and community projects for AMD platforms |
 
