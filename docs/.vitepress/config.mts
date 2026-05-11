@@ -24,7 +24,7 @@ const enNav: DefaultTheme.NavItem[] = [
 const zhSidebar: DefaultTheme.Sidebar = {
   '/zh/00-environment/': [
     {
-      text: '00-Environment',
+      text: 'Environment',
       items: [
         { text: 'ROCm 基础环境安装与配置', link: '/zh/00-environment/' },
         { text: 'GPU 架构与 pip 索引对照表', link: '/zh/00-environment/rocm-gpu-architecture-table' }
@@ -34,7 +34,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
 
   '/zh/01-deploy/': [
     {
-      text: '01-Deploy',
+      text: 'Deploy',
       items: [
         { text: 'ROCm 大模型部署实践', link: '/zh/01-deploy/' },
         {
@@ -72,7 +72,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
 
   '/zh/02-fine-tune/': [
     {
-      text: '02-Fine-tune',
+      text: 'Fine-tune',
       items: [
         { text: 'ROCm 大模型微调实践', link: '/zh/02-fine-tune/' },
         {
@@ -99,29 +99,29 @@ const zhSidebar: DefaultTheme.Sidebar = {
 
   '/zh/03-infra/': [
     {
-      text: '03-Infra',
+      text: 'Infra',
       items: [
         { text: 'ROCm 算子优化实践', link: '/zh/03-infra/' },
         {
-          text: '01-embrace-amd-ai',
+          text: 'embrace-amd-ai',
           items: [
             { text: '拥抱 AMD AI 算力新时代', link: '/zh/03-infra/embrace-amd-ai' }
           ]
         },
         {
-          text: '02-decode-ai-accelerator',
+          text: 'decode-ai-accelerator',
           items: [
             { text: '解密 AI 加速器：从软件栈到硬件架构', link: '/zh/03-infra/decode-ai-accelerator' }
           ]
         },
         {
-          text: '03-handwrite-rocm-operator',
+          text: 'handwrite-rocm-operator',
           items: [
             { text: '迈入 ROCm 编程世界：手写 ROCm 算子', link: '/zh/03-infra/handwrite-rocm-operator' }
           ]
         },
         {
-          text: '04-custom-pytorch-operator',
+          text: 'custom-pytorch-operator',
           items: [
             { text: '为 PyTorch 编写自定义 ROCm 算子', link: '/zh/03-infra/custom-pytorch-operator' }
           ]
@@ -132,29 +132,29 @@ const zhSidebar: DefaultTheme.Sidebar = {
 
   '/zh/05-amd-yes/': [
     {
-      text: '05-AMD-YES',
+      text: 'AMD-YES',
       items: [
         { text: 'AMD 实践案例集合', link: '/zh/05-amd-yes/' },
         {
-          text: '01-toy-cli',
+          text: 'toy-cli',
           items: [
             { text: 'LLM 轻量化终端助手', link: '/zh/05-amd-yes/toy-cli' }
           ]
         },
         {
-          text: '02-wechat-jump',
+          text: 'wechat-jump',
           items: [
             { text: 'YOLOv10 微信跳一跳', link: '/zh/05-amd-yes/wechat-jump' }
           ]
         },
         {
-          text: '03-huanhuan-chat',
+          text: 'huanhuan-chat',
           items: [
             { text: 'Chat-甄嬛：后宫语言模型', link: '/zh/05-amd-yes/huanhuan-chat' }
           ]
         },
         {
-          text: '04-happy-llm',
+          text: 'happy-llm',
           collapsed: false,
           items: [
             { text: 'Happy-LLM：从零训练大模型', link: '/zh/05-amd-yes/happy-llm/' },
@@ -178,7 +178,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
-          text: '05-hello-agents',
+          text: 'hello-agents',
           collapsed: false,
           items: [
             { text: 'Hello Agents 智能体实践', link: '/zh/05-amd-yes/hello-agents/' },
@@ -191,7 +191,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
-          text: '06-openclaw',
+          text: 'openclaw',
           items: [
             { text: 'OpenClaw 全隐私本地 AI 智能体平台', link: '/zh/05-amd-yes/openclaw' }
           ]
@@ -202,7 +202,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
 
   '/zh/04-references': [
     {
-      text: '04-References',
+      text: 'References',
       items: [
         { text: 'ROCm 优质参考资料', link: '/zh/04-references/' }
       ]
@@ -213,7 +213,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
 const enSidebar: DefaultTheme.Sidebar = {
   '/00-environment/': [
     {
-      text: '00-Environment',
+      text: 'Environment',
       items: [
         { text: 'ROCm Environment Setup', link: '/00-environment/' },
         { text: 'GPU Architecture and pip Index Table', link: '/00-environment/rocm-gpu-architecture-table' }
@@ -223,7 +223,7 @@ const enSidebar: DefaultTheme.Sidebar = {
 
   '/01-deploy/': [
     {
-      text: '01-Deploy',
+      text: 'Deploy',
       items: [
         { text: 'LLM Deployment on ROCm', link: '/01-deploy/' },
         {
@@ -261,7 +261,7 @@ const enSidebar: DefaultTheme.Sidebar = {
 
   '/02-fine-tune/': [
     {
-      text: '02-Fine-tune',
+      text: 'Fine-tune',
       items: [
         { text: 'LLM Fine-tuning on ROCm', link: '/02-fine-tune/' },
         {
@@ -288,29 +288,29 @@ const enSidebar: DefaultTheme.Sidebar = {
 
   '/03-infra/': [
     {
-      text: '03-Infra',
+      text: 'Infra',
       items: [
         { text: 'ROCm Operator Optimization Practice', link: '/03-infra/' },
         {
-          text: '01-embrace-amd-ai',
+          text: 'embrace-amd-ai',
           items: [
             { text: 'Embrace the AMD AI Computing Era', link: '/03-infra/embrace-amd-ai' }
           ]
         },
         {
-          text: '02-decode-ai-accelerator',
+          text: 'decode-ai-accelerator',
           items: [
             { text: 'Decode AI Accelerators', link: '/03-infra/decode-ai-accelerator' }
           ]
         },
         {
-          text: '03-handwrite-rocm-operator',
+          text: 'handwrite-rocm-operator',
           items: [
             { text: 'Handwrite ROCm Operators', link: '/03-infra/handwrite-rocm-operator' }
           ]
         },
         {
-          text: '04-custom-pytorch-operator',
+          text: 'custom-pytorch-operator',
           items: [
             { text: 'Custom ROCm Operators for PyTorch', link: '/03-infra/custom-pytorch-operator' }
           ]
@@ -321,29 +321,29 @@ const enSidebar: DefaultTheme.Sidebar = {
 
   '/05-amd-yes/': [
     {
-      text: '05-AMD-YES',
+      text: 'AMD-YES',
       items: [
         { text: 'AMD Practice Showcases', link: '/05-amd-yes/' },
         {
-          text: '01-toy-cli',
+          text: 'toy-cli',
           items: [
             { text: 'Lightweight Terminal Assistant', link: '/05-amd-yes/toy-cli' }
           ]
         },
         {
-          text: '02-wechat-jump',
+          text: 'wechat-jump',
           items: [
             { text: 'YOLOv10 WeChat Jump', link: '/05-amd-yes/wechat-jump' }
           ]
         },
         {
-          text: '03-huanhuan-chat',
+          text: 'huanhuan-chat',
           items: [
             { text: 'Chat-Huanhuan', link: '/05-amd-yes/huanhuan-chat' }
           ]
         },
         {
-          text: '04-happy-llm',
+          text: 'happy-llm',
           collapsed: false,
           items: [
             { text: 'Happy-LLM ROCm Training', link: '/05-amd-yes/happy-llm/' },
@@ -367,7 +367,7 @@ const enSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
-          text: '05-hello-agents',
+          text: 'hello-agents',
           collapsed: false,
           items: [
             { text: 'Hello Agents Practice', link: '/05-amd-yes/hello-agents/' },
@@ -380,7 +380,7 @@ const enSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
-          text: '06-openclaw',
+          text: 'openclaw',
           items: [
             { text: 'OpenClaw Private Local AI Agent Platform', link: '/05-amd-yes/openclaw' }
           ]
@@ -391,7 +391,7 @@ const enSidebar: DefaultTheme.Sidebar = {
 
   '/04-references': [
     {
-      text: '04-References',
+      text: 'References',
       items: [
         { text: 'ROCm References', link: '/04-references/' }
       ]
