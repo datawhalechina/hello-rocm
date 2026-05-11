@@ -1,13 +1,4 @@
-## Chapter 3: Entering the ROCm Programming World — Handwriting a "PyTorch Operator"
-
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm7.x-ED1C24)](https://rocm.docs.amd.com/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C)](https://pytorch.org/)
-[![GPU](https://img.shields.io/badge/GPU-Radeon_8060S-orange)]()
-[![Arch](https://img.shields.io/badge/Arch-gfx1151-blue)]()
-
-</div>
+## Chapter 3: Entering the ROCm Programming World — Writing Your First HIP Operator
 
 > **Lab Environment**
 > - **Device**: AMD AI+ MAX395
@@ -337,7 +328,12 @@ graph LR
     C -->|write back| A
     A -->|read| D(ReLU)
     D -->|write back| A
-    style A fill:#f9f,stroke:#333
+
+    classDef layer-hardware fill:#f0abfc,stroke:#a21caf,stroke-width:1px,color:#6b21a8
+    classDef layer-compute fill:#fff3e0,stroke:#ff9800,stroke-width:1px,color:#e65100
+
+    class A layer-hardware
+    class B,C,D layer-compute
 ```
 
 **MIOpen's fusion magic** merges these three steps into one massive super-kernel. Data completes the convolution, normalization, and activation pipeline directly within the GPU's registers, completely eliminating frequent dependency on slow VRAM:
@@ -346,8 +342,12 @@ graph LR
 graph LR
     A[(VRAM)] -->|read once| B(Super Kernel: Conv+BN+ReLU)
     B -->|write once| A
-    style B fill:#82e0aa,stroke:#333,stroke-width:2px
-    style A fill:#f9f,stroke:#333
+
+    classDef layer-hardware fill:#f0abfc,stroke:#a21caf,stroke-width:1px,color:#6b21a8
+    classDef layer-framework fill:#82e0aa,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+
+    class A layer-hardware
+    class B layer-framework
 ```
 
 ---
@@ -358,8 +358,8 @@ Complete source code for this chapter is located in the `code/` directory:
 
 | File | Description | Compile Command |
 |:---|:---|:---|
-| `code/vector_add.cpp` | Vector addition kernel with timer | `hipcc code/vector_add.cpp -o vector_add -O3` |
-| `code/sgemm_test.cpp` | rocBLAS SGEMM matrix multiplication | `hipcc code/sgemm_test.cpp -o sgemm_test -lrocblas` |
+| `src/infra/handwrite-rocm-operator/code/vector_add.cpp` | Vector addition kernel with timer | `hipcc src/infra/handwrite-rocm-operator/code/vector_add.cpp -o vector_add -O3` |
+| `src/infra/handwrite-rocm-operator/code/sgemm_test.cpp` | rocBLAS SGEMM matrix multiplication | `hipcc src/infra/handwrite-rocm-operator/code/sgemm_test.cpp -o sgemm_test -lrocblas` |
 
 ---
 
