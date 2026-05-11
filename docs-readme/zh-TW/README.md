@@ -22,7 +22,6 @@
 
 </div>
 <div align="center">
-<br>
 
 <a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/hello--rocm_完整教程-線上體驗-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="25"></a>
 
