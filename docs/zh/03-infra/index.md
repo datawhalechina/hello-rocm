@@ -15,27 +15,7 @@
 
 &emsp;&emsp;本模块面向希望在 **AMD GPU + ROCm** 上建立系统认知的开发者：从 AI 硬件与 ROCm 软件栈全景，到 PyTorch 调用链与 GPU 架构，再到用 **HIP** 手写算子、结合 **rocBLAS / MIOpen** 与性能测量，把 ROCm 软件栈、GPU 编程与算子实践讲清楚、练到位。
 
-&emsp;&emsp;内容与仓库内 **第 1～4 章** 连载教程一一对应，默认实验环境为 **Ubuntu 22.04 / 24.04 + ROCm 7.x**，示例设备以 **AMD AI+ MAX395 / Radeon 8060S（gfx1151）** 等为主，读者可按自身显卡与 ROCm 版本对照阅读。目录结构如下：
-
-```
-03-Infra/
-├── 01-embrace-amd-ai/
-│   ├── README.md
-│   └── images/
-├── 02-decode-ai-accelerator/
-│   ├── README.md
-│   ├── code/
-│   └── images/
-├── 03-handwrite-rocm-operator/
-│   ├── README.md
-│   ├── code/
-│   └── images/
-├── 04-custom-pytorch-operator/
-│   ├── README.md
-│   ├── code/
-│   └── images/
-└── README.md
-```
+&emsp;&emsp;默认实验环境为 **Ubuntu 22.04 / 24.04 + ROCm 7.x**，示例设备以 **AMD AI+ MAX395 / Radeon 8060S（gfx1151）** 等为主，读者可按自身显卡与 ROCm 版本对照阅读。
 
 ## 教程列表
 
@@ -63,7 +43,7 @@
 
 ---
 
-### 第 3 章：迈入 ROCm 编程世界——手写一个「PyTorch 算子」
+### 第 3 章：迈入 ROCm 编程世界——手写第一个 HIP 算子
 
 &emsp;&emsp;介绍 **HIP** 与 CUDA 的对应关系、Host/Device 代码结构；从 **手写 Kernel** 复现 Tensor 加法，到使用 **`hipEvent`** 做计时，并初步接触 **rocBLAS** 与 **MIOpen**，完成从 Python 到设备端代码的过渡。
 

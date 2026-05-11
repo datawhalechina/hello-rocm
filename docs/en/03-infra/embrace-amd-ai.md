@@ -1,12 +1,5 @@
 ## Embracing the New Era of AMD AI Computing
 
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm-ED1C24)](https://rocm.docs.amd.com/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C)](https://pytorch.org/)
-
-</div>
-
 > **System Environment**: Ubuntu 24.04 / 22.04 · ROCm 7.2+ · PyTorch 2.9+
 
 ### Learning Objectives
@@ -29,7 +22,7 @@ AMD's AI hardware can be roughly divided into three tiers:
 
 #### 1) AI PC: Ryzen AI (NPU + GPU)
 
-Taking the 2026 **Ryzen AI 400 series** as an example, NPU compute power can reach up to **60 TOPS**, meeting or even exceeding Microsoft's Copilot+ PC requirement of 40 TOPS[1][2].
+Taking the 2026 **Ryzen AI 400 series** as an example, NPU compute power can reach up to **60 TOPS**, meeting or even exceeding Microsoft's Copilot+ PC requirement of 40 TOPS.
 
 A typical Ryzen AI 400 chip internally contains:
 
@@ -50,7 +43,7 @@ For most developers, an accessible choice is the **Radeon RX 7000 / 9000 series 
 | **Gaming Cards** | Radeon RX 7700, RX 9070, etc. | Great value, suitable for developers and individual users |
 | **Professional Cards** | Radeon AI PRO / Radeon Pro W series | More VRAM, better stability, suitable for professional work |
 
-**RDNA 4 AI Acceleration Highlights**[3]:
+**RDNA 4 AI Acceleration Highlights**:
 
 - 2 AI accelerators integrated per Compute Unit
 - AI compute performance improved by over 4x (compared to previous-gen RDNA 3)
@@ -66,15 +59,15 @@ For most developers, an accessible choice is the **Radeon RX 7000 / 9000 series 
 
 #### 3) Data Center: Instinct MI Series
 
-If you're doing large-scale training or deploying 70B or even 400B-level models, AMD's **Instinct MI300X / MI350X / MI355X** series is the primary hardware[4][5]:
+If you're doing large-scale training or deploying 70B or even 400B-level models, AMD's **Instinct MI300X / MI350X / MI355X** series is the primary hardware:
 
 **Instinct Series Core Advantages**:
 
 | Feature | Description | Application Value |
 | :--- | :--- | :--- |
 | **Massive VRAM** | Up to **192GB HBM** high-bandwidth memory | Supports ultra-long context large models (e.g., Qwen3-Coder-Next 80B) |
-| **Advanced Precision** | Supports **FP8 precision, 256k context length** | Meets the needs of latest code models and multimodal models[5] |
-| **Deep Optimization** | ROCm 7 has operator-level optimizations for Llama 3.x, GLM, DeepSeek, etc. | Significantly improves training and inference throughput[4] |
+| **Advanced Precision** | Supports **FP8 precision, 256k context length** | Meets the needs of latest code models and multimodal models |
+| **Deep Optimization** | ROCm 7 has operator-level optimizations for Llama 3.x, GLM, DeepSeek, etc. | Significantly improves training and inference throughput |
 
 **Use Cases**:
 
@@ -106,16 +99,16 @@ graph TB
     end
 
     subgraph "Deep Learning Libraries"
-        L1[MIOpen Conv/Pooling/RNN similar to cuDNN]
-        L2[RCCL Multi-GPU Communication similar to NCCL]
+        L1["MIOpen Conv/Pooling/RNN<br/>similar to cuDNN"]
+        L2["RCCL Multi-GPU Communication<br/>similar to NCCL"]
     end
 
     subgraph "Programming Interface Layer"
-        H[HIP CUDA-like C++ Interface for Code Portability]
+        H["HIP CUDA-like C++ Interface<br/>for Code Portability"]
     end
 
     subgraph "Driver Layer"
-        D[amdgpu Kernel Driver for GPU Recognition]
+        D["amdgpu Kernel Driver<br/>for GPU Recognition"]
     end
 
     T1 --> F1
@@ -129,26 +122,29 @@ graph TB
     L2 --> H
     H --> D
 
-    style D fill:#e1f5ff
-    style H fill:#fff3e0
-    style L1 fill:#f3e5f5
-    style L2 fill:#f3e5f5
-    style F1 fill:#e8f5e9
-    style F2 fill:#e8f5e9
+    classDef layer-driver fill:#e1f5ff,stroke:#0288d1,stroke-width:1px,color:#01579b
+    classDef layer-interface fill:#fff3e0,stroke:#f57c00,stroke-width:1px,color:#e65100
+    classDef layer-library fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px,color:#4a148c
+    classDef layer-framework fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px,color:#1b5e20
+
+    class D layer-driver
+    class H layer-interface
+    class L1,L2 layer-library
+    class F1,F2 layer-framework
 ```
 
 **In one sentence**: **ROCm = AMD's version of the CUDA ecosystem + even more open**
 
 #### Key Points of ROCm 7.2
 
-Based on 2026 official information and media reports[1][4][6], ROCm 7.2 has several important changes for developers:
+Based on 2026 official information and media reports, ROCm 7.2 has several important changes for developers:
 
 | # | Feature | Description |
 | :--- | :--- | :--- |
 | **1** | **Dual-platform Official Support** | Windows (Adrenalin 26.1.1) + Linux (Ubuntu, etc.) one-click installation |
 | **2** | **Extended Consumer Support** | No longer limited to data centers, now officially supports Radeon RX 7000/9000 + Ryzen AI 300/400 |
 | **3** | **Deep Optimization for PyTorch** | Kernel-level optimization for Llama, GLM, DeepSeek, and other models — "install and use" |
-| **4** | **Deep Integration with Ubuntu** | Native support starting from Ubuntu 26.04 LTS, providing a long-term stable AI environment[7] |
+| **4** | **Deep Integration with Ubuntu** | Native support starting from Ubuntu 26.04 LTS, providing a long-term stable AI environment |
 
 ---
 
@@ -174,7 +170,7 @@ PyTorch on ROCm packages can generally be divided into three tiers:
 
 > AMD recommends using **repo.radeon.com** ROCm WHL files, rather than the PyTorch.org versions (which are not fully tested by AMD).
 
-**Prerequisites** [8]:
+**Prerequisites**:
 
 - Python 3.12 environment
 - Ubuntu 24.04 / 22.04
@@ -274,7 +270,7 @@ sudo docker run -it \
 
 #### 3. Windows-Specific ROCm SDK Wheels
 
-For PyTorch on Windows + ROCm 7.2, AMD officially provides complete wheel links[9]:
+For PyTorch on Windows + ROCm 7.2, AMD officially provides complete wheel links:
 
 - First install the ROCm SDK components (Python 3.12 environment);
 - Then install the torch/torchvision/torchaudio wheels with the `+rocmsdk20260116` tag.
@@ -333,7 +329,7 @@ print(torch.version.hip)
 
 ### 1.2.3 Hands-on 1: ResNet Image Classification Training Demo
 
-> **Goal**: Below is a **ResNet18 + CIFAR10** training demo that runs directly on AMD GPUs. The code logic is adapted from AMD's official ROCm blog example[10], slightly simplified and annotated.
+> **Goal**: Below is a **ResNet18 + CIFAR10** training demo that runs directly on AMD GPUs. The code logic is adapted from AMD's official ROCm blog example, slightly simplified and annotated.
 
 #### Environment Preparation
 
@@ -349,7 +345,7 @@ pip install torchvision datasets matplotlib
 #### Complete Training Script
 
 ```python
-# file: code/resnet_cifar10_amd.py
+# file: src/infra/embrace-amd-ai/code/resnet_cifar10_amd.py
 import random
 import datetime
 import torch
@@ -650,7 +646,7 @@ pip install torch transformers accelerate
 Create file `qwen_pytorch_inference.py`:
 
 ```python
-# file: code/qwen_pytorch_inference.py
+# file: src/infra/embrace-amd-ai/code/qwen_pytorch_inference.py
 import torch
 import time
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -751,17 +747,37 @@ python qwen_pytorch_inference.py
 
 ---
 
-## References
+## Chapter Code
 
-| # | Description | Link |
-| :--- | :--- | :--- |
-| [1] | AMD ROCm 7.2 Officially Released: Supporting Multiple New Hardware, Optimizing Instinct AI Performance | [Link](https://so.html5.qq.com/page/real/search_news?docid=70000021_7796976caaa35752) |
-| [2] | AMD Expands AI Leadership Across Client, Graphics, and ... | [Link](https://www.amd.com/en/newsroom/press-releases/2026-1-5-amd-expands-ai-leadership-across-client-graphics-.html) |
-| [3] | AI Acceleration with AMD Radeon Graphics Cards | [Link](https://www.amd.com/en/products/graphics/radeon-ai.html) |
-| [4] | AMD ROCm 7.2 Update Reports (IT之家 and Other Sources) | [Link](https://so.html5.qq.com/page/real/search_news?docid=70000021_9816977467427752) |
-| [5] | Day 0 Support for Qwen3-Coder-Next on AMD Instinct GPUs | [Link](https://www.amd.com/en/developer/resources/technical-articles/2026/day-0-support-for-qwen3-coder-next-on-amd-instinct-gpus.html) |
-| [6] | ROCm 7 Software | [Link](https://www.amd.com/zh-cn/products/software/rocm/whats-new.html) |
-| [7] | Ubuntu to Natively Support AMD ROCm Software | [Link](https://so.html5.qq.com/page/real/search_news?docid=70000021_494693a705e92252) |
-| [8] | Install PyTorch via PIP (Linux ROCm) | [Link](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/install/installrad/native_linux/install-pytorch.html) |
-| [9] | Install PyTorch via PIP (Windows ROCm) | [Link](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/install/installrad/windows/install-pytorch.html) |
-| [10] | ResNet for image classification using AMD GPUs | [Link](https://rocm.blogs.amd.com/artificial-intelligence/resnet/README.html) |
+Complete source code for this chapter is in the `src/infra/embrace-amd-ai/code/` directory:
+
+| File | Description |
+|:---|:---|
+| `resnet_cifar10_amd.py` | ResNet18 + CIFAR10 training demo |
+| `qwen_pytorch_inference.py` | Qwen 2.5 native PyTorch inference demo |
+
+---
+
+## Chapter Summary
+
+In this chapter, we covered:
+
+- Surveyed the AMD AI hardware product line: from Ryzen AI (NPU + GPU), Radeon discrete GPUs, to Instinct data center accelerators.
+- Understood the layered architecture of the ROCm software stack and its role in AI computing.
+- Completed PyTorch environment installation and verification on AMD GPUs, understanding the `torch.cuda` compatibility design.
+- Practiced ResNet image classification training and Qwen 2.5 large model inference (vLLM + native PyTorch).
+
+---
+
+## Reference Resources
+
+- [AMD ROCm 7.2 Officially Released: Supporting Multiple New Hardware, Optimizing Instinct AI Performance](https://so.html5.qq.com/page/real/search_news?docid=70000021_7796976caaa35752)
+- [AMD Expands AI Leadership Across Client, Graphics, and Data Center](https://www.amd.com/en/newsroom/press-releases/2026-1-5-amd-expands-ai-leadership-across-client-graphics-.html)
+- [AI Acceleration with AMD Radeon Graphics Cards](https://www.amd.com/en/products/graphics/radeon-ai.html)
+- [AMD ROCm 7.2 Update Reports](https://so.html5.qq.com/page/real/search_news?docid=70000021_9816977467427752)
+- [Day 0 Support for Qwen3-Coder-Next on AMD Instinct GPUs](https://www.amd.com/en/developer/resources/technical-articles/2026/day-0-support-for-qwen3-coder-next-on-amd-instinct-gpus.html)
+- [ROCm 7 Software](https://www.amd.com/zh-cn/products/software/rocm/whats-new.html)
+- [Ubuntu to Natively Support AMD ROCm Software](https://so.html5.qq.com/page/real/search_news?docid=70000021_494693a705e92252)
+- [Install PyTorch via PIP (Linux ROCm)](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/install/installrad/native_linux/install-pytorch.html)
+- [Install PyTorch via PIP (Windows ROCm)](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/install/installrad/windows/install-pytorch.html)
+- [ResNet for image classification using AMD GPUs](https://rocm.blogs.amd.com/artificial-intelligence/resnet/README.html)

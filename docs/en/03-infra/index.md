@@ -13,29 +13,9 @@
 
 ## Introduction
 
-&emsp;&emsp;This module is designed for developers who want to build a systematic understanding of **AMD GPU + ROCm**: from the AI hardware and ROCm software stack panorama, to the PyTorch call chain and GPU architecture, to writing **HIP** operators by hand and combining **rocBLAS / MIOpen** with performance measurement — covering the ROCm software stack, GPU programming, and operator practice with hands-on examples.
+This module is designed for developers who want to build a systematic understanding of **AMD GPU + ROCm**: from the AI hardware and ROCm software stack panorama, to the PyTorch call chain and GPU architecture, to writing **HIP** operators by hand and combining **rocBLAS / MIOpen** with performance measurement — covering the ROCm software stack, GPU programming, and operator practice with hands-on examples.
 
-&emsp;&emsp;The content corresponds one-to-one with the **Chapter 1–4** tutorial series in this repository. The default lab environment is **Ubuntu 22.04 / 24.04 + ROCm 7.x**, with example devices including **AMD AI+ MAX395 / Radeon 8060S (gfx1151)** and others. Readers can adapt according to their own GPU and ROCm version. The directory structure is as follows:
-
-```
-03-Infra/
-├── 01-embrace-amd-ai/
-│   ├── README.md
-│   └── images/
-├── 02-decode-ai-accelerator/
-│   ├── README.md
-│   ├── code/
-│   └── images/
-├── 03-handwrite-rocm-operator/
-│   ├── README.md
-│   ├── code/
-│   └── images/
-├── 04-custom-pytorch-operator/
-│   ├── README.md
-│   ├── code/
-│   └── images/
-└── README.md
-```
+The default lab environment is **Ubuntu 22.04 / 24.04 + ROCm 7.x**, with example devices including **AMD AI+ MAX395 / Radeon 8060S (gfx1151)** and others. Readers can adapt according to their own GPU and ROCm version.
 
 ## Tutorial List
 
@@ -63,7 +43,7 @@
 
 ---
 
-### Chapter 3: Entering the World of ROCm Programming — Writing a "PyTorch Operator" by Hand
+### Chapter 3: Entering the World of ROCm Programming — Writing Your First HIP Operator
 
 &emsp;&emsp;Introduces the correspondence between **HIP** and CUDA, Host/Device code structure. From **writing a Kernel** to reproduce Tensor addition, to using **`hipEvent`** for timing, and an initial look at **rocBLAS** and **MIOpen** — completing the transition from Python to device-level code.
 

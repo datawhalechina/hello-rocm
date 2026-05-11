@@ -1,14 +1,5 @@
 ## Decoding AI Accelerators — From Software Stack to Hardware Architecture
 
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm7.2-ED1C24)](https://rocm.docs.amd.com/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C)](https://pytorch.org/)
-[![GPU](https://img.shields.io/badge/GPU-Radeon_8060S-orange)]()
-[![Arch](https://img.shields.io/badge/Arch-gfx1151-blue)]()
-
-</div>
-
 > **Lab Environment**
 > - **Device**: AMD AI+ MAX395
 > - **GPU**: Radeon 8060S
@@ -116,13 +107,17 @@ graph TB
     C2 --> D1
     D1 --> D2
 
-    style A1 fill:#e3f2fd
-    style B1 fill:#fff3e0
-    style B2 fill:#fff3e0
-    style C1 fill:#f3e5f5
-    style C2 fill:#f3e5f5
-    style D1 fill:#e8f5e9
-    style D2 fill:#c8e6c9
+    classDef layer-framework fill:#e3f2fd,stroke:#1565c0,stroke-width:1px,color:#0d47a1
+    classDef layer-interface fill:#fff3e0,stroke:#ef6c00,stroke-width:1px,color:#bf360c
+    classDef layer-library fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px,color:#4a148c
+    classDef layer-driver fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px,color:#1b5e20
+    classDef layer-hardware fill:#c8e6c9,stroke:#1b5e20,stroke-width:1px,color:#0a3d0a
+
+    class A1 layer-framework
+    class B1,B2 layer-interface
+    class C1,C2 layer-library
+    class D1 layer-driver
+    class D2 layer-hardware
 ```
 
 #### Key Data Flow
@@ -152,7 +147,7 @@ graph TB
 Create the file `simple_add.cpp`:
 
 ```cpp
-// file: code/simple_add.cpp
+// file: src/infra/decode-ai-accelerator/code/simple_add.cpp
 #include <hip/hip_runtime.h>
 #include <iostream>
 
@@ -408,7 +403,7 @@ This is why PyTorch can "dynamically compile" HIP operators.
 #### Create the file `hello_rocm.cpp`
 
 ```cpp
-// file: code/hello_rocm.cpp
+// file: src/infra/decode-ai-accelerator/code/hello_rocm.cpp
 #include <hip/hip_runtime.h>
 #include <iostream>
 #include <cstdlib>
@@ -571,7 +566,7 @@ Let's illustrate with a real example: running ResNet-50 inference on CPU vs GPU.
 Create the file `bench_resnet.py`:
 
 ```python
-# file: code/bench_resnet.py
+# file: src/infra/decode-ai-accelerator/code/bench_resnet.py
 import torch
 import torchvision
 import time
@@ -742,7 +737,7 @@ __global__ void good_branch(float* data) {
 Create the file `bench_divergence.cpp`:
 
 ```cpp
-// file: code/bench_divergence.cpp
+// file: src/infra/decode-ai-accelerator/code/bench_divergence.cpp
 #include <hip/hip_runtime.h>
 #include <iostream>
 #include <vector>
@@ -1053,17 +1048,21 @@ A Compute Unit (CU) is the basic compute unit of the GPU, containing these compo
 graph TB
     subgraph CU["Compute Unit (CU)"]
         direction TB
-        SIMD["SIMD Units - 4 SIMDs, 64 ALUs each, 256 scalar ALUs total"]
-        REG["Register File (VGPR) - Thousands of 32-byte registers, storing per-thread private data"]
-        LDS["LDS Local Data Store - 128 KB, 20-40 cycle latency, 10x faster than VRAM"]
-        CTRL["Control Unit - Instruction Cache, Scalar Unit, address calculation & branch resolution"]
+        SIMD["SIMD Units<br/>4 SIMDs × 64 ALUs = 256 scalar ALUs"]
+        REG["Register File (VGPR)<br/>32-byte registers, per-thread data"]
+        LDS["LDS Local Data Store<br/>128 KB, 10x faster than VRAM"]
+        CTRL["Control Unit<br/>Instruction Cache & Scalar Unit"]
     end
 
-    style SIMD fill:#fff3e0,stroke:#ff9800,stroke-width:3px
-    style REG fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
-    style LDS fill:#f3e5f5,stroke:#9c27b0,stroke-width:3px
-    style CTRL fill:#e3f2fd,stroke:#2196f3,stroke-width:3px
-    style CU fill:#f5f7fa,stroke:#1976d2,stroke-width:3px
+    classDef layer-compute fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#e65100
+    classDef layer-framework fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,color:#1b5e20
+    classDef layer-library fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,color:#4a148c
+    classDef layer-interface fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
+
+    class SIMD layer-compute
+    class REG layer-framework
+    class LDS layer-library
+    class CTRL layer-interface
 ```
 
 **Using the Radeon 8060S (gfx1151 architecture) as an example**
@@ -1173,7 +1172,7 @@ sudo apt install hip-dev rocprofiler-dev roctracer-dev -y
 **Create test program** `test_occupancy.cpp`:
 
 ```cpp
-// file: code/test_occupancy.cpp
+// file: src/infra/decode-ai-accelerator/code/test_occupancy.cpp
 #include <hip/hip_runtime.h>
 #include <iostream>
 #include <cstdlib>
@@ -1299,7 +1298,7 @@ cat results.csv
 For the gfx1151 architecture (Radeon 8060S), each CU has a total of 1024 VGPRs, 64 KB of LDS, and a theoretical maximum of 32 wavefronts per CU.
 
 ```python
-# file: code/calc_occupancy.py
+# file: src/infra/decode-ai-accelerator/code/calc_occupancy.py
 
 def calculate_occupancy_arch1151(vgpr_per_thread, lds_per_workgroup, threads_per_wg):
     total_physical_vgprs = 65536 // 4  # 16384
@@ -1436,7 +1435,7 @@ y = x @ x.T  # GPU takes just a few milliseconds!
 Create the file `bench_bandwidth.py`:
 
 ```python
-# file: code/bench_bandwidth.py
+# file: src/infra/decode-ai-accelerator/code/bench_bandwidth.py
 import torch
 import time
 
@@ -1664,17 +1663,29 @@ __global__ void optimized(float* data) {
 
 ---
 
+## Chapter Code
+
+Complete source code for this chapter is in the `src/infra/decode-ai-accelerator/code/` directory:
+
+| File | Description |
+|:---|:---|
+| `hello_rocm.cpp` | First HIP program: vector addition verification |
+| `simple_add.cpp` | HIP compilation pipeline demo: LLVM IR / ISA output |
+| `bench_resnet.py` | ResNet-50 CPU vs GPU inference performance comparison |
+| `bench_divergence.cpp` | Branch divergence performance impact test (reduction comparison) |
+| `bench_bandwidth.py` | PCIe vs GPU VRAM bandwidth test |
+| `calc_occupancy.py` | Theoretical Occupancy calculation script |
+
+---
+
 ## Chapter Summary
 
-Through this chapter, you learned:
+Through this chapter, we covered:
 
-| Topic | Key Takeaway |
-|:---|:---|
-| **Software Stack** | How PyTorch code flows through HIP -> HSA -> Driver -> GPU for execution |
-| **Paradigm Shift** | From CPU's "low latency" to GPU's "high throughput," how the SIMT model works |
-| **Hardware Architecture** | AMD GPU's CU, LDS, HBM, and why memory bandwidth matters |
-
-**Next**: In the next chapter, we'll learn how to optimize GPU operators and fully leverage these hardware features.
+- Traced the PyTorch → HIP → HSA → Driver → GPU complete call chain using `ldd`.
+- Understood the CPU "low latency" vs GPU "high throughput" design philosophy difference and the SIMT execution model.
+- Dived into AMD GPU hardware architecture, mastering CU, VGPR, LDS, VRAM bandwidth, and other core concepts.
+- Measured Occupancy, branch divergence, memory bandwidth, and other key performance metrics using rocprof.
 
 ---
 
@@ -1726,11 +1737,9 @@ cat results.csv
 
 ---
 
-## References
+## Reference Resources
 
-| Resource | Link |
-|:---|:---|
-| **ROCm Documentation** | [https://rocm.docs.amd.com/](https://rocm.docs.amd.com/) |
-| **AMD GPU Architecture** | [https://www.amd.com/en/products/graphics/data-center-gpus](https://www.amd.com/en/products/graphics/data-center-gpus) |
-| **HIP Programming Guide** | [https://rocm.docs.amd.com/projects/HIP/en/latest/](https://rocm.docs.amd.com/projects/HIP/en/latest/) |
-| **LLVM AMDGPU Backend** | [https://llvm.org/docs/AMDGPUUsage.html](https://llvm.org/docs/AMDGPUUsage.html) |
+- [ROCm Documentation](https://rocm.docs.amd.com/)
+- [AMD GPU Architecture](https://www.amd.com/en/products/graphics/data-center-gpus)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/en/latest/)
+- [LLVM AMDGPU Backend](https://llvm.org/docs/AMDGPUUsage.html)

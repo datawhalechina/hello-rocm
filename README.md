@@ -194,21 +194,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Infra - ROCm 算子优化
+### 03. Infra - ROCm 算子优化与 GPU 编程
 
 <p align="center">
-  <strong>⚙️ ROCm 算子优化实践</strong><br>
-  <em>CUDA 到 ROCm 的迁移与优化指南</em><br>
-  📖 <strong><a href="./docs/zh/03-infra/index.md">开始学习 ROCm 算子优化</a></strong>
+  <strong>⚙️ ROCm 算子优化与 GPU 编程</strong><br>
+  <em>从 AMD AI 硬件全景到 HIP 算子与性能分析</em><br>
+  📖 <strong><a href="./docs/zh/03-infra/index.md">开始学习 ROCm 算子优化与 GPU 编程</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • HIPify 自动化迁移实战<br>
-      • BLAS 与 DNN 的无缝切换<br>
-      • NCCL 到 RCCL 的迁移<br>
-      • Nsight 到 Rocprof 的映射
+      • AMD AI 硬件全景与 ROCm 生态<br>
+      • GPU 软件栈与硬件架构深度解析<br>
+      • HIP 编程入门与手写 Kernel 实战<br>
+      • 自定义 PyTorch 算子与 Autograd 集成
     </td>
   </tr>
 </table>

@@ -639,6 +639,42 @@ html[lang^='zh'] .vp-doc div[class*='language-'] > .copy:hover.copied::after {
   overflow-x: auto;
 }
 
+/* ====== Mermaid dark mode overrides ====== */
+
+.dark .mermaid-output svg .node rect,
+.dark .mermaid-output svg .node path,
+.dark .mermaid-output svg .node polygon,
+.dark .mermaid-output svg .node circle {
+  fill: var(--vp-c-bg-soft) !important;
+  stroke: var(--vp-c-brand-2) !important;
+}
+
+.dark .mermaid-output svg .node .label,
+.dark .mermaid-output svg .node .nodeLabel,
+.dark .mermaid-output svg .node .label span {
+  color: var(--vp-c-text-1) !important;
+  fill: var(--vp-c-text-1) !important;
+}
+
+.dark .mermaid-output svg .edgeLabel {
+  background-color: var(--vp-c-bg-soft) !important;
+}
+
+.dark .mermaid-output svg .edgeLabel .label,
+.dark .mermaid-output svg .edgeLabel .label span {
+  color: var(--vp-c-text-2) !important;
+}
+
+.dark .mermaid-output svg .cluster rect {
+  fill: var(--vp-c-bg-soft) !important;
+  stroke: var(--vp-c-brand-2) !important;
+}
+
+.dark .mermaid-output svg .cluster .nodeLabel {
+  color: var(--vp-c-text-1) !important;
+  fill: var(--vp-c-text-1) !important;
+}
+
 .VPHomeHero .name,
 .VPHomeHero .text {
   letter-spacing: 0;

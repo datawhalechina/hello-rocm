@@ -1,14 +1,5 @@
 ## 第 4 章：为 PyTorch 编写自定义 ROCm 算子
 
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm7.x-ED1C24)](https://rocm.docs.amd.com/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C)](https://pytorch.org/)
-[![GPU](https://img.shields.io/badge/GPU-Radeon_8060S-orange)]()
-[![Arch](https://img.shields.io/badge/Arch-gfx1151-blue)]()
-
-</div>
-
 > **实验环境**
 > - **设备**: AMD AI+ MAX395
 > - **GPU**: Radeon 8060S
@@ -485,20 +476,20 @@ python3 test_swish.py
 
 ## 本章代码
 
-本章涉及的完整源码位于 `code/` 目录：
+本章涉及的完整源码位于 `src/infra/custom-pytorch-operator/code/custom_swish/` 目录：
 
 | 文件 | 说明 |
 |:---|:---|
-| `code/custom_swish/fused_swish_kernel.hip` | 底层 HIP Kernel（Forward + Backward + Grid-Stride Loop） |
-| `code/custom_swish/fused_swish_wrapper.cpp` | C++ 包装层（Pybind11 + ATen Dispatch） |
-| `code/custom_swish/setup.py` | 编译安装脚本 |
-| `code/custom_swish/test_swish.py` | Autograd 集成验证 |
-| `code/custom_swish/bench_swish.py` | 性能 Benchmark（原生 vs Fused） |
+| `fused_swish_kernel.hip` | 底层 HIP Kernel（Forward + Backward + Grid-Stride Loop） |
+| `fused_swish_wrapper.cpp` | C++ 包装层（Pybind11 + ATen Dispatch） |
+| `setup.py` | 编译安装脚本 |
+| `test_swish.py` | Autograd 集成验证 |
+| `bench_swish.py` | 性能 Benchmark（原生 vs Fused） |
 
 编译安装：
 
 ```bash
-cd code/custom_swish
+cd src/infra/custom-pytorch-operator/code/custom_swish
 python setup.py install
 ```
 

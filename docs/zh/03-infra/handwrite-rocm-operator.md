@@ -1,13 +1,4 @@
-## 第 3 章：迈入 ROCm 编程世界——手写一个"PyTorch 算子"
-
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm7.x-ED1C24)](https://rocm.docs.amd.com/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C)](https://pytorch.org/)
-[![GPU](https://img.shields.io/badge/GPU-Radeon_8060S-orange)]()
-[![Arch](https://img.shields.io/badge/Arch-gfx1151-blue)]()
-
-</div>
+## 第 3 章：迈入 ROCm 编程世界——手写第一个 HIP 算子
 
 > **实验环境**
 > - **设备**: AMD AI+ MAX395
@@ -337,7 +328,12 @@ graph LR
     C -->|写回| A
     A -->|读入| D(ReLU)
     D -->|写回| A
-    style A fill:#f9f,stroke:#333
+
+    classDef layer-hardware fill:#f0abfc,stroke:#a21caf,stroke-width:1px,color:#6b21a8
+    classDef layer-compute fill:#fff3e0,stroke:#ff9800,stroke-width:1px,color:#e65100
+
+    class A layer-hardware
+    class B,C,D layer-compute
 ```
 
 **MIOpen 的融合魔法**会将这三步融合成一个极其庞大的超级 Kernel。数据在 GPU 内部的寄存器中直接完成卷积、标准化和激活的流水线作业，彻底斩断对慢速 VRAM 的频繁依赖：
@@ -346,20 +342,24 @@ graph LR
 graph LR
     A[(VRAM)] -->|一次读入| B(Super Kernel: Conv+BN+ReLU)
     B -->|一次写回| A
-    style B fill:#82e0aa,stroke:#333,stroke-width:2px
-    style A fill:#f9f,stroke:#333
+
+    classDef layer-hardware fill:#f0abfc,stroke:#a21caf,stroke-width:1px,color:#6b21a8
+    classDef layer-framework fill:#82e0aa,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+
+    class A layer-hardware
+    class B layer-framework
 ```
 
 ---
 
 ## 本章代码
 
-本章涉及的完整源码位于 `code/` 目录：
+本章涉及的完整源码位于 `src/infra/handwrite-rocm-operator/code/` 目录：
 
 | 文件 | 说明 | 编译命令 |
 |:---|:---|:---|
-| `code/vector_add.cpp` | 带计时的向量加法 Kernel | `hipcc code/vector_add.cpp -o vector_add -O3` |
-| `code/sgemm_test.cpp` | rocBLAS SGEMM 矩阵乘法 | `hipcc code/sgemm_test.cpp -o sgemm_test -lrocblas` |
+| `vector_add.cpp` | 带计时的向量加法 Kernel | `hipcc vector_add.cpp -o vector_add -O3` |
+| `sgemm_test.cpp` | rocBLAS SGEMM 矩阵乘法 | `hipcc sgemm_test.cpp -o sgemm_test -lrocblas` |
 
 ---
 

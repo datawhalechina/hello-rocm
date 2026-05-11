@@ -1,14 +1,5 @@
 ## Chapter 4: Writing Custom ROCm Operators for PyTorch
 
-<div align='center'>
-
-[![AMD](https://img.shields.io/badge/AMD-ROCm7.x-ED1C24)](https://rocm.docs.amd.com/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C)](https://pytorch.org/)
-[![GPU](https://img.shields.io/badge/GPU-Radeon_8060S-orange)]()
-[![Arch](https://img.shields.io/badge/Arch-gfx1151-blue)]()
-
-</div>
-
 > **Lab Environment**
 > - **Device**: AMD AI+ MAX395
 > - **GPU**: Radeon 8060S
@@ -486,20 +477,20 @@ After running the tests, you'll typically see **1.5x to 2x+ significant speedup*
 
 ## Chapter Code
 
-Complete source code for this chapter is in the `code/` directory:
+Complete source code for this chapter is in the `src/infra/custom-pytorch-operator/code/custom_swish/` directory:
 
 | File | Description |
 |:---|:---|
-| `code/custom_swish/fused_swish_kernel.hip` | Low-level HIP Kernel (Forward + Backward + Grid-Stride Loop) |
-| `code/custom_swish/fused_swish_wrapper.cpp` | C++ wrapper layer (Pybind11 + ATen Dispatch) |
-| `code/custom_swish/setup.py` | Build and install script |
-| `code/custom_swish/test_swish.py` | Autograd integration verification |
-| `code/custom_swish/bench_swish.py` | Performance benchmark (Native vs Fused) |
+| `src/infra/custom-pytorch-operator/code/custom_swish/fused_swish_kernel.hip` | Low-level HIP Kernel (Forward + Backward + Grid-Stride Loop) |
+| `src/infra/custom-pytorch-operator/code/custom_swish/fused_swish_wrapper.cpp` | C++ wrapper layer (Pybind11 + ATen Dispatch) |
+| `src/infra/custom-pytorch-operator/code/custom_swish/setup.py` | Build and install script |
+| `src/infra/custom-pytorch-operator/code/custom_swish/test_swish.py` | Autograd integration verification |
+| `src/infra/custom-pytorch-operator/code/custom_swish/bench_swish.py` | Performance benchmark (Native vs Fused) |
 
 Build and install:
 
 ```bash
-cd code/custom_swish
+cd src/infra/custom-pytorch-operator/code/custom_swish
 python setup.py install
 ```
 
