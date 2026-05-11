@@ -195,17 +195,17 @@ hello-rocm/
 
 <p align="center">
   <strong>⚙️ ROCm Operator Optimization & GPU Programming</strong><br>
-  <em>From hardware/software stack to HIP-level practice</em><br>
+  <em>From AMD AI hardware panorama to HIP operators & performance profiling</em><br>
   📖 <strong><a href="./docs/en/03-infra/index.md">Getting Started with ROCm Operator Optimization</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • HIPify automated migration<br>
-      • BLAS / DNN library migration (rocBLAS, MIOpen, …)<br>
-      • NCCL → RCCL<br>
-      • Nsight → rocprof mapping
+      • AMD AI hardware panorama & ROCm ecosystem<br>
+      • GPU software stack & hardware architecture deep dive<br>
+      • HIP programming & hand-written Kernel practice<br>
+      • Custom PyTorch operators & Autograd integration
     </td>
   </tr>
 </table>
@@ -275,7 +275,7 @@ hello-rocm/
 - [Sizhou Chen — contributor](https://github.com/jjyaoao) (Datawhale member; hello-agents project lead)
 - [Jiahang Pan — contributor](https://github.com/amdjiahangpan) (content creator; AMD software engineer)
 - [Weihong Liu — contributor](https://github.com/Weihong-Liu) (Datawhale member)
-- [Dongbo Hao — contributor](https://github.com/wlkq151172) (Datawhale member)
+- [Dongbo Hao — contributor](https://github.com/wlkq151172) (content creator; Jiangnan University graduate student)
 - [Muling Ke — contributor](https://github.com/1985312383) (Datawhale member)
 
 > More contributors are always welcome.

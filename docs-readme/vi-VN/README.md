@@ -184,21 +184,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Hạ tầng — Toán tử & chiều sâu ngăn xếp
+### 03. Hạ tầng — Tối ưu toán tử & Lập trình GPU
 
 <p align="center">
-  <strong>⚙️ Hạ tầng & toán tử ROCm</strong><br>
-  <em>Từ ngăn xếp phần cứng/phần mềm đến thực hành cấp độ HIP</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">Bắt đầu với Hạ tầng ROCm</a></strong>
+  <strong>⚙️ Tối ưu toán tử ROCm & Lập trình GPU</strong><br>
+  <em>Từ toàn cảnh phần cứng AMD AI đến toán tử HIP và phân tích hiệu suất</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">Bắt đầu với Tối ưu toán tử ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • Di chuyển tự động HIPify<br>
-      • Di chuyển thư viện BLAS / DNN (rocBLAS, MIOpen, …)<br>
-      • NCCL → RCCL<br>
-      • Ánh xạ Nsight → rocprof
+      • Toàn cảnh phần cứng AMD AI và hệ sinh thái ROCm<br>
+      • Phân tích sâu ngăn xếp phần mềm GPU và kiến trúc phần cứng<br>
+      • Nhập môn lập trình HIP và thực hành viết kernel thủ công<br>
+      • Toán tử PyTorch tùy chỉnh và tích hợp Autograd
     </td>
   </tr>
 </table>
@@ -268,7 +268,7 @@ hello-rocm/
 - [Sizhou Chen — người đóng góp](https://github.com/jjyaoao) (thành viên Datawhale; trưởng dự án hello-agents)
 - [Jiahang Pan — người đóng góp](https://github.com/amdjiahangpan) (người sáng tạo nội dung; kỹ sư phần mềm AMD)
 - [Weihong Liu — người đóng góp](https://github.com/Weihong-Liu) (thành viên Datawhale)
-- [Dongbo Hao — người đóng góp](https://github.com/wlkq151172) (thành viên Datawhale)
+- [Dongbo Hao — người đóng góp](https://github.com/wlkq151172) (nhà sáng tạo nội dung; nghiên cứu sinh Đại học Jiangnan)
 - [Muling Ke — người đóng góp](https://github.com/1985312383) (thành viên Datawhale)
 
 > Luôn hoan nghênh thêm nhiều người đóng góp.

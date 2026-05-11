@@ -184,21 +184,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Infra – Operatoren & Stack-Tiefe
+### 03. Infra – Operatoroptimierung & GPU-Programmierung
 
 <p align="center">
-  <strong>⚙️ ROCm-Infrastruktur & Operatoren</strong><br>
-  <em>Vom Hardware/Software-Stack bis zur HIP-Praxis</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">Erste Schritte mit ROCm-Infrastruktur</a></strong>
+  <strong>⚙️ ROCm-Operatoroptimierung & GPU-Programmierung</strong><br>
+  <em>Von der AMD-AI-Hardwarepanorama bis zu HIP-Operatoren und Leistungsanalyse</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">Erste Schritte mit ROCm-Operatoroptimierung</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • HIPify automatisierte Migration<br>
-      • BLAS / DNN-Bibliotheksmigration (rocBLAS, MIOpen, …)<br>
-      • NCCL → RCCL<br>
-      • Nsight → rocprof-Zuordnung
+      • AMD-AI-Hardwarepanorama & ROCm-Ökosystem<br>
+      • GPU-Software-Stack & Hardware-Architektur tiefgehend analysiert<br>
+      • HIP-Programmierung & handgeschriebene Kernel-Praxis<br>
+      • Benutzerdefinierte PyTorch-Operatoren & Autograd-Integration
     </td>
   </tr>
 </table>
@@ -268,7 +268,7 @@ hello-rocm/
 - [Sizhou Chen — Beitragender](https://github.com/jjyaoao) (Datawhale-Mitglied; Projektleitung von hello-agents)
 - [Jiahang Pan — Beitragender](https://github.com/amdjiahangpan) (Content Creator; AMD-Softwareentwickler)
 - [Weihong Liu — Beitragender](https://github.com/Weihong-Liu) (Datawhale-Mitglied)
-- [Dongbo Hao — Beitragender](https://github.com/wlkq151172) (Datawhale-Mitglied)
+- [Dongbo Hao — Beitragender](https://github.com/wlkq151172) (Inhaltsersteller; Doktorand der Jiangnan-Universität)
 - [Muling Ke — Beitragender](https://github.com/1985312383) (Datawhale-Mitglied)
 
 > Weitere Beitragende sind jederzeit willkommen.

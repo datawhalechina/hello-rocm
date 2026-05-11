@@ -278,7 +278,7 @@ hello-rocm/
 - [陈思州-项目成员](https://github.com/jjyaoao) (Datawhale 成员, hello-agents 项目负责人)
 - [潘嘉航-项目成员](https://github.com/amdjiahangpan) （内容创作者-AMD软件工程师）
 - [刘伟鸿-项目成员](https://github.com/Weihong-Liu) （Datawhale成员）
-- [郝东波-项目成员](https://github.com/wlkq151172) （Datawhale成员）
+- [郝东波-项目成员](https://github.com/wlkq151172) （内容创作者-江南大学研究生）
 - [柯慕灵-项目成员](https://github.com/1985312383)（Datawhale成员）
 > 注：欢迎更多贡献者加入！
 

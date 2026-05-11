@@ -183,21 +183,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Infra — Opérateurs et profondeur de la pile
+### 03. Infra — Optimisation d’opérateurs et programmation GPU
 
 <p align="center">
-  <strong>⚙️ Infra et opérateurs ROCm</strong><br>
-  <em>De la pile matérielle/logicielle à la pratique au niveau HIP</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">Démarrer avec l’infra ROCm</a></strong>
+  <strong>⚙️ Optimisation d’opérateurs ROCm et programmation GPU</strong><br>
+  <em>Du panorama matériel AMD AI aux opérateurs HIP et à l’analyse de performances</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">Démarrer avec l’optimisation d’opérateurs ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • Migration automatisée avec HIPify<br>
-      • Migration des bibliothèques BLAS / DNN (rocBLAS, MIOpen, …)<br>
-      • NCCL → RCCL<br>
-      • Correspondance Nsight → rocprof
+      • Panorama matériel AMD AI et écosystème ROCm<br>
+      • Analyse approfondie de la pile logicielle GPU et de l’architecture matérielle<br>
+      • Introduction à la programmation HIP et pratique de noyaux écrits à la main<br>
+      • Opérateurs PyTorch personnalisés et intégration Autograd
     </td>
   </tr>
 </table>
@@ -267,7 +267,7 @@ hello-rocm/
 - [Sizhou Chen — contributeur](https://github.com/jjyaoao) (membre Datawhale ; responsable du projet hello-agents)
 - [Jiahang Pan — contributeur](https://github.com/amdjiahangpan) (créateur de contenu ; ingénieur logiciel AMD)
 - [Weihong Liu — contributeur](https://github.com/Weihong-Liu) (membre Datawhale)
-- [Dongbo Hao — contributeur](https://github.com/wlkq151172) (membre Datawhale)
+- [Dongbo Hao — contributeur](https://github.com/wlkq151172) (créateur de contenu ; doctorant à l'Université Jiangnan)
 - [Muling Ke — contributeur](https://github.com/1985312383) (membre Datawhale)
 
 > D’autres contributeurs sont toujours les bienvenus.

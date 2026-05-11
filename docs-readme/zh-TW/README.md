@@ -189,21 +189,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Infra - ROCm 算子優化
+### 03. Infra - ROCm 算子優化與 GPU 編程
 
 <p align="center">
-  <strong>⚙️ ROCm 算子優化實踐</strong><br>
-  <em>CUDA 到 ROCm 的遷移與優化指南</em><br>
-  📖 <strong><a href="../../docs/zh/03-infra/index.md">Getting Started with ROCm Infra</a></strong>
+  <strong>⚙️ ROCm 算子優化與 GPU 編程</strong><br>
+  <em>從 AMD AI 硬件全景到 HIP 算子與性能分析</em><br>
+  📖 <strong><a href="../../docs/zh/03-infra/index.md">開始學習 ROCm 算子優化與 GPU 編程</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • HIPify 自動化遷移實戰<br>
-      • BLAS 與 DNN 的無縫切換<br>
-      • NCCL 到 RCCL 的遷移<br>
-      • Nsight 到 Rocprof 的映射
+      • AMD AI 硬件全景與 ROCm 生態<br>
+      • GPU 軟件棧與硬件架構深度解析<br>
+      • HIP 編程入門與手寫 Kernel 實戰<br>
+      • 自定義 PyTorch 算子與 Autograd 集成
     </td>
   </tr>
 </table>
@@ -273,7 +273,7 @@ hello-rocm/
 - [陳思州-項目成員](https://github.com/jjyaoao) （Datawhale 成員，hello-agents 項目負責人）
 - [潘嘉航-項目成員](https://github.com/amdjiahangpan) （內容創作者-AMD軟體工程師）
 - [劉偉鴻-項目成員](https://github.com/Weihong-Liu) （Datawhale成員）
-- [郝東波-項目成員](https://github.com/wlkq151172) （Datawhale成員）
+- [郝東波-項目成員](https://github.com/wlkq151172) （內容創作者-江南大學研究生）
 - [柯慕靈-項目成員](https://github.com/1985312383)（Datawhale成員）
 > 註：歡迎更多貢獻者加入！
 

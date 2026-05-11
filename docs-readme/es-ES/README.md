@@ -184,21 +184,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. Infra — Operadores y profundidad de pila
+### 03. Infra — Optimización de operadores y programación GPU
 
 <p align="center">
-  <strong>⚙️ Infraestructura y operadores ROCm</strong><br>
-  <em>Desde la pila de hardware/software hasta la práctica a nivel HIP</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">Primeros pasos con la infraestructura ROCm</a></strong>
+  <strong>⚙️ Optimización de operadores ROCm y programación GPU</strong><br>
+  <em>Del panorama de hardware AMD AI a operadores HIP y análisis de rendimiento</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">Primeros pasos con la optimización de operadores ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • Migración automatizada con HIPify<br>
-      • Migración de bibliotecas BLAS / DNN (rocBLAS, MIOpen, …)<br>
-      • NCCL → RCCL<br>
-      • Mapeo de Nsight → rocprof
+      • Panorama de hardware AMD AI y ecosistema ROCm<br>
+      • Análisis profundo del stack de software GPU y arquitectura de hardware<br>
+      • Introducción a la programación HIP y práctica de kernels escritos a mano<br>
+      • Operadores personalizados de PyTorch e integración con Autograd
     </td>
   </tr>
 </table>
@@ -268,7 +268,7 @@ hello-rocm/
 - [Sizhou Chen — contribuyente](https://github.com/jjyaoao) (miembro de Datawhale; líder del proyecto hello-agents)
 - [Jiahang Pan — contribuyente](https://github.com/amdjiahangpan) (creador de contenido; ingeniero de software en AMD)
 - [Weihong Liu — contribuyente](https://github.com/Weihong-Liu) (miembro de Datawhale)
-- [Dongbo Hao — contribuyente](https://github.com/wlkq151172) (miembro de Datawhale)
+- [Dongbo Hao — contribuyente](https://github.com/wlkq151172) (creador de contenido; estudiante de posgrado de la Universidad Jiangnan)
 - [Muling Ke — contribuyente](https://github.com/1985312383) (miembro de Datawhale)
 
 > Siempre son bienvenidos más contribuyentes.

@@ -183,21 +183,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. インフラ — オペレーターとスタックの深掘り
+### 03. インフラ — オペレーター最適化 & GPUプログラミング
 
 <p align="center">
-  <strong>⚙️ ROCmインフラとオペレーター</strong><br>
-  <em>ハードウェア/ソフトウェアスタックからHIPレベルの実践まで</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">ROCmインフラ入門</a></strong>
+  <strong>⚙️ ROCm オペレーター最適化 & GPUプログラミング</strong><br>
+  <em>AMD AIハードウェア全景からHIPオペレーターとパフォーマンス分析まで</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">ROCmオペレーター最適化を始める</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • HIPifyによる自動マイグレーション<br>
-      • BLAS / DNNライブラリのマイグレーション（rocBLAS、MIOpen、…）<br>
-      • NCCL → RCCL<br>
-      • Nsight → rocprof マッピング
+      • AMD AI ハードウェア全景と ROCm エコシステム<br>
+      • GPU ソフトウェアスタックとハードウェアアーキテクチャの深掘り<br>
+      • HIP プログラミング入門と手書きカーネル実践<br>
+      • カスタム PyTorch オペレーターと Autograd 統合
     </td>
   </tr>
 </table>
@@ -267,7 +267,7 @@ hello-rocm/
 - [Sizhou Chen — コントリビューター](https://github.com/jjyaoao) (Datawhaleメンバー、hello-agents プロジェクトリーダー)
 - [Jiahang Pan — コントリビューター](https://github.com/amdjiahangpan) (コンテンツクリエイター、AMDソフトウェアエンジニア)
 - [Weihong Liu — コントリビューター](https://github.com/Weihong-Liu) (Datawhaleメンバー)
-- [Dongbo Hao — コントリビューター](https://github.com/wlkq151172) (Datawhaleメンバー)
+- [Dongbo Hao — コントリビューター](https://github.com/wlkq151172) (コンテンツクリエイター; 江南大学大学院生)
 - [Muling Ke — コントリビューター](https://github.com/1985312383) (Datawhaleメンバー)
 
 > さらなるコントリビューターを常に歓迎します。

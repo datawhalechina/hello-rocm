@@ -183,21 +183,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. البنية التحتية — المشغلات وعمق المكدس
+### 03. البنية التحتية — تحسين المشغلات وبرمجة GPU
 
 <p align="center">
-  <strong>⚙️ البنية التحتية والمشغلات على ROCm</strong><br>
-  <em>من مكدس الأجهزة/البرامج إلى الممارسة على مستوى HIP</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">بدء استخدام البنية التحتية على ROCm</a></strong>
+  <strong>⚙️ تحسين مشغلات ROCm وبرمجة GPU</strong><br>
+  <em>من بانوراما أجهزة AMD AI إلى مشغلات HIP وتحليل الأداء</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">البدء مع تحسين مشغلات ROCm</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • الترحيل التلقائي باستخدام HIPify<br>
-      • ترحيل مكتبات BLAS / DNN (rocBLAS، MIOpen، …)<br>
-      • NCCL → RCCL<br>
-      • تعيين Nsight → rocprof
+      • بانوراما أجهزة AMD AI وبيئة ROCm<br>
+      • تحليل معمق لمكدس برمجيات GPU وبنية الأجهزة<br>
+      • مقدمة برمجة HIP وكتابة النوى يدويًا<br>
+      • مشغلات PyTorch المخصصة وتكامل Autograd
     </td>
   </tr>
 </table>
@@ -267,7 +267,7 @@ hello-rocm/
 - [Sizhou Chen — مساهم](https://github.com/jjyaoao) (عضو Datawhale؛ قائد مشروع hello-agents)
 - [Jiahang Pan — مساهم](https://github.com/amdjiahangpan) (منشئ محتوى؛ مهندس برمجيات في AMD)
 - [Weihong Liu — مساهم](https://github.com/Weihong-Liu) (عضو Datawhale)
-- [Dongbo Hao — مساهم](https://github.com/wlkq151172) (عضو Datawhale)
+- [Dongbo Hao — مساهم](https://github.com/wlkq151172) (صانع محتوى؛ طالب دراسات عليا في جامعة جيانغنان)
 - [Muling Ke — مساهم](https://github.com/1985312383) (عضو Datawhale)
 
 > المزيد من المساهمين مرحب بهم دائمًا.

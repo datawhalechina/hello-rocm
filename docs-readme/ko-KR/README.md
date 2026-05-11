@@ -183,21 +183,21 @@ hello-rocm/
   </tr>
 </table>
 
-### 03. 인프라 — 연산자 및 스택 심층
+### 03. 인프라 — 연산자 최적화 & GPU 프로그래밍
 
 <p align="center">
-  <strong>⚙️ ROCm 인프라 및 연산자</strong><br>
-  <em>하드웨어/소프트웨어 스택부터 HIP 수준 실습까지</em><br>
-  📖 <strong><a href="../../docs/en/03-infra/index.md">ROCm 인프라 시작하기</a></strong>
+  <strong>⚙️ ROCm 연산자 최적화 & GPU 프로그래밍</strong><br>
+  <em>AMD AI 하드웨어 전경부터 HIP 연산자 및 성능 분석까지</em><br>
+  📖 <strong><a href="../../docs/en/03-infra/index.md">ROCm 연산자 최적화 시작하기</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • HIPify 자동 마이그레이션<br>
-      • BLAS / DNN 라이브러리 마이그레이션 (rocBLAS, MIOpen, …)<br>
-      • NCCL → RCCL<br>
-      • Nsight → rocprof 매핑
+      • AMD AI 하드웨어 전경과 ROCm 생태계<br>
+      • GPU 소프트웨어 스택과 하드웨어 아키텍처 심층 분석<br>
+      • HIP 프로그래밍 입문과 직접 작성한 커널 실습<br>
+      • 커스텀 PyTorch 연산자와 Autograd 통합
     </td>
   </tr>
 </table>
@@ -267,7 +267,7 @@ hello-rocm/
 - [Sizhou Chen — 기여자](https://github.com/jjyaoao) (Datawhale 멤버, hello-agents 프로젝트 리드)
 - [Jiahang Pan — 기여자](https://github.com/amdjiahangpan) (콘텐츠 크리에이터, AMD 소프트웨어 엔지니어)
 - [Weihong Liu — 기여자](https://github.com/Weihong-Liu) (Datawhale 멤버)
-- [Dongbo Hao — 기여자](https://github.com/wlkq151172) (Datawhale 멤버)
+- [Dongbo Hao — 기여자](https://github.com/wlkq151172) (콘텐츠 크리에이터; 장난대학 대학원생)
 - [Muling Ke — 기여자](https://github.com/1985312383) (Datawhale 멤버)
 
 > 더 많은 기여자는 언제나 환영합니다.
