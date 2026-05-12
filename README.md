@@ -254,6 +254,7 @@ hello-rocm/
       • YOLOv10 微信跳一跳 - 游戏 AI 实战（在 ROCm 环境下训练并使用 yolov10）<br>
       • Chat-甄嬛 - 古风对话大模型<br>
       • 智能旅行规划助手 - HelloAgents Agent 实战<br>
+      • Torch-RecHub - 推荐系统实战（CTR、召回、多任务、ONNX 导出）<br>
       • happy-llm - 分布式大模型训练
     </td>
   </tr>
@@ -284,7 +285,7 @@ hello-rocm/
 - [潘嘉航-项目成员](https://github.com/amdjiahangpan) （内容创作者-AMD软件工程师）
 - [刘伟鸿-项目成员](https://github.com/Weihong-Liu) （Datawhale成员）
 - [郝东波-项目成员](https://github.com/wlkq151172) （内容创作者-江南大学研究生）
-- [柯慕灵-项目成员](https://github.com/1985312383)（Datawhale成员）
+- [柯慕灵-项目成员](https://github.com/1985312383)（Datawhale成员，Torch-RecHub 项目负责人）
 > 注：欢迎更多贡献者加入！
 
 ### 其他

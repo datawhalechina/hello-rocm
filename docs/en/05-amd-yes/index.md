@@ -20,6 +20,7 @@
 | [🎭 Chat-Huanhuan](/05-amd-yes/huanhuan-chat) ✅️| |
 | [✈️ Smart Travel Planner](/05-amd-yes/hello-agents/) ✅️| |
 | [🦞 OpenClaw Private Assistant](/05-amd-yes/openclaw) ✅️| |
+| [📚 Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
@@ -100,6 +101,18 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Estimated Time**: 1.5 hours
 
 📖 [Start Learning OpenClaw](/05-amd-yes/openclaw)
+
+---
+
+#### 📚 Torch-RecHub - Recommender Systems Practice
+
+[Torch-RecHub](https://github.com/datawhalechina/torch-rechub) recommender systems practice covers CTR ranking, sequential interest modeling, matching, multi-task learning, experiment tracking, and model export.
+
+- **Target Audience**: Developers who want to learn recommender system modeling and training on AMD GPU / ROCm environments
+- **Difficulty Level**: ⭐⭐⭐
+- **Estimated Time**: 3+ hours
+
+📖 [Start Learning Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/)
 
 ---
 

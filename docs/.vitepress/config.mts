@@ -191,6 +191,19 @@ const zhSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
+          text: 'torch-rechub',
+          collapsed: false,
+          items: [
+            { text: 'Torch-RecHub 推荐系统实战', link: '/zh/05-amd-yes/torch-rechub/' },
+            { text: 'CTR 预测：DeepFM', link: '/zh/05-amd-yes/torch-rechub/00_QuickStart_CTR_DeepFM' },
+            { text: '序列兴趣建模：DIN', link: '/zh/05-amd-yes/torch-rechub/01_Ranking_DIN' },
+            { text: '匹配/召回：DSSM', link: '/zh/05-amd-yes/torch-rechub/02_Matching_DSSM' },
+            { text: '多任务学习：MMOE', link: '/zh/05-amd-yes/torch-rechub/03_MultiTask_MMOE' },
+            { text: '实验跟踪：model_logger', link: '/zh/05-amd-yes/torch-rechub/04_Experiment_Tracking_Light' },
+            { text: '模型导出与推理验证：ONNX', link: '/zh/05-amd-yes/torch-rechub/05_Model_Export_and_Serving' }
+          ]
+        },
+        {
           text: 'openclaw',
           items: [
             { text: 'OpenClaw 全隐私本地 AI 智能体平台', link: '/zh/05-amd-yes/openclaw' }
@@ -377,6 +390,19 @@ const enSidebar: DefaultTheme.Sidebar = {
                 { text: 'Smart Travel Planner', link: '/05-amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner' }
               ]
             }
+          ]
+        },
+        {
+          text: 'torch-rechub',
+          collapsed: false,
+          items: [
+            { text: 'Torch-RecHub Recommender Practice', link: '/05-amd-yes/torch-rechub/' },
+            { text: 'CTR Prediction: DeepFM', link: '/05-amd-yes/torch-rechub/00_QuickStart_CTR_DeepFM' },
+            { text: 'Sequential Interest Modeling: DIN', link: '/05-amd-yes/torch-rechub/01_Ranking_DIN' },
+            { text: 'Matching / Retrieval: DSSM', link: '/05-amd-yes/torch-rechub/02_Matching_DSSM' },
+            { text: 'Multi-task Learning: MMOE', link: '/05-amd-yes/torch-rechub/03_MultiTask_MMOE' },
+            { text: 'Experiment Tracking: model_logger', link: '/05-amd-yes/torch-rechub/04_Experiment_Tracking_Light' },
+            { text: 'Model Export and Inference Validation: ONNX', link: '/05-amd-yes/torch-rechub/05_Model_Export_and_Serving' }
           ]
         },
         {

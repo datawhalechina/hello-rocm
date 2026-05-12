@@ -250,6 +250,7 @@ hello-rocm/
       • WeChat “Jump Jump” with YOLOv10 — Game AI in Action (Train and use YOLOv10 under ROCm)<br>
       • Chat-甄嬛 — period-style dialogue model<br>
       • Travel planner — HelloAgents agent demo<br>
+      • Torch-RecHub — recommender systems practice (CTR, retrieval, multi-task learning, ONNX export)<br>
       • happy-llm — distributed LLM training
     </td>
   </tr>
@@ -280,7 +281,7 @@ hello-rocm/
 - [Jiahang Pan — contributor](https://github.com/amdjiahangpan) (content creator; AMD software engineer)
 - [Weihong Liu — contributor](https://github.com/Weihong-Liu) (Datawhale member)
 - [Dongbo Hao — contributor](https://github.com/wlkq151172) (content creator; Jiangnan University graduate student)
-- [Muling Ke — contributor](https://github.com/1985312383) (Datawhale member)
+- [Muling Ke — contributor](https://github.com/1985312383) (Datawhale member; Torch-RecHub project lead)
 
 > More contributors are always welcome.
 

@@ -20,6 +20,7 @@
 | [🎭 Chat-甄嬛](/zh/05-amd-yes/huanhuan-chat) ✅️| |
 | [✈️ 智能旅行规划助手](/zh/05-amd-yes/hello-agents/) ✅️| |
 | [🦞 OpenClaw 全隐私助手](/zh/05-amd-yes/openclaw) ✅️| |
+| [📚 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 
@@ -100,6 +101,18 @@
 - **预计时间**：1.5 小时
 
 📖 [开始学习 OpenClaw](/zh/05-amd-yes/openclaw)
+
+---
+
+#### 📚 Torch-RecHub - 推荐系统实战
+
+[Torch-RecHub](https://github.com/datawhalechina/torch-rechub) 推荐系统实战教程覆盖 CTR 精排、序列兴趣建模、召回、多任务学习、实验跟踪和模型导出。
+
+- **适合人群**：想在 AMD GPU / ROCm 环境下学习推荐系统建模与训练流程的开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：3 小时+
+
+📖 [开始学习 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/)
 
 ---
 
