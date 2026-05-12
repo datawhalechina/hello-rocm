@@ -6,7 +6,7 @@ hero:
   text: ROCm tutorials and practice cases for AMD GPUs
   tagline: A structured learning path for AMD ROCm in LLM workflows, from environment setup and deployment to fine-tuning and operator optimization.
   image:
-    src: /images/head.png
+    src: /images/logo.png
     alt: hello-rocm
   actions:
     - theme: brand

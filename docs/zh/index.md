@@ -6,7 +6,7 @@ hero:
   text: 面向 AMD GPU 的 ROCm 教程与实践案例
   tagline: 从环境安装、模型部署、模型微调到算子优化，系统整理 AMD ROCm 在大模型场景下的学习路径。
   image:
-    src: /images/head.png
+    src: /images/logo.png
     alt: hello-rocm
   actions:
     - theme: brand
