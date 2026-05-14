@@ -259,11 +259,8 @@ cd chapter6/code
 ## 项目结构
 
 ```
-04-happy-llm/
-├── README.md                           # 本文件
+src/amd-yes/happy-llm/
 ├── chapter5/                           # 第五章：从零搭建 LLaMA2 模型
-│   ├── README.md                       # 执行流程与参数说明
-│   ├── 第五章 动手搭建大模型.md          # 章节详细教程
 │   └── code/
 │       ├── 00_download_dataset.sh          # 步骤 0：下载数据集（Linux）
 │       ├── 00_windows_download_dataset.sh  # 步骤 0：下载数据集（Windows）
@@ -276,11 +273,11 @@ cd chapter6/code
 │       ├── k_model.py                      # 模型定义（库文件）
 │       ├── dataset.py                      # 数据集类（库文件）
 │       ├── tokenizer_k/                    # 预训练好的 Tokenizer
+│       │   ├── special_tokens_map.json
+│       │   ├── tokenizer.json
+│       │   └── tokenizer_config.json
 │       └── requirements.txt
 └── chapter6/                           # 第六章：基于 Transformers 的 LLM 训练
-    ├── README.md                       # 执行流程与参数说明
-    ├── 第六章 大模型训练流程实践.md      # 章节详细教程
-    ├── 6.4[WIP] 偏好对齐.md            # 6.4 节（施工中）
     └── code/
         ├── 00_download_model.py        # 步骤 0：下载基础模型
         ├── 01_download_dataset.py      # 步骤 1a：下载数据集

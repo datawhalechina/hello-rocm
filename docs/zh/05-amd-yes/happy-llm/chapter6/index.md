@@ -17,13 +17,7 @@
 ## 文件结构
 
 ```
-chapter6/
-├── 第六章 大模型训练流程实践.md    # 章节详细教程
-├── 6.4[WIP] 偏好对齐.md           # 6.4 小节
-├── chapter6-llm-training-workflow-practice.md  # 英文教程
-├── chapter6-4-wip-preference-alignment.md      # 6.4 英文版
-├── README.md                      # 本文件
-├── README_EN.md                   # 英文 README
+src/amd-yes/happy-llm/chapter6/
 └── code/
     ├── 00_download_model.py        # 步骤 0：下载基座模型（Qwen2.5-1.5B）
     ├── 01_download_dataset.py      # 步骤 1a：下载数据集

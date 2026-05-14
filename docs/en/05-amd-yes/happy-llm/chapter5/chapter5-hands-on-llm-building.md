@@ -13,7 +13,7 @@ Meta (formerly Facebook) released LLaMA, its first large language model based on
 The LLaMA2 model architecture is shown in Figure 5.1 below:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/5-images/LLama2.png" alt="alt text" width="100%">
+    <img src="/images/05-amd-yes/happy-llm/LLama2.png" alt="alt text" width="100%">
     <p>Figure 5.1 LLaMA2 Architecture</p>
 </div>
 
@@ -120,7 +120,7 @@ torch.Size([1, 50, 768])
 In the LLaMA2 model, although only the LLaMA2-70B model uses Grouped-Query Attention (GQA), we still choose to use GQA to build our LLaMA Attention module, as it can improve model efficiency and save some GPU memory.
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/5-images/llama2-attention.png" alt="alt text" width="50%">
+    <img src="/images/05-amd-yes/happy-llm/llama2-attention.png" alt="alt text" width="50%">
     <p>Figure 5.2 LLaMA2 Attention Architecture</p>
 </div>
 
@@ -1359,7 +1359,7 @@ class PretrainDataset(Dataset):
 As shown in the code above and Figure 5.3, the `Pretrain Dataset` primarily converts `text` into `input_id` through the `tokenizer`, then splits `input_id` into `X` and `Y`, where `X` consists of the first n-1 elements of `input_id`, and `Y` consists of the last n-1 elements of `input_id`. The `loss_mask` is used to indicate which positions require loss computation and which do not.
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/5-images/pretrain_dataset.png" alt="alt text" width="100%">
+    <img src="/images/05-amd-yes/happy-llm/pretrain_dataset.png" alt="alt text" width="100%">
     <p>Figure 5.3 Pre-training Loss Computation</p>
 </div>
 
@@ -1453,7 +1453,7 @@ class SFTDataset(Dataset):
 During the SFT stage, since we use a multi-turn dialogue dataset, we need to distinguish which positions require loss computation and which do not. In the code above, we use a `generate_loss_mask` function to generate the `loss_mask`. The generation rule for this function is: when `<|im_start|>assistant\n` is encountered, loss computation begins, and continues until `<|im_end|>` is reached. This ensures that our model only computes loss for the current turn's dialogue content during the SFT stage, as shown in Figure 5.4.
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/5-images/sftdataset.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/sftdataset.png" alt="alt text" width="90%">
     <p>Figure 5.4 SFT Loss Computation</p>
 </div>
 

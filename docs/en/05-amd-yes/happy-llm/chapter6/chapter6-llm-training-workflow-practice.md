@@ -17,7 +17,7 @@ Therefore, in this chapter, we introduce the mainstream LLM training framework T
 Transformers is an NLP framework developed by Hugging Face. Through a modular design it provides unified support for hundreds of mainstream model architectures including BERT, GPT, LLaMA, T5, ViT, and many more. With Transformers, developers do not need to re-implement the basic network structures: by using the `AutoModel` class they can load any pre-trained model with a single line. Figure 6.1 shows the homepage of the Hugging Face Transformers course:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-1.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/1-1.png" alt="alt text" width="90%">
     <p>Figure 6.1 Hugging Face Transformers</p>
 </div>
 
@@ -26,7 +26,7 @@ In addition, the framework's built-in `Trainer` class encapsulates the core logi
 For NLP researchers in the LLM era, an even more important point is that, based on the Transformers framework, Hugging Face has built a huge AI community with hundreds of millions of pre-trained model parameters and 250k+ datasets of various types. Through Transformers, Datasets, Evaluate and other frameworks, models, datasets, and evaluation functions are integrated, so developers can conveniently use any pre-trained model and quickly implement their own model development and applications on top of open-source models and datasets.
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-2.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/1-2.png" alt="alt text" width="90%">
     <p>Figure 6.2 Hugging Face Transformers model community</p>
 </div>
 
@@ -37,14 +37,14 @@ In the LLM era, modifying model architectures and re-pretraining are increasingl
 We can use the `AutoModel` class of Transformers to directly initialize already-implemented models. For any pre-trained model, the parameters include the model's configuration. If you want to train an LLM from scratch, you can directly initialize using an existing model architecture. Here we take the architecture of [Qwen-2.5-1.5B](https://huggingface.co/Qwen/Qwen2.5-1.5B/tree/main) as an example:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-3.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/1-3.png" alt="alt text" width="90%">
     <p>Figure 6.3 Qwen-2.5-1.5B</p>
 </div>
 
 The page above is the Qwen-2.5-1.5B model parameters in the HuggingFace community. The `config.json` file is the model configuration, including the architecture, hidden size, number of layers, etc., as shown in Figure 6.4:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-4.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/1-4.png" alt="alt text" width="90%">
     <p>Figure 6.4 Qwen-2.5-1.5B config.json</p>
 </div>
 
@@ -61,7 +61,7 @@ os.system('huggingface-cli download --resume-download Qwen/Qwen2.5-1.5B --local-
 As Figure 6.5 shows, "Qwen/Qwen2.5-1.5B" here is the identifier of the model to download. For other models, you can directly copy the model name from HuggingFace:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-5.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/1-5.png" alt="alt text" width="90%">
     <p>Figure 6.5 Model download identifier</p>
 </div>
 
@@ -89,7 +89,7 @@ model = AutoModelForCausalLM.from_config(config, trust_remote_code=True)
 Since LLMs are typically CausalLM architectures, here we use `AutoModelForCausalLM` to load. If used for classification training, you would use `AutoModelForSequenceClassification` instead. Inspecting `model`, Figure 6.6 shows that its architecture matches the config:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-6.png" alt="alt text" width="70%">
+    <img src="/images/05-amd-yes/happy-llm/1-6.png" alt="alt text" width="70%">
     <p>Figure 6.6 Output of model structure</p>
 </div>
 
@@ -132,7 +132,7 @@ ds["train"][0]
 ```
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/1-7.png" alt="alt text" width="100%">
+    <img src="/images/05-amd-yes/happy-llm/1-7.png" alt="alt text" width="100%">
     <p>Figure 6.7 Dataset preview</p>
 </div>
 
@@ -793,7 +793,7 @@ To address the high cost of full fine-tuning, there are mainly two solutions:
 Specifically, it inserts task-specific parameters — i.e., Adapter modules — into each layer of the pre-trained model. During fine-tuning the model body is frozen and only the task-specific parameters are trained, as shown in Figure 6.8.
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/3-1.png" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/3-1.png" alt="alt text" width="90%">
     <p>Figure 6.8 Adapter Tuning</p>
 </div>
 
@@ -845,7 +845,7 @@ At the start of training, $A$ is initialized with random Gaussian, $B$ is initia
 The training idea is shown in Figure 6.9:
 
 <div align='center'>
-    <img src="https://raw.githubusercontent.com/datawhalechina/happy-llm/main/docs/images/6-images/3-2.jpg" alt="alt text" width="90%">
+    <img src="/images/05-amd-yes/happy-llm/3-2.jpg" alt="alt text" width="90%">
     <p>Figure 6.9 LoRA</p>
 </div>
 

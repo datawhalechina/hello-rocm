@@ -264,14 +264,8 @@ If you want to get started training quickly, you can go directly to Chapter 6. I
 ## Project Structure
 
 ```
-04-happy-llm/
-├── README.md                           # Original file (Chinese)
-├── README_EN.md                        # This file (English)
+src/amd-yes/happy-llm/
 ├── chapter5/                           # Chapter 5: Building LLaMA2 Model from Scratch
-│   ├── README.md                       # Execution process and parameter instructions (Chinese)
-│   ├── README_EN.md                    # English version
-│   ├── 第五章 动手搭建大模型.md          # Chapter detailed tutorial (Chinese)
-│   ├── chapter5-hands-on-llm-building.md  # English version
 │   └── code/
 │       ├── 00_download_dataset.sh          # Step 0: Download dataset (Linux)
 │       ├── 00_windows_download_dataset.sh  # Step 0: Download dataset (Windows)
@@ -284,14 +278,11 @@ If you want to get started training quickly, you can go directly to Chapter 6. I
 │       ├── k_model.py                      # Model definition (library file)
 │       ├── dataset.py                      # Dataset class (library file)
 │       ├── tokenizer_k/                    # Pre-trained Tokenizer
+│       │   ├── special_tokens_map.json
+│       │   ├── tokenizer.json
+│       │   └── tokenizer_config.json
 │       └── requirements.txt
 └── chapter6/                           # Chapter 6: LLM Training Based on Transformers
-    ├── README.md                       # Execution process and parameter instructions (Chinese)
-    ├── README_EN.md                    # English version
-    ├── 第六章 大模型训练流程实践.md      # Chapter detailed tutorial (Chinese)
-   ├── chapter6-llm-training-workflow-practice.md  # English version
-    ├── 6.4[WIP] 偏好对齐.md            # Section 6.4 (Under Construction - Chinese)
-   ├── chapter6-4-wip-preference-alignment.md      # English version
     └── code/
         ├── 00_download_model.py        # Step 0: Download base model
         ├── 01_download_dataset.py      # Step 1a: Download dataset

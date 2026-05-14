@@ -8,7 +8,7 @@
 
 This chapter is based on the Transformers + DeepSpeed framework and implements a full LLM pipeline on AMD ROCm, including pretraining and SFT fine-tuning. For a detailed framework introduction and training principles, see [chapter6-llm-training-workflow-practice.md](./chapter6-llm-training-workflow-practice.md).
 
-For the Chinese version, see [第六章 大模型训练流程实践.md](./chapter6-llm-training-workflow-practice.md).
+For the Chinese version, see [Chapter 6: LLM Training Workflow Practice](./chapter6-llm-training-workflow-practice.md).
 
 Section 6.4 (English): [chapter6-4-wip-preference-alignment.md](./chapter6-4-wip-preference-alignment.md)
 
@@ -17,13 +17,7 @@ Section 6.4 (English): [chapter6-4-wip-preference-alignment.md](./chapter6-4-wip
 ## File Structure
 
 ```
-chapter6/
-├── 第六章 大模型训练流程实践.md    # Detailed chapter tutorial
-├── chapter6-llm-training-workflow-practice.md  # English chapter tutorial
-├── 6.4[WIP] 偏好对齐.md           # Section 6.4 (work in progress)
-├── chapter6-4-wip-preference-alignment.md      # English section 6.4
-├── README.md                      # Chinese README
-├── README_EN.md                   # This file
+src/amd-yes/happy-llm/chapter6/
 └── code/
     ├── 00_download_model.py        # Step 0: Download base model (Qwen2.5-1.5B)
     ├── 01_download_dataset.py      # Step 1a: Download dataset
