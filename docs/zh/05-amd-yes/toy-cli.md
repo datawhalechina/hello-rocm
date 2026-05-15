@@ -31,15 +31,13 @@ python 3.12
 ```
 > 本文默认学习者使用的是 AMD ROCm 支持的显卡 或 搭载 Ryzen AI 系列芯片 AI PC 设备，LM Studio 本地加载大模型请参考 [Getting Started with ROCm Deploy](/zh/01-deploy/)
 
-首先 `pip` 换源加速下载并安装依赖包
+
+> 📖 `uv` 基础环境安装请参考 [00-Environment](/zh/00-environment/)，完成后再继续以下步骤。
+
+- 使用 `uv` 下载并安装依赖包
 
 ```shell
-# 升级pip
-python -m pip install --upgrade pip
-# 更换 pypi 源加速库的安装
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
-pip install requests python-dotenv chardet
+uv pip install requests python-dotenv chardet
 ```
 
 ## Step 2: 本地模型配置
