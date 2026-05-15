@@ -45,17 +45,14 @@ Ollama / LM Studio / 玲珑"智玲同学"（三选一）
 
 ### 1.1 安装 Python 依赖
 
-首先 `pip` 换源加速下载并安装依赖包：
+> 📖 `uv` 基础环境安装请参考 [00-Environment](/zh/00-environment/)，完成后再继续以下步骤。
+
+- 使用 `uv` 下载并安装依赖包
 
 ```shell
-# 升级 pip
-python -m pip install --upgrade pip
-
-# 更换 pypi 源加速库的安装
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
 # 安装 HelloAgents 和相关依赖
-pip install hello-agents requests python-dotenv uv
+uv pip install hello-agents==0.2.8 
+uv pip install huggingface_hub requests python-dotenv
 ```
 
 ### 1.2 获取高德地图 API Key

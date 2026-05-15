@@ -45,17 +45,14 @@ Ollama / LM Studio / Linglong "Smart Linglong Classmate" (choose one)
 
 ### 1.1 Install Python Dependencies
 
-First, switch pip source for faster downloads and install dependency packages:
+> 📖 For `uv` base environment installation, see [00-Environment](/00-environment/). Continue below after completing that setup.
+
+- First, use `uv` to accelerate downloads and install dependencies
 
 ```shell
-# Upgrade pip
-python -m pip install --upgrade pip
-
-# Switch to faster PyPI source
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
 # Install HelloAgents and related dependencies
-pip install hello-agents requests python-dotenv uv
+uv pip install hello-agents==0.2.8 
+uv pip install huggingface_hub requests python-dotenv
 ```
 
 ### 1.2 Obtain Amap API Key

@@ -31,14 +31,11 @@ python 3.12
 ```
 > This guide assumes that learners are using a graphics card supported by AMD ROCm or an AI PC device with Ryzen AI series chips. For loading large models locally with LM Studio, please refer to [Getting Started with ROCm Deploy](/01-deploy/)
 
-First, switch pip sources to accelerate downloads and install dependencies
+> 📖 For `uv` base environment installation, see [00-Environment](/00-environment/). Continue below after completing that setup.
+
+- First, use `uv` to accelerate downloads and install dependencies
 
 ```shell
-# Upgrade pip
-python -m pip install --upgrade pip
-# Switch to Tsinghua pypi source to accelerate library installation
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
 pip install requests python-dotenv chardet
 ```
 
