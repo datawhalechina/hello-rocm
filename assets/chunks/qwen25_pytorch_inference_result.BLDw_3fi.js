@@ -1,0 +1,1 @@
+const e="/hello-rocm/images/03-infra/embrace-amd-ai/resnet_cifar10_training_curve.webp",r="/hello-rocm/images/03-infra/embrace-amd-ai/resnet_cifar10_rocm_result.webp",a="/hello-rocm/images/03-infra/embrace-amd-ai/qwen25_vllm_inference_result.webp",i="/hello-rocm/images/03-infra/embrace-amd-ai/qwen25_pytorch_inference_result.webp";export{e as _,r as a,a as b,i as c};
