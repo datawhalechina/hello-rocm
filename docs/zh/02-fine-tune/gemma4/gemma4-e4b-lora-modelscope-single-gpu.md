@@ -1,6 +1,6 @@
 # 在 ModelScope `AI-ModelScope/emotion` 上单卡微调 Gemma 4 E4B-it（LoRA）
 
-可运行笔记本：[「在 AI-ModelScope/emotion 上单卡微调 Gemma 4 E4B-it（魔搭 ModelScope 版本）」](../../../../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb)
+可运行笔记本：[「在 AI-ModelScope/emotion 上单卡微调 Gemma 4 E4B-it（魔搭 ModelScope 版本）」](https://github.com/datawhalechina/hello-rocm/blob/main/src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb)
 
 本流程使用 **魔搭 ModelScope** 上的 **`AI-ModelScope/emotion`**（[`dair-ai/emotion`](https://huggingface.co/datasets/dair-ai/emotion) 的官方镜像）数据集，对 **`google/gemma-4-E4B-it`** 进行 **LoRA 指令微调**。模型与数据均从 ModelScope 拉取，**不需要 `HF_TOKEN` 或 Hugging Face 登录**。
 
