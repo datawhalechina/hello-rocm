@@ -165,7 +165,7 @@ You'll see three core features:
 - **Local Models**: Manage downloaded models with options to start, stop, and test conversations
 
 <div align='center'>
-    <img src="/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-1.png" alt="" width="90%">
+    <img src="/docs/public/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-1.png" alt="" width="90%">
 </div>
 
 <div align="center">
@@ -185,7 +185,7 @@ After the download is complete, click the "Start" button. After a few seconds, t
 In the "Chat" tab, type "What model are you?" to test the conversation feature.
 
 <div align='center'>
-    <img src="/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-2.png" alt="" width="90%">
+    <img src="/docs/public/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-2.png" alt="" width="90%">
 </div>
 
 <div align="center">
@@ -276,8 +276,8 @@ After registering, enter the console and create a new application as shown in Fi
 
 
 <div align="center">
-  <!-- TODO: Missing image resource: /images/05-amd-yes/hello-agents/smart-travel-planner/picture3.png
-  <img :src="'/images/05-amd-yes/hello-agents/smart-travel-planner/picture3.png'" alt="" width="90%"/>
+  <!-- TODO: Missing image resource: /docs/public/images/05-amd-yes/hello-agents/smart-travel-planner/picture3.png
+  <img :src="'/docs/public/images/05-amd-yes/hello-agents/smart-travel-planner/picture3.png'" alt="" width="90%"/>
   -->
   <p>Figure 3: Amap API Application</p>
 </div>

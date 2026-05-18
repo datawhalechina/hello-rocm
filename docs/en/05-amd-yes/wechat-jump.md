@@ -13,7 +13,7 @@
 ### YOLOv10 WeChat Jump Training and Control Loop
 
 <div align='center'>
-    <img src="/images/05-amd-yes/wechat-jump/wechat_jump_yolo_rocm_flow_en.png" alt="Figure 5.2.1 YOLOv10 WeChat Jump training and control loop" width="95%">
+    <img src="/docs/public/images/05-amd-yes/wechat-jump/wechat_jump_yolo_rocm_flow_en.png" alt="Figure 5.2.1 YOLOv10 WeChat Jump training and control loop" width="95%">
 </div>
 
 ***OK, next I will guide you step-by-step to implement the training and usage process for WeChat Jump automation. Let's experience it together!***
@@ -52,7 +52,7 @@ ADB (Android Debug Bridge) is a command-line tool used for communicating with An
 2. After downloading and extracting, add the extracted path to the system environment variables
 
 <div align='center'>
-		<img src="/images/05-amd-yes/wechat-jump/env.png" alt="Environment variable configuration" width="90%">
+		<img src="/docs/public/images/05-amd-yes/wechat-jump/env.png" alt="Environment variable configuration" width="90%">
 		<p>Example of environment variable configuration</p>
 </div>
 

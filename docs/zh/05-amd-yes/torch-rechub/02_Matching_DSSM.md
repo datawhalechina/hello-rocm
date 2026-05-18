@@ -24,7 +24,7 @@ MovieLens-1M 是电影推荐常用数据集。样例数据通常包含：
 
 在召回训练里，我们把用户和物品分别编码成向量。
 
-![DSSM.png](/images/05-amd-yes/torch-rechub/DSSM.png)
+![DSSM.png](/docs/public/images/05-amd-yes/torch-rechub/DSSM.png)
 
 ## DSSM 的数学直觉
 

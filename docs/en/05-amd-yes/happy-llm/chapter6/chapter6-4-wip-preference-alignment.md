@@ -15,8 +15,8 @@ Now let us get into the core part — the basic principles of RL.
 - **Value Function**: a tool to evaluate a policy, predicting the total reward obtainable in the long run from the current state. The value function helps the agent weigh short-term and long-term gains, not just the immediate step.
 - **Model**: in some RL systems we build a model of the environment to help the agent foresee the consequences of its actions. This is useful in many complex computational settings.
 
-<!-- TODO: Missing image resource: /images/05-amd-yes/happy-llm/chapter6/7.1-1.png
-<img :src="'/images/05-amd-yes/happy-llm/chapter6/7.1-1.png'" alt="Reinforcement Learning" />
+<!-- TODO: Missing image resource: /docs/public/images/05-amd-yes/happy-llm/chapter6/7.1-1.png
+<img :src="'/docs/public/images/05-amd-yes/happy-llm/chapter6/7.1-1.png'" alt="Reinforcement Learning" />
 -->
 
 These elements work together so the agent can learn the best action strategy by trial and error in a virtual environment. In RL, the agent is the subject that learns and decides. It interacts with the environment in the following steps:
