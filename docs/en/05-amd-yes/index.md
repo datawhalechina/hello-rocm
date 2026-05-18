@@ -52,7 +52,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐
 - **Estimated Time**: 30 minutes
 
-📖 [Start Learning toy-cli](/05-amd-yes/toy-cli)
+📖 [Start Learning toy-cli](./toy-cli.md)
 
 ---
 
@@ -64,7 +64,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐
 - **Estimated Time**: 1 hour
 
-📖 [Start Learning WeChat Jump](/05-amd-yes/wechat-jump)
+📖 [Start Learning WeChat Jump](./wechat-jump.md)
 
 ---
 
@@ -76,19 +76,19 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐
 - **Estimated Time**: 1.5 hours
 
-📖 [Start Learning Chat-Huanhuan](/05-amd-yes/huanhuan-chat)
+📖 [Start Learning Chat-Huanhuan](./huanhuan-chat.md)
 
 ---
 
 #### ✈️ Smart Travel Planner
 
-[Smart Travel Planner](/05-amd-yes/hello-agents/) is an intelligent Agent application based on the HelloAgents framework, integrating MCP protocol to call Amap API, running large models locally on AMD GPU.
+[Smart Travel Planner](./hello-agents/) is an intelligent Agent application based on the HelloAgents framework, integrating MCP protocol to call Amap API, running large models locally on AMD GPU.
 
 - **Target Audience**: Developers wanting to learn Agent frameworks and MCP protocol
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 2 hours
 
-📖 [Start Learning Smart Travel Planner](/05-amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner)
+📖 [Start Learning Smart Travel Planner](./hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner.md)
 
 ---
 
@@ -100,7 +100,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 1.5 hours
 
-📖 [Start Learning OpenClaw](/05-amd-yes/openclaw)
+📖 [Start Learning OpenClaw](./openclaw.md)
 
 ---
 
@@ -112,7 +112,7 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 3+ hours
 
-📖 [Start Learning Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/)
+📖 [Start Learning Torch-RecHub Recommender Practice](./torch-rechub/index.md)
 
 ---
 
@@ -130,7 +130,7 @@ Advanced usage – distributed training and deployment!
 - **Difficulty Level**: ⭐⭐⭐
 - **Estimated Time**: 3+ hours
 
-📖 [Start Learning Happy-LLM](/05-amd-yes/happy-llm/)
+📖 [Start Learning Happy-LLM](./happy-llm/index.md)
 
 ---
 

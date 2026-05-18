@@ -52,7 +52,7 @@
 - **难度等级**：⭐
 - **预计时间**：30 分钟
 
-📖 [开始学习 toy-cli](/zh/05-amd-yes/toy-cli)
+📖 [开始学习 toy-cli](./toy-cli.md)
 
 ---
 
@@ -64,7 +64,7 @@
 - **难度等级**：⭐⭐
 - **预计时间**：1 小时
 
-📖 [开始学习微信跳一跳](/zh/05-amd-yes/wechat-jump)
+📖 [开始学习微信跳一跳](./wechat-jump.md)
 
 ---
 
@@ -76,19 +76,19 @@
 - **难度等级**：⭐⭐
 - **预计时间**：1.5 小时
 
-📖 [开始学习 Chat-甄嬛](/zh/05-amd-yes/huanhuan-chat)
+📖 [开始学习 Chat-甄嬛](./huanhuan-chat.md)
 
 ---
 
 #### ✈️ 智能旅行规划助手
 
-[智能旅行规划助手](/zh/05-amd-yes/hello-agents/) 是基于 HelloAgents 框架的智能 Agent 应用，集成 MCP 协议调用高德地图 API，在 AMD GPU 上本地运行大模型。
+[智能旅行规划助手](./hello-agents/) 是基于 HelloAgents 框架的智能 Agent 应用，集成 MCP 协议调用高德地图 API，在 AMD GPU 上本地运行大模型。
 
 - **适合人群**：想学习 Agent 框架和 MCP 协议的开发者
 - **难度等级**：⭐⭐⭐
 - **预计时间**：2 小时
 
-📖 [开始学习智能旅行规划助手](/zh/05-amd-yes/hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner)
+📖 [开始学习智能旅行规划助手](./hello-agents/smart-travel-planner/amd395-helloagents-smart-travel-planner.md)
 
 ---
 
@@ -100,7 +100,7 @@
 - **难度等级**：⭐⭐⭐
 - **预计时间**：1.5 小时
 
-📖 [开始学习 OpenClaw](/zh/05-amd-yes/openclaw)
+📖 [开始学习 OpenClaw](./openclaw.md)
 
 ---
 
@@ -112,7 +112,7 @@
 - **难度等级**：⭐⭐⭐
 - **预计时间**：3 小时+
 
-📖 [开始学习 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/)
+📖 [开始学习 Torch-RecHub 推荐系统实战](./torch-rechub/index.md)
 
 ---
 
@@ -130,7 +130,7 @@
 - **难度等级**：⭐⭐⭐
 - **预计时间**：3 小时+
 
-📖 [开始学习 Happy-LLM](/zh/05-amd-yes/happy-llm/)
+📖 [开始学习 Happy-LLM](./happy-llm/index.md)
 
 ---
 
