@@ -56,7 +56,7 @@ Happy-LLM 完整教程共 7 章 + 1 个扩展篇，分为 **基础理论** 和 *
 
 使用纯 PyTorch 从零实现 LLaMA2 模型（8000万参数），并在 AMD ROCm 上完成预训练与 SFT 微调，无需依赖任何训练框架。
 
-📖 [章节教程](/zh/05-amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building) ｜ 🚀 [执行流程与脚本说明](/zh/05-amd-yes/happy-llm/chapter5/)
+📖 [章节教程](./chapter5/chapter5-hands-on-llm-building.md) ｜ 🚀 [执行流程与脚本说明](./chapter5/index.md)
 
 ---
 
@@ -64,7 +64,7 @@ Happy-LLM 完整教程共 7 章 + 1 个扩展篇，分为 **基础理论** 和 *
 
 基于 Transformers + DeepSpeed 框架，复现工业级预训练与 SFT 流程，支持 AMD ROCm 多卡分布式训练与 ZeRO 优化。
 
-📖 [章节教程](/zh/05-amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice) ｜ 🚀 [执行流程与脚本说明](/zh/05-amd-yes/happy-llm/chapter6/)
+📖 [章节教程](./chapter6/chapter6-llm-training-workflow-practice.md) ｜ 🚀 [执行流程与脚本说明](./chapter6/index.md)
 
 ---
 

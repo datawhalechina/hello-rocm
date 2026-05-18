@@ -61,7 +61,7 @@ Happy-LLM's complete tutorial consists of 7 chapters + 1 extra chapter, divided 
 
 Implement the LLaMA2 model with 80 million parameters entirely in pure PyTorch from zero, completing pre-training and SFT fine-tuning on AMD ROCm without relying on any training framework.
 
-📖 [Chapter Tutorial](/05-amd-yes/happy-llm/chapter5/chapter5-hands-on-llm-building) ｜ 🚀 [Execution Process and Script Instructions](/05-amd-yes/happy-llm/chapter5/)
+📖 [Chapter Tutorial](./chapter5/chapter5-hands-on-llm-building.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter5/index.md)
 
 ---
 
@@ -69,7 +69,7 @@ Implement the LLaMA2 model with 80 million parameters entirely in pure PyTorch f
 
 Based on the Transformers + DeepSpeed framework, reproduce production-grade pre-training and SFT workflows with support for AMD ROCm multi-card distributed training and ZeRO optimization.
 
-📖 [Chapter Tutorial](/05-amd-yes/happy-llm/chapter6/chapter6-llm-training-workflow-practice) ｜ 🚀 [Execution Process and Script Instructions](/05-amd-yes/happy-llm/chapter6/)
+📖 [Chapter Tutorial](./chapter6/chapter6-llm-training-workflow-practice.md) ｜ 🚀 [Execution Process and Script Instructions](./chapter6/index.md)
 
 ---
 

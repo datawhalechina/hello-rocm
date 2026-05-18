@@ -38,9 +38,9 @@ The tutorials use small sample datasets so the full workflow can be tested local
 
 ## Tutorials
 
-1. [CTR Prediction: DeepFM](/05-amd-yes/torch-rechub/00_QuickStart_CTR_DeepFM)
-2. [Sequential Interest Modeling: DIN](/05-amd-yes/torch-rechub/01_Ranking_DIN)
-3. [Matching / Retrieval: DSSM](/05-amd-yes/torch-rechub/02_Matching_DSSM)
-4. [Multi-task Learning: MMOE](/05-amd-yes/torch-rechub/03_MultiTask_MMOE)
-5. [Experiment Tracking: model_logger](/05-amd-yes/torch-rechub/04_Experiment_Tracking_Light)
-6. [Model Export and Inference Validation: ONNX](/05-amd-yes/torch-rechub/05_Model_Export_and_Serving)
+1. [CTR Prediction: DeepFM](./00_QuickStart_CTR_DeepFM.md)
+2. [Sequential Interest Modeling: DIN](./01_Ranking_DIN.md)
+3. [Matching / Retrieval: DSSM](./02_Matching_DSSM.md)
+4. [Multi-task Learning: MMOE](./03_MultiTask_MMOE.md)
+5. [Experiment Tracking: model_logger](./04_Experiment_Tracking_Light.md)
+6. [Model Export and Inference Validation: ONNX](./05_Model_Export_and_Serving.md)
