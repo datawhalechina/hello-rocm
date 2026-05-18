@@ -15,12 +15,12 @@
 
 | 本地运行（单卡） | 集群部署（多卡） |
 |---------|---------|
-| [🧸 toy-cli](/zh/05-amd-yes/toy-cli) ✅️ | [🚀 happy-llm](/zh/05-amd-yes/happy-llm/) ✅️ |
-| [🎮 微信跳一跳](/zh/05-amd-yes/wechat-jump) ✅️| |
-| [🎭 Chat-甄嬛](/zh/05-amd-yes/huanhuan-chat) ✅️| |
-| [✈️ 智能旅行规划助手](/zh/05-amd-yes/hello-agents/) ✅️| |
-| [🦞 OpenClaw 全隐私助手](/zh/05-amd-yes/openclaw) ✅️| |
-| [📚 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/) ✅️| |
+| [🧸 toy-cli](./docs/zh/05-amd-yes/toy-cli) ✅️ | [🚀 happy-llm](./docs/zh/05-amd-yes/happy-llm/) ✅️ |
+| [🎮 微信跳一跳](./docs/zh/05-amd-yes/wechat-jump) ✅️| |
+| [🎭 Chat-甄嬛](./docs/zh/05-amd-yes/huanhuan-chat) ✅️| |
+| [✈️ 智能旅行规划助手](./docs/zh/05-amd-yes/hello-agents/) ✅️| |
+| [🦞 OpenClaw 全隐私助手](./docs/zh/05-amd-yes/openclaw) ✅️| |
+| [📚 Torch-RecHub 推荐系统实战](./docs/zh/05-amd-yes/torch-rechub/) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 

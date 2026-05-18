@@ -15,12 +15,12 @@
 
 | Local Run (Single GPU) | Cluster Deployment (Multi-GPU) |
 |---------|---------|
-| [🧸 toy-cli](/05-amd-yes/toy-cli) ✅️ | [🚀 happy-llm](/05-amd-yes/happy-llm/) ✅️ |
-| [🎮 WeChat Jump](/05-amd-yes/wechat-jump) ✅️| |
-| [🎭 Chat-Huanhuan](/05-amd-yes/huanhuan-chat) ✅️| |
-| [✈️ Smart Travel Planner](/05-amd-yes/hello-agents/) ✅️| |
-| [🦞 OpenClaw Private Assistant](/05-amd-yes/openclaw) ✅️| |
-| [📚 Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/) ✅️| |
+| [🧸 toy-cli](./docs/en/05-amd-yes/toy-cli) ✅️ | [🚀 happy-llm](./docs/en/05-amd-yes/happy-llm/) ✅️ |
+| [🎮 WeChat Jump](./docs/en/05-amd-yes/wechat-jump) ✅️| |
+| [🎭 Chat-Huanhuan](./docs/en/05-amd-yes/huanhuan-chat) ✅️| |
+| [✈️ Smart Travel Planner](./docs/en/05-amd-yes/hello-agents/) ✅️| |
+| [🦞 OpenClaw Private Assistant](./docs/en/05-amd-yes/openclaw) ✅️| |
+| [📚 Torch-RecHub Recommender Practice](./docs/en/05-amd-yes/torch-rechub/) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
