@@ -15,12 +15,12 @@
 
 | 本地运行（单卡） | 集群部署（多卡） |
 |---------|---------|
-| [🧸 toy-cli](./toy-cli) ✅️ | [🚀 happy-llm](./happy-llm/) ✅️ |
-| [🎮 微信跳一跳](./wechat-jump) ✅️| |
-| [🎭 Chat-甄嬛](./huanhuan-chat) ✅️| |
-| [✈️ 智能旅行规划助手](./hello-agents/) ✅️| |
-| [🦞 OpenClaw 全隐私助手](./openclaw) ✅️| |
-| [📚 Torch-RecHub 推荐系统实战](./torch-rechub/) ✅️| |
+| [🧸 toy-cli](./toy-cli.md) ✅️ | [🚀 happy-llm](./happy-llm/index.md) ✅️ |
+| [🎮 微信跳一跳](./wechat-jump.md) ✅️| |
+| [🎭 Chat-甄嬛](./huanhuan-chat.md) ✅️| |
+| [✈️ 智能旅行规划助手](./hello-agents/index.md) ✅️| |
+| [🦞 OpenClaw 全隐私助手](./openclaw.md) ✅️| |
+| [📚 Torch-RecHub 推荐系统实战](./torch-rechub/index.md) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 

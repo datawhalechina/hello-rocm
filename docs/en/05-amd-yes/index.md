@@ -15,12 +15,12 @@
 
 | Local Run (Single GPU) | Cluster Deployment (Multi-GPU) |
 |---------|---------|
-| [🧸 toy-cli](./toy-cli) ✅️ | [🚀 happy-llm](./happy-llm/) ✅️ |
-| [🎮 WeChat Jump](./wechat-jump) ✅️| |
-| [🎭 Chat-Huanhuan](./huanhuan-chat) ✅️| |
-| [✈️ Smart Travel Planner](./hello-agents/) ✅️| |
-| [🦞 OpenClaw Private Assistant](./openclaw) ✅️| |
-| [📚 Torch-RecHub Recommender Practice](./torch-rechub/) ✅️| |
+| [🧸 toy-cli](./toy-cli.md) ✅️ | [🚀 happy-llm](./happy-llm/index.md) ✅️ |
+| [🎮 WeChat Jump](./wechat-jump.md) ✅️| |
+| [🎭 Chat-Huanhuan](./huanhuan-chat.md) ✅️| |
+| [✈️ Smart Travel Planner](./hello-agents/index.md) ✅️| |
+| [🦞 OpenClaw Private Assistant](./openclaw.md) ✅️| |
+| [📚 Torch-RecHub Recommender Practice](./torch-rechub/index.md) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
