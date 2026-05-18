@@ -88,7 +88,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
             {
               text: 'Gemma4',
               items: [
-                { text: 'Gemma4-E4B LoRA 及 SwanLab 可视化记录', link: '/zh/02-fine-tune/gemma4/gemma4-e4b-lora-swanlab' }
+                { text: 'Gemma4-E4B LoRA（ModelScope 单卡）', link: '/zh/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu' }
               ]
             }
           ]
@@ -290,7 +290,7 @@ const enSidebar: DefaultTheme.Sidebar = {
             {
               text: 'Gemma4',
               items: [
-                { text: 'Gemma4-E4B LoRA and SwanLab Records', link: '/02-fine-tune/gemma4/gemma4-e4b-lora-swanlab' }
+                { text: 'Gemma4-E4B LoRA (ModelScope, single GPU)', link: '/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu' }
               ]
             }
           ]

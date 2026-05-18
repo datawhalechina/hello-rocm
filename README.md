@@ -91,7 +91,7 @@
       • <a href="./docs/zh/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./src/fine-tune/models/gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Gemma4 - E4B LoRA微调（基于TRL）</a><br>
+      • <a href="./src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 - E4B LoRA微调（ModelScope 单卡）</a><br>
     </td>
   </tr>
 </table>

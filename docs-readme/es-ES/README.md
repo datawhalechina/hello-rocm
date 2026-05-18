@@ -90,7 +90,7 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
       • <a href="../../docs/en/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
     </td>
     <td valign="top" width="50%" style="border: none !important;">
-      • <a href="../../src/fine-tune/models/gemma4/01-Gemma4-E4B-LoRA及SwanLab可视化记录.ipynb">Ajuste fino LoRA de Gemma4 E4B (TRL, Notebook)</a><br>
+      • <a href="../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Ajuste fino LoRA de Gemma4 E4B (TRL, Notebook)</a><br>
     </td>
   </tr>
 </table>
