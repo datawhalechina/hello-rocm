@@ -14,7 +14,7 @@
 ### toy-cli 本地 Agent 调用链路
 
 <div align='center'>
-    <img src="/images/05-amd-yes/toy-cli/toy_cli_rocm_agent_flow_zh.png" alt="图5.1.1 toy-cli 本地 LLM Agent 调用链路" width="95%">
+    <img src="/docs/public/images/05-amd-yes/toy-cli/toy_cli_rocm_agent_flow_zh.png" alt="图5.1.1 toy-cli 本地 LLM Agent 调用链路" width="95%">
 </div>
 
 ***OK，那接下来我将会带领大家亲自动手，一步步实现 toy-cli 的安装和使用过程，让我们一起来体验一下吧~***
