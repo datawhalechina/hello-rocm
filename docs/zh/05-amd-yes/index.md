@@ -33,7 +33,7 @@
 ### AMD-YES 项目学习路径
 
 <div align='center'>
-    <img src="/images/05-amd-yes/overview/amd_yes_project_overview_zh.png" alt="图5.1 AMD-YES 项目学习路径总览" width="95%">
+    <img src="../../../public/images/05-amd-yes/overview/amd_yes_project_overview_zh.png" alt="图5.1 AMD-YES 项目学习路径总览" width="95%">
 </div>
 
 ## 项目列表

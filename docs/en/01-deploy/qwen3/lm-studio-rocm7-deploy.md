@@ -21,7 +21,7 @@ Download the latest `.AppImage` file to your local machine.
 Screenshot:
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image1.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image1.png" alt="" width="90%">
 </div>
 
 ---
@@ -64,17 +64,17 @@ Start the LM Studio application from the current directory:
 In LM Studio, select the **ROCm version of the llama.cpp backend** to install:
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image2.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image2.png" alt="" width="90%">
 </div>
 
 Note the supported architecture list for the ROCm version of llama.cpp currently provided by LM Studio (GPU architecture support status):
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image3.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image3.png" alt="" width="90%">
 </div>
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image4.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image4.png" alt="" width="90%">
 </div>
 
 ---
@@ -88,5 +88,5 @@ Load the **Qwen3-8B Q4_K_M** model in LM Studio, set the context length to 4096.
 Screenshot example:
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image5.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image5.png" alt="" width="90%">
 </div>

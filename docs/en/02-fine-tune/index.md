@@ -28,7 +28,7 @@ This section covers the Python virtual environment and training dependency insta
 For Windows + Ryzen AI Max+ 395 users, see [Windows 11 Installation](/00-environment/#1-windows-11-installation) and [Install ROCm + PyTorch](/00-environment/#15-install-rocm--pytorch). ROCm 7.12.0 and later support installing ROCm-related libraries into a Python virtual environment via pip / uv pip, greatly simplifying the installation process.
 
 <div align='center'>
-    <img src="/images/02-fine-tune/rocm.png" alt="" width="90%">
+    <img src="../../../public/images/02-fine-tune/rocm.png" alt="" width="90%">
 </div>
 
 Next, using AMD Ryzen AI Max+ 395 (`gfx1151`) on Windows as an example, we show how to set up the fine-tuning environment. In this tutorial, `uv` serves only as a replacement for conda/venv and as the pip installation entrypoint — do not use `uv add` / `uv sync` to manage ROCm PyTorch.

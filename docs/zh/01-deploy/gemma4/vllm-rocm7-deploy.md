@@ -132,10 +132,10 @@ echo "=================================================="
 截图示例：
 
 <div align='center'>
-    <img src="/images/01-deploy/gemma4/image11.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/gemma4/image11.png" alt="" width="90%">
 </div>
 <div align='center'>
-    <img src="/images/01-deploy/gemma4/image12.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/gemma4/image12.png" alt="" width="90%">
 </div>
 
 ---
@@ -358,11 +358,11 @@ echo "=================================================="
 示例效果截图：
 
 <div align='center'>
-    <img src="/images/01-deploy/gemma4/image13.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/gemma4/image13.png" alt="" width="90%">
 </div>
 <div align='center'>
-    <img src="/images/01-deploy/gemma4/image14.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/gemma4/image14.png" alt="" width="90%">
 </div>
 <div align='center'>
-    <img src="/images/01-deploy/gemma4/image15.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/gemma4/image15.png" alt="" width="90%">
 </div>

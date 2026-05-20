@@ -21,7 +21,7 @@ https://lmstudio.ai/
 示意图：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image1.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image1.png" alt="" width="90%">
 </div>
 
 ---
@@ -64,17 +64,17 @@ sudo chmod 4755 chrome-sandbox
 在 LM Studio 中选择 **ROCm 版本的 llama.cpp 后端** 安装：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image2.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image2.png" alt="" width="90%">
 </div>
 
 需要注意，目前 LM Studio 所提供的 ROCm 版本 llama.cpp 所支持的架构列表（不同 GPU 架构支持状况）：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image3.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image3.png" alt="" width="90%">
 </div>
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image4.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image4.png" alt="" width="90%">
 </div>
 
 ---
@@ -88,7 +88,7 @@ sudo chmod 4755 chrome-sandbox
 截图示例：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image5.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image5.png" alt="" width="90%">
 </div>
 
 

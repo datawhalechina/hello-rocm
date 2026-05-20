@@ -14,7 +14,7 @@
 ### toy-cli 本地 Agent 调用链路
 
 <div align='center'>
-    <img src="/images/05-amd-yes/toy-cli/toy_cli_rocm_agent_flow_zh.png" alt="图5.1.1 toy-cli 本地 LLM Agent 调用链路" width="95%">
+    <img src="../../../public/images/05-amd-yes/toy-cli/toy_cli_rocm_agent_flow_zh.png" alt="图5.1.1 toy-cli 本地 LLM Agent 调用链路" width="95%">
 </div>
 
 ***OK，那接下来我将会带领大家亲自动手，一步步实现 toy-cli 的安装和使用过程，让我们一起来体验一下吧~***
@@ -45,7 +45,7 @@ uv pip install requests python-dotenv chardet
 ### 2.1 LM-Studio 加载 AgentCPM-explore 模型
 
 <div align='center'>
-    <img src="/images/05-amd-yes/toy-cli/AgentCPM-Explore-GGUF.png" alt="alt text" width="90%">
+    <img src="../../../public/images/05-amd-yes/toy-cli/AgentCPM-Explore-GGUF.png" alt="alt text" width="90%">
     <p>AgentCPM-explore model</p>
 </div>
 
@@ -58,14 +58,14 @@ AgentCPM-Explore 是一款专为“端侧设备”打造的高性能开源智能
 在 LM-Studio 中查看端点地址（默认为： `http://127.0.0.1:1234` ）：
 
 <div align='center'>
-    <img src="/images/05-amd-yes/toy-cli/config_model.png" alt="alt text" width="90%">
+    <img src="../../../public/images/05-amd-yes/toy-cli/config_model.png" alt="alt text" width="90%">
     <p>AgentCPM-explore model</p>
 </div>
 
 使用 AMD ROCm 作为推理引擎：
 
 <div align='center'>
-    <img src="/images/05-amd-yes/toy-cli/ROCm_config.png" alt="alt text" width="90%">
+    <img src="../../../public/images/05-amd-yes/toy-cli/ROCm_config.png" alt="alt text" width="90%">
     <p>AgentCPM-explore model</p>
 </div>
 

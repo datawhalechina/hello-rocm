@@ -245,7 +245,7 @@ TrainOutput(global_step=699, training_loss=2.6425710331557988, metrics={'train_r
 训练完成后，打开 `SwanLab` ，可以查看训练过程中记录的参数和可视化的训练 loss 曲线：
 
 <div align='center'>
-    <img src="/images/02-fine-tune/qwen3/image-1.png" alt="" width="90%">
+    <img src="../../../../public/images/02-fine-tune/qwen3/image-1.png" alt="" width="90%">
 </div>
 
 示例的训练记录公开链接如下，供参考

@@ -22,7 +22,7 @@ By the end of this chapter, you will understand three core things:
 When you write PyTorch code like `x + y`, do you know how many layers of "translation" that line goes through before it finally executes on the GPU? In this section, we'll use Linux tools to trace the entire call chain.
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/python_to_gpu_overview_flow.png" alt="Figure 2.1 Overview: Python to GPU" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/python_to_gpu_overview_flow.png" alt="Figure 2.1 Overview: Python to GPU" width="95%">
     <p><b>Figure 2.1</b> Overview of Python-to-GPU flow: PyTorch code passes through HIP, HSA, and the Driver before executing in parallel on the GPU</p>
 </div>
 
@@ -43,7 +43,7 @@ ldd $TORCH_LIB/libtorch_python.so | grep -E "amd|hip|hsa"
 #### Example Output
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/ldd_pytorch_dependency_chain.png" alt="Figure 2.2 ldd tracing PyTorch dependency chain" width="90%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/ldd_pytorch_dependency_chain.png" alt="Figure 2.2 ldd tracing PyTorch dependency chain" width="90%">
     <p><b>Figure 2.2</b> Using ldd to view PyTorch's ROCm dependency libraries</p>
 </div>
 
@@ -136,7 +136,7 @@ graph TB
 > The GPU can't understand your Python/HIP code. The compiler must perform a series of transformations before the GPU can execute it.
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/hip_llvm_isa_compile_pipeline.png" alt="Figure 2.3 HIP / LLVM / ISA compilation pipeline" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/hip_llvm_isa_compile_pipeline.png" alt="Figure 2.3 HIP / LLVM / ISA compilation pipeline" width="95%">
     <p><b>Figure 2.3</b> HIP / LLVM / ISA compilation pipeline: from C++/HIP source code to GPU executable binary</p>
 </div>
 
@@ -485,7 +485,7 @@ Element [1023]: 1 + 2 = 3
 ```
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/hip_cpu_gpu_swimlane.png" alt="Figure 2.4 HIP program CPU-GPU swimlane execution diagram" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/hip_cpu_gpu_swimlane.png" alt="Figure 2.4 HIP program CPU-GPU swimlane execution diagram" width="95%">
     <p><b>Figure 2.4</b> HIP program execution flow: CPU handles scheduling, GPU handles parallel computation</p>
 </div>
 
@@ -538,12 +538,12 @@ AI (deep learning) workloads are completely different:
 | **Memory bandwidth sensitive** | Needs to move large amounts of data quickly |
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/cpu_vs_gpu_philosophy.png" alt="Figure 2.5 CPU vs GPU low latency vs high throughput comparison" width="90%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/cpu_vs_gpu_philosophy.png" alt="Figure 2.5 CPU vs GPU low latency vs high throughput comparison" width="90%">
     <p><b>Figure 2.5</b> CPU low-latency vs GPU high-throughput design philosophy comparison</p>
 </div>
 
 <!-- <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/cpu_latency_gpu_throughput.png" alt="Figure 2.6 CPU low latency vs GPU high throughput" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/cpu_latency_gpu_throughput.png" alt="Figure 2.6 CPU low latency vs GPU high throughput" width="95%">
     <p><b>Figure 2.6</b> CPU is like a sports car, pursuing low latency; GPU is like a freight train, pursuing high throughput</p>
 </div> -->
 
@@ -652,7 +652,7 @@ python bench_resnet.py
 **Expected Output Example** (on Radeon 8060S):
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/resnet50_benchmark_result.png" alt="Figure 2.7 ResNet-50 CPU vs GPU performance comparison" width="90%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/resnet50_benchmark_result.png" alt="Figure 2.7 ResNet-50 CPU vs GPU performance comparison" width="90%">
     <p><b>Figure 2.7</b> ResNet-50 CPU vs GPU inference performance comparison (Radeon 8060S)</p>
 </div>
 
@@ -670,12 +670,12 @@ python bench_resnet.py
 The core technology of GPUs is **SIMT (Single Instruction, Multiple Threads)** â€” "single instruction, multiple threads."
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/simt_wavefront_execution.png" alt="Figure 2.8 SIMT / Wavefront execution model" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/simt_wavefront_execution.png" alt="Figure 2.8 SIMT / Wavefront execution model" width="95%">
     <p><b>Figure 2.8</b> SIMT / Wavefront execution model: same instruction, multiple threads processing different data</p>
 </div>
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/simt_control_vs_alu_ratio.png" alt="Figure 2.9 CPU control units vs GPU ALU ratio" width="90%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/simt_control_vs_alu_ratio.png" alt="Figure 2.9 CPU control units vs GPU ALU ratio" width="90%">
     <p><b>Figure 2.9</b> Control units vs ALUs: transistor allocation differences between CPU and GPU</p>
 </div>
 
@@ -695,7 +695,7 @@ The core technology of GPUs is **SIMT (Single Instruction, Multiple Threads)** â
 When threads within a wavefront need to execute different code paths, **branch divergence** occurs, causing performance degradation.
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/wavefront_divergence.png" alt="Figure 2.10 Branch divergence illustration" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/wavefront_divergence.png" alt="Figure 2.10 Branch divergence illustration" width="95%">
     <p><b>Figure 2.10</b> Branch divergence: threads in the same Wavefront taking different branches get serialized into multiple passes</p>
 </div>
 
@@ -987,7 +987,7 @@ Performance improvement: 15.0359%
 #### Memory Access Patterns: Coalesced vs Random Access
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/coalesced_vs_strided_access.png" alt="Figure 2.11 Coalesced vs random access" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/coalesced_vs_strided_access.png" alt="Figure 2.11 Coalesced vs random access" width="95%">
     <p><b>Figure 2.11</b> Coalesced vs random access: consecutive threads accessing consecutive addresses yields maximum memory efficiency</p>
 </div>
 
@@ -1036,7 +1036,7 @@ Now let's dive into the AMD GPU hardware and understand how its internals are or
 ### 2.3.1 Compute Unit (CU): The GPU's "Work Crew"
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/amd_gpu_cu_internal_structure.png" alt="Figure 2.12 AMD GPU CU internal structure" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/amd_gpu_cu_internal_structure.png" alt="Figure 2.12 AMD GPU CU internal structure" width="95%">
     <p><b>Figure 2.12</b> AMD GPU Compute Unit internals: SIMD, VGPR, SGPR, LDS, and scheduler working together</p>
 </div>
 
@@ -1126,7 +1126,7 @@ CU count x wavefronts/CU x 32/64 threads/wavefront = tens of thousands to hundre
 #### Occupancy: Resource Utilization
 
 <div align='center'>
-    <img src="/images/03-infra/decode-ai-accelerator/occupancy_register_pressure.png" alt="Figure 2.13 Occupancy and register pressure" width="95%">
+    <img src="../../../public/images/03-infra/decode-ai-accelerator/occupancy_register_pressure.png" alt="Figure 2.13 Occupancy and register pressure" width="95%">
     <p><b>Figure 2.13</b> Occupancy and register pressure: the more registers each thread uses, the fewer Wavefronts can reside simultaneously</p>
 </div>
 

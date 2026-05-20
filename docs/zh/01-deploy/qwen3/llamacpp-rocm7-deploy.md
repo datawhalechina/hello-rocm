@@ -26,7 +26,7 @@
 - https://github.com/lemonade-sdk/llamacpp-rocm/releases
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image7.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image7.png" alt="" width="90%">
 </div>
 
 ---
@@ -42,7 +42,7 @@ amd-smi
 示例输出（可看到 GPU 型号、驱动版本、ROCm 版本）：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image8.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image8.png" alt="" width="90%">
 </div>
 
 若输出正常，说明可以使用 GPU 进行推理。
@@ -120,7 +120,7 @@ curl -s -X POST http://127.0.0.1:8080/v1/completions \
 截图示例：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image9.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image9.png" alt="" width="90%">
 </div>
 
 测试结果示例（Qwen3-8B Q4_K_M，ctx=4096）：
@@ -220,7 +220,7 @@ cd /workspace/llama.cpp
 截图示例：
 
 <div align='center'>
-    <img src="/images/01-deploy/qwen3/image10.png" alt="" width="90%">
+    <img src="../../../../public/images/01-deploy/qwen3/image10.png" alt="" width="90%">
 </div>
 
 测试结果（Qwen3-8B Q4_K_M，ctx=4096）：

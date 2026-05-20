@@ -245,7 +245,7 @@ TrainOutput(global_step=699, training_loss=2.6425710331557988, metrics={'train_r
 After training, open `SwanLab` to view the logged parameters and the visualized training loss curve:
 
 <div align='center'>
-    <img src="/images/02-fine-tune/qwen3/image-1.png" alt="" width="90%">
+    <img src="../../../../public/images/02-fine-tune/qwen3/image-1.png" alt="" width="90%">
 </div>
 
 The example training log is publicly available at the following link for reference:

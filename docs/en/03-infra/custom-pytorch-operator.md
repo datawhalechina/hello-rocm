@@ -30,7 +30,7 @@ While HIP/C++ delivers ultimate performance, Python is the "native language" of 
 When you type `torch.relu(x)` in a single line of Python, what actually happens underneath is a long and precise "international journey":
 
 <div align='center'>
-    <img src="/images/03-infra/custom-pytorch-operator/pytorch_operator_call_chain.png" alt="Figure 4.1 PyTorch operator full call chain" width="90%">
+    <img src="../../../public/images/03-infra/custom-pytorch-operator/pytorch_operator_call_chain.png" alt="Figure 4.1 PyTorch operator full call chain" width="90%">
     <p><b>Figure 4.1</b> PyTorch operator full call chain: Python → Pybind11 → ATen → HIP → GPU</p>
 </div>
 

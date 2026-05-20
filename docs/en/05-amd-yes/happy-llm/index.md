@@ -24,7 +24,7 @@
 ### Happy-LLM ROCm Training Route
 
 <div align='center'>
-    <img src="/images/05-amd-yes/happy-llm/happy_llm_rocm_training_pipeline_en.png" alt="Figure 5.4.1 Happy-LLM ROCm training route" width="95%">
+    <img src="../../../../public/images/05-amd-yes/happy-llm/happy_llm_rocm_training_pipeline_en.png" alt="Figure 5.4.1 Happy-LLM ROCm training route" width="95%">
 </div>
 
 ## Original Project Chapter Overview

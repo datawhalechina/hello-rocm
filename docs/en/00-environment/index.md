@@ -70,7 +70,7 @@
 | **Visual Studio 2022** (Optional) | Community edition, select "Desktop development with C++" ([⬇️ Download](https://visualstudio.microsoft.com/downloads/)). Required for AMD Quark or custom op compilation |
 
 <div align='center'>
-    <img src="/images/00-environment/visual_studil_c++_desktop_installer.png" alt="Visual Studio installer — select Desktop development with C++" width="90%">
+    <img src="../../../public/images/00-environment/visual_studil_c++_desktop_installer.png" alt="Visual Studio installer — select Desktop development with C++" width="90%">
 </div>
 
 ### 1.2 Remove Conflicting Software
