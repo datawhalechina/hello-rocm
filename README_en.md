@@ -27,25 +27,25 @@
 
 </div>
 
-&emsp;&emsp;Since **ROCm 7.10.0** (released December 11, 2025), ROCm can be installed seamlessly in Python virtual environments much like CUDA, with official support for both **Linux and Windows**. This is a major step for AMD in AI: learners and LLM enthusiasts are no longer limited to NVIDIA hardware—AMD GPUs are a strong, practical choice.
+&emsp;&emsp;Starting with **ROCm 7.10.0** (released December 11, 2025), ROCm installs cleanly into Python virtual environments—just like CUDA—and officially supports both **Linux and Windows**. This is a big deal: if you're learning AI or tinkering with large language models, you're no longer locked into NVIDIA hardware. AMD GPUs are now a genuinely practical option.
 
-&emsp;&emsp;However, **lowering the hardware barrier doesn't automatically clarify the learning path**. For learners who already have a foundation in large language models and want to put them into practice on AMD GPUs, the real challenges are just beginning: How do you deploy a model on an AMD GPU? How do you fine-tune and train models on top of that? How do you understand ROCm's GPU programming system and migrate from CUDA to ROCm? Ultimately, how do these capabilities come together into a deployable AI application?
+&emsp;&emsp;That said, **easier hardware access doesn't mean the learning path is obvious**. If you already know your way around LLMs and want to run them on AMD, the real questions start here: How do you actually deploy a model on an AMD GPU? How do you fine-tune or train on top of that? How does ROCm's programming model work, and what does migrating from CUDA look like? And ultimately, how do all these pieces fit together into a production-ready AI app?
 
-&emsp;&emsp;**hello-rocm** exists for exactly this path. This project systematically covers the complete workflow for large language models on the AMD ROCm platform, taking you from **running your first model** to **building real AI applications on AMD GPUs**, passing through every critical step of fine-tuning, training, and GPU programming along the way. AMD GPUs aren't just graphics cards; they're your real entry point into the world of AI development.
+&emsp;&emsp;**hello-rocm** is built for exactly that journey. This project walks you through the full LLM workflow on AMD's ROCm platform—from **getting your first model running** to **building real AI applications on AMD GPUs**—covering fine-tuning, training, and GPU programming at every step along the way. An AMD GPU isn't just a graphics card; it's your on-ramp to serious AI development.
 
-&emsp;&emsp;**This project is primarily tutorials** so students and future practitioners can learn AMD ROCm in a structured way. **Anyone is welcome to open issues or submit pull requests** to grow and maintain the project together.
+&emsp;&emsp;**At its core, this project is a collection of hands-on tutorials** so students and practitioners can learn AMD ROCm in a structured way. **Anyone can open an issue or submit a PR**—we build and maintain this together.
 
-> &emsp;&emsp;***Learning path: Finish [00-Environment](./docs/en/00-environment/index.md) first (ROCm + PyTorch + **uv**), then deployment and fine-tuning, and finally operator optimization and GPU programming. After your environment works, LM Studio or vLLM is a good place to start.***
+> &emsp;&emsp;***Recommended path: Start with [00-Environment](./docs/en/00-environment/index.md) (ROCm + PyTorch + **uv**), then move to deployment and fine-tuning, and finally explore operator optimization and GPU programming. Once your environment is set up, LM Studio or vLLM is a great first deployment to try.***
 
-### hello-rocm Skill: put this project inside your AI assistant
+### hello-rocm Skill: put this project inside your AI coding assistant
 
-&emsp;&emsp;If you use an AI coding tool that supports Skills, Rules, or Agent configuration, you can use the built-in **hello-rocm Skill**. It uses this repository’s structure, reference index, GPU architecture table, deployment tutorials, and troubleshooting checklist to point you to the right document and official link.
+&emsp;&emsp;If your AI coding tool supports Skills, Rules, or Agent configs, you can load the built-in **hello-rocm Skill**. It uses this repo's directory structure, reference index, GPU architecture table, deployment guides, and troubleshooting checklist to point you to the right doc or official link.
 
 ```text
-Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place, such as .claude/skills, .cursor/skills, or .agents/skills, then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
+Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If your tool supports Skills, Rules, or Agent configuration, install or load it in the appropriate place (e.g., .claude/skills, .cursor/skills, or .agents/skills), then use that Skill to help me learn, deploy, and troubleshoot AMD ROCm.
 ```
 
-&emsp;&emsp;Try asking: Does my AMD GPU support ROCm? What is the fastest path to run my first local LLM? How do I install vLLM / Ollama / llama.cpp on ROCm? How do I debug `torch.cuda.is_available()` returning False? See the [hello-rocm Skill guide](./docs/en/04-references/index.md#hello-rocm-skill).
+&emsp;&emsp;Example questions: Can my AMD GPU run ROCm? What's the fastest way to get a local LLM running? How do I install vLLM / Ollama / llama.cpp on ROCm? Why is `torch.cuda.is_available()` returning False? See the [hello-rocm Skill guide](./docs/en/04-references/index.md#hello-rocm-skill) for more.
 
 ### Latest updates
 
@@ -56,8 +56,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 ### Supported models & tutorials
 
 <p align="center">
-  <strong>✨ Mainstream LLMs: environment · multi-framework inference · fine-tuning ✨</strong><br>
-  <em>Unified ROCm setup (Windows / Ubuntu) + ROCm 7+ · per-model tutorials (growing)</em><br>
+  <strong>✨ Popular LLMs: environment setup · multi-framework inference · fine-tuning ✨</strong><br>
+  <em>Unified ROCm setup (Windows / Ubuntu) + ROCm 7+ · per-model tutorial directories (growing)</em><br>
  <a href="./docs/en/00-environment/index.md">00 — Environment setup</a>
 </p>
 
@@ -99,26 +99,26 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 &emsp;&emsp;What is ROCm?
 
-> ROCm (Radeon Open Compute) is AMD’s open GPU computing stack for HPC and machine learning. It lets you run parallel workloads on AMD GPUs and is the primary CUDA-alternative path on AMD hardware.
+> ROCm (Radeon Open Compute) is AMD's open-source GPU computing stack for HPC and machine learning. It enables parallel workloads on AMD GPUs and is the primary alternative to CUDA on AMD hardware.
 
-&emsp;&emsp;Open LLMs are everywhere, yet most tutorials and tools assume the NVIDIA CUDA stack. Developers who choose AMD often lack end-to-end, ROCm-native learning material.
+&emsp;&emsp;Open-source LLMs are exploding, but most tutorials and tooling still assume NVIDIA's CUDA stack. If you pick AMD, finding end-to-end, ROCm-native learning material has been a real gap.
 
-&emsp;&emsp;From **ROCm 7.10.0** (December 11, 2025), AMD’s **TheRock** work decouples the compute runtime from the OS so the same ROCm interfaces run on **Linux and Windows**, and ROCm can be installed into Python environments similarly to CUDA. ROCm is no longer “Linux-only plumbing”—it is a cross-platform AI compute platform. **hello-rocm** collects practical guides so more people can actually use AMD GPUs for training and inference.
+&emsp;&emsp;With **ROCm 7.10.0** (December 11, 2025), AMD's **TheRock** initiative decoupled the compute runtime from the OS, so the same ROCm APIs now work on both **Linux and Windows**, and you can `pip install` ROCm packages directly into virtual environments—just like CUDA. ROCm has gone from "Linux-only plumbing" to a true cross-platform AI compute platform. **hello-rocm** is the practical guide that helps more people actually use AMD GPUs for training and inference.
 
-&emsp;&emsp;***We hope to be a bridge between AMD GPUs and everyday builders—open, inclusive, and aimed at a wider AI future.***
+&emsp;&emsp;***We want to bridge the gap between AMD GPUs and everyday developers—open, inclusive, and aimed at a broader AI future.***
 
-## Who it is for
+## Who this is for
 
-&emsp;&emsp;You may find this project useful if you:
+&emsp;&emsp;This project is for you if you:
 
-* Have an AMD GPU and want to run LLMs locally;
-* Want to build on AMD but lack a structured ROCm curriculum;
-* Care about cost-effective deployment and inference;
-* Are curious about ROCm and prefer hands-on learning.
+* Own an AMD GPU and want to try running LLMs locally;
+* Want to develop on AMD but can't find a structured ROCm learning path;
+* Care about cost-effective model deployment and inference;
+* Are curious about ROCm and prefer learning by doing.
 
 ## Roadmap and structure
 
-&emsp;&emsp;The repo follows the full ROCm LLM workflow: **unified baseline (00-Environment)**, deployment, fine-tuning, and operator optimization / GPU programming topics:
+&emsp;&emsp;The repo is organized around the full ROCm LLM workflow: **unified environment baseline (00-Environment)**, deployment, fine-tuning, and operator optimization / GPU programming:
 
 
 ### Repository layout
@@ -131,7 +131,7 @@ hello-rocm/
 │   │   ├── 01-deploy/         # LLM deployment on ROCm
 │   │   ├── 02-fine-tune/      # LLM fine-tuning on ROCm
 │   │   ├── 03-infra/          # Operator optimization / GPU programming on ROCm
-│   │   ├── 04-references/   # Curated ROCm references
+│   │   ├── 04-references/     # Curated ROCm references
 │   │   └── 05-amd-yes/        # Community AMD project showcases
 │   └── zh/                 # 中文文档
 ├── src/                    # Source code & scripts
@@ -151,7 +151,7 @@ hello-rocm/
     <td valign="top" width="50%" style="border: none !important;" align="center">
       • <a href="./docs/en/00-environment/rocm-gpu-architecture-table.md">GPU architecture & pip index map</a><br>
       • Windows 11: drivers, security prerequisites, install flow<br>
-      • Ubuntu 24.04: uv-based install and optional unified installer script<br>
+      • Ubuntu 24.04: uv-based install and optional one-liner script<br>
       • Verification, uninstall, and switching GPU targets
     </td>
   </tr>
@@ -160,7 +160,7 @@ hello-rocm/
 ### 01. Deploy — LLM deployment on ROCm
 
 <p align="center">
-  <strong>🚀 ROCm LLM deployment</strong><br>
+  <strong>🚀 LLM deployment on ROCm</strong><br>
   <em>From zero to a running model on AMD GPUs</em><br>
   📖 <strong><a href="./docs/en/01-deploy/index.md">Getting Started with ROCm Deploy</a></strong>
 </p>
@@ -180,7 +180,7 @@ hello-rocm/
 ### 02. Fine-tune — LLM fine-tuning on ROCm
 
 <p align="center">
-  <strong>🔧 ROCm LLM fine-tuning</strong><br>
+  <strong>🔧 LLM fine-tuning on ROCm</strong><br>
   <em>Efficient fine-tuning on AMD GPUs</em><br>
   📖 <strong><a href="./docs/en/02-fine-tune/index.md">Getting Started with ROCm Fine-tune</a></strong>
 </p>
@@ -188,9 +188,9 @@ hello-rocm/
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • Fine-tuning tutorials from scratch<br>
+      • Fine-tuning from scratch<br>
       • Single-machine fine-tuning scripts<br>
-      • Multi-node multi-GPU fine-tuning
+      • Multi-node, multi-GPU fine-tuning
     </td>
   </tr>
 </table>
@@ -198,17 +198,17 @@ hello-rocm/
 ### 03. Infra — operator optimization & GPU programming
 
 <p align="center">
-  <strong>⚙️ ROCm Operator Optimization & GPU Programming</strong><br>
-  <em>From AMD AI hardware panorama to HIP operators & performance profiling</em><br>
+  <strong>⚙️ Operator optimization & GPU programming</strong><br>
+  <em>From AMD AI hardware overview to HIP kernels & performance profiling</em><br>
   📖 <strong><a href="./docs/en/03-infra/index.md">Getting Started with ROCm Operator Optimization</a></strong>
 </p>
 
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
-      • AMD AI hardware panorama & ROCm ecosystem<br>
+      • AMD AI hardware landscape & ROCm ecosystem<br>
       • GPU software stack & hardware architecture deep dive<br>
-      • HIP programming & hand-written Kernel practice<br>
+      • HIP programming intro & hand-written kernel walkthrough<br>
       • Custom PyTorch operators & Autograd integration
     </td>
   </tr>
@@ -225,11 +225,11 @@ hello-rocm/
 <table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
   <tr>
     <td valign="top" width="100%" align="center" style="border: none !important;">
-      • <a href="https://rocm.docs.amd.com/">ROCm official documentation</a><br>
+      • <a href="https://rocm.docs.amd.com/">ROCm official docs</a><br>
       • <a href="https://github.com/amd">AMD on GitHub</a><br>
       • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm release notes</a><br>
       • <a href="./docs/en/04-references/index.md#amd-gpu-architecture-whitepapers">AMD GPU architecture whitepapers (CDNA / RDNA)</a><br>
-      • <a href="./docs/en/04-references/index.md#frameworks-and-inference-services-rocm-quick-install-links">Framework and inference service ROCm quick install links</a><br>
+      • <a href="./docs/en/04-references/index.md#frameworks-and-inference-services-rocm-quick-install-links">Framework & inference service ROCm quick-install links</a><br>
       • Related news
     </td>
   </tr>
@@ -239,7 +239,7 @@ hello-rocm/
 
 <p align="center">
   <strong>✨ AMD project showcases</strong><br>
-  <em>Community-driven examples on AMD GPUs</em><br>
+  <em>Community-driven projects on AMD GPUs</em><br>
   📖 <strong><a href="./docs/en/05-amd-yes/index.md">Getting Started with ROCm AMD-YES</a></strong>
 </p>
 
@@ -247,10 +247,10 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
       • toy-cli — lightweight terminal LLM assistant<br>
-      • WeChat “Jump Jump” with YOLOv10 — Game AI in Action (Train and use YOLOv10 under ROCm)<br>
-      • Chat-甄嬛 — period-style dialogue model<br>
+      • WeChat "Jump Jump" with YOLOv10 — game AI in action (train & run YOLOv10 under ROCm)<br>
+      • Chat-甄嬛 — period-drama dialogue model<br>
       • Travel planner — HelloAgents agent demo<br>
-      • Torch-RecHub — recommender systems practice (CTR, retrieval, multi-task learning, ONNX export)<br>
+      • Torch-RecHub — recommender systems (CTR, retrieval, multi-task, ONNX export)<br>
       • happy-llm — distributed LLM training
     </td>
   </tr>
@@ -258,38 +258,38 @@ hello-rocm/
 
 ## Contributing
 
-&emsp;&emsp;We welcome contributions of all kinds:
+&emsp;&emsp;We welcome all kinds of contributions:
 
-* Improve or add tutorials
-* Fix errors and bugs
+* Add or improve tutorials
+* Fix bugs and errors
 * Share your AMD projects
-* Suggest ideas and directions
+* Suggest ideas and new directions
 
-&emsp;&emsp;Please read **[规范指南](./规范指南.md)** (structure, naming, images—aligned with tutorials such as Qwen3), then **[CONTRIBUTING.md](./CONTRIBUTING.md)** (issues, PRs, and per-model directory conventions).
+&emsp;&emsp;Please read the **[Style Guide](./规范指南.md)** (directory layout, naming, images—aligned with tutorials like Qwen3) and then **[CONTRIBUTING.md](./CONTRIBUTING.md)** (issue/PR workflow and per-model directory conventions).
 
-&emsp;&emsp;If you run into troubleshooting or FAQ issues while using ROCm, deploying models, or reading the tutorials, you are also welcome to join the **[community discussion](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** to share experience, report problems, and help improve the tutorials with the community.
+&emsp;&emsp;If you run into issues while using ROCm, deploying models, or following the tutorials, feel free to join our **[community discussion](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** to share experiences, report problems, and help improve the docs.
 
-&emsp;&emsp;If you want to help maintain the repo long term, reach out—we can add you as a maintainer.
+&emsp;&emsp;Want to help maintain the project long-term? Reach out—we'd be happy to add you as a maintainer.
 
 ## Acknowledgments
 
 ### Core contributors
 
-- [Zhixue Song (不要葱姜蒜) — project lead](https://github.com/KMnO4-zx) (Datawhale member; self-llm and happy-llm project lead)
-- [Yu Chen — project lead](https://github.com/lucachen) (content creator; Google Developer Expert in Machine Learning)
+- [Zhixue Song (不要葱姜蒜) — project lead](https://github.com/KMnO4-zx) (Datawhale member; self-llm & happy-llm project lead)
+- [Yu Chen — project lead](https://github.com/lucachen) (content creator; Google Developer Expert in ML)
 - [Sizhou Chen — contributor](https://github.com/jjyaoao) (Datawhale member; hello-agents project lead)
 - [Jiahang Pan — contributor](https://github.com/amdjiahangpan) (content creator; AMD software engineer)
 - [Weihong Liu — contributor](https://github.com/Weihong-Liu) (Datawhale member)
-- [Dongbo Hao — contributor](https://github.com/wlkq151172) (content creator; Jiangnan University graduate student)
+- [Dongbo Hao — contributor](https://github.com/wlkq151172) (content creator; Jiangnan University grad student)
 - [Muling Ke — contributor](https://github.com/1985312383) (Datawhale member; Torch-RecHub project lead)
 
-> More contributors are always welcome.
+> More contributors are always welcome!
 
 ### Others
 
-- Ideas and feedback are welcome—please open issues.
-- Thanks to everyone who has contributed tutorials.
-- Thanks to **AMD University Program** for supporting this project.
+- Have an idea? Open an issue—we'd love to hear it.
+- Big thanks to everyone who has contributed tutorials.
+- Special thanks to the **AMD University Program** for supporting this project.
 
 <div align=center style="margin-top: 30px;">
   <a href="https://github.com/datawhalechina/hello-rocm/graphs/contributors">
@@ -306,7 +306,7 @@ hello-rocm/
 
 <div align="center">
 
-**Let’s build the future of AMD AI together.** 💪
+**Let's build the future of AMD AI together.** 💪
 
 Made with ❤️ by the hello-rocm community
 
