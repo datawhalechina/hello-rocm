@@ -70,7 +70,7 @@
 | **Visual Studio 2022**（可选） | Community 版即可，安装时勾选「使用 C++ 的桌面开发」（[⬇️ 下载](https://visualstudio.microsoft.com/zh-hans/downloads/)）。AMD Quark 等需要编译自定义算子时必需 |
 
 <div align='center'>
-    <img src="../../../public/images/00-environment/visual_studil_c++_desktop_installer.png" alt="Visual Studio 安装勾选「使用 C++ 的桌面开发」" width="90%">
+    <img src="../../public/images/00-environment/visual_studil_c++_desktop_installer.png" alt="Visual Studio 安装勾选「使用 C++ 的桌面开发」" width="90%">
 </div>
 
 ### 1.2 卸载冲突软件

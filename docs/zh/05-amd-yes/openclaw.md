@@ -12,7 +12,7 @@
 > OpenClaw (ClawX) 项目地址：[*Link*](https://github.com/ValueCell-ai/ClawX/releases)
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/openclaw_logo.png" alt="OpenClaw Logo" width="50%">
+    <img src="../../public/images/05-amd-yes/openclaw/openclaw_logo.png" alt="OpenClaw Logo" width="50%">
 </div>
 
 ***接下来我将带领大家亲自动手，一步步在 AMD 395 Max AI PC 上完成 OpenClaw 的本地部署，打造完全隐私的个人 AI 助手！***
@@ -29,7 +29,7 @@
 OpenClaw 作为行业标杆，其全能的架构和"操作系统终局"的宏大愿景引发了 AI Agent 领域的现象级热潮。代码体量超过 43 万行，功能覆盖消息网关、Agent 运行时、工具调用、记忆管理等核心能力。
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/openclaw_architecture.png" alt="图5.6.1 OpenClaw 平台架构" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/openclaw_architecture.png" alt="图5.6.1 OpenClaw 平台架构" width="90%">
     <p>图5.6.1 OpenClaw 平台架构</p>
 </div>
 
@@ -44,7 +44,7 @@ OpenClaw 的成功也催生了社区衍生项目：
 | **PicoClaw** | 边缘计算 | Go 语言，单一二进制，极低资源占用 |
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/openclaw_ecosystem.png" alt="图5.6.2 OpenClaw 生态对比" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/openclaw_ecosystem.png" alt="图5.6.2 OpenClaw 生态对比" width="90%">
     <p>图5.6.2 OpenClaw 生态对比</p>
 </div>
 
@@ -53,7 +53,7 @@ OpenClaw 的成功也催生了社区衍生项目：
 即使是新开一个对话，OpenClaw 也有 39K 上下文的占用——它会携带大量的 memory.md、soul.md、user.md 以及 skills 描述、工具描述等。OpenClaw 非常考验 Agent 的长上下文工具调用和规划能力，**因此本地部署需要一个大显存机器！**
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/openclaw_context_usage.png" alt="图5.6.3 OpenClaw 上下文占用" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/openclaw_context_usage.png" alt="图5.6.3 OpenClaw 上下文占用" width="90%">
     <p>图5.6.3 OpenClaw 上下文占用（新对话即占 39K tokens）</p>
 </div>
 
@@ -62,7 +62,7 @@ OpenClaw 的成功也催生了社区衍生项目：
 AMD 395 Max 适合打游戏和做家庭 AI 中枢，模型性能和本地聊天内容的隐私性都可以得到保障。
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/amd395_spec_02.png" alt="图5.6.4 AMD 395 Max 规格" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/amd395_spec_02.png" alt="图5.6.4 AMD 395 Max 规格" width="90%">
     <p>图5.6.4 AMD 395 Max 硬件规格</p>
 </div>
 
@@ -83,7 +83,7 @@ Windows 11 / Linux
 [LM Studio](https://lmstudio.ai/) 是一款专为本地运行大语言模型设计的跨平台桌面应用程序，支持 Windows、macOS 和 Linux 系统。它通过直观的图形界面让用户轻松搜索、下载并管理开源模型（如 GGUF 格式），无需联网即可在个人设备上实现离线对话、推理测试或启动 API 服务。
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/lmstudio_overview.png" alt="图5.6.5 LM Studio 界面" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/lmstudio_overview.png" alt="图5.6.5 LM Studio 界面" width="90%">
     <p>图5.6.5 LM Studio 界面</p>
 </div>
 
@@ -109,7 +109,7 @@ Windows 11 / Linux
 打开 [ClawX Release 页面](https://github.com/ValueCell-ai/ClawX/releases)，选择适合你系统的安装包（Windows 或 Mac）。
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_01_download.png" alt="图5.6.6 ClawX 下载页面" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_01_download.png" alt="图5.6.6 ClawX 下载页面" width="90%">
     <p>图5.6.6 ClawX Release 下载页面</p>
 </div>
 
@@ -118,16 +118,16 @@ Windows 11 / Linux
 双击安装包，仅为当前用户安装即可：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_02_setup_01.png" alt="图5.6.7 安装 ClawX - 开始" width="45%">
-    <img src="../../../public/images/05-amd-yes/openclaw/install_02_setup_02.png" alt="图5.6.7 安装 ClawX - 用户选择" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_02_setup_01.png" alt="图5.6.7 安装 ClawX - 开始" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_02_setup_02.png" alt="图5.6.7 安装 ClawX - 用户选择" width="45%">
     <p>图5.6.7 双击安装，选择仅为当前用户安装</p>
 </div>
 
 选择安装位置，等待安装完成：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_03_location_01.png" alt="图5.6.8 选择安装位置" width="45%">
-    <img src="../../../public/images/05-amd-yes/openclaw/install_03_location_02.png" alt="图5.6.8 安装进行中" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_03_location_01.png" alt="图5.6.8 选择安装位置" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_03_location_02.png" alt="图5.6.8 安装进行中" width="45%">
     <p>图5.6.8 选择安装位置并等待安装完成</p>
 </div>
 
@@ -136,14 +136,14 @@ Windows 11 / Linux
 安装完成后点击运行，选择中文，然后点击下一步：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_04_language.png" alt="图5.6.9 选择语言" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_04_language.png" alt="图5.6.9 选择语言" width="90%">
     <p>图5.6.9 选择中文并点击下一步</p>
 </div>
 
 等待环境检查，缺少的环境它会指引你安装，然后点击下一步：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_05_env_check.png" alt="图5.6.10 环境检查" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_05_env_check.png" alt="图5.6.10 环境检查" width="90%">
     <p>图5.6.10 环境检查（缺少的组件会自动引导安装）</p>
 </div>
 
@@ -152,8 +152,8 @@ Windows 11 / Linux
 选择**自定义本地部署的模型**，使用 LM Studio 部署的 gemma-4-26b-a4b：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_06_model_config_01.png" alt="图5.6.11 模型配置 - 自定义" width="45%">
-    <img src="../../../public/images/05-amd-yes/openclaw/install_06_model_config_02.png" alt="图5.6.11 模型配置 - 验证" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_06_model_config_01.png" alt="图5.6.11 模型配置 - 自定义" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_06_model_config_02.png" alt="图5.6.11 模型配置 - 验证" width="45%">
     <p>图5.6.11 选择自定义模型并配置连接信息</p>
 </div>
 
@@ -167,7 +167,7 @@ Windows 11 / Linux
 验证保存后，点击下一步即完成全部安装：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_07_complete.png" alt="图5.6.12 安装完成" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_07_complete.png" alt="图5.6.12 安装完成" width="90%">
     <p>图5.6.12 点击下一步，安装完成</p>
 </div>
 
@@ -176,7 +176,7 @@ Windows 11 / Linux
 恭喜！一只纯本地的"龙虾"就安装好了 🦞
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_08_lobster_ready.png" alt="图5.6.13 OpenClaw 就绪" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_08_lobster_ready.png" alt="图5.6.13 OpenClaw 就绪" width="90%">
     <p>图5.6.13 本地 OpenClaw 安装成功</p>
 </div>
 
@@ -187,7 +187,7 @@ Windows 11 / Linux
 点击左下角的"OpenClaw 页面"进入 Web 管理界面，这里可以聊天、管理 Agent，也可以在 ClawX 客户端直接聊天和管理：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_09_web_ui.png" alt="图5.6.14 OpenClaw Web 界面" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_09_web_ui.png" alt="图5.6.14 OpenClaw Web 界面" width="90%">
     <p>图5.6.14 OpenClaw Web 管理界面</p>
 </div>
 
@@ -196,15 +196,15 @@ Windows 11 / Linux
 在频道设置中，可以一步一步配置飞书或钉钉等消息渠道，实现多平台消息统一接入：
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/install_10_channel_01.png" alt="图5.6.15 配置频道 - 飞书" width="45%">
-    <img src="../../../public/images/05-amd-yes/openclaw/install_10_channel_02.png" alt="图5.6.15 配置频道 - 钉钉" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_10_channel_01.png" alt="图5.6.15 配置频道 - 飞书" width="45%">
+    <img src="../../public/images/05-amd-yes/openclaw/install_10_channel_02.png" alt="图5.6.15 配置频道 - 钉钉" width="45%">
     <p>图5.6.15 配置飞书/钉钉消息频道</p>
 </div>
 
 ## 总结
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/openclaw/summary_privacy.png" alt="图5.6.16 全隐私方案" width="90%">
+    <img src="../../public/images/05-amd-yes/openclaw/summary_privacy.png" alt="图5.6.16 全隐私方案" width="90%">
     <p>图5.6.16 本地部署大模型 + 本地部署 OpenClaw = 完全隐私的个人助手</p>
 </div>
 

@@ -31,7 +31,7 @@ In the previous chapter, we explored the GPU's hardware architecture. But in rea
 To run code concurrently on the GPU, you must understand its "strength in numbers" organization. Task scheduling on the GPU is divided into three levels:
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/handwrite-rocm-operator/grid_block_thread_model.png" alt="Figure 3.1 GPU three-level thread model Grid-Block-Thread" width="80%">
+    <img src="../../public/images/03-infra/handwrite-rocm-operator/grid_block_thread_model.png" alt="Figure 3.1 GPU three-level thread model Grid-Block-Thread" width="80%">
     <p><b>Figure 3.1</b> GPU three-level thread model: Grid contains multiple Blocks, Block contains multiple Threads</p>
 </div>
 
@@ -47,7 +47,7 @@ The most painful part for beginners writing operators is: **thousands of threads
 This is where HIP's built-in addressing variables come in.
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/handwrite-rocm-operator/hip_thread_addressing.png" alt="Figure 3.2 HIP thread addressing variables" width="65%">
+    <img src="../../public/images/03-infra/handwrite-rocm-operator/hip_thread_addressing.png" alt="Figure 3.2 HIP thread addressing variables" width="65%">
     <p><b>Figure 3.2</b> HIP thread addressing: the meaning of blockIdx, threadIdx, and blockDim</p>
 </div>
 
@@ -217,7 +217,7 @@ Verification: c[0] = 3 (expected: 3.0)
 Why is your handwritten GPU code still slow? Because **where data is stored determines how fast computation runs**. To write high-performance operators, you must understand the GPU's "memory pyramid."
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/handwrite-rocm-operator/gpu_memory_hierarchy.png" alt="Figure 3.3 GPU memory hierarchy pyramid" width="60%">
+    <img src="../../public/images/03-infra/handwrite-rocm-operator/gpu_memory_hierarchy.png" alt="Figure 3.3 GPU memory hierarchy pyramid" width="60%">
     <p><b>Figure 3.3</b> GPU memory pyramid: from ultra-fast registers to slow system memory, speed differences span thousands of times</p>
 </div>
 

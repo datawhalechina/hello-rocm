@@ -19,7 +19,7 @@ Chat-Zhenxuan realizes, starting with "Zhenxuan's Tale" as an entry point, a com
 ### Chat-Zhenxuan LoRA Fine-Tuning Pipeline
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/huanhuan-chat/huanhuan_lora_pipeline_en.png" alt="Figure 5.3.1 Chat-Zhenxuan LoRA fine-tuning pipeline" width="95%">
+    <img src="../../public/images/05-amd-yes/huanhuan-chat/huanhuan_lora_pipeline_en.png" alt="Figure 5.3.1 Chat-Zhenxuan LoRA fine-tuning pipeline" width="95%">
 </div>
 
 ***Alright, next I will guide you through implementing Chat-Zhenxuan's training process step by step. Let's experience it together~***

@@ -33,7 +33,7 @@ This module is divided into two stages: First, quickly get started with various 
 ### AMD-YES Learning Path
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/overview/amd_yes_project_overview_en.png" alt="Figure 5.1 AMD-YES project learning path overview" width="95%">
+    <img src="../../public/images/05-amd-yes/overview/amd_yes_project_overview_en.png" alt="Figure 5.1 AMD-YES project learning path overview" width="95%">
 </div>
 
 ## Project List

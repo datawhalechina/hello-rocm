@@ -21,7 +21,7 @@ https://lmstudio.ai/
 示意图：
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image1.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image1.png" alt="" width="90%">
 </div>
 
 ---
@@ -64,17 +64,17 @@ sudo chmod 4755 chrome-sandbox
 在 LM Studio 中选择 **ROCm 版本的 llama.cpp 后端** 安装：
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image2.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image2.png" alt="" width="90%">
 </div>
 
 需要注意，目前 LM Studio 所提供的 ROCm 版本 llama.cpp 所支持的架构列表（不同 GPU 架构支持状况）：
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image3.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image3.png" alt="" width="90%">
 </div>
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image4.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image4.png" alt="" width="90%">
 </div>
 
 ---
@@ -104,7 +104,7 @@ gemma-4-E4B-it GGUF
 截图示例：
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image5.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image5.png" alt="" width="90%">
 </div>
 
 > 若需体验 Gemma 4 的图像 / 视频 / 音频多模态能力，请使用 LM Studio 中标注支持 **Vision / Multimodal** 的 Gemma 4 GGUF 包（通常附带 `mmproj` 投影文件），然后在对话窗口直接拖入图片或音频即可。

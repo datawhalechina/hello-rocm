@@ -28,7 +28,7 @@
 如果你使用的是 Windows + Ryzen AI Max+ 395，可以重点参考 [Windows 11 安装](/zh/00-environment/#一windows-11-安装) 和 [安装 ROCm + PyTorch](/zh/00-environment/#15-安装-rocm--pytorch) 两节。ROCm 7.12.0 之后的版本支持通过 pip/uv pip 将 ROCm 相关库安装到 Python 虚拟环境中，极大简化了安装流程。
 
 <div align='center'>
-    <img src="../../../public/images/02-fine-tune/rocm.png" alt="" width="90%">
+    <img src="../../public/images/02-fine-tune/rocm.png" alt="" width="90%">
 </div>
 
 接下来，我们以 AMD Ryzen AI Max+ 395（`gfx1151`）Windows 系统为例，展示如何配置微调环境。本教程中 `uv` 仅作为 conda/venv 的替代和 pip 安装入口，不使用 `uv add` / `uv sync` 管理 ROCm PyTorch。

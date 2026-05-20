@@ -482,12 +482,12 @@ python resnet_cifar10_amd.py
 #### 输出
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/embrace-amd-ai/resnet_cifar10_training_curve.png" alt="图1.1 ResNet18 CIFAR10 训练准确率曲线" width="80%">
+    <img src="../../public/images/03-infra/embrace-amd-ai/resnet_cifar10_training_curve.png" alt="图1.1 ResNet18 CIFAR10 训练准确率曲线" width="80%">
     <p><b>图1.1</b> ResNet18 CIFAR10 训练准确率曲线</p>
 </div>
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/embrace-amd-ai/resnet_cifar10_rocm_result.png" alt="图1.2 ResNet18 CIFAR10 训练结果（AMD ROCm）" width="80%">
+    <img src="../../public/images/03-infra/embrace-amd-ai/resnet_cifar10_rocm_result.png" alt="图1.2 ResNet18 CIFAR10 训练结果（AMD ROCm）" width="80%">
     <p><b>图1.2</b> ResNet18 CIFAR10 训练结果（AMD ROCm）</p>
 </div>
 
@@ -619,7 +619,7 @@ curl -s http://127.0.0.1:3000/v1/chat/completions \
 如果一切正常，你会收到类似以下的 JSON 响应，包含 Qwen2.5 模型生成的回答：
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/embrace-amd-ai/qwen25_vllm_inference_result.png" alt="图1.3 Qwen2.5-7B-Instruct vLLM 推理结果" width="80%">
+    <img src="../../public/images/03-infra/embrace-amd-ai/qwen25_vllm_inference_result.png" alt="图1.3 Qwen2.5-7B-Instruct vLLM 推理结果" width="80%">
     <p><b>图1.3</b> Qwen2.5-7B-Instruct vLLM 推理结果</p>
 </div>
 
@@ -741,7 +741,7 @@ python qwen_pytorch_inference.py
 #### 预期输出
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/embrace-amd-ai/qwen25_pytorch_inference_result.png" alt="图1.4 Qwen2.5-7B-Instruct 原生 PyTorch 推理结果" width="80%">
+    <img src="../../public/images/03-infra/embrace-amd-ai/qwen25_pytorch_inference_result.png" alt="图1.4 Qwen2.5-7B-Instruct 原生 PyTorch 推理结果" width="80%">
     <p><b>图1.4</b> Qwen2.5-7B-Instruct 原生 PyTorch 推理结果</p>
 </div>
 

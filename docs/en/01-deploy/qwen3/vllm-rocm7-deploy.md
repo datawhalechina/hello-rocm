@@ -123,10 +123,10 @@ Test result example (Qwen3-8B Q4_K_M, ctx=4096):
 Screenshot examples:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/qwen3/image11.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/qwen3/image11.png" alt="" width="90%">
 </div>
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/qwen3/image12.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/qwen3/image12.png" alt="" width="90%">
 </div>
 
 ---
@@ -346,11 +346,11 @@ echo "=================================================="
 Screenshot examples:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/qwen3/image13.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/qwen3/image13.png" alt="" width="90%">
 </div>
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/qwen3/image14.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/qwen3/image14.png" alt="" width="90%">
 </div>
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/qwen3/image15.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/qwen3/image15.png" alt="" width="90%">
 </div>

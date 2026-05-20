@@ -26,7 +26,7 @@ Related links:
 - https://github.com/lemonade-sdk/llamacpp-rocm/releases
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image7.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image7.png" alt="" width="90%">
 </div>
 
 ---
@@ -42,7 +42,7 @@ amd-smi
 Example output (showing GPU model, driver version, ROCm version):
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image8.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image8.png" alt="" width="90%">
 </div>
 
 If the output is normal, the GPU is ready for inference.
@@ -130,7 +130,7 @@ curl -s -X POST http://127.0.0.1:8080/v1/completions \
 Screenshot example:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image9.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image9.png" alt="" width="90%">
 </div>
 
 Test result example (Gemma 4 E4B-it Q4_K_M, ctx=4096):
@@ -234,7 +234,7 @@ cd /workspace/llama.cpp
 Screenshot example:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image10.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image10.png" alt="" width="90%">
 </div>
 
 Test result (Gemma 4 E4B-it Q4_K_M, ctx=4096):

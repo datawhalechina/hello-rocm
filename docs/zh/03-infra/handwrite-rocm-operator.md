@@ -31,7 +31,7 @@
 要让代码在 GPU 上并发，必须理解它的"人海战术"编制。GPU 上的任务调度分为三个层级：
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/handwrite-rocm-operator/grid_block_thread_model.png" alt="图3.1 GPU 三级线程模型 Grid-Block-Thread" width="80%">
+    <img src="../../public/images/03-infra/handwrite-rocm-operator/grid_block_thread_model.png" alt="图3.1 GPU 三级线程模型 Grid-Block-Thread" width="80%">
     <p><b>图3.1</b> GPU 三级线程模型：Grid 包含多个 Block，Block 包含多个 Thread</p>
 </div>
 
@@ -47,7 +47,7 @@
 这就需要用到 HIP 内置的寻址变量。
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/handwrite-rocm-operator/hip_thread_addressing.png" alt="图3.2 HIP 线程寻址变量示意图" width="65%">
+    <img src="../../public/images/03-infra/handwrite-rocm-operator/hip_thread_addressing.png" alt="图3.2 HIP 线程寻址变量示意图" width="65%">
     <p><b>图3.2</b> HIP 线程寻址：blockIdx、threadIdx、blockDim 的含义</p>
 </div>
 
@@ -217,7 +217,7 @@ hipcc vector_add.cpp -o vector_add -O3
 为什么手写了 GPU 代码，速度还是慢？因为**数据存放在哪，决定了计算有多快**。要写出高性能算子，必须理解 GPU 的"内存金字塔"。
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/handwrite-rocm-operator/gpu_memory_hierarchy.png" alt="图3.3 GPU 内存层次结构金字塔" width="60%">
+    <img src="../../public/images/03-infra/handwrite-rocm-operator/gpu_memory_hierarchy.png" alt="图3.3 GPU 内存层次结构金字塔" width="60%">
     <p><b>图3.3</b> GPU 内存金字塔：从极快的寄存器到缓慢的系统内存，速度差达数千倍</p>
 </div>
 

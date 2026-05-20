@@ -13,7 +13,7 @@
 ### Happy-LLM ROCm 训练路线
 
 <div align='center'>
-    <img src="../../../../public/images/05-amd-yes/happy-llm/happy_llm_rocm_training_pipeline_zh.png" alt="图5.4.1 Happy-LLM ROCm 训练路线图" width="95%">
+    <img src="../../../public/images/05-amd-yes/happy-llm/happy_llm_rocm_training_pipeline_zh.png" alt="图5.4.1 Happy-LLM ROCm 训练路线图" width="95%">
 </div>
 
 <br>

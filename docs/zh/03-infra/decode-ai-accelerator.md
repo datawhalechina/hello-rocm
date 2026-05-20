@@ -22,7 +22,7 @@
 当你写下 `x + y` 这样的 PyTorch 代码时，你知道这行代码经历了多少层"翻译"才最终在 GPU 上执行吗？这一节，我们用 Linux 的工具来追踪整个调用链路。
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/python_to_gpu_overview_flow.png" alt="图2.1 从 Python 到 GPU 的总览流程" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/python_to_gpu_overview_flow.png" alt="图2.1 从 Python 到 GPU 的总览流程" width="95%">
     <p><b>图2.1</b> 从 Python 到 GPU 的总览流程：PyTorch 代码经过 HIP、HSA、Driver，最终在 GPU 上并行执行</p>
 </div>
 
@@ -43,7 +43,7 @@ ldd $TORCH_LIB/libtorch_python.so | grep -E "amd|hip|hsa"
 #### 输出示例
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/ldd_pytorch_dependency_chain.png" alt="图2.2 ldd 追踪 PyTorch 依赖链路" width="90%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/ldd_pytorch_dependency_chain.png" alt="图2.2 ldd 追踪 PyTorch 依赖链路" width="90%">
     <p><b>图2.2</b> ldd 查看 PyTorch 的 ROCm 依赖库</p>
 </div>
 
@@ -136,7 +136,7 @@ graph TB
 > 你写的 Python/HIP 代码，GPU 是看不懂的。编译器需要做一系列转换才能让 GPU 执行。
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/hip_llvm_isa_compile_pipeline.png" alt="图2.3 HIP / LLVM / ISA 编译链路图" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/hip_llvm_isa_compile_pipeline.png" alt="图2.3 HIP / LLVM / ISA 编译链路图" width="95%">
     <p><b>图2.3</b> HIP / LLVM / ISA 编译链路：从 C++/HIP 源码到 GPU 可执行二进制</p>
 </div>
 
@@ -485,7 +485,7 @@ Element [1023]: 1 + 2 = 3
 ```
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/hip_cpu_gpu_swimlane.png" alt="图2.4 HIP 程序 CPU-GPU 双泳道执行图" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/hip_cpu_gpu_swimlane.png" alt="图2.4 HIP 程序 CPU-GPU 双泳道执行图" width="95%">
     <p><b>图2.4</b> HIP 程序执行流程：CPU 负责调度，GPU 负责并行计算</p>
 </div>
 
@@ -538,12 +538,12 @@ AI（深度学习）的负载完全不同：
 | **内存带宽敏感** | 需要快速搬运大量数据 |
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/cpu_vs_gpu_philosophy.png" alt="图2.5 CPU vs GPU 低延迟与高吞吐对比" width="90%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/cpu_vs_gpu_philosophy.png" alt="图2.5 CPU vs GPU 低延迟与高吞吐对比" width="90%">
     <p><b>图2.5</b> CPU 低延迟 vs GPU 高吞吐设计哲学对比</p>
 </div>
 
 <!-- <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/cpu_latency_gpu_throughput.png" alt="图2.6 CPU 低延迟 vs GPU 高吞吐" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/cpu_latency_gpu_throughput.png" alt="图2.6 CPU 低延迟 vs GPU 高吞吐" width="95%">
     <p><b>图2.6</b> CPU 像跑车，追求低延迟；GPU 像高铁货运，追求高吞吐</p>
 </div> -->
 
@@ -652,7 +652,7 @@ python bench_resnet.py
 **预期输出示例**（在 Radeon 8060S 上）：
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/resnet50_benchmark_result.png" alt="图2.7 ResNet-50 CPU vs GPU 性能对比" width="90%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/resnet50_benchmark_result.png" alt="图2.7 ResNet-50 CPU vs GPU 性能对比" width="90%">
     <p><b>图2.7</b> ResNet-50 CPU vs GPU 推理性能对比（Radeon 8060S）</p>
 </div>
 
@@ -670,12 +670,12 @@ python bench_resnet.py
 GPU 的核心技术是 **SIMT (Single Instruction, Multiple Threads)**，即"单指令多线程"。
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/simt_wavefront_execution.png" alt="图2.8 SIMT / Wavefront 执行模型图" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/simt_wavefront_execution.png" alt="图2.8 SIMT / Wavefront 执行模型图" width="95%">
     <p><b>图2.8</b> SIMT / Wavefront 执行模型：同一条指令，多个线程处理不同数据</p>
 </div>
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/simt_control_vs_alu_ratio.png" alt="图2.9 CPU 控制单元 vs GPU 运算单元比例差异" width="90%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/simt_control_vs_alu_ratio.png" alt="图2.9 CPU 控制单元 vs GPU 运算单元比例差异" width="90%">
     <p><b>图2.9</b> 控制单元 vs 运算单元：CPU 与 GPU 的晶体管分配差异</p>
 </div>
 
@@ -695,7 +695,7 @@ GPU 的核心技术是 **SIMT (Single Instruction, Multiple Threads)**，即"单
 当 wavefront 内的线程需要执行不同的代码路径时，就会发生**分支发散**，导致性能下降。
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/wavefront_divergence.png" alt="图2.10 分支发散 Divergence 示意图" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/wavefront_divergence.png" alt="图2.10 分支发散 Divergence 示意图" width="95%">
     <p><b>图2.10</b> 分支发散：同一个 Wavefront 内线程走不同分支，会被拆成多次执行</p>
 </div>
 
@@ -987,7 +987,7 @@ shuffle 版本加速比: 1.15036x
 #### 内存访问模式：合并访问 vs 随机访问
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/coalesced_vs_strided_access.png" alt="图2.11 合并访问 vs 随机访问" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/coalesced_vs_strided_access.png" alt="图2.11 合并访问 vs 随机访问" width="95%">
     <p><b>图2.11</b> 合并访问 vs 随机访问：连续线程访问连续地址，访存效率最高</p>
 </div>
 
@@ -1036,7 +1036,7 @@ __global__ void bad_access(float* data) {
 ### 2.3.1 Compute Unit (CU)：GPU 的"干活小组"
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/amd_gpu_cu_internal_structure.png" alt="图2.12 AMD GPU CU 内部结构图" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/amd_gpu_cu_internal_structure.png" alt="图2.12 AMD GPU CU 内部结构图" width="95%">
     <p><b>图2.12</b> AMD GPU Compute Unit 内部结构：SIMD、VGPR、SGPR、LDS 与调度器协同工作</p>
 </div>
 
@@ -1126,7 +1126,7 @@ CU 数量 x wavefront/CU x 32/64 thread/wavefront = 数万到数十万个线程
 #### Occupancy：资源利用率
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/decode-ai-accelerator/occupancy_register_pressure.png" alt="图2.13 Occupancy 与寄存器压力图" width="95%">
+    <img src="../../public/images/03-infra/decode-ai-accelerator/occupancy_register_pressure.png" alt="图2.13 Occupancy 与寄存器压力图" width="95%">
     <p><b>图2.13</b> Occupancy 与寄存器压力：每个线程用的寄存器越多，同时驻留的 Wavefront 越少</p>
 </div>
 

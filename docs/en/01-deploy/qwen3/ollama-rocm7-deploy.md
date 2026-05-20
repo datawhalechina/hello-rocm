@@ -78,5 +78,5 @@ Testing the **Qwen3-8B Q4_K_M** model in the above environment (context length 4
 Screenshot example:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/qwen3/image6.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/qwen3/image6.png" alt="" width="90%">
 </div>

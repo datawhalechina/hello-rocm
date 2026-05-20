@@ -80,7 +80,7 @@ Testing the **Gemma 4 E4B-it Q4_K_M** model in the above environment (context le
 Screenshot example:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image6.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image6.png" alt="" width="90%">
 </div>
 
 > To experience Gemma 4's multimodal capabilities (image / video / audio input), select a Gemma 4 tag in Ollama that is labeled as supporting `vision` / `multimodal`, and pass images via the `images` field (Base64-encoded) in the `/api/chat` API endpoint. Please refer to the latest Ollama documentation for specific parameters.

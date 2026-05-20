@@ -165,7 +165,7 @@ ollama serve
 - **本地模型**：管理已下载的模型，支持启动、停止、聊天测试等操作
 
 <div align='center'>
-    <img src="../../../../../public/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-1.png" alt="" width="90%">
+    <img src="../../../../public/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-1.png" alt="" width="90%">
 </div>
 
 <div align="center">
@@ -185,7 +185,7 @@ ollama serve
 在"对话"选项卡中输入"你是什么模型"测试对话功能。
 
 <div align='center'>
-    <img src="../../../../../public/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-2.png" alt="" width="90%">
+    <img src="../../../../public/images/05-amd-yes/hello-agents/smart-travel-planner/picture7-2.png" alt="" width="90%">
 </div>
 
 <div align="center">

@@ -21,7 +21,7 @@ Download the latest `.AppImage` file to your local machine.
 Screenshot:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image1.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image1.png" alt="" width="90%">
 </div>
 
 ---
@@ -64,17 +64,17 @@ Start the LM Studio application from the current directory:
 In LM Studio, select the **ROCm version of the llama.cpp backend** to install:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image2.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image2.png" alt="" width="90%">
 </div>
 
 Note the supported architecture list for the ROCm version of llama.cpp currently provided by LM Studio (GPU architecture support status):
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image3.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image3.png" alt="" width="90%">
 </div>
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image4.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image4.png" alt="" width="90%">
 </div>
 
 ---
@@ -104,7 +104,7 @@ Load the **Gemma 4 E4B-it Q4_K_M** model in LM Studio, set the context length to
 Screenshot example:
 
 <div align='center'>
-    <img src="../../../../public/images/01-deploy/gemma4/image5.png" alt="" width="90%">
+    <img src="../../../public/images/01-deploy/gemma4/image5.png" alt="" width="90%">
 </div>
 
 > To experience Gemma 4's image / video / audio multimodal capabilities, use a Gemma 4 GGUF package in LM Studio that is labeled as supporting **Vision / Multimodal** (usually includes an `mmproj` projection file), then simply drag and drop images or audio into the chat window.

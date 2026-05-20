@@ -14,7 +14,7 @@
 ### toy-cli Local Agent Call Chain
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/toy-cli/toy_cli_rocm_agent_flow_en.png" alt="Figure 5.1.1 toy-cli local LLM Agent call chain" width="95%">
+    <img src="../../public/images/05-amd-yes/toy-cli/toy_cli_rocm_agent_flow_en.png" alt="Figure 5.1.1 toy-cli local LLM Agent call chain" width="95%">
 </div>
 
 ***OK, next I will guide you through the hands-on process of implementing toy-cli installation and usage step by step. Let's experience it together~***
@@ -44,7 +44,7 @@ pip install requests python-dotenv chardet
 ### 2.1 Loading AgentCPM-explore Model in LM-Studio
 
 <div align='center'>
-	<img src="../../../public/images/05-amd-yes/toy-cli/AgentCPM-Explore-GGUF.png" alt="alt text" width="90%">
+	<img src="../../public/images/05-amd-yes/toy-cli/AgentCPM-Explore-GGUF.png" alt="alt text" width="90%">
 	<p>AgentCPM-explore model</p>
 </div>
 
@@ -57,14 +57,14 @@ AgentCPM-Explore is a high-performance open-source intelligent agent base model 
 Check the endpoint address in LM-Studio (default: `http://127.0.0.1:1234`):
 
 <div align='center'>
-	<img src="../../../public/images/05-amd-yes/toy-cli/config_model.png" alt="alt text" width="90%">
+	<img src="../../public/images/05-amd-yes/toy-cli/config_model.png" alt="alt text" width="90%">
 	<p>AgentCPM-explore model</p>
 </div>
 
 Use AMD ROCm as the inference engine:
 
 <div align='center'>
-	<img src="../../../public/images/05-amd-yes/toy-cli/ROCm_config.png" alt="alt text" width="90%">
+	<img src="../../public/images/05-amd-yes/toy-cli/ROCm_config.png" alt="alt text" width="90%">
 	<p>AgentCPM-explore model</p>
 </div>
 

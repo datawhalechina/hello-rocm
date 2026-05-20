@@ -229,7 +229,7 @@ def get_criteo_data_dict(data_path: str | Path):
 
 DeepFM 是 CTR 精排模型，输入是一条曝光样本，输出“用户是否会点击”的概率。论文的核心点是：**FM 分支和 Deep 分支共享同一套 embedding，同时学习低阶和高阶特征交互**。
 
-![deepFM.png](../../../../public/images/05-amd-yes/torch-rechub/DeepFM.png)
+![deepFM.png](../../../public/images/05-amd-yes/torch-rechub/DeepFM.png)
 
 ### 模型推理直觉
 

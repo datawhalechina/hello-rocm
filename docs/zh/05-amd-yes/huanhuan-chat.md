@@ -19,7 +19,7 @@ Chat-甄嬛，实现了以《甄嬛传》为切入点，打造一套基于小说
 ### Chat-甄嬛 LoRA 微调流程
 
 <div align='center'>
-    <img src="../../../public/images/05-amd-yes/huanhuan-chat/huanhuan_lora_pipeline_zh.png" alt="图5.3.1 Chat-甄嬛 LoRA 微调流程" width="95%">
+    <img src="../../public/images/05-amd-yes/huanhuan-chat/huanhuan_lora_pipeline_zh.png" alt="图5.3.1 Chat-甄嬛 LoRA 微调流程" width="95%">
 </div>
 
 ***OK，那接下来我将会带领大家亲自动手，一步步实现 Chat-甄嬛 的训练过程，让我们一起来体验一下吧~***

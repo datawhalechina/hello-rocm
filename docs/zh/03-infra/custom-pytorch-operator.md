@@ -30,7 +30,7 @@
 当你在一行 Python 代码中敲下 `torch.relu(x)` 时，底层实际上发生了一次漫长而精密的"跨国旅行"：
 
 <div align='center'>
-    <img src="../../../public/images/03-infra/custom-pytorch-operator/pytorch_operator_call_chain.png" alt="图4.1 PyTorch 算子调用全链路" width="90%">
+    <img src="../../public/images/03-infra/custom-pytorch-operator/pytorch_operator_call_chain.png" alt="图4.1 PyTorch 算子调用全链路" width="90%">
     <p><b>图4.1</b> PyTorch 算子调用全链路：Python → Pybind11 → ATen → HIP → GPU</p>
 </div>
 
