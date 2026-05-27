@@ -104,8 +104,8 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | 架构 | 典型产品 / Graphics model | LLVM Target | 主要方向 |
 |------|---------------------------|-------------|----------|
 | RDNA 4 | Radeon RX 9000 系列（RX 9070 XT / 9070 GRE / 9070）与 Radeon AI PRO R9000 系列 | `gfx1201` | 游戏显卡、工作站图形与 AI 能力 |
-| RDNA 4 | Radeon RX 9060 XT / 9060 系列 | `gfx1200` | 主流游戏显卡 |
-| RDNA 3.5 | Ryzen AI Max / Max PRO 300（Radeon 8060S / 8050S） | `gfx1151` | 移动端 / APU 集成 GPU |
+| RDNA 4 | Radeon RX 9060 XT LP / 9060 XT / 9060 系列 | `gfx1200` | 主流游戏显卡 |
+| RDNA 3.5 | Ryzen AI Max / Max PRO 300（Radeon 8060S / 8050S）含 AI Max+ 392/388 | `gfx1151` | 移动端 / APU 集成 GPU |
 | RDNA 3.5 | Ryzen AI 300 / AI PRO 400（Radeon 890M / 880M / 860M） | `gfx1150` | 移动端 / APU 集成 GPU |
 | RDNA 3 | Radeon RX 7900 / PRO W7900 / PRO W7800 系列 | `gfx1100` | 高端消费级与工作站显卡 |
 | RDNA 3 | Radeon RX 7800 / 7700 / PRO W7700 / V710 系列 | `gfx1101` | 消费级与工作站显卡 |
@@ -161,6 +161,12 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 ### 2026
 
+- **2026.05.15** - [ROCm 7.13.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
+  - 兼容性信息以 [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html) 为准
+  - 新增硬件支持：Instinct MI350P (gfx950)、Radeon AI PRO R9700S (gfx1201)、Radeon RX 9060 XT LP (gfx1200)、Ryzen AI Max+ 392/388 (gfx1151)、Ryzen AI PRO 400 / AI 400 系列多款型号 (gfx1150/gfx1152)
+  - 新增 OS 支持：Ubuntu 26.04 (kernel 7.0)、RHEL 10.0/10.1、Debian 13、Oracle Linux 10、Rocky Linux 9、SLES 16.0
+  - 最新 amdgpu 驱动版本 31.30.0；固件 PLDM bundle 01.26.00.02
+
 - **2026.03.11** - [ROCm 7.12.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
   - 更新 ROCm 7.12.0 预览版发布说明，覆盖 ROCm 组件、安装方式与平台支持变化
   - 兼容性信息以 [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip) 为准
@@ -183,7 +189,7 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 | 系列 | 型号 | 架构 | LLVM Target | ROCm 支持 |
 |------|------|------|-------------|-----------|
-| MI350 | MI355X, MI350X | CDNA 4 | `gfx950` | ✅ |
+| MI350 | MI355X, MI350X, MI350P | CDNA 4 | `gfx950` | ✅ |
 | MI300 | MI325X, MI300X, MI300A | CDNA 3 | `gfx942` | ✅ |
 | MI200 | MI250X, MI250, MI210 | CDNA 2 | `gfx90a` | ✅ |
 | MI100 | MI100 | CDNA | `gfx908` | ✅ |
@@ -192,7 +198,7 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 | 系列 | 型号 | 架构 | LLVM Target | ROCm 支持 |
 |------|------|------|-------------|-----------|
-| AI PRO R9000 | R9700, R9600D | RDNA 4 | `gfx1201` | ✅ |
+| AI PRO R9000 | R9700S, R9700, R9600D | RDNA 4 | `gfx1201` | ✅ |
 | PRO W7000 | W7900 Dual Slot, W7900, W7800 48GB, W7800 | RDNA 3 | `gfx1100` | ✅ |
 | PRO W7700 | W7700, V710 | RDNA 3 | `gfx1101` | ✅ |
 
@@ -211,12 +217,13 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | 系列 | 型号 | Graphics model (iGPU) | 架构 | LLVM Target | ROCm 支持 |
 |------|------|------------------------|------|-------------|-----------|
 | Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | RDNA 3.5 | `gfx1151` | ✅ |
-| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | RDNA 3.5 | `gfx1151` | ✅ |
-| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` | ✅ |
-| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` | ✅ |
-| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
+| Ryzen AI Max 300 | AI Max+ 395, AI Max+ 392, AI Max+ 388, Max 390, Max 385 | Radeon 8060S / 8050S | RDNA 3.5 | `gfx1151` | ✅ |
+| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
+| Ryzen AI 400 | AI 9 HX 475/470, AI 9 465, AI 7 450 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
+| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
+| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 及 PRO 系列 | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
 
-> 完整支持列表请以 [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip) 为准。
+> 完整支持列表请以 [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html) 为准。
 
 ## 常用工具
 
