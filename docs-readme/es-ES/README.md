@@ -49,6 +49,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ### Últimas actualizaciones
 
+- *2026.5.15:* [*Notas de la versión de ROCm 7.13.0*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
+
 - *2026.3.11:* [*Notas de la versión de ROCm 7.12.0*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
 
 - *2025.12.11:* [*Notas de la versión de ROCm 7.10.0*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)

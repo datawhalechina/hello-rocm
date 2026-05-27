@@ -10,7 +10,7 @@
 
 <div align="center">
 
-*统一环境基线 · ROCm 7.12.0 · 所有后续章节的前置依赖*
+*统一环境基线 · ROCm 7.13.0 · 所有后续章节的前置依赖*
 
 [返回主页](/zh/) | [English](/00-environment/)
 
@@ -18,13 +18,13 @@
 
 ## 简介
 
-&emsp;&emsp;本章节是整个 **hello-rocm** 项目的环境基线参考。统一以 **ROCm 7.12.0**（Technology Preview，2026-03-26 发布）为目标版本，覆盖 Windows 和 Ubuntu 双平台的安装、校验与卸载流程。
+&emsp;&emsp;本章节是整个 **hello-rocm** 项目的环境基线参考。统一以 **ROCm 7.13.0**（Technology Preview，2026-05-15 发布）为目标版本，覆盖 Windows 和 Ubuntu 双平台的安装、校验与卸载流程。
 
 &emsp;&emsp;后续所有章节（01-Deploy、02-Fine-tune 等）的环境准备均以本章为基准。如需使用其他 ROCm 版本或其他 GPU 架构，请参考 [GPU 架构对照表](/zh/00-environment/rocm-gpu-architecture-table) 进行对应替换。
 
 > 💡 **平台建议**：Windows 已支持 ROCm 体验与推理验证，但 ROCm 生态工具链（如 rocminfo、amd-smi、多卡支持、容器化部署等）在 **Ubuntu** 上支持更完整。**建议使用 Ubuntu 24.04 作为主力开发环境**，Windows 可作为快速体验或轻量推理使用。
 
-> ⚠️ **ROCm 7.12.0 为 Technology Preview 版本**，不适合生产环境。生产环境请使用 [ROCm 7.2 production stream](https://rocm.docs.amd.com/en/latest/)。
+> ⚠️ **ROCm 7.13.0 为 Technology Preview 版本**，不适合生产环境。生产环境请使用 [ROCm 7.2 production stream](https://rocm.docs.amd.com/en/latest/)。
 
 > ⚠️ **Windows 用户必读**：安装前务必确认你的 **Adrenalin Driver 版本** 和 **Windows 版本** 符合要求（见下方版本信息表），否则 ROCm 将无法正常运行。
 
@@ -34,13 +34,25 @@
 
 | 项目 | 要求 | 下载链接 |
 |:---|:---|:---|
-| ROCm | 7.12.0 (Technology Preview) | [官方安装页](https://rocm.docs.amd.com/en/7.12.0-preview/install/rocm.html) |
-| PyTorch | 2.10.0 / 2.9.1 | 通过 uv 安装（见下文） |
-| Python | 3.11 / 3.12 / 3.13 | 由 uv 自动管理 |
+| ROCm | 7.13.0 (Technology Preview) | [官方安装页](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html) |
+| PyTorch | 2.11.0 / 2.10.0 / 2.9.1 | 通过 uv 安装（见下文） |
+| Python | 3.10 / 3.11 / 3.12 / 3.13 / 3.14 | 由 uv 自动管理 |
 | **Windows 版本** | **11 25H2** | — |
-| **Adrenalin Driver (Windows)** | **26.3.1** | [**⬇️ 下载 Adrenalin 26.3.1**](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-3-1.html#Downloads) |
+| **Adrenalin Driver (Windows)** | **26.5.1** | [**⬇️ 下载 Adrenalin 26.5.1**](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-5-1.html#Downloads) |
 | **Visual Studio 2022 (Windows)** | **Community，勾选「使用 C++ 的桌面开发」** | [**⬇️ 下载 VS 2022**](https://visualstudio.microsoft.com/zh-hans/downloads/) |
-| Ubuntu | 24.04.3 (HWE kernel 6.14 for Ryzen APU) | [Ubuntu Downloads](https://ubuntu.com/download/desktop) |
+| Ubuntu | 24.04.4 (GA kernel 6.8) / 26.04 (GA kernel 7.0) | [Ubuntu Downloads](https://ubuntu.com/download/desktop) |
+
+### AI 生态兼容性
+
+ROCm 7.13.0 为主流深度学习框架和推理引擎提供了优化支持：
+
+| 框架 / 引擎 | 支持版本 | Python 版本 |
+|:---|:---|:---|
+| PyTorch | 2.11.0 / 2.10.0 / 2.9.1 | 3.14 / 3.13 / 3.12 / 3.11 / 3.10 |
+| JAX | — | — |
+| vLLM | 0.19.1 | 3.13 |
+
+> 💡 vLLM 0.19.1 Docker 镜像已预装 PyTorch 2.10 + Python 3.13，按 GPU 架构分发（gfx942、gfx950、gfx1100-1201、gfx1150-1152）。详见 [vLLM inference and serving](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/vllm.html)。
 
 ---
 
@@ -59,14 +71,14 @@
 
 > 以 **Ryzen AI Max+ 395（gfx1151）** 为例。
 >
-> 📖 官方文档：[Install ROCm on Windows](https://rocm.docs.amd.com/en/7.12.0-preview/install/rocm.html?fam=ryzen&gpu=max-pro-395&os=windows&os-version=11_25h2&i=pip) | [Install PyTorch](https://rocm.docs.amd.com/en/7.12.0-preview/rocm-for-ai/pytorch.html?fam=ryzen&gpu=max-pro-395&os=windows)
+> 📖 官方文档：[Install ROCm on Windows](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html?fam=ryzen&gpu=max-pro-395&os=windows&os-version=11_25h2&i=pip) | [Install PyTorch](https://rocm.docs.amd.com/en/7.13.0-preview/frameworks/pytorch/install.html)
 
 ### 1.1 前置条件检查
 
 | ✅ 检查项 | 要求 |
 |:---|:---|
 | **Windows 版本** | **必须 Windows 11 25H2**（设置 → 系统 → 关于 查看） |
-| **Adrenalin 驱动** | **必须 26.3.1**（[⬇️ 下载](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-3-1.html#Downloads)） |
+| **Adrenalin 驱动** | **必须 26.5.1**（[⬇️ 下载](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-5-1.html#Downloads)） |
 | **Visual Studio 2022**（可选） | Community 版即可，安装时勾选「使用 C++ 的桌面开发」（[⬇️ 下载](https://visualstudio.microsoft.com/zh-hans/downloads/)）。AMD Quark 等需要编译自定义算子时必需 |
 
 <div align='center'>
@@ -128,11 +140,13 @@ uv pip install -r requirements.txt
 > | 你的 GPU | 替换为 |
 > |:---|:---|
 > | Ryzen AI PRO 400 系列 (AI 9 HX PRO 475 等) | `https://repo.amd.com/rocm/whl/gfx1150/` |
-> | Radeon RX 9070 XT / 9060 XT | `https://repo.amd.com/rocm/whl/gfx120X-all/` |
+> | Ryzen AI 200 PRO / AI 7 350 等 (gfx1152) | `https://repo.amd.com/rocm/whl/gfx1152/` |
+> | Radeon RX 9070 XT / 9070 GRE / AI PRO R9700S | `https://repo.amd.com/rocm/whl/gfx120X-all/` |
+> | Radeon RX 9060 XT / 9060 XT LP / 9060 | `https://repo.amd.com/rocm/whl/gfx120X-all/` |
 > | Radeon RX 7900 XTX / 7800 XT | `https://repo.amd.com/rocm/whl/gfx110X-all/` |
 > | Instinct MI300X / MI325X | `https://repo.amd.com/rocm/whl/gfx94X-dcgpu/` |
 >
-> 完整对照请查阅 [GPU 架构对照表](/zh/00-environment/rocm-gpu-architecture-table) 或 [官方兼容性矩阵](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html)。
+> 完整对照请查阅 [GPU 架构对照表](/zh/00-environment/rocm-gpu-architecture-table) 或 [官方兼容性矩阵](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)。
 
 > 🚀 **国内加速提示**：对于非 ROCm 的普通 PyPI 包，可配置镜像源加速下载：
 > ```bash
@@ -146,7 +160,7 @@ uv pip install -r requirements.txt
 
 > 以 **Ryzen AI Max+ PRO 395（gfx1151）** 为例。
 >
-> 📖 官方文档：[Install ROCm on Ubuntu](https://rocm.docs.amd.com/en/7.12.0-preview/install/rocm.html?fam=ryzen&gpu=max-pro-395&os=ubuntu&os-version=24.04&i=pip) | [Install PyTorch](https://rocm.docs.amd.com/en/7.12.0-preview/rocm-for-ai/pytorch.html?fam=ryzen&gpu=max-pro-395&os=linux)
+> 📖 官方文档：[Install ROCm on Ubuntu](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html?fam=ryzen&gpu=max-pro-395&os=ubuntu&os-version=24.04&i=pip) | [Install PyTorch](https://rocm.docs.amd.com/en/7.13.0-preview/rocm-for-ai/pytorch.html?fam=ryzen&gpu=max-pro-395&os=linux)
 
 ### 2.1 安装 uv 与依赖
 
@@ -220,7 +234,7 @@ python -c "import torch; print('PyTorch:', torch.__version__); print('ROCm avail
 期望输出：
 
 ```
-PyTorch: 2.10.0+rocm7.12.0
+PyTorch: 2.11.0+rocm7.13.0
 ROCm available: True
 Device: AMD Radeon Graphics
 ```
@@ -280,19 +294,27 @@ rm -rf .venv
 
 | GPU 示例 | LLVM Target | pip index URL |
 |:---|:---|:---|
-| MI355X / MI350X | gfx950 | `https://repo.amd.com/rocm/whl/gfx950-dcgpu/`  |
+| MI355X / MI350X / MI350P | gfx950 | `https://repo.amd.com/rocm/whl/gfx950-dcgpu/`  |
 | MI300X / MI325X | gfx942 | `https://repo.amd.com/rocm/whl/gfx94X-dcgpu/` |
-| RX 9070 XT | gfx1201 | `https://repo.amd.com/rocm/whl/gfx120X-all/`  |
-| RX 7900 XTX | gfx1100 | `https://repo.amd.com/rocm/whl/gfx110X-all/`  |
+| RX 9070 XT / 9070 GRE / AI PRO R9700S | gfx1201 | `https://repo.amd.com/rocm/whl/gfx120X-all/`  |
+| RX 9060 XT / 9060 XT LP / 9060 | gfx1200 | `https://repo.amd.com/rocm/whl/gfx120X-all/`  |
+| RX 7900 XTX / PRO W7900 | gfx1100 | `https://repo.amd.com/rocm/whl/gfx110X-all/`  |
+| Radeon PRO W6800 / V620 | gfx1030 | `https://repo.amd.com/rocm/whl/gfx1030/`  |
 | Ryzen AI Max 395 | gfx1151 | `https://repo.amd.com/rocm/whl/gfx1151/`  |
-| Ryzen AI PRO 400 | gfx1150 | `https://repo.amd.com/rocm/whl/gfx1150/`  |
+| Ryzen AI PRO 400 / AI 9 HX 475 | gfx1150 | `https://repo.amd.com/rocm/whl/gfx1150/`  |
+| Ryzen AI 200 PRO / AI 7 350 | gfx1152 | `https://repo.amd.com/rocm/whl/gfx1152/`  |
 
 完整对照表见 [GPU 架构对照表](/zh/00-environment/rocm-gpu-architecture-table)。
 
 ---
 
 > 📖 完整官方文档：
-> - [ROCm 7.12.0 Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
-> - [Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html)
-> - [Install ROCm](https://rocm.docs.amd.com/en/7.12.0-preview/install/rocm.html)
-> - [Install PyTorch](https://rocm.docs.amd.com/en/7.12.0-preview/rocm-for-ai/pytorch.html)
+> - [ROCm 7.13.0 Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
+> - [Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)
+> - [Install ROCm](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html)
+> - [Install PyTorch](https://rocm.docs.amd.com/en/7.13.0-preview/frameworks/pytorch/install.html)
+> - [Install JAX](https://rocm.docs.amd.com/en/7.13.0-preview/frameworks/jax/install.html)
+> - [vLLM Inference and Serving](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/vllm.html)
+> - [ComfyUI Image Generation](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/comfyui.html)
+> - [xDiT Diffusion Inference](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/xdit.html)
+> - [Inference Optimization](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/optimization.html)

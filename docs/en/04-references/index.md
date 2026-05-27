@@ -94,7 +94,7 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 | Architecture | Typical products | LLVM Target | Main use |
 |--------------|------------------|-------------|----------|
-| CDNA 4 | AMD Instinct MI350 series (MI355X, MI350X) | `gfx950` | Next-generation AI training / inference and HPC |
+| CDNA 4 | AMD Instinct MI350 series (MI355X, MI350X, MI350P) | `gfx950` | Next-generation AI training / inference and HPC |
 | CDNA 3 | AMD Instinct MI300 series (MI325X, MI300X, MI300A) | `gfx942` | Generative AI and HPC acceleration |
 | CDNA 2 | AMD Instinct MI200 series (MI250X, MI250, MI210) | `gfx90a` | Scientific computing and machine learning acceleration |
 | CDNA | AMD Instinct MI100 series | `gfx908` | Exascale-class GPU compute |
@@ -104,8 +104,8 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | Architecture | Typical products / Graphics model | LLVM Target | Main use |
 |--------------|-----------------------------------|-------------|----------|
 | RDNA 4 | Radeon RX 9000 series (RX 9070 XT / 9070 GRE / 9070) and Radeon AI PRO R9000 series | `gfx1201` | Gaming GPUs, workstation graphics, and AI capabilities |
-| RDNA 4 | Radeon RX 9060 XT / 9060 series | `gfx1200` | Mainstream gaming GPUs |
-| RDNA 3.5 | Ryzen AI Max / Max PRO 300 (Radeon 8060S / 8050S) | `gfx1151` | Mobile / APU integrated GPUs |
+| RDNA 4 | Radeon RX 9060 XT LP / 9060 XT / 9060 series | `gfx1200` | Mainstream gaming GPUs |
+| RDNA 3.5 | Ryzen AI Max / Max PRO 300 (Radeon 8060S / 8050S) incl. AI Max+ 392/388 | `gfx1151` | Mobile / APU integrated GPUs |
 | RDNA 3.5 | Ryzen AI 300 / AI PRO 400 (Radeon 890M / 880M / 860M) | `gfx1150` | Mobile / APU integrated GPUs |
 | RDNA 3 | Radeon RX 7900 / PRO W7900 / PRO W7800 series | `gfx1100` | High-end consumer and workstation GPUs |
 | RDNA 3 | Radeon RX 7800 / 7700 / PRO W7700 / V710 series | `gfx1101` | Consumer and workstation GPUs |
@@ -161,6 +161,12 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 ### 2026
 
+- **2026.05.15** - [ROCm 7.13.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
+  - Compatibility information should follow the [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)
+  - New hardware support: Instinct MI350P (gfx950), Radeon AI PRO R9700S (gfx1201), Radeon RX 9060 XT LP (gfx1200), Ryzen AI Max+ 392/388 (gfx1151), Ryzen AI PRO 400 / AI 400 series models (gfx1150/gfx1152)
+  - New OS support: Ubuntu 26.04 (kernel 7.0), RHEL 10.0/10.1, Debian 13, Oracle Linux 10, Rocky Linux 9, SLES 16.0
+  - Latest amdgpu driver version 31.30.0; firmware PLDM bundle 01.26.00.02
+
 - **2026.03.11** - [ROCm 7.12.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
   - Updated ROCm 7.12.0 preview release notes covering ROCm components, installation paths, and platform support changes
   - Compatibility information should follow the [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip)
@@ -183,7 +189,7 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 | Series | Models | Architecture | LLVM Target | ROCm Support |
 |--------|--------|--------------|-------------|--------------|
-| MI350 | MI355X, MI350X | CDNA 4 | `gfx950` | ✅ |
+| MI350 | MI355X, MI350X, MI350P | CDNA 4 | `gfx950` | ✅ |
 | MI300 | MI325X, MI300X, MI300A | CDNA 3 | `gfx942` | ✅ |
 | MI200 | MI250X, MI250, MI210 | CDNA 2 | `gfx90a` | ✅ |
 | MI100 | MI100 | CDNA | `gfx908` | ✅ |
@@ -192,7 +198,7 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 | Series | Models | Architecture | LLVM Target | ROCm Support |
 |--------|--------|--------------|-------------|--------------|
-| AI PRO R9000 | R9700, R9600D | RDNA 4 | `gfx1201` | ✅ |
+| AI PRO R9000 | R9700S, R9700, R9600D | RDNA 4 | `gfx1201` | ✅ |
 | PRO W7000 | W7900 Dual Slot, W7900, W7800 48GB, W7800 | RDNA 3 | `gfx1100` | ✅ |
 | PRO W7700 | W7700, V710 | RDNA 3 | `gfx1101` | ✅ |
 
@@ -211,12 +217,13 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | Series | Models | Graphics model (iGPU) | Architecture | LLVM Target | ROCm Support |
 |--------|--------|------------------------|--------------|-------------|--------------|
 | Ryzen AI Max PRO 300 | AI Max+ PRO 395, Max PRO 390/385/380 | Radeon 8060S | RDNA 3.5 | `gfx1151` | ✅ |
-| Ryzen AI Max 300 | AI Max+ 395, Max 390, Max 385 | Radeon 8060S / 8050S | RDNA 3.5 | `gfx1151` | ✅ |
-| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440/435 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` | ✅ |
-| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` | ✅ |
-| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
+| Ryzen AI Max 300 | AI Max+ 395, AI Max+ 392, AI Max+ 388, Max 390, Max 385 | Radeon 8060S / 8050S | RDNA 3.5 | `gfx1151` | ✅ |
+| Ryzen AI PRO 400 | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
+| Ryzen AI 400 | AI 9 HX 475/470, AI 9 465, AI 7 450 | Radeon 890M / 880M / 860M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
+| Ryzen AI 300 | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
+| Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 and PRO series | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
 
-> For the full support list, follow the [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip).
+> For the full support list, follow the [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html).
 
 ## Common Tools
 

@@ -49,6 +49,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ### Cập nhật mới nhất
 
+- *15/05/2026:* [*Ghi chú phát hành ROCm 7.13.0*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
+
 - *11/03/2026:* [*Ghi chú phát hành ROCm 7.12.0*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
 
 - *11/12/2025:* [*Ghi chú phát hành ROCm 7.10.0*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
