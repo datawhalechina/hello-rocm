@@ -16,6 +16,12 @@ hero:
       text: 查看实践案例
       link: /zh/05-amd-yes/
     - theme: alt
+      text: 组队学习
+      link: /zh/learning/
+    - theme: alt
+      text: AMD Radeon Cloud
+      link: /zh/cloud/amd-radeon-cloud
+    - theme: alt
       text: English
       link: /
 

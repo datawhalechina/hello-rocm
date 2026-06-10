@@ -220,6 +220,24 @@ const zhSidebar: DefaultTheme.Sidebar = {
         { text: 'ROCm 优质参考资料', link: '/zh/04-references/' }
       ]
     }
+  ],
+
+  '/zh/learning/': [
+    {
+      text: '组队学习',
+      items: [
+        { text: 'hello-rocm 组队学习', link: '/zh/learning/' }
+      ]
+    }
+  ],
+
+  '/zh/cloud/': [
+    {
+      text: '云平台',
+      items: [
+        { text: 'AMD Radeon Cloud 使用指南', link: '/zh/cloud/amd-radeon-cloud' }
+      ]
+    }
   ]
 }
 
