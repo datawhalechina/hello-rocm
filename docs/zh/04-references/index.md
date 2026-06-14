@@ -76,15 +76,23 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | AMD GitHub | AMD 开源项目仓库 | [github.com/amd](https://github.com/amd) |
 | ROCm GitHub | ROCm 项目仓库 | [github.com/ROCm](https://github.com/ROCm) |
 
-### AMD GPU 架构白皮书
+### AMD GPU / APU 架构与官方技术资料
 
-| 架构 | 适用方向 | 架构概览 | 白皮书 / 官方资料 |
+> hello-rocm 更偏向本地学习、Radeon 显卡与 Ryzen AI PC 场景，因此本表优先列出 RDNA / Ryzen / Radeon 相关资料；CDNA / Instinct 资料保留在后半部分，供数据中心 GPU 对照使用。并非每一代都有传统 whitepaper，AMD 对 Radeon / Ryzen 侧更常发布 ISA Reference、ROCm 支持文档与官方技术文章。
+
+| 架构 / 资源 | 适用方向 | 架构概览 / 支持入口 | 白皮书 / 官方技术资料 |
 |------|----------|----------|--------------------|
-| AMD CDNA 架构 | Instinct MI100 系列与 Exascale 级 GPU 计算 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf) |
-| AMD CDNA 2 架构 | Instinct MI200 系列、科学计算与机器学习加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 2 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf) |
-| AMD CDNA 3 架构 | Instinct MI300 系列与生成式 AI/HPC 加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 3 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf) |
+| AMD RDNA 4 架构 | Radeon RX 9000 / Radeon AI PRO R9000 系列，最新消费级与工作站 GPU | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [RDNA 4 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna4-instruction-set-architecture) |
+| AMD RDNA 3.5 架构 | Ryzen AI Max / AI 300 / AI 400 系列 APU 集成 GPU（`gfx1150` / `gfx1151` / `gfx1152`） | [AMD RDNA3.5 system optimization](https://rocm.docs.amd.com/en/latest/how-to/system-optimization/rdna3-5.html) | [RDNA 3.5 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna35_instruction_set_architecture) |
+| AMD RDNA 3 架构 | Radeon RX 7000 / Radeon PRO W7000 系列与部分 Ryzen APU | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [RDNA 3 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna3-shader-instruction-set-architecture-feb-2023_0) |
+| AMD RDNA 2 架构 | Radeon RX 6000 / Radeon PRO W6000 系列 | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [RDNA 2 Explained: Radeon PRO W6000](https://www.amd.com/content/dam/amd/en/documents/products/graphics/workstation/rdna2-explained-radeon-pro-W6000.pdf) / [RDNA 2 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna2-shader-instruction-set-architecture) |
+| AMD RDNA 架构 | Radeon RX 5000 / Radeon PRO W5000 系列，RDNA 基础架构 | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [GPUOpen AMD GPU architecture programming documentation](https://gpuopen.com/amd-gpu-architecture-programming-documentation/) |
+| ROCm on Radeon and Ryzen | Radeon RX / Radeon PRO / Ryzen APU 的 ROCm + PyTorch 支持入口 | [Use ROCm on Radeon and Ryzen](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/index.html) | [GPU hardware specifications](https://rocm.docs.amd.com/en/latest/reference/gpu-arch-specs.html) |
+| AMD XDNA / Ryzen AI NPU | Ryzen AI 端侧 NPU 推理，区别于 ROCm/HIP GPU 计算 | [AMD XDNA Architecture](https://www.amd.com/en/technologies/xdna.html) | [AMD Ryzen AI Software](https://www.amd.com/en/developer/resources/ryzen-ai-software.html) / [Ryzen AI Docs PDF](https://ryzenai.docs.amd.com/_/downloads/en/latest/pdf/) |
 | AMD CDNA 4 架构 | Instinct MI350 系列与新一代 AI 计算加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 4 Architecture Whitepaper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-4-architecture-whitepaper.pdf) |
-| AMD RDNA 架构 | Radeon 图形与游戏 GPU | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) |
+| AMD CDNA 3 架构 | Instinct MI300 系列与生成式 AI/HPC 加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 3 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf) |
+| AMD CDNA 2 架构 | Instinct MI200 系列、科学计算与机器学习加速 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 2 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf) |
+| AMD CDNA 架构 | Instinct MI100 系列与 Exascale 级 GPU 计算 | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf) |
 
 ### 架构、产品与 LLVM Target 速查
 
@@ -106,11 +114,28 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | RDNA 4 | Radeon RX 9000 系列（RX 9070 XT / 9070 GRE / 9070）与 Radeon AI PRO R9000 系列 | `gfx1201` | 游戏显卡、工作站图形与 AI 能力 |
 | RDNA 4 | Radeon RX 9060 XT LP / 9060 XT / 9060 系列 | `gfx1200` | 主流游戏显卡 |
 | RDNA 3.5 | Ryzen AI Max / Max PRO 300（Radeon 8060S / 8050S）含 AI Max+ 392/388 | `gfx1151` | 移动端 / APU 集成 GPU |
-| RDNA 3.5 | Ryzen AI 300 / AI PRO 400（Radeon 890M / 880M / 860M） | `gfx1150` | 移动端 / APU 集成 GPU |
+| RDNA 3.5 | Ryzen AI 300 / AI 400 / AI PRO 400 高端型号（Radeon 890M / 880M） | `gfx1150` | 移动端 / APU 集成 GPU |
+| RDNA 3.5 | Ryzen AI 300 / AI 400 / AI PRO 400 中端型号（Radeon 860M 等） | `gfx1152` | 移动端 / APU 集成 GPU |
 | RDNA 3 | Radeon RX 7900 / PRO W7900 / PRO W7800 系列 | `gfx1100` | 高端消费级与工作站显卡 |
 | RDNA 3 | Radeon RX 7800 / 7700 / PRO W7700 / V710 系列 | `gfx1101` | 消费级与工作站显卡 |
 | RDNA 3 | Radeon RX 7600 系列 | `gfx1102` | 主流消费级显卡 |
 | RDNA 3 | Ryzen 200 系列（Radeon 780M / 760M / 740M） | `gfx1103` | 移动端 / APU 集成 GPU |
+
+### Ryzen 系列与端侧 AI PC 官方资料
+
+> 说明：用户常说的 `gfx3.5` 更准确地对应 **RDNA 3.5 / GFX11.5**。在 ROCm / LLVM target 中应使用 `gfx1150`、`gfx1151`、`gfx1152` 等名称，而不是 `gfx3.5`。
+
+| 主题 | 适用设备 / 方向 | 官方资料 | 重点用途 |
+|------|----------------|----------|----------|
+| ROCm on Radeon and Ryzen | Radeon 9000/7000 系列、Ryzen APU | [Use ROCm on Radeon and Ryzen](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/index.html) | 面向消费级 Radeon 与 Ryzen APU 的 ROCm / PyTorch 入口 |
+| RDNA 3.5 系统优化 | Ryzen AI Max / AI 300 / AI 400 APU（`gfx1150` / `gfx1151` / `gfx1152`） | [AMD RDNA3.5 system optimization](https://rocm.docs.amd.com/en/latest/how-to/system-optimization/rdna3-5.html) | RDNA 3.5 APU 的 GPUVM、内核版本与系统调优要求 |
+| GPU 硬件规格 | Instinct、Radeon PRO/RX、Ryzen APU | [GPU hardware specifications](https://rocm.docs.amd.com/en/latest/reference/gpu-arch-specs.html) | 查询 CU、wavefront、cache、LLVM target 与 GFXIP 版本 |
+| ROCm 兼容性矩阵 | ROCm 各版本支持的 GPU / APU | [ROCm Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html) | 核对硬件、系统、驱动与 ROCm 版本组合 |
+| AMDGPU LLVM target | 编译器与底层 target 查询 | [LLVM AMDGPU Backend User Guide](https://llvm.org/docs/AMDGPUUsage.html) | 查询 `gfx1150` / `gfx1151` / `gfx1152` 等 LLVM target 命名 |
+| Ryzen AI Max 本地大模型推理 | Ryzen AI Max+ 395 / Radeon 8060S | [AI Inference on AMD Ryzen AI Max Processor](https://rocm.blogs.amd.com/artificial-intelligence/ryzen-uma-llm/README.html) | 统一内存 APU 上的本地 LLM 推理实践 |
+| Ryzen AI Max+ 395 产品与架构说明 | Ryzen AI Max+ 395、Radeon 8060S、XDNA 2 NPU | [AMD Ryzen AI Max+ 395 Processor](https://www.amd.com/en/blogs/2025/amd-ryzen-ai-max-395-processor-breakthrough-ai-.html) | 端侧 AI PC 的 CPU / GPU / NPU 组合与定位 |
+| Ryzen AI Software | Ryzen AI NPU / iGPU 应用开发 | [AMD Ryzen AI Software](https://www.amd.com/en/developer/resources/ryzen-ai-software.html) / [Ryzen AI Docs PDF](https://ryzenai.docs.amd.com/_/downloads/en/latest/pdf/) | NPU 侧 ONNX Runtime / Vitis AI EP 软件栈（与 ROCm/HIP 区分） |
+| AMD XDNA NPU 架构 | Ryzen AI NPU | [AMD XDNA Architecture](https://www.amd.com/en/technologies/xdna.html) | 端侧 NPU 的 spatial dataflow / AI Engine 架构背景 |
 
 ### 框架与推理服务（ROCm 快速安装入口）
 

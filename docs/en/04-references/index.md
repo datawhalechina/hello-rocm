@@ -76,15 +76,23 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | AMD GitHub | AMD open-source repositories | [github.com/amd](https://github.com/amd) |
 | ROCm GitHub | ROCm project repositories | [github.com/ROCm](https://github.com/ROCm) |
 
-### AMD GPU Architecture Whitepapers
+### AMD GPU / APU Architecture and Official Technical Resources
 
-| Architecture | Focus | Architecture overview | Whitepaper / Official resource |
+> hello-rocm focuses on local learning, Radeon GPUs, and Ryzen AI PC scenarios, so this table prioritizes RDNA / Ryzen / Radeon resources. CDNA / Instinct resources are kept in the lower half for data center GPU comparison. Not every generation has a traditional whitepaper; for Radeon / Ryzen, AMD often publishes ISA references, ROCm support docs, and official technical articles instead.
+
+| Architecture / resource | Focus | Architecture overview / support entry | Whitepaper / official technical resource |
 |--------------|-------|-----------------------|--------------------------------|
-| AMD CDNA Architecture | Instinct MI100 series and Exascale-class GPU compute | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf) |
-| AMD CDNA 2 Architecture | Instinct MI200 series, scientific computing, and machine learning acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 2 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf) |
-| AMD CDNA 3 Architecture | Instinct MI300 series for generative AI and HPC acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 3 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf) |
+| AMD RDNA 4 Architecture | Radeon RX 9000 / Radeon AI PRO R9000 series, latest consumer and workstation GPUs | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [RDNA 4 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna4-instruction-set-architecture) |
+| AMD RDNA 3.5 Architecture | Ryzen AI Max / AI 300 / AI 400 APU integrated GPUs (`gfx1150` / `gfx1151` / `gfx1152`) | [AMD RDNA3.5 system optimization](https://rocm.docs.amd.com/en/latest/how-to/system-optimization/rdna3-5.html) | [RDNA 3.5 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna35_instruction_set_architecture) |
+| AMD RDNA 3 Architecture | Radeon RX 7000 / Radeon PRO W7000 series and some Ryzen APUs | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [RDNA 3 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna3-shader-instruction-set-architecture-feb-2023_0) |
+| AMD RDNA 2 Architecture | Radeon RX 6000 / Radeon PRO W6000 series | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [RDNA 2 Explained: Radeon PRO W6000](https://www.amd.com/content/dam/amd/en/documents/products/graphics/workstation/rdna2-explained-radeon-pro-W6000.pdf) / [RDNA 2 ISA Reference Guide](https://docs.amd.com/v/u/en-US/rdna2-shader-instruction-set-architecture) |
+| AMD RDNA Architecture | Radeon RX 5000 / Radeon PRO W5000 series, foundational RDNA architecture | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html) | [GPUOpen AMD GPU architecture programming documentation](https://gpuopen.com/amd-gpu-architecture-programming-documentation/) |
+| ROCm on Radeon and Ryzen | ROCm + PyTorch support entry for Radeon RX / Radeon PRO / Ryzen APUs | [Use ROCm on Radeon and Ryzen](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/index.html) | [GPU hardware specifications](https://rocm.docs.amd.com/en/latest/reference/gpu-arch-specs.html) |
+| AMD XDNA / Ryzen AI NPU | Ryzen AI on-device NPU inference, distinct from ROCm/HIP GPU compute | [AMD XDNA Architecture](https://www.amd.com/en/technologies/xdna.html) | [AMD Ryzen AI Software](https://www.amd.com/en/developer/resources/ryzen-ai-software.html) / [Ryzen AI Docs PDF](https://ryzenai.docs.amd.com/_/downloads/en/latest/pdf/) |
 | AMD CDNA 4 Architecture | Instinct MI350 series and next-generation AI compute acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 4 Architecture Whitepaper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-4-architecture-whitepaper.pdf) |
-| AMD RDNA Architecture | Radeon graphics and gaming GPUs | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) | [AMD RDNA Architecture](https://www.amd.com/en/technologies/rdna.html#tabs-1fabb91c39-item-330ee548f0-tab) |
+| AMD CDNA 3 Architecture | Instinct MI300 series for generative AI and HPC acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 3 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/white-papers/amd-cdna-3-white-paper.pdf) |
+| AMD CDNA 2 Architecture | Instinct MI200 series, scientific computing, and machine learning acceleration | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA 2 White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna2-white-paper.pdf) |
+| AMD CDNA Architecture | Instinct MI100 series and Exascale-class GPU compute | [AMD CDNA Architecture](https://www.amd.com/en/technologies/cdna.html#overview) | [AMD CDNA White Paper](https://www.amd.com/content/dam/amd/en/documents/instinct-business-docs/white-papers/amd-cdna-white-paper.pdf) |
 
 ### Architecture, Product, and LLVM Target Quick Map
 
@@ -106,11 +114,28 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | RDNA 4 | Radeon RX 9000 series (RX 9070 XT / 9070 GRE / 9070) and Radeon AI PRO R9000 series | `gfx1201` | Gaming GPUs, workstation graphics, and AI capabilities |
 | RDNA 4 | Radeon RX 9060 XT LP / 9060 XT / 9060 series | `gfx1200` | Mainstream gaming GPUs |
 | RDNA 3.5 | Ryzen AI Max / Max PRO 300 (Radeon 8060S / 8050S) incl. AI Max+ 392/388 | `gfx1151` | Mobile / APU integrated GPUs |
-| RDNA 3.5 | Ryzen AI 300 / AI PRO 400 (Radeon 890M / 880M / 860M) | `gfx1150` | Mobile / APU integrated GPUs |
+| RDNA 3.5 | High-end Ryzen AI 300 / AI 400 / AI PRO 400 models (Radeon 890M / 880M) | `gfx1150` | Mobile / APU integrated GPUs |
+| RDNA 3.5 | Mid-range Ryzen AI 300 / AI 400 / AI PRO 400 models (Radeon 860M and similar) | `gfx1152` | Mobile / APU integrated GPUs |
 | RDNA 3 | Radeon RX 7900 / PRO W7900 / PRO W7800 series | `gfx1100` | High-end consumer and workstation GPUs |
 | RDNA 3 | Radeon RX 7800 / 7700 / PRO W7700 / V710 series | `gfx1101` | Consumer and workstation GPUs |
 | RDNA 3 | Radeon RX 7600 series | `gfx1102` | Mainstream consumer GPUs |
 | RDNA 3 | Ryzen 200 series (Radeon 780M / 760M / 740M) | `gfx1103` | Mobile / APU integrated GPUs |
+
+### Ryzen Series and On-Device AI PC Official Resources
+
+> Terminology note: what users sometimes call `gfx3.5` is more accurately **RDNA 3.5 / GFX11.5**. In ROCm / LLVM target names, use `gfx1150`, `gfx1151`, `gfx1152`, and related targets instead of `gfx3.5`.
+
+| Topic | Devices / focus | Official resource | Main use |
+|-------|-----------------|-------------------|----------|
+| ROCm on Radeon and Ryzen | Radeon 9000/7000 series and Ryzen APUs | [Use ROCm on Radeon and Ryzen](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/index.html) | ROCm / PyTorch entry point for consumer Radeon and Ryzen APU platforms |
+| RDNA 3.5 system optimization | Ryzen AI Max / AI 300 / AI 400 APUs (`gfx1150` / `gfx1151` / `gfx1152`) | [AMD RDNA3.5 system optimization](https://rocm.docs.amd.com/en/latest/how-to/system-optimization/rdna3-5.html) | GPUVM, kernel version, and system tuning requirements for RDNA 3.5 APUs |
+| GPU hardware specifications | Instinct, Radeon PRO/RX, and Ryzen APUs | [GPU hardware specifications](https://rocm.docs.amd.com/en/latest/reference/gpu-arch-specs.html) | Look up CUs, wavefronts, caches, LLVM targets, and GFXIP versions |
+| ROCm compatibility matrix | GPUs / APUs supported by ROCm releases | [ROCm Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html) | Check hardware, OS, driver, and ROCm version combinations |
+| AMDGPU LLVM targets | Compiler and low-level target lookup | [LLVM AMDGPU Backend User Guide](https://llvm.org/docs/AMDGPUUsage.html) | Check LLVM target names such as `gfx1150`, `gfx1151`, and `gfx1152` |
+| Ryzen AI Max local LLM inference | Ryzen AI Max+ 395 / Radeon 8060S | [AI Inference on AMD Ryzen AI Max Processor](https://rocm.blogs.amd.com/artificial-intelligence/ryzen-uma-llm/README.html) | Local LLM inference practice on unified-memory APUs |
+| Ryzen AI Max+ 395 product and architecture notes | Ryzen AI Max+ 395, Radeon 8060S, XDNA 2 NPU | [AMD Ryzen AI Max+ 395 Processor](https://www.amd.com/en/blogs/2025/amd-ryzen-ai-max-395-processor-breakthrough-ai-.html) | CPU / GPU / NPU positioning for on-device AI PCs |
+| Ryzen AI Software | Ryzen AI NPU / iGPU application development | [AMD Ryzen AI Software](https://www.amd.com/en/developer/resources/ryzen-ai-software.html) / [Ryzen AI Docs PDF](https://ryzenai.docs.amd.com/_/downloads/en/latest/pdf/) | NPU-side ONNX Runtime / Vitis AI EP software stack, distinct from ROCm/HIP |
+| AMD XDNA NPU architecture | Ryzen AI NPU | [AMD XDNA Architecture](https://www.amd.com/en/technologies/xdna.html) | Background on spatial dataflow / AI Engine architecture for on-device NPUs |
 
 ### Frameworks and Inference Services (ROCm Quick Install Links)
 
