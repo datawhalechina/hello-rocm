@@ -264,7 +264,7 @@ hello-rocm/
 * AMD 프로젝트 공유
 * 아이디어 및 방향 제안
 
-&emsp;&emsp;먼저 **[规范指南](../../规范指南.md)** (구조, 명명, 이미지 — Qwen3 등 튜토리얼과 일관성 유지)를 읽어주시고, 이후 **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (이슈, PR 및 모델별 디렉토리 규칙)를 참고해 주세요.
+&emsp;&emsp;먼저 **[Content Guide](../../CONTENT_GUIDE_en.md)** (구조, 명명, 이미지 — Qwen3 등 튜토리얼과 일관성 유지)를 읽어주시고, 이후 **[CONTRIBUTING_en.md](../../CONTRIBUTING_en.md)** (이슈, PR 및 모델별 디렉토리 규칙)를 참고해 주세요.
 
 &emsp;&emsp;ROCm 사용, 모델 배포 또는 튜토리얼 학습 중 문제 해결이나 FAQ 관련 이슈가 있다면 **[커뮤니티 토론](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** 에도 참여해 주세요. 커뮤니티와 함께 경험을 공유하고, 문제를 제보하며, 튜토리얼을 개선할 수 있습니다.
 

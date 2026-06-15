@@ -264,7 +264,7 @@ hello-rocm/
 * Partager vos projets AMD
 * Suggérer des idées et des orientations
 
-&emsp;&emsp;Veuillez lire le **[Guide de normes](../../规范指南.md)** (structure, nommage, images — aligné sur les tutoriels comme Qwen3), puis **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (issues, PRs et conventions par répertoire de modèle).
+&emsp;&emsp;Veuillez lire le **[Content Guide](../../CONTENT_GUIDE_en.md)** (structure, nommage, images — aligné sur les tutoriels comme Qwen3), puis **[CONTRIBUTING_en.md](../../CONTRIBUTING_en.md)** (issues, PRs et conventions par répertoire de modèle).
 
 &emsp;&emsp;Si vous rencontrez des questions de dépannage ou de FAQ en utilisant ROCm, en déployant des modèles ou en lisant les tutoriels, vous pouvez aussi rejoindre la **[discussion communautaire](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** afin de partager vos retours, signaler des problèmes et améliorer les tutoriels avec la communauté.
 

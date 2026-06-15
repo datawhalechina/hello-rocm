@@ -29,7 +29,7 @@ description: >-
 | `04-References/` | **官方与社区参考链接**汇总 |
 | `05-AMD-YES/` | **社区案例**：终端助手、YOLO、Agent、分布式训练等实践 |
 
-根目录还有：`README.md` / `README_en.md`、`CONTRIBUTING.md`、**`规范指南.md`**（教程排版与目录命名以 **Qwen3** 等目录为范例）。
+根目录还有：`README.md` / `README_en.md`、`CONTRIBUTING.md` / `CONTRIBUTING_en.md`、**`CONTENT_GUIDE.md` / `CONTENT_GUIDE_en.md`**（教程排版与目录命名以 **Qwen3** 等目录为范例）。
 
 ## 推荐学习路径（AMD / 模型推理）
 
@@ -58,12 +58,12 @@ description: >-
 ## 如何学「AMD」与「模型推理」（给用户的可复述要点）
 
 - **学 AMD / ROCm**：以 **官方文档**为主线（版本、安装矩阵、已知问题），本仓库 **`00-Environment`** 提供与教程一致的 **实操步骤**；遇到框架差异时以当前 ROCm 版本对应页面为准。  
-- **学模型推理**：先掌握 **一种部署栈**（例如 vLLM 或 Ollama）在同目录教程下跑通；再换框架或换模型系列，目录结构与文件名在仓库内保持一致（见 **`规范指南.md`**）。  
+- **学模型推理**：先掌握 **一种部署栈**（例如 vLLM 或 Ollama）在同目录教程下跑通；再换框架或换模型系列，目录结构与文件名在仓库内保持一致（中文见 **`CONTENT_GUIDE.md`**，英文见 **`CONTENT_GUIDE_en.md`**）。
 - **学微调**：在推理与环境稳定后进入 **`02-Fine-tune`**，从小参数 LoRA 示例开始，再扩展多机多卡等高级主题。
 
 ## 贡献与协作（简述）
 
-- 贡献文档或新模型教程前：先读 **`规范指南.md`**，再读 **`CONTRIBUTING.md`**（Issue/PR 与目录约定）。  
+- 贡献文档或新模型教程前：中文先读 **`CONTENT_GUIDE.md`** / **`CONTRIBUTING.md`**；英文先读 **`CONTENT_GUIDE_en.md`** / **`CONTRIBUTING_en.md`**（Issue/PR 与目录约定）。
 - 新增部署文命名与结构应对齐 **`docs/zh/01-deploy/qwen3/`** / **`docs/en/01-deploy/qwen3/`** 等现有范例。
 
 ## 何时查阅 references
