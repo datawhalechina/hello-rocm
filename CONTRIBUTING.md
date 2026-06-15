@@ -78,16 +78,18 @@ docs/zh/01-deploy/<model>/
 ├── lm-studio-rocm7-deploy.md
 ├── vllm-rocm7-deploy.md
 ├── ollama-rocm7-deploy.md
-├── llamacpp-rocm7-deploy.md
-└── images/
-    ├── image1.png
-    ├── image2.png
-    └── ...
+└── llamacpp-rocm7-deploy.md
+
+docs/public/images/01-deploy/<model>/
+├── image1.png                      # 部署教程配图统一放在 public 图片目录
+├── image2.png
+└── ...
 ```
 
 - **微调文档**通常放在 **`docs/zh/02-fine-tune/<model>/`**，与部署目录区分。
 - **微调代码 / Notebook** 通常放在 **`src/fine-tune/models/<model>/`**。
 - 单篇教程内引用环境准备时，优先使用**相对路径**指向同目录下的 `env-prepare-ubuntu24-rocm7.md`。
+- 教程配图不要放在 `docs/zh/01-deploy/<model>/images/`，应放在 `docs/public/images/01-deploy/<model>/`，并在 Markdown 中使用相对当前文件的路径引用，例如 `../../../public/images/01-deploy/qwen3/image11.png`。
 
 ## 行为准则
 

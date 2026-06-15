@@ -80,16 +80,18 @@ docs/zh/01-deploy/<model>/
 ├── lm-studio-rocm7-deploy.md
 ├── vllm-rocm7-deploy.md
 ├── ollama-rocm7-deploy.md
-├── llamacpp-rocm7-deploy.md
-└── images/
-    ├── image1.png
-    ├── image2.png
-    └── ...
+└── llamacpp-rocm7-deploy.md
+
+docs/public/images/01-deploy/<model>/
+├── image1.png                      # Deployment tutorial images live under public images
+├── image2.png
+└── ...
 ```
 
 - **Fine-tuning documents** usually go under `docs/zh/02-fine-tune/<model>/`.
 - **Fine-tuning code or notebooks** usually go under `src/fine-tune/models/<model>/`.
 - When a tutorial references environment setup, prefer a relative link to `env-prepare-ubuntu24-rocm7.md` in the same model directory.
+- Do not place tutorial images under `docs/zh/01-deploy/<model>/images/`. Put them under `docs/public/images/01-deploy/<model>/` and reference them from Markdown with a path relative to the current file, for example `../../../public/images/01-deploy/qwen3/image11.png`.
 
 ## Code of Conduct
 
