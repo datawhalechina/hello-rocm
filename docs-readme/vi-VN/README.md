@@ -264,7 +264,7 @@ hello-rocm/
 * Chia sẻ dự án AMD của bạn
 * Đề xuất ý tưởng và hướng phát triển
 
-&emsp;&emsp;Vui lòng đọc **[规范指南](../../规范指南.md)** (cấu trúc, đặt tên, hình ảnh — tuân thủ các hướng dẫn như Qwen3), sau đó **[CONTRIBUTING.md](../../CONTRIBUTING.md)** (vấn đề, PR và quy ước thư mục theo từng mô hình).
+&emsp;&emsp;Vui lòng đọc **[Content Guide](../../CONTENT_GUIDE_en.md)** (cấu trúc, đặt tên, hình ảnh — tuân thủ các hướng dẫn như Qwen3), sau đó **[CONTRIBUTING_en.md](../../CONTRIBUTING_en.md)** (vấn đề, PR và quy ước thư mục theo từng mô hình).
 
 &emsp;&emsp;Nếu bạn gặp vấn đề về khắc phục sự cố hoặc FAQ khi sử dụng ROCm, triển khai mô hình hoặc đọc hướng dẫn, bạn cũng được chào đón tham gia **[thảo luận cộng đồng](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** để chia sẻ kinh nghiệm, báo cáo vấn đề và cùng cộng đồng cải thiện hướng dẫn.
 

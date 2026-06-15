@@ -271,7 +271,7 @@ hello-rocm/
 * 分享你的 AMD 项目
 * 提出建议与想法
 
-&emsp;&emsp;参与前请先阅读 **[规范指南](./规范指南.md)**（目录、命名、配图与文档结构与 **Qwen3** 等教程对齐），再阅读 **[CONTRIBUTING.md](./CONTRIBUTING.md)**（Issue / PR 流程与模型专项目录约定）。
+&emsp;&emsp;参与前请先阅读 **[内容规范指南](./CONTENT_GUIDE.md)**（目录、命名、配图与文档结构与 **Qwen3** 等教程对齐），再阅读 **[CONTRIBUTING.md](./CONTRIBUTING.md)**（Issue / PR 流程与模型专项目录约定）。
 
 &emsp;&emsp;如果你在使用 ROCm、部署模型或阅读教程时遇到故障排查与常见问题，也欢迎加入我们的 **[社区讨论](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，和社区一起补充经验、反馈问题、完善教程。
 
@@ -316,4 +316,3 @@ hello-rocm/
 Made with ❤️ by the hello-rocm community
 
 </div>
-

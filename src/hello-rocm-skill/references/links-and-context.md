@@ -54,7 +54,7 @@
 - 根目录 `README.md`：总览、已支持模型表、各章节入口。
 - `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`：ROCm + PyTorch + uv 基线与版本表。
 - `docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md`、`docs/zh/02-fine-tune/index.md` / `docs/en/02-fine-tune/index.md`、`docs/zh/03-infra/index.md` / `docs/en/03-infra/index.md`：各阶段入口。
-- `规范指南.md`：教程 Markdown 与目录命名约定。
+- `CONTENT_GUIDE.md` / `CONTENT_GUIDE_en.md`：教程 Markdown 与目录命名约定。
 
 ## 与 README 一致的初学者节奏（摘录）
 

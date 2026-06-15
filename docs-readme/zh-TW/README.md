@@ -269,7 +269,7 @@ hello-rocm/
 * 分享你的 AMD 專案
 * 提出建議與想法
 
-&emsp;&emsp;參與前請先閱讀 **[規範指南](../../規範指南.md)**（目錄、命名、配圖與文件結構與 **Qwen3** 等教學對齊），再閱讀 **[CONTRIBUTING.md](../../CONTRIBUTING.md)**（Issue / PR 流程與模型專項目錄約定）。
+&emsp;&emsp;參與前請先閱讀 **[Content Guide](../../CONTENT_GUIDE_en.md)**（目錄、命名、配圖與文件結構與 **Qwen3** 等教學對齊），再閱讀 **[CONTRIBUTING_en.md](../../CONTRIBUTING_en.md)**（Issue / PR 流程與模型專項目錄約定）。
 
 &emsp;&emsp;如果你在使用 ROCm、部署模型或閱讀教學時遇到疑難排解與常見問題，也歡迎加入我們的 **[社群討論](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，和社群一起補充經驗、回報問題、完善教學。
 

@@ -9,7 +9,7 @@
 | 解释项目 | 说明 hello-rocm 是 ROCm 上的教程仓库、包含哪些章节（00–05） |
 | 学习路径 | 环境 → 部署推理 → 微调 → Infra；推理入门可从 LM Studio / vLLM 开始 |
 | 指路 | 指向仓库内具体文档、模型目录与 `04-references/index.md` 官方资源索引 |
-| 贡献 | 提示先读 `规范指南.md` 与 `CONTRIBUTING.md` |
+| 贡献 | 提示先读 `CONTENT_GUIDE.md` 与 `CONTRIBUTING.md` |
 
 ## 安装方式
 

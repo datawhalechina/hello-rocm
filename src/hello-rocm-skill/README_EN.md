@@ -35,12 +35,14 @@ Start a new conversation and say: **"How do I deploy a model on my AMD GPU?"**
 | **New AMD device owner** | "Does my GPU support ROCm?" / "Help me install ROCm and run my first model" |
 | **AI learner** | "I want to fine-tune a model with LoRA" / "Show me practice projects" |
 | **Experienced developer** | "Help me write a HIP kernel" / "Deploy vLLM in production on ROCm" |
+| **Contributor** | "Where should I put a new deployment tutorial?" / "Show me the contribution guide" |
 
 ## What This Skill Does
 
 - Detects your experience level from what you say (no questionnaire)
 - Points you to the exact tutorial file or reference index you need in the hello-rocm project
 - Summarizes relevant content and suggests next steps
+- For contribution questions, points English users to `CONTENT_GUIDE_en.md` and `CONTRIBUTING_en.md`
 - Uses `docs/en/04-references/index.md` / `docs/zh/04-references/index.md` as the quick lookup index for ROCm framework installs, inference services, AMD GPU architecture resources, and AMD ROCm Blog cross-references
 - Falls back to AMD official docs for version-specific or edge-case questions
 

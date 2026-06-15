@@ -267,7 +267,7 @@ hello-rocm/
 * Share your AMD projects
 * Suggest ideas and new directions
 
-&emsp;&emsp;Please read the **[Style Guide](./规范指南.md)** (directory layout, naming, images—aligned with tutorials like Qwen3) and then **[CONTRIBUTING.md](./CONTRIBUTING.md)** (issue/PR workflow and per-model directory conventions).
+&emsp;&emsp;Please read the **[Content Guide](./CONTENT_GUIDE_en.md)** (directory layout, naming, images—aligned with tutorials like Qwen3) and then **[CONTRIBUTING_en.md](./CONTRIBUTING_en.md)** (issue/PR workflow and per-model directory conventions).
 
 &emsp;&emsp;If you run into issues while using ROCm, deploying models, or following the tutorials, feel free to join our **[community discussion](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)** to share experiences, report problems, and help improve the docs.
 
