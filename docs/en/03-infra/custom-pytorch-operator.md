@@ -171,6 +171,8 @@ void launch_fused_swish_backward(const scalar_t* grad_output, const scalar_t* x,
 // 4. Explicit template instantiation (tell the compiler which data type versions to compile)
 template void launch_fused_swish_forward<float>(const float*, float*, int);
 template void launch_fused_swish_backward<float>(const float*, const float*, float*, int);
+template void launch_fused_swish_forward<double>(const double*, double*, int);
+template void launch_fused_swish_backward<double>(const double*, const double*, double*, int);
 ```
 
 ---

@@ -58,3 +58,5 @@ void launch_fused_swish_backward(const scalar_t* grad_output, const scalar_t* x,
 // 4. 显式实例化模板（告诉编译器我们需要编译哪些数据类型的版本）
 template void launch_fused_swish_forward<float>(const float*, float*, int);
 template void launch_fused_swish_backward<float>(const float*, const float*, float*, int);
+template void launch_fused_swish_forward<double>(const double*, double*, int);
+template void launch_fused_swish_backward<double>(const double*, const double*, double*, int);
