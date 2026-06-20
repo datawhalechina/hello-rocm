@@ -252,6 +252,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
       • toy-cli - LLM 轻量化终端助手<br>
+      • Minesweeper Agent - 用本地大模型玩扫雷（Agent 循环实践）<br>
       • YOLOv10 微信跳一跳 - 游戏 AI 实战（在 ROCm 环境下训练并使用 yolov10）<br>
       • Chat-甄嬛 - 古风对话大模型<br>
       • 智能旅行规划助手 - HelloAgents Agent 实战<br>

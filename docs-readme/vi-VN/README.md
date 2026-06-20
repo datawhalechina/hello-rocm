@@ -247,6 +247,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — trình trợ lý dòng lệnh nhẹ<br>
+      • Minesweeper Agent — chơi dò mìn với LLM cục bộ (thực hành vòng lặp Agent)<br>
 • WeChat “Jump Jump” với YOLOv10 — AI Trò chơi Thực chiến (Huấn luyện và sử dụng yolov10 trên ROCm)<br>
 • Chat-甄嬛 — mô hình hội thoại phong cách cổ trang<br>
 • Travel planner — demo tác nhân HelloAgents<br>

@@ -16,6 +16,7 @@
 | 本地运行（单卡） | 集群部署（多卡） |
 |---------|---------|
 | [🧸 toy-cli](/zh/05-amd-yes/toy-cli) ✅️ | [🚀 happy-llm](/zh/05-amd-yes/happy-llm/) ✅️ |
+| [💣 Minesweeper Agent](/zh/05-amd-yes/minesweeper-agent) ✅️ | |
 | [🎮 微信跳一跳](/zh/05-amd-yes/wechat-jump) ✅️| |
 | [🎭 Chat-甄嬛](/zh/05-amd-yes/huanhuan-chat) ✅️| |
 | [✈️ 智能旅行规划助手](/zh/05-amd-yes/hello-agents/) ✅️| |
@@ -53,6 +54,18 @@
 - **预计时间**：30 分钟
 
 📖 [开始学习 toy-cli](/zh/05-amd-yes/toy-cli)
+
+---
+
+#### 💣 Minesweeper Agent - 用本地大模型玩扫雷
+
+本案例使用扫雷棋盘作为 Agent 的运行环境，通过 llama.cpp + Gemma 4 E4B 展示 Agent 的完整循环：观察、推理、工具调用、反馈。包含约束式 Agent 和自主式 Agent 两种模式的对比。
+
+- **适合人群**：想理解 Agent 核心循环和工程稳定性设计的开发者
+- **难度等级**：⭐⭐
+- **预计时间**：1 小时
+
+📖 [开始学习 Minesweeper Agent](/zh/05-amd-yes/minesweeper-agent)
 
 ---
 

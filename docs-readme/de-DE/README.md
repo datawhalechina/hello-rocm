@@ -247,6 +247,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — leichter terminalbasierter LLM-Assistent<br>
+      • Minesweeper Agent — Minesweeper mit lokalem LLM spielen (Agent-Loop-Praxis)<br>
       • WeChat „Jump Jump“ mit YOLOv10 — Game-KI in Aktion (YOLOv10 unter ROCm trainieren und verwenden)<br>
       • Chat-甄嬛 — Dialogmodell im historischen Stil<br>
       • Reiseplaner — HelloAgents-Agenten-Demo<br>

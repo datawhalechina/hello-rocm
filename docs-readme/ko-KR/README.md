@@ -247,6 +247,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — 경량 터미널 LLM 어시스턴트<br>
+      • Minesweeper Agent — 로컬 LLM으로 지뢰찾기 (Agent 루프 실습)<br>
       • WeChat “Jump Jump” with YOLOv10 — 게임 AI 실전 (ROCm 환경에서 yolov10 훈련 및 사용)<br>
       • Chat-甄嬛 — 시대극 스타일 대화 모델<br>
       • Travel planner — HelloAgents 에이전트 데모<br>

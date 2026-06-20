@@ -142,6 +142,12 @@ const zhSidebar: DefaultTheme.Sidebar = {
           ]
         },
         {
+          text: 'minesweeper-agent',
+          items: [
+            { text: 'Minesweeper Agent：用本地大模型玩扫雷', link: '/zh/05-amd-yes/minesweeper-agent' }
+          ]
+        },
+        {
           text: 'wechat-jump',
           items: [
             { text: 'YOLOv10 微信跳一跳', link: '/zh/05-amd-yes/wechat-jump' }
@@ -359,6 +365,12 @@ const enSidebar: DefaultTheme.Sidebar = {
           text: 'toy-cli',
           items: [
             { text: 'Lightweight Terminal Assistant', link: '/05-amd-yes/toy-cli' }
+          ]
+        },
+        {
+          text: 'minesweeper-agent',
+          items: [
+            { text: 'Minesweeper Agent: Play Minesweeper with Local LLM', link: '/05-amd-yes/minesweeper-agent' }
           ]
         },
         {

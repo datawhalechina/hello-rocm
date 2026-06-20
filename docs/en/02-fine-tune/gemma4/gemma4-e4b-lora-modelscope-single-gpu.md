@@ -1,6 +1,6 @@
 # Gemma 4 E4B-it LoRA on ModelScope `AI-ModelScope/emotion` (single GPU)
 
-Runnable notebook: [`src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb`](https://github.com/datawhalechina/hello-rocm/blob/main/src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb)
+Runnable notebook: [`src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb`](https://github.com/datawhalechina/hello-rocm/blob/master/src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb)
 
 This workflow fine-tunes **`google/gemma-4-E4B-it`** with LoRA on the **`AI-ModelScope/emotion`** dataset (a ModelScope mirror of [`dair-ai/emotion`](https://huggingface.co/datasets/dair-ai/emotion)). Everything is loaded via **ModelScope**; **no Hugging Face Hub login** is required.
 

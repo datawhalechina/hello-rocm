@@ -247,6 +247,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — 軽量ターミナルLLMアシスタント<br>
+      • Minesweeper Agent — ローカルLLMでマインスイーパー（Agentループ実践）<br>
       • WeChat「ジャンプジャンプ」とYOLOv10 — ゲームAI実戦（ROCm環境でyolov10をトレーニング・使用）<br>
       • Chat-甄嬛 — 時代劇風対話モデル<br>
       • 旅行プランナー — HelloAgentsエージェントデモ<br>

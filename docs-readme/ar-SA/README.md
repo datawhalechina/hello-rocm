@@ -247,6 +247,7 @@ hello-rocm/
   <tr>
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — مساعد طرفية خفيف الوزن لنماذج اللغة<br>
+      • Minesweeper Agent — لعب كاسحة الألغام مع نموذج لغة محلي (ممارسة حلقة Agent)<br>
       • WeChat “Jump Jump” مع YOLOv10 — ذكاء اصطناعي للألعاب عملياً (تدريب واستخدام yolov10 على ROCm)<br>
       • Chat-甄嬛 — نموذج حوار بأسلوب تاريخي<br>
       • مخطط السفر — عرض توضيحي لعامل HelloAgents<br>

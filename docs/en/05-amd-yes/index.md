@@ -16,6 +16,7 @@
 | Local Run (Single GPU) | Cluster Deployment (Multi-GPU) |
 |---------|---------|
 | [🧸 toy-cli](/05-amd-yes/toy-cli) ✅️ | [🚀 happy-llm](/05-amd-yes/happy-llm/) ✅️ |
+| [💣 Minesweeper Agent](/05-amd-yes/minesweeper-agent) ✅️ | |
 | [🎮 WeChat Jump](/05-amd-yes/wechat-jump) ✅️| |
 | [🎭 Chat-Huanhuan](/05-amd-yes/huanhuan-chat) ✅️| |
 | [✈️ Smart Travel Planner](/05-amd-yes/hello-agents/) ✅️| |
@@ -53,6 +54,18 @@ Suitable for individual developers to quickly get started – you can do it all 
 - **Estimated Time**: 30 minutes
 
 📖 [Start Learning toy-cli](/05-amd-yes/toy-cli)
+
+---
+
+#### 💣 Minesweeper Agent - Play Minesweeper with a Local LLM
+
+This case uses a Minesweeper board as the Agent's runtime environment. Through llama.cpp + Gemma 4 E4B, it demonstrates the full Agent loop: observation, reasoning, tool calling, and feedback. Includes comparison between constrained Agent and autonomous Agent modes.
+
+- **Target Audience**: Developers who want to understand the Agent core loop and engineering stability design
+- **Difficulty Level**: ⭐⭐
+- **Estimated Time**: 1 hour
+
+📖 [Start Learning Minesweeper Agent](/05-amd-yes/minesweeper-agent)
 
 ---
 
