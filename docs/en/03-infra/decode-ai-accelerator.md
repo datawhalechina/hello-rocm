@@ -220,7 +220,7 @@ sed -n '/__CLANG_OFFLOAD_BUNDLE____START__ hip-amdgcn/,/__CLANG_OFFLOAD_BUNDLE__
 
 **Actual Output Example** (Unoptimized LLVM IR -O0):
 
-```llvm
+```text
 ; Generated file: simple_add_O0.ll
 define protected amdgpu_kernel void @_Z3addPfS_S_i(ptr addrspace(1) noundef %0, ptr addrspace(1) noundef %1, ptr addrspace(1) noundef %2, i32 noundef %3) #4 {
   %5 = alloca i32, align 4, addrspace(5)
@@ -273,7 +273,7 @@ define protected amdgpu_kernel void @_Z3addPfS_S_i(ptr addrspace(1) noundef %0, 
 
 **Actual Output Example** (Optimized LLVM IR -O3):
 
-```llvm
+```text
 ; Generated file: simple_add_O3.ll
 define protected amdgpu_kernel void @_Z3addPfS_S_i(ptr addrspace(1) noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   ; No stack allocations! All variables in registers

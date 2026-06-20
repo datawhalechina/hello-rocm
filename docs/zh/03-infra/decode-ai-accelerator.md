@@ -220,7 +220,7 @@ sed -n '/__CLANG_OFFLOAD_BUNDLE____START__ hip-amdgcn/,/__CLANG_OFFLOAD_BUNDLE__
 
 **实际输出示例**（未经优化的 LLVM IR -O0）：
 
-```llvm
+```text
 ; 生成的文件: simple_add_O0.ll
 define protected amdgpu_kernel void @_Z3addPfS_S_i(ptr addrspace(1) noundef %0, ptr addrspace(1) noundef %1, ptr addrspace(1) noundef %2, i32 noundef %3) #4 {
   %5 = alloca i32, align 4, addrspace(5)
@@ -273,7 +273,7 @@ define protected amdgpu_kernel void @_Z3addPfS_S_i(ptr addrspace(1) noundef %0, 
 
 **实际输出示例**（优化后的 LLVM IR -O3）：
 
-```llvm
+```text
 ; 生成的文件: simple_add_O3.ll
 define protected amdgpu_kernel void @_Z3addPfS_S_i(ptr addrspace(1) noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   ; 无栈分配！所有变量都在寄存器中

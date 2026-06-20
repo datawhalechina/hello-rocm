@@ -36,7 +36,7 @@ If you don't have an AMD GPU, you can use the official AMD free cloud compute pl
 - 100 free GPU hours upon registration
 - Built-in Jupyter environment, no local setup needed
 
-See the full guide: [AMD Radeon Cloud](/en/cloud/amd-radeon-cloud)
+See the full guide: [AMD Radeon Cloud](/zh/cloud/amd-radeon-cloud)
 
 ### Option 2: Local Setup
 
