@@ -1,55 +1,192 @@
-## Ubuntu 24.04 环境准备：安装 ROCm 7.1.0
+## Ubuntu 24.04 / Windows 11 环境准备：ROCm 7.13 + PyTorch + vLLM（以 gfx1151 为例）
 
-**Ubuntu24.04(Linux) 部署支持 ROCm 7+ 的推理框架部署指南 — 环境准备部分**
+**ROCm 7.13.0-preview 部署 Qwen3 推理框架环境准备指南。**
 
-本节介绍如何在 Ubuntu 24.04 上：
+本节以 **Ryzen AI Max / Ryzen AI Max+（gfx1151）** 为参考，说明在 ROCm 7.13 / TheRock 体系下准备 Qwen3 部署环境的关键步骤。
 
-- 清理已有的 ROCm / AMD 相关环境
-- 使用官方脚本安装 ROCm 7.1.0
-- 通过工具命令验证安装是否成功
-
----
-
-### 一、删除目前环境中所有 ROCm 相关软件
-
-```bash
-sudo apt remove rocm*
-sudo apt remove amd*
-```
+> 官方参考：
+> - [ROCm 7.13 安装指南（gfx1151）](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html?fam=ryzen&w=compute&os=windows&windows-ver=11&i=pip&gpu=max-pro-390&gfx=gfx1151)
+> - [PyTorch 2.11.0 on ROCm 7.13（gfx1151）](https://rocm.docs.amd.com/en/7.13.0-preview/frameworks/pytorch/install.html?fam=ryzen&os=windows&pytorch-ver=2.11.0&w=compute&gpu=max-pro-390&gfx=gfx1151)
+> - [vLLM 0.19.1 on ROCm 7.13（gfx1151）](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/vllm.html?fam=ryzen&vllm-ver=0.19.1&i=docker&w=compute&gpu=max-pro-390&gfx=gfx1151)
+> - [TheRock transition guide](https://rocm.docs.amd.com/en/7.13.0-preview/about/transition-guide-TheRock.html)
 
 ---
 
-### 二、运行脚本安装 ROCm 7.1.0 到系统中
+### 一、ROCm 7.13 / TheRock 变化说明
 
-> 如果使用 Docker，需要安装 `amdgpu-dkms`：参考  
-> https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/docker.html  
-> 下方脚本已包含相关步骤；如果不执行脚本安装，需要自行手动安装。
+ROCm 7.13 进入 TheRock / Core SDK 体系：
 
-下载安装脚本到本地：
+| 项目 | 旧版 ROCm | ROCm 7.13 |
+|:---|:---|:---|
+| 核心路径 | `/opt/rocm/` | `/opt/rocm/core` 为核心路径 |
+| 包名前缀 | `rocm-*`、`hip*`、`roc*` | `amdrocm-*` |
+| 兼容性 | legacy ROCm | Core SDK 保持 ABI / API 兼容，并通过 symlink 兼容常用路径 |
+
+如果使用包管理器安装，常用 `/opt/rocm` symlink 会保留；如果使用 tarball 或自定义安装目录，请手动检查 `PATH`、`LD_LIBRARY_PATH`、`ROCM_PATH`。
+
+---
+
+### 二、清理已有的 ROCm / AMD 相关软件
+
+如果系统里已经装过旧版 ROCm、旧 HIP SDK 或旧 `amdgpu-dkms`，建议先清理，避免与 ROCm 7.13 / TheRock 组件冲突：
 
 ```bash
-https://github.com/amdjiahangpan/rocm-install-script/blob/ROCm_7.1.0_ubuntu_24.04/2-install.sh
+sudo apt remove 'rocm*' 'amdrocm*' 'amdgpu-dkms*' -y
+sudo apt autoremove -y
 ```
 
-更新系统并执行安装脚本：
+如果此前配置过旧的 ROCm 环境变量，也建议检查 `~/.bashrc`、`~/.zshrc`、`/etc/profile.d/` 中是否存在旧路径。
+
+---
+
+### 三、Ubuntu 24.04 + gfx1151 准备步骤
+
+#### 2.1 安装 OEM kernel 6.14
 
 ```bash
 sudo apt update
-# 更新内核
-sudo apt upgrade -y
-sudo bash 2-install.sh
+sudo apt install -y linux-image-6.14.0-1018-oem
+sudo reboot
 ```
 
-安装完成后，使用以下命令验证（均应有显卡相关输出）：
+#### 2.2 安装基础依赖
 
 ```bash
-rocminfo
-rocm-smi
-amd-smi
+sudo apt update
+sudo apt install -y \
+  python3.13 python3.13-venv \
+  libatomic1 libquadmath0 \
+  build-essential git curl wget jq pciutils
 ```
 
-更多安装细节可参考官方快速上手文档：
+#### 2.3 配置 GPU 权限
 
-https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html
+```bash
+sudo usermod -a -G render,video $LOGNAME
+sudo reboot
+```
 
+或使用 udev 规则：
 
+```bash
+sudo tee /etc/udev/rules.d/70-amdgpu.rules <<'EOF'
+KERNEL=="kfd", GROUP="render", MODE="0666"
+SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="render", MODE="0666"
+EOF
+
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo reboot
+```
+
+---
+
+### 四、安装 PyTorch 2.11.0（ROCm 7.13 / gfx1151）
+
+```bash
+# 安装 uv（如已安装可跳过）
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 安装 Python 3.13
+uv python install 3.13
+
+# 创建并激活虚拟环境
+uv venv --python 3.13
+source .venv/bin/activate
+
+# 备用：使用 Python 标准库 venv
+# python3.13 -m venv .venv
+# source .venv/bin/activate
+# python -m pip install --upgrade pip
+```
+
+```bash
+uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
+  "torch==2.11.0+rocm7.13.0" \
+  "torchvision==0.26.0+rocm7.13.0" \
+  "torchaudio==2.11.0+rocm7.13.0"
+```
+
+验证：
+
+```bash
+python - <<'PY'
+import torch
+print("torch:", torch.__version__)
+print("HIP available:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("device:", torch.cuda.get_device_name(0))
+PY
+```
+
+---
+
+### 五、Windows 11 + pip 路线（ROCm 7.13）
+
+Windows 11 上 ROCm 7.13 采用 pip / TheRock 路线。开始前需要卸载已有 HIP SDK、关闭 WDAG / SAC，并安装 AMD Software: Adrenalin Edition 26.5.1 或更新版本。
+
+```powershell
+# 安装 uv（如已安装可跳过）
+irm https://astral.sh/uv/install.ps1 | iex
+
+# 安装 Python 3.13
+uv python install 3.13
+
+# 创建并激活虚拟环境
+uv venv --python 3.13
+.venv\Scripts\activate
+
+# 备用：使用 Python 标准库 venv
+# py -3.13 -m venv .venv
+# .venv\Scripts\activate
+
+uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ `
+  "torch==2.11.0+rocm7.13.0" `
+  "torchvision==0.26.0+rocm7.13.0" `
+  "torchaudio==2.11.0+rocm7.13.0"
+
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+---
+
+### 六、vLLM 环境验证（Docker 方式）
+
+ROCm 7.13 官方 vLLM Docker 镜像以 gfx1151 为例：
+
+```bash
+docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
+```
+
+> 注意：vLLM 0.19.1 Docker 镜像内置 PyTorch 2.10.0；PyTorch 2.11.0 是 pip 安装路线。
+
+```bash
+docker run -it --rm \
+  --device /dev/kfd \
+  --device /dev/dri \
+  --network=host \
+  --ipc=host \
+  --group-add=video \
+  --cap-add=SYS_PTRACE \
+  --security-opt seccomp=unconfined \
+  -v ~/models:/app/models \
+  -e HF_HOME="/app/models" \
+  rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1 \
+  bash
+```
+
+容器内验证：
+
+```bash
+python -c "import vllm; print('vLLM:', vllm.__version__)"
+python -c "import torch; print('PyTorch:', torch.__version__, 'HIP:', torch.cuda.is_available())"
+```
+
+---
+
+### 七、后续部署教程
+
+- [LM Studio 部署教程](./lm-studio-rocm7-deploy.md)
+- [Ollama 部署教程](./ollama-rocm7-deploy.md)
+- [llama.cpp 部署教程](./llamacpp-rocm7-deploy.md)
+- [vLLM 部署教程](./vllm-rocm7-deploy.md)
