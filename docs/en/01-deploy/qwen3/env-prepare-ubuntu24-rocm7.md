@@ -1,53 +1,143 @@
-## Ubuntu 24.04 Environment Setup: Installing ROCm 7.1.0
+## Ubuntu 24.04 / Windows 11 Environment Setup: ROCm 7.13 + PyTorch + vLLM (gfx1151 Example)
 
-**Ubuntu 24.04 (Linux) Inference Framework Deployment Guide with ROCm 7+ Support — Environment Setup Section**
+**ROCm 7.13.0-preview environment setup guide for Qwen3 deployment.**
 
-This section explains how to do the following on Ubuntu 24.04:
+This guide uses **Ryzen AI Max / Ryzen AI Max+ (gfx1151)** as the reference GPU architecture and summarizes the key setup steps under ROCm 7.13 / TheRock.
 
-- Clean up existing ROCm / AMD related environments
-- Install ROCm 7.1.0 using the official script
-- Verify the installation using tool commands
-
----
-
-### 1. Remove All ROCm Related Software from the Current Environment
-
-```bash
-sudo apt remove rocm*
-sudo apt remove amd*
-```
+> Official references:
+> - [ROCm 7.13 installation guide (gfx1151)](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html?fam=ryzen&w=compute&os=windows&windows-ver=11&i=pip&gpu=max-pro-390&gfx=gfx1151)
+> - [PyTorch 2.11.0 on ROCm 7.13 (gfx1151)](https://rocm.docs.amd.com/en/7.13.0-preview/frameworks/pytorch/install.html?fam=ryzen&os=windows&pytorch-ver=2.11.0&w=compute&gpu=max-pro-390&gfx=gfx1151)
+> - [vLLM 0.19.1 on ROCm 7.13 (gfx1151)](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/vllm.html?fam=ryzen&vllm-ver=0.19.1&i=docker&w=compute&gpu=max-pro-390&gfx=gfx1151)
+> - [TheRock transition guide](https://rocm.docs.amd.com/en/7.13.0-preview/about/transition-guide-TheRock.html)
 
 ---
 
-### 2. Run the Script to Install ROCm 7.1.0
+### 1. ROCm 7.13 / TheRock Notes
 
-> If using Docker, you need to install `amdgpu-dkms`: refer to  
-> https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/docker.html  
-> The script below already includes the relevant steps; if you don't run the script, you need to install it manually.
+ROCm 7.13 moves into the TheRock / Core SDK packaging model:
 
-Download the installation script to your local machine:
+| Item | Legacy ROCm | ROCm 7.13 |
+|:---|:---|:---|
+| Core path | `/opt/rocm/` | `/opt/rocm/core` |
+| Package prefix | `rocm-*`, `hip*`, `roc*` | `amdrocm-*` |
+| Compatibility | Legacy ROCm layout | Core SDK with ABI / API compatibility and common symlinks |
+
+---
+
+### 2. Clean Existing ROCm / AMD Components
+
+If an older ROCm stack, HIP SDK, or `amdgpu-dkms` has been installed, clean it first to avoid conflicts with ROCm 7.13 / TheRock components:
 
 ```bash
-https://github.com/amdjiahangpan/rocm-install-script/blob/ROCm_7.1.0_ubuntu_24.04/2-install.sh
+sudo apt remove 'rocm*' 'amdrocm*' 'amdgpu-dkms*' -y
+sudo apt autoremove -y
 ```
 
-Update the system and run the installation script:
+Also check `~/.bashrc`, `~/.zshrc`, and `/etc/profile.d/` for stale ROCm environment variables.
+
+---
+
+### 3. Ubuntu 24.04 + gfx1151 Setup
 
 ```bash
 sudo apt update
-# Update the kernel
-sudo apt upgrade -y
-sudo bash 2-install.sh
+sudo apt install -y linux-image-6.14.0-1018-oem
+sudo reboot
 ```
-
-After installation, verify with the following commands (all should show GPU-related output):
 
 ```bash
-rocminfo
-rocm-smi
-amd-smi
+sudo apt update
+sudo apt install -y \
+  python3.13 python3.13-venv \
+  libatomic1 libquadmath0 \
+  build-essential git curl wget jq pciutils
 ```
 
-For more installation details, refer to the official quick start documentation:
+```bash
+sudo usermod -a -G render,video $LOGNAME
+sudo reboot
+```
 
-https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/quick-start.html
+---
+
+### 4. Install PyTorch 2.11.0 (ROCm 7.13 / gfx1151)
+
+```bash
+# Install uv if needed
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install Python 3.13 and create the virtual environment
+uv python install 3.13
+uv venv --python 3.13
+source .venv/bin/activate
+
+# Fallback:
+# python3.13 -m venv .venv
+# source .venv/bin/activate
+# python -m pip install --upgrade pip
+
+uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
+  "torch==2.11.0+rocm7.13.0" \
+  "torchvision==0.26.0+rocm7.13.0" \
+  "torchaudio==2.11.0+rocm7.13.0"
+```
+
+Verify:
+
+```bash
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+---
+
+### 5. Windows 11 + pip Path
+
+```powershell
+irm https://astral.sh/uv/install.ps1 | iex
+uv python install 3.13
+uv venv --python 3.13
+.venv\Scripts\activate
+
+# Fallback:
+# py -3.13 -m venv .venv
+# .venv\Scripts\activate
+
+uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ `
+  "torch==2.11.0+rocm7.13.0" `
+  "torchvision==0.26.0+rocm7.13.0" `
+  "torchaudio==2.11.0+rocm7.13.0"
+```
+
+---
+
+### 6. vLLM Environment Check
+
+```bash
+docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
+```
+
+> The Docker image includes PyTorch 2.10.0; PyTorch 2.11.0 is used by the pip path.
+
+```bash
+docker run -it --rm \
+  --device /dev/kfd \
+  --device /dev/dri \
+  --network=host \
+  --ipc=host \
+  --group-add=video \
+  --cap-add=SYS_PTRACE \
+  --security-opt seccomp=unconfined \
+  -v ~/models:/app/models \
+  -e HF_HOME="/app/models" \
+  rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1 \
+  bash
+```
+
+---
+
+### 7. Next Steps
+
+- [LM Studio Deployment](./lm-studio-rocm7-deploy.md)
+- [Ollama Deployment](./ollama-rocm7-deploy.md)
+- [llama.cpp Deployment](./llamacpp-rocm7-deploy.md)
+- [vLLM Deployment](./vllm-rocm7-deploy.md)
