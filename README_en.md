@@ -77,7 +77,7 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     </td>
     <td valign="top" width="50%" style="border: none !important;">
       • <a href="./docs/en/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md">Qwen3-0.6B LoRA + SwanLab</a><br>
-      • <a href="./src/fine-tune/models/qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA (Notebook)</a><br>
+      • <a href="./src/fine-tune/models/qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA</a><br>
     </td>
   </tr>
   <tr>

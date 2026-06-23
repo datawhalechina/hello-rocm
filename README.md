@@ -93,7 +93,7 @@
     </td>
     <td valign="top" width="50%" style="border: none !important;">
       • <a href="./docs/zh/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md">Qwen3.5-4B LoRA微调</a><br>
-      • <a href="./src/fine-tune/models/qwen3.5/Qwen3.5-4B-LoRA.ipynb">Qwen3.5-4B LoRA微调 Notebook</a><br>
+      • <a href="./src/fine-tune/models/qwen3.5/Qwen3.5-4B-LoRA.ipynb">Qwen3.5-4B LoRA微调</a><br>
     </td>
   </tr>
   <tr>
