@@ -23,7 +23,8 @@
 01-Deploy/
 └── models/
     ├── Gemma4/           # Deployment tutorials with Gemma 4 as the primary model (recommended)
-    └── Qwen3/            # Qwen3 series deployment tutorials (reference/comparison)
+    ├── Qwen3/            # Qwen3 series deployment tutorials (reference/comparison)
+    └── Qwen3.5/          # Qwen3.5 series deployment tutorials (new architecture reference)
 ```
 
 ## Tutorial List
@@ -37,7 +38,7 @@
 - **Estimated Time**: 1 hour
 
 📖 [Start the Environment Setup Tutorial (Gemma4)](/en/01-deploy/gemma4/env-prepare-ubuntu24-rocm7.md)  
-📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/env-prepare-ubuntu24-rocm7.md)
+📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/env-prepare-ubuntu24-rocm7.md) · [Qwen3.5 Version](/en/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7.md)
 
 ---
 
@@ -62,7 +63,7 @@
 - **Estimated Time**: 30 minutes
 
 📖 [Start the LM Studio Deployment Tutorial (Gemma4)](/en/01-deploy/gemma4/lm-studio-rocm7-deploy.md)  
-📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/lm-studio-rocm7-deploy.md)
+📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/lm-studio-rocm7-deploy.md) · [Qwen3.5 Version](/en/01-deploy/qwen3.5/lm-studio-rocm7-deploy.md)
 
 ---
 
@@ -75,7 +76,7 @@
 - **Estimated Time**: 1 hour
 
 📖 [Start the vLLM Deployment Tutorial (Gemma4)](/en/01-deploy/gemma4/vllm-rocm7-deploy.md)  
-📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/vllm-rocm7-deploy.md)
+📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/vllm-rocm7-deploy.md) · [Qwen3.5 Version](/en/01-deploy/qwen3.5/vllm-rocm7-deploy.md)
 
 ---
 
@@ -88,7 +89,7 @@
 - **Estimated Time**: 1 hour
 
 📖 [Start the Ollama Deployment Tutorial (Gemma4)](/en/01-deploy/gemma4/ollama-rocm7-deploy.md)  
-📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/ollama-rocm7-deploy.md)
+📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/ollama-rocm7-deploy.md) · [Qwen3.5 Version](/en/01-deploy/qwen3.5/ollama-rocm7-deploy.md)
 
 ---
 
@@ -101,7 +102,7 @@
 - **Estimated Time**: 1.5 hours
 
 📖 [Start the llama.cpp Deployment Tutorial (Gemma4)](/en/01-deploy/gemma4/llamacpp-rocm7-deploy.md)  
-📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/llamacpp-rocm7-deploy.md)
+📎 Reference: [Qwen3 Version](/en/01-deploy/qwen3/llamacpp-rocm7-deploy.md) · [Qwen3.5 Version](/en/01-deploy/qwen3.5/llamacpp-rocm7-deploy.md)
 
 ---
 

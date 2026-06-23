@@ -23,7 +23,8 @@
 01-Deploy/
 └── models/
     ├── Gemma4/           # 以 Gemma 4 为主的部署教程（主推荐）
-    └── Qwen3/            # Qwen3 系列部署教程（参考对比）
+    ├── Qwen3/            # Qwen3 系列部署教程（参考对比）
+    └── Qwen3.5/          # Qwen3.5 系列部署教程（新架构参考）
 ```
 
 ## 教程列表
@@ -37,7 +38,7 @@
 - **预计时间**：1 小时
 
 📖 [开始学习环境准备教程（Gemma4）](/zh/01-deploy/gemma4/env-prepare-ubuntu24-rocm7.md)  
-📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/env-prepare-ubuntu24-rocm7.md)
+📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/env-prepare-ubuntu24-rocm7.md) · [Qwen3.5 版本](/zh/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7.md)
 
 ---
 
@@ -62,7 +63,7 @@
 - **预计时间**：30 分钟
 
 📖 [开始学习 LM Studio 部署教程（Gemma4）](/zh/01-deploy/gemma4/lm-studio-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/lm-studio-rocm7-deploy.md)
+📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/lm-studio-rocm7-deploy.md) · [Qwen3.5 版本](/zh/01-deploy/qwen3.5/lm-studio-rocm7-deploy.md)
 
 ---
 
@@ -75,7 +76,7 @@
 - **预计时间**：1 小时
 
 📖 [开始学习 vLLM 部署教程（Gemma4）](/zh/01-deploy/gemma4/vllm-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/vllm-rocm7-deploy.md)
+📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/vllm-rocm7-deploy.md) · [Qwen3.5 版本](/zh/01-deploy/qwen3.5/vllm-rocm7-deploy.md)
 
 ---
 
@@ -88,7 +89,7 @@
 - **预计时间**：1 小时
 
 📖 [开始学习 Ollama 部署教程（Gemma4）](/zh/01-deploy/gemma4/ollama-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/ollama-rocm7-deploy.md)
+📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/ollama-rocm7-deploy.md) · [Qwen3.5 版本](/zh/01-deploy/qwen3.5/ollama-rocm7-deploy.md)
 
 ---
 
@@ -101,7 +102,7 @@
 - **预计时间**：1.5 小时
 
 📖 [开始学习 llama.cpp 部署教程（Gemma4）](/zh/01-deploy/gemma4/llamacpp-rocm7-deploy.md)  
-📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/llamacpp-rocm7-deploy.md)
+📎 参考：[Qwen3 版本](/zh/01-deploy/qwen3/llamacpp-rocm7-deploy.md) · [Qwen3.5 版本](/zh/01-deploy/qwen3.5/llamacpp-rocm7-deploy.md)
 
 ---
 
