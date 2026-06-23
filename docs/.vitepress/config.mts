@@ -53,6 +53,17 @@ const zhSidebar: DefaultTheme.Sidebar = {
               ]
             },
             {
+              text: 'Qwen3.5',
+              collapsed: false,
+              items: [
+                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7' },
+                { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/qwen3.5/lm-studio-rocm7-deploy' },
+                { text: 'vLLM 部署调用', link: '/zh/01-deploy/qwen3.5/vllm-rocm7-deploy' },
+                { text: 'Ollama 零基础部署', link: '/zh/01-deploy/qwen3.5/ollama-rocm7-deploy' },
+                { text: 'llama.cpp 零基础部署', link: '/zh/01-deploy/qwen3.5/llamacpp-rocm7-deploy' }
+              ]
+            },
+            {
               text: 'Gemma4',
               collapsed: false,
               items: [
@@ -83,6 +94,12 @@ const zhSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3',
               items: [
                 { text: 'Qwen3-0.6B LoRA 及 SwanLab 可视化记录', link: '/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab' }
+              ]
+            },
+            {
+              text: 'Qwen3.5',
+              items: [
+                { text: 'Qwen3.5-4B LoRA 及 SwanLab 可视化记录', link: '/zh/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab' }
               ]
             },
             {
@@ -279,6 +296,17 @@ const enSidebar: DefaultTheme.Sidebar = {
               ]
             },
             {
+              text: 'Qwen3.5',
+              collapsed: false,
+              items: [
+                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7' },
+                { text: 'LM Studio Deployment', link: '/01-deploy/qwen3.5/lm-studio-rocm7-deploy' },
+                { text: 'vLLM Deployment and API Calls', link: '/01-deploy/qwen3.5/vllm-rocm7-deploy' },
+                { text: 'Ollama Deployment', link: '/01-deploy/qwen3.5/ollama-rocm7-deploy' },
+                { text: 'llama.cpp Deployment', link: '/01-deploy/qwen3.5/llamacpp-rocm7-deploy' }
+              ]
+            },
+            {
               text: 'Gemma4',
               collapsed: false,
               items: [
@@ -309,6 +337,12 @@ const enSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3',
               items: [
                 { text: 'Qwen3-0.6B LoRA and SwanLab Records', link: '/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab' }
+              ]
+            },
+            {
+              text: 'Qwen3.5',
+              items: [
+                { text: 'Qwen3.5-4B LoRA and SwanLab Records', link: '/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab' }
               ]
             },
             {
