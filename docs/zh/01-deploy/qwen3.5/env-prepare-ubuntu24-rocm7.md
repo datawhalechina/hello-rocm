@@ -1,8 +1,8 @@
 ## Ubuntu 24.04 / Windows 11 环境准备：ROCm 7.13 + PyTorch + vLLM（以 gfx1151 为例）
 
-**ROCm 7.13.0-preview 部署 Qwen3 推理框架环境准备指南。**
+**ROCm 7.13.0-preview 部署 Qwen3.5 推理框架环境准备指南。**
 
-本节以 **Ryzen AI Max / Ryzen AI Max+（gfx1151）** 为参考，说明在 ROCm 7.13 / TheRock 体系下准备 Qwen3 部署环境的关键步骤。
+本节以 **Ryzen AI Max / Ryzen AI Max+（gfx1151）** 为参考，说明在 ROCm 7.13 / TheRock 体系下准备 Qwen3.5 部署环境的关键步骤。
 
 > 官方参考：
 > - [ROCm 7.13 安装指南（gfx1151）](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html?fam=ryzen&w=compute&os=windows&windows-ver=11&i=pip&gpu=max-pro-390&gfx=gfx1151)
@@ -14,7 +14,7 @@
 
 ### 一、ROCm 7.13 / TheRock 变化说明
 
-ROCm 7.13 进入 TheRock / Core SDK 体系：
+ROCm 7.13 进入 TheRock / Core SDK 体系，核心路径和包名都发生变化：
 
 | 项目 | 旧版 ROCm | ROCm 7.13 |
 |:---|:---|:---|
@@ -22,7 +22,7 @@ ROCm 7.13 进入 TheRock / Core SDK 体系：
 | 包名前缀 | `rocm-*`、`hip*`、`roc*` | `amdrocm-*` |
 | 兼容性 | legacy ROCm | Core SDK 保持 ABI / API 兼容，并通过 symlink 兼容常用路径 |
 
-如果使用包管理器安装，常用 `/opt/rocm` symlink 会保留；如果使用 tarball 或自定义安装目录，请手动检查 `PATH`、`LD_LIBRARY_PATH`、`ROCM_PATH`。
+Qwen3.5 架构较新，部署时还需要注意 `vLLM`、`transformers` 是否支持 `qwen3_5` 模型类型。
 
 ---
 
@@ -184,7 +184,18 @@ python -c "import torch; print('PyTorch:', torch.__version__, 'HIP:', torch.cuda
 
 ---
 
-### 七、后续部署教程
+### 七、Qwen3.5 部署前检查
+
+如果出现模型加载失败，优先检查：
+
+1. `vLLM` 是否为 ROCm 7.13 对应版本或官方镜像；
+2. `transformers` 是否满足 Qwen3.5 所需版本；
+3. `--max-model-len` 是否过大导致显存不足；
+4. API 请求中是否按需要设置 `enable_thinking`。
+
+---
+
+### 八、后续部署教程
 
 - [LM Studio 部署教程](./lm-studio-rocm7-deploy.md)
 - [Ollama 部署教程](./ollama-rocm7-deploy.md)

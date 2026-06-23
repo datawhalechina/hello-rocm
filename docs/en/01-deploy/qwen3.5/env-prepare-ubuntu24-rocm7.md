@@ -1,6 +1,6 @@
 ## Ubuntu 24.04 / Windows 11 Environment Setup: ROCm 7.13 + PyTorch + vLLM (gfx1151 Example)
 
-**ROCm 7.13.0-preview environment setup guide for Gemma 4 deployment.**
+**ROCm 7.13.0-preview environment setup guide for Qwen3.5 deployment.**
 
 This guide uses **Ryzen AI Max / Ryzen AI Max+ (gfx1151)** as the reference GPU architecture and summarizes the key setup steps under ROCm 7.13 / TheRock.
 
@@ -14,15 +14,9 @@ This guide uses **Ryzen AI Max / Ryzen AI Max+ (gfx1151)** as the reference GPU 
 
 ### 1. ROCm 7.13 / TheRock Notes
 
-ROCm 7.13 moves into the TheRock / Core SDK packaging model:
+ROCm 7.13 uses the TheRock / Core SDK packaging model. Core components live under `/opt/rocm/core`, package names use the `amdrocm-*` prefix, and package-manager installs preserve common compatibility symlinks.
 
-| Item | Legacy ROCm | ROCm 7.13 |
-|:---|:---|:---|
-| Core path | `/opt/rocm/` | `/opt/rocm/core` |
-| Package prefix | `rocm-*`, `hip*`, `roc*` | `amdrocm-*` |
-| Compatibility | Legacy ROCm layout | Core SDK with ABI / API compatibility and common symlinks |
-
-When installed through package managers, common `/opt/rocm` symlinks are preserved. With tarball or custom installs, check `PATH`, `LD_LIBRARY_PATH`, and `ROCM_PATH` manually.
+Qwen3.5 is a newer model family, so deployment also depends on recent vLLM / Transformers support for the `qwen3_5` model type.
 
 ---
 
@@ -41,15 +35,11 @@ Also check `~/.bashrc`, `~/.zshrc`, and `/etc/profile.d/` for stale ROCm environ
 
 ### 3. Ubuntu 24.04 + gfx1151 Setup
 
-#### 2.1 Install OEM kernel 6.14
-
 ```bash
 sudo apt update
 sudo apt install -y linux-image-6.14.0-1018-oem
 sudo reboot
 ```
-
-#### 2.2 Install basic dependencies
 
 ```bash
 sudo apt update
@@ -59,23 +49,8 @@ sudo apt install -y \
   build-essential git curl wget jq pciutils
 ```
 
-#### 2.3 Configure GPU permissions
-
 ```bash
 sudo usermod -a -G render,video $LOGNAME
-sudo reboot
-```
-
-Or use udev rules:
-
-```bash
-sudo tee /etc/udev/rules.d/70-amdgpu.rules <<'EOF'
-KERNEL=="kfd", GROUP="render", MODE="0666"
-SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="render", MODE="0666"
-EOF
-
-sudo udevadm control --reload-rules
-sudo udevadm trigger
 sudo reboot
 ```
 
@@ -83,26 +58,20 @@ sudo reboot
 
 ### 4. Install PyTorch 2.11.0 (ROCm 7.13 / gfx1151)
 
-The project recommends using [uv](https://docs.astral.sh/uv/) to manage Python environments and dependencies instead of the traditional `pip + venv` flow.
-
 ```bash
 # Install uv if needed
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Install Python 3.13
+# Install Python 3.13 and create the virtual environment
 uv python install 3.13
-
-# Create and activate the virtual environment
 uv venv --python 3.13
 source .venv/bin/activate
 
-# Fallback: Python standard-library venv
+# Fallback:
 # python3.13 -m venv .venv
 # source .venv/bin/activate
 # python -m pip install --upgrade pip
-```
 
-```bash
 uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
   "torch==2.11.0+rocm7.13.0" \
   "torchvision==0.26.0+rocm7.13.0" \
@@ -112,50 +81,18 @@ uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
 Verify:
 
 ```bash
-python - <<'PY'
-import torch
-print("torch:", torch.__version__)
-print("HIP available:", torch.cuda.is_available())
-if torch.cuda.is_available():
-    print("device:", torch.cuda.get_device_name(0))
-PY
-```
-
----
-
-### 5. Windows 11 + pip Path (ROCm 7.13)
-
-On Windows 11, ROCm 7.13 uses the pip / TheRock flow. Before installation, uninstall any existing HIP SDK, disable WDAG / SAC, and install AMD Software: Adrenalin Edition 26.5.1 or newer.
-
-```powershell
-irm https://astral.sh/uv/install.ps1 | iex
-uv python install 3.13
-uv venv --python 3.13
-.venv\Scripts\activate
-
-# Fallback:
-# py -3.13 -m venv .venv
-# .venv\Scripts\activate
-
-uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ `
-  "torch==2.11.0+rocm7.13.0" `
-  "torchvision==0.26.0+rocm7.13.0" `
-  "torchaudio==2.11.0+rocm7.13.0"
-
 python -c "import torch; print(torch.cuda.is_available())"
 ```
 
 ---
 
-### 6. vLLM Environment Check (Docker)
-
-The official ROCm 7.13 vLLM image for gfx1151 is:
+### 5. vLLM Environment Check
 
 ```bash
 docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
 ```
 
-> Note: the vLLM 0.19.1 Docker image includes PyTorch 2.10.0. PyTorch 2.11.0 belongs to the pip installation path above.
+> The Docker image includes PyTorch 2.10.0; PyTorch 2.11.0 is used by the pip path.
 
 ```bash
 docker run -it --rm \
@@ -172,18 +109,8 @@ docker run -it --rm \
   bash
 ```
 
-Inside the container:
-
-```bash
-python -c "import vllm; print('vLLM:', vllm.__version__)"
-python -c "import torch; print('PyTorch:', torch.__version__, 'HIP:', torch.cuda.is_available())"
-```
-
 ---
 
-### 7. Next Steps
+### 6. Next Steps
 
-- [LM Studio Deployment](./lm-studio-rocm7-deploy.md)
-- [Ollama Deployment](./ollama-rocm7-deploy.md)
-- [llama.cpp Deployment](./llamacpp-rocm7-deploy.md)
 - [vLLM Deployment](./vllm-rocm7-deploy.md)

@@ -1,6 +1,6 @@
-## vLLM 零基础大模型部署（Ubuntu 24.04 + ROCm 7+）
+## Qwen3.5-4B vLLM 部署调用（Ubuntu 24.04 + ROCm 7+）
 
-本节介绍在 Ubuntu 24.04 + ROCm 7+ 环境下，使用 **vLLM** 部署和调用 **Qwen3** 模型。
+本节介绍在 Ubuntu 24.04 + ROCm 7+ 环境下，使用 **vLLM** 部署并调用 **Qwen3.5-4B**。
 
 当前 vLLM 官方文档推荐优先使用官方 ROCm Docker 镜像：
 
@@ -8,7 +8,7 @@
 vllm/vllm-openai-rocm:latest
 ```
 
-旧的 `rocm/vllm`、`rocm/vllm-dev` 镜像已不再作为 vLLM 官方新文档的首选路径。若只想快速跑通 Qwen3 推理服务，Docker 方式最简单。
+旧的 `rocm/vllm`、`rocm/vllm-dev` 镜像已不再作为 vLLM 官方新文档的首选路径。Qwen3.5 架构较新，推荐使用官方镜像或较新的 vLLM 版本，避免旧版本不识别 `qwen3_5` 模型类型。
 
 > 前置条件：已完成 [Ubuntu 24.04 + ROCm 7 环境准备](./env-prepare-ubuntu24-rocm7.md)。
 
@@ -57,9 +57,7 @@ docker pull vllm/vllm-openai-rocm:latest
 
 ---
 
-### 3. 启动 Qwen3 服务
-
-快速验证可使用较小的 Qwen3 模型：
+### 3. 启动 Qwen3.5-4B 服务
 
 ```bash
 docker run --rm \
@@ -69,30 +67,15 @@ docker run --rm \
   --device /dev/kfd \
   --device /dev/dri \
   -v ~/.cache/huggingface:/root/.cache/huggingface \
+  --env "HF_TOKEN=$HF_TOKEN" \
   -p 8000:8000 \
   --ipc=host \
   vllm/vllm-openai-rocm:latest \
-  --model Qwen/Qwen3-0.6B \
-  --served-model-name Qwen3-0.6B \
-  --max-model-len 4096
-```
-
-如果需要测试 Qwen3-8B，可替换模型：
-
-```bash
-docker run --rm \
-  --group-add=video \
-  --cap-add=SYS_PTRACE \
-  --security-opt seccomp=unconfined \
-  --device /dev/kfd \
-  --device /dev/dri \
-  -v ~/.cache/huggingface:/root/.cache/huggingface \
-  -p 8000:8000 \
-  --ipc=host \
-  vllm/vllm-openai-rocm:latest \
-  --model Qwen/Qwen3-8B \
-  --served-model-name Qwen3-8B \
-  --max-model-len 4096
+  --model Qwen/Qwen3.5-4B \
+  --served-model-name Qwen3.5-4B \
+  --max-model-len 4096 \
+  --gpu-memory-utilization 0.9 \
+  --trust-remote-code
 ```
 
 服务启动后检查模型列表：
@@ -105,7 +88,7 @@ curl http://127.0.0.1:8000/v1/models
 
 ### 4. 使用本地模型目录启动
 
-如果已经提前下载好模型，可挂载本地目录：
+如果已经提前下载好模型，可挂载本地模型目录：
 
 ```bash
 docker run --rm \
@@ -118,14 +101,21 @@ docker run --rm \
   -p 8000:8000 \
   --ipc=host \
   vllm/vllm-openai-rocm:latest \
-  --model /app/models/Qwen3-8B \
-  --served-model-name Qwen3-8B \
-  --max-model-len 4096
+  --model /app/models/Qwen3.5-4B \
+  --served-model-name Qwen3.5-4B \
+  --max-model-len 4096 \
+  --trust-remote-code
 ```
 
 ---
 
 ## 二、OpenAI-compatible API 调用
+
+vLLM 默认提供 OpenAI-compatible API：
+
+```text
+http://127.0.0.1:8000/v1
+```
 
 ### 1. curl 调用
 
@@ -133,13 +123,16 @@ docker run --rm \
 curl http://127.0.0.1:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "Qwen3-0.6B",
+    "model": "Qwen3.5-4B",
     "messages": [
-      {"role": "user", "content": "用一句话解释什么是大语言模型。"}
+      {"role": "user", "content": "用一句话介绍 ROCm。"}
     ],
     "temperature": 0.7,
     "top_p": 0.8,
-    "max_tokens": 256
+    "max_tokens": 256,
+    "extra_body": {
+      "chat_template_kwargs": {"enable_thinking": false}
+    }
   }'
 ```
 
@@ -154,11 +147,12 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="Qwen3-0.6B",
-    messages=[{"role": "user", "content": "用一句话介绍 ROCm。"}],
+    model="Qwen3.5-4B",
+    messages=[{"role": "user", "content": "用一句话介绍深度学习。"}],
     temperature=0.7,
     top_p=0.8,
     max_tokens=256,
+    extra_body={"chat_template_kwargs": {"enable_thinking": False}},
 )
 
 print(response.choices[0].message.content)
@@ -166,7 +160,29 @@ print(response.choices[0].message.content)
 
 ---
 
-## 三、性能测试脚本（tokens/s）
+## 三、thinking mode 说明
+
+Qwen3.5 默认支持 thinking mode。不同任务可使用不同设置：
+
+| 场景 | 建议设置 |
+|:---|:---|
+| 通用推理 / 数学 / 复杂问题 | `enable_thinking=true` |
+| 角色扮演 / 简短问答 / 演示 | `enable_thinking=false` |
+| API 对齐测试 | 固定采样参数，并显式传入 `enable_thinking` |
+
+非 thinking 模式的常用采样参数：
+
+```json
+{
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "max_tokens": 512
+}
+```
+
+---
+
+## 四、性能测试脚本（tokens/s）
 
 ```bash
 RAND_PROMPT="随机码$(date +%N): 请详细介绍 ROCm 的用途，要求内容丰富，不要重复。"
@@ -175,10 +191,11 @@ start=$(date +%s.%N)
 response=$(curl -s -X POST http://127.0.0.1:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d "{
-    \"model\": \"Qwen3-0.6B\",
+    \"model\": \"Qwen3.5-4B\",
     \"messages\": [{\"role\": \"user\", \"content\": \"$RAND_PROMPT\"}],
     \"max_tokens\": 512,
-    \"temperature\": 0.7
+    \"temperature\": 0.7,
+    \"extra_body\": {\"chat_template_kwargs\": {\"enable_thinking\": false}}
   }")
 
 end=$(date +%s.%N)
@@ -200,11 +217,9 @@ else
 fi
 ```
 
-> [截图待补充：使用官方 vLLM ROCm Docker 镜像运行 Qwen3 的测试输出]
-
 ---
 
-## 四、方式二：ROCm wheel 安装（可选）
+## 五、方式二：ROCm wheel 安装（可选）
 
 如果不使用 Docker，也可以安装 vLLM ROCm wheel。该方式对 Python / ROCm / glibc 版本要求更严格。
 
@@ -223,16 +238,17 @@ uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/
 安装完成后启动服务：
 
 ```bash
-vllm serve Qwen/Qwen3-0.6B \
-  --served-model-name Qwen3-0.6B \
-  --max-model-len 4096
+vllm serve Qwen/Qwen3.5-4B \
+  --served-model-name Qwen3.5-4B \
+  --max-model-len 4096 \
+  --trust-remote-code
 ```
 
 > 注意：如果 Python 版本不匹配，安装器可能回退到 CUDA wheel，随后在 AMD GPU 上出现 `libcudart.so` 相关错误。
 
 ---
 
-## 五、方式三：源码编译（进阶）
+## 六、方式三：源码编译（进阶）
 
 源码编译适合需要修改 vLLM、调试算子或适配特殊硬件的场景。普通部署不建议优先选择该方式。
 
@@ -256,16 +272,24 @@ export PYTORCH_ROCM_ARCH="gfx1151"
 
 ---
 
-## 六、常见问题
+## 七、常见问题
 
-### 1. 容器无法访问 GPU
+### 1. 模型类型不识别
 
-确认 Docker 命令包含 `--device /dev/kfd --device /dev/dri`，并确认宿主机 `rocminfo` 能看到 GPU。
+升级 vLLM / Transformers，或使用官方 `vllm/vllm-openai-rocm:latest` 镜像。Qwen3.5 架构较新，旧版本可能无法识别 `qwen3_5` 模型类型。
 
-### 2. 显存不足
+### 2. API 输出包含 thinking 内容
 
-降低 `--max-model-len`，例如从 4096 降到 2048；或改用更小模型进行连通性验证。
+检查请求体中是否显式传入：
 
-### 3. 应该继续使用 `rocm/vllm-dev:nightly` 吗？
+```json
+{"extra_body": {"chat_template_kwargs": {"enable_thinking": false}}}
+```
+
+### 3. 显存不足
+
+降低 `--max-model-len`，例如从 4096 降到 2048；或减少并发请求。
+
+### 4. 应该继续使用 `rocm/vllm-dev:nightly` 吗？
 
 新文档优先使用 vLLM 官方镜像 `vllm/vllm-openai-rocm:latest`。旧 AMD 镜像只适合特定版本验证，不作为本教程主路径。
