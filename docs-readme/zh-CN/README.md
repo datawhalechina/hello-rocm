@@ -81,6 +81,21 @@
     </td>
   </tr>
   <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/zh/01-deploy/qwen3.5/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
+      • <a href="../../docs/zh/01-deploy/qwen3.5/vllm-rocm7-deploy.md">vLLM部署</a><br>
+      • <a href="../../docs/zh/01-deploy/qwen3.5/ollama-rocm7-deploy.md">Ollama部署</a><br>
+      • <a href="../../docs/zh/01-deploy/qwen3.5/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/zh/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md">Qwen3.5-4B LoRA微调</a><br>
+      • <a href="../../src/fine-tune/models/qwen3.5/Qwen3.5-4B-LoRA.ipynb">Qwen3.5-4B LoRA微调 Notebook</a><br>
+    </td>
+  </tr>
+  <tr>
     <td colspan="2" align="center" style="border: none !important;"><strong>Gemma4</strong></td>
   </tr>
   <tr>
