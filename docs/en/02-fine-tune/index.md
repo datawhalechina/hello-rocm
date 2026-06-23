@@ -18,6 +18,7 @@ This chapter collects and organizes materials, general tutorials, and model-spec
 | Example | Description | Document |
 |:---|:---|:---|
 | Qwen3-0.6B-LoRA | LoRA fine-tuning with Qwen3-0.6B, combined with SwanLab for training visualization | [View note](/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md) |
+| Qwen3.5-4B-LoRA | LoRA fine-tuning with Qwen3.5-4B, combined with SwanLab for training visualization | [View note](/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md) |
 | Gemma4-E4B-LoRA | Single-GPU LoRA fine-tuning of Gemma 4 E4B-it with ModelScope and `AI-ModelScope/emotion` | [View note](/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu.md) |
 
 Contributions and suggestions are welcome — help us add more model examples for edge deployment and AMD GPU fine-tuning experiments.

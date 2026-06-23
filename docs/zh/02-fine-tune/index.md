@@ -18,6 +18,7 @@
 | 模型案例 | 说明 | 文档 |
 |:---|:---|:---|
 | Qwen3-0.6B-LoRA | 使用 Qwen3-0.6B 进行 LoRA 微调，并结合 SwanLab 记录训练过程 | [查看记录](/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md) |
+| Qwen3.5-4B-LoRA | 使用 Qwen3.5-4B 进行 LoRA 微调，并结合 SwanLab 记录训练过程 | [查看记录](/zh/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md) |
 | Gemma4-E4B-LoRA | 使用魔搭 ModelScope 与 `AI-ModelScope/emotion` 单卡 LoRA 微调 Gemma 4 E4B-it | [查看记录](/zh/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu.md) |
 
 欢迎大家提出建议和贡献内容，一起补充更多适合端侧部署与 AMD GPU 微调实验的模型案例。
@@ -406,4 +407,3 @@ with torch.no_grad():
     outputs = outputs[:, inputs['input_ids'].shape[1]:]
     print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
-
