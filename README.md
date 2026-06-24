@@ -111,6 +111,27 @@
       • <a href="./src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 - E4B LoRA微调（ModelScope 单卡）</a><br>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
+      • <a href="./docs/zh/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## 项目意义
