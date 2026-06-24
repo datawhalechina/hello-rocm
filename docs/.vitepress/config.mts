@@ -63,6 +63,21 @@ const zhSidebar: DefaultTheme.Sidebar = {
                 { text: 'Ollama 零基础部署', link: '/zh/01-deploy/gemma4/ollama-rocm7-deploy' },
                 { text: 'llama.cpp 零基础部署', link: '/zh/01-deploy/gemma4/llamacpp-rocm7-deploy' }
               ]
+            },
+            {
+              text: 'MiniCPM',
+              collapsed: false,
+              items: [
+                { text: 'llama.cpp 部署 MiniCPM', link: '/zh/01-deploy/minicpm/llamacpp-rocm7-deploy' }
+              ]
+            },
+            {
+              text: 'MiniCPM-V',
+              collapsed: false,
+              items: [
+                { text: 'llama.cpp 部署 MiniCPM-V', link: '/zh/01-deploy/minicpmv/llamacpp-rocm7-deploy' },
+                { text: 'vLLM 部署 MiniCPM-V', link: '/zh/01-deploy/minicpmv/vllm-rocm7-deploy' }
+              ]
             }
           ]
         }
@@ -288,6 +303,21 @@ const enSidebar: DefaultTheme.Sidebar = {
                 { text: 'vLLM Deployment', link: '/01-deploy/gemma4/vllm-rocm7-deploy' },
                 { text: 'Ollama Deployment', link: '/01-deploy/gemma4/ollama-rocm7-deploy' },
                 { text: 'llama.cpp Deployment', link: '/01-deploy/gemma4/llamacpp-rocm7-deploy' }
+              ]
+            },
+            {
+              text: 'MiniCPM',
+              collapsed: false,
+              items: [
+                { text: 'llama.cpp Deployment', link: '/01-deploy/minicpm/llamacpp-rocm7-deploy' }
+              ]
+            },
+            {
+              text: 'MiniCPM-V',
+              collapsed: false,
+              items: [
+                { text: 'llama.cpp Deployment', link: '/01-deploy/minicpmv/llamacpp-rocm7-deploy' },
+                { text: 'vLLM Deployment', link: '/01-deploy/minicpmv/vllm-rocm7-deploy' }
               ]
             }
           ]
