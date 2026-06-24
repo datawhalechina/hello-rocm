@@ -205,7 +205,7 @@ to launch with both `-m <gguf>` and `--mmproj <mmproj-gguf>`:
 > covered step-by-step in `qwen3/llamacpp-rocm7-deploy.md`; multimodal support and the
 > `mmproj` file are the only additions needed for MiniCPM-V.
 
-###After build
+### After build
 Screenshot example:
 <img width="1628" height="1598" alt="CPM-V example" src="https://github.com/user-attachments/assets/32b98584-06de-4aed-b62c-9428005c042c" />
 
