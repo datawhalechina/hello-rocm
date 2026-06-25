@@ -110,6 +110,39 @@
       • <a href="../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 - E4B LoRA 微調（基於 TRL）</a><br>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/zh/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp 部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/zh/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp 部署</a><br>
+      • <a href="../../docs/zh/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM 部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/zh/01-deploy/minicpm-o/minicpm-o-model.md">MiniCPM-o 4.5 模型介紹</a><br>
+      • <a href="../../docs/zh/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">llama.cpp-omni 部署（語音+視覺+TTS）</a><br>
+      • <a href="../../docs/zh/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Web Demo 全雙工部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## 專案意義
@@ -271,6 +304,7 @@ hello-rocm/
       • YOLOv10 微信跳一跳 - 遊戲 AI 實戰（在 ROCm 環境下訓練並使用 yolov10）<br>
       • Chat-甄嬛 - 古風對話大型語言模型<br>
       • 智能旅行規劃助手 - HelloAgents Agent 實戰<br>
+      • Torch-RecHub - 推薦系統實戰（CTR、召回、多任務、ONNX 導出）<br>
       • happy-llm - 分散式大型語言模型訓練
     </td>
   </tr>
@@ -285,7 +319,7 @@ hello-rocm/
 * 分享你的 AMD 專案
 * 提出建議與想法
 
-&emsp;&emsp;參與前請先閱讀 **[Content Guide](../../CONTENT_GUIDE_en.md)**（目錄、命名、配圖與文件結構與 **Qwen3** 等教學對齊），再閱讀 **[CONTRIBUTING_en.md](../../CONTRIBUTING_en.md)**（Issue / PR 流程與模型專項目錄約定）。
+&emsp;&emsp;參與前請先閱讀 **[Content Guide](../../CONTENT_GUIDE_en.md)**（目錄、命名、配圖與文件結構與 **Qwen3 / Qwen3.5** 等教學對齊），再閱讀 **[CONTRIBUTING_en.md](../../CONTRIBUTING_en.md)**（Issue / PR 流程與模型專項目錄約定）。
 
 &emsp;&emsp;如果你在使用 ROCm、部署模型或閱讀教學時遇到疑難排解與常見問題，也歡迎加入我們的 **[社群討論](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，和社群一起補充經驗、回報問題、完善教學。
 

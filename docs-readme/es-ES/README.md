@@ -110,6 +110,39 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
       • <a href="../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Ajuste fino LoRA de Gemma4 E4B (TRL, Notebook)</a><br>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm-o/minicpm-o-model.md">Introducción al modelo MiniCPM-o 4.5</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">Despliegue llama.cpp-omni (voz + visión + TTS)</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Despliegue Web Demo full-duplex</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## Por qué este proyecto
@@ -266,6 +299,7 @@ hello-rocm/
       • “Jump Jump” de WeChat con YOLOv10 — IA de juegos en acción (Entrenar y usar yolov10 en ROCm)<br>
       • Chat-甄嬛 — modelo de diálogo en estilo de época<br>
       • Planificador de viajes — demo del agente HelloAgents<br>
+      • Torch-RecHub — sistemas de recomendación (CTR, recuperación, multi-tarea, exportación ONNX)<br>
       • happy-llm — entrenamiento distribuido de LLM
     </td>
   </tr>

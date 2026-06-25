@@ -89,6 +89,16 @@ const zhSidebar: DefaultTheme.Sidebar = {
                 { text: 'llama.cpp 部署 MiniCPM-V', link: '/zh/01-deploy/minicpmv/llamacpp-rocm7-deploy' },
                 { text: 'vLLM 部署 MiniCPM-V', link: '/zh/01-deploy/minicpmv/vllm-rocm7-deploy' }
               ]
+            },
+            {
+              text: 'MiniCPM-o',
+              collapsed: false,
+              items: [
+                { text: 'MiniCPM-o 4.5 部署概览', link: '/zh/01-deploy/minicpm-o/' },
+                { text: 'MiniCPM-o 4.5 模型介绍', link: '/zh/01-deploy/minicpm-o/minicpm-o-model' },
+                { text: 'llama.cpp-omni 零基础部署', link: '/zh/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy' },
+                { text: 'Web Demo 全双工部署', link: '/zh/01-deploy/minicpm-o/webdemo-rocm7-deploy' }
+              ]
             }
           ]
         }
@@ -346,6 +356,16 @@ const enSidebar: DefaultTheme.Sidebar = {
               items: [
                 { text: 'llama.cpp Deployment', link: '/01-deploy/minicpmv/llamacpp-rocm7-deploy' },
                 { text: 'vLLM Deployment', link: '/01-deploy/minicpmv/vllm-rocm7-deploy' }
+              ]
+            },
+            {
+              text: 'MiniCPM-o',
+              collapsed: false,
+              items: [
+                { text: 'MiniCPM-o 4.5 Deployment Overview', link: '/01-deploy/minicpm-o/' },
+                { text: 'MiniCPM-o 4.5 Model Introduction', link: '/01-deploy/minicpm-o/minicpm-o-model' },
+                { text: 'llama.cpp-omni Deployment', link: '/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy' },
+                { text: 'Web Demo Full-Duplex Deployment', link: '/01-deploy/minicpm-o/webdemo-rocm7-deploy' }
               ]
             }
           ]

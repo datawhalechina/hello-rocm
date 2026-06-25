@@ -131,6 +131,18 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/en/01-deploy/minicpm-o/minicpm-o-model.md">MiniCPM-o 4.5 model introduction</a><br>
+      • <a href="./docs/en/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">llama.cpp-omni deployment (voice + vision + TTS)</a><br>
+      • <a href="./docs/en/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Web Demo full-duplex deployment</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## Why this project

@@ -110,9 +110,40 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
       • <a href="../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 E4B LoRA ファインチューニング (TRL, Notebook)</a><br>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm-o/minicpm-o-model.md">MiniCPM-o 4.5 モデル紹介</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">llama.cpp-omni デプロイ（音声+視覚+TTS）</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Web Demo 全二重デプロイ</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
-
-## このプロジェクトの目的
 
 &emsp;&emsp;ROCmとは何か？
 
@@ -266,6 +297,7 @@ hello-rocm/
       • WeChat「ジャンプジャンプ」とYOLOv10 — ゲームAI実戦（ROCm環境でyolov10をトレーニング・使用）<br>
       • Chat-甄嬛 — 時代劇風対話モデル<br>
       • 旅行プランナー — HelloAgentsエージェントデモ<br>
+      • Torch-RecHub — レコメンドシステム実践（CTR、リコール、マルチタスク、ONNXエクスポート）<br>
       • happy-llm — 分散LLMトレーニング
     </td>
   </tr>

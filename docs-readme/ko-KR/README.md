@@ -110,6 +110,39 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
       • <a href="../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 E4B LoRA 파인튜닝 (TRL, Notebook)</a><br>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm-o/minicpm-o-model.md">MiniCPM-o 4.5 모델 소개</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">llama.cpp-omni 배포 (음성+비전+TTS)</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Web Demo 전이중 배포</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## 이 프로젝트의 목적
@@ -266,6 +299,7 @@ hello-rocm/
       • WeChat “Jump Jump” with YOLOv10 — 게임 AI 실전 (ROCm 환경에서 yolov10 훈련 및 사용)<br>
       • Chat-甄嬛 — 시대극 스타일 대화 모델<br>
       • Travel planner — HelloAgents 에이전트 데모<br>
+      • Torch-RecHub — 추천 시스템 실전 (CTR, 리콜, 멀티태스크, ONNX 내보내기)<br>
       • happy-llm — 분산 LLM 학습
     </td>
   </tr>

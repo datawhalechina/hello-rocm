@@ -110,6 +110,39 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
       • <a href="../../src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">الضبط الدقيق LoRA لنموذج Gemma4 E4B (TRL، دفتر)</a><br>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp</a><br>
+      • <a href="../../docs/en/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/01-deploy/minicpm-o/minicpm-o-model.md">مقدمة نموذج MiniCPM-o 4.5</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">نشر llama.cpp-omni (صوت + رؤية + TTS)</a><br>
+      • <a href="../../docs/en/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">نشر Web Demo ثنائي الاتجاه</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## لماذا هذا المشروع
@@ -266,6 +299,7 @@ hello-rocm/
       • WeChat “Jump Jump” مع YOLOv10 — ذكاء اصطناعي للألعاب عملياً (تدريب واستخدام yolov10 على ROCm)<br>
       • Chat-甄嬛 — نموذج حوار بأسلوب تاريخي<br>
       • مخطط السفر — عرض توضيحي لعامل HelloAgents<br>
+      • Torch-RecHub — أنظمة التوصية (CTR، الاسترجاع، المهام المتعددة، تصدير ONNX)<br>
       • happy-llm — تدريب موزع لنماذج اللغة الكبيرة
     </td>
   </tr>

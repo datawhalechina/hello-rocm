@@ -132,6 +132,18 @@
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/01-deploy/minicpm-o/minicpm-o-model.md">MiniCPM-o 4.5 模型介绍</a><br>
+      • <a href="./docs/zh/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">llama.cpp-omni 部署（语音+视觉+TTS）</a><br>
+      • <a href="./docs/zh/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Web Demo 全双工部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
 </table>
 
 ## 项目意义
