@@ -256,6 +256,12 @@ const zhSidebar: DefaultTheme.Sidebar = {
           items: [
             { text: 'OpenClaw 全隐私本地 AI 智能体平台', link: '/zh/05-amd-yes/openclaw' }
           ]
+        },
+        {
+          text: 'every-embodied',
+          items: [
+            { text: 'Every Embodied 具身智能策略复刻', link: '/zh/05-amd-yes/every-embodied' }
+          ]
         }
       ]
     }

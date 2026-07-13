@@ -306,7 +306,8 @@ hello-rocm/
       • Chat-甄嬛 - 古风对话大模型<br>
       • 智能旅行规划助手 - HelloAgents Agent 实战<br>
       • Torch-RecHub - 推荐系统实战（CTR、召回、多任务、ONNX 导出）<br>
-      • happy-llm - 分布式大模型训练
+      • happy-llm - 分布式大模型训练<br>
+      • <a href="./docs/zh/05-amd-yes/every-embodied.md">Every Embodied - ROCm 具身智能策略复刻</a><br>
     </td>
   </tr>
 </table>
