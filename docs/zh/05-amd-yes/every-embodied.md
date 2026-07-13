@@ -7,6 +7,10 @@
 
 </div>
 
+<div align='center'>
+    <img src="../../public/images/05-amd-yes/every-embodied/every-embodied-flow-zh.png" alt="every-embodied" width="95%">
+</div>
+
 ROCm 不只可以部署和微调语言模型，也可以承担具身智能中的视觉编码、策略训练、动作推理与批量评估。Datawhale 的 [Every Embodied](https://github.com/datawhalechina/every-embodied) 项目整理了一套 MuJoCo 桌面抓取实验，并在 AMD Ryzen AI MAX+ 395 / ROCm 环境中复刻 ACT、SmolVLA、Pi0 与 Pi0.5 的训练和调试流程。
 
 本文只介绍项目入口和学习路线。完整代码、Notebook、环境命令、实验结果与排障过程均在 Every Embodied 持续维护，避免同一套教程在两个仓库重复更新。

@@ -143,6 +143,21 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>체화 지능 정책 (ACT / SmolVLA / Pi0 / Pi0.5)</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — ROCm 체화 지능 정책 복제</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb">ACT ROCm 훈련 노트북</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb">SmolVLA ROCm 훈련 노트북</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb">Pi0 ROCm 훈련 노트북</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb">Pi0 엄격한 엔드투엔드 진단 노트북</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb">Pi0.5 EEF-delta 훈련 노트북</a><br>
+    </td>
+  </tr>
 </table>
 
 ## 이 프로젝트의 목적
@@ -296,11 +311,12 @@ hello-rocm/
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — 경량 터미널 LLM 어시스턴트<br>
       • Minesweeper Agent — 로컬 LLM으로 지뢰찾기 (Agent 루프 실습)<br>
-      • WeChat “Jump Jump” with YOLOv10 — 게임 AI 실전 (ROCm 환경에서 yolov10 훈련 및 사용)<br>
+      • WeChat "Jump Jump" with YOLOv10 — 게임 AI 실전 (ROCm 환경에서 yolov10 훈련 및 사용)<br>
       • Chat-甄嬛 — 시대극 스타일 대화 모델<br>
       • Travel planner — HelloAgents 에이전트 데모<br>
       • Torch-RecHub — 추천 시스템 실전 (CTR, 리콜, 멀티태스크, ONNX 내보내기)<br>
-      • happy-llm — 분산 LLM 학습
+      • happy-llm — 분산 LLM 학습<br>
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — ROCm 체화 지능 정책 복제</a><br>
     </td>
   </tr>
 </table>

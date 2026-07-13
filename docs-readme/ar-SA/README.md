@@ -143,6 +143,21 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>سياسات الذكاء المجسد (ACT / SmolVLA / Pi0 / Pi0.5)</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — نسخ سياسات الذكاء المجسد ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb">دفتر تدريب ACT ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb">دفتر تدريب SmolVLA ROCm</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb">دفتر تدريب Pi0 ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb">دفتر تشخيص Pi0 الصارم من البداية إلى النهاية</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb">دفتر تدريب Pi0.5 EEF-delta</a><br>
+    </td>
+  </tr>
 </table>
 
 ## لماذا هذا المشروع
@@ -296,11 +311,12 @@ hello-rocm/
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — مساعد طرفية خفيف الوزن لنماذج اللغة<br>
       • Minesweeper Agent — لعب كاسحة الألغام مع نموذج لغة محلي (ممارسة حلقة Agent)<br>
-      • WeChat “Jump Jump” مع YOLOv10 — ذكاء اصطناعي للألعاب عملياً (تدريب واستخدام yolov10 على ROCm)<br>
+      • WeChat "Jump Jump" مع YOLOv10 — ذكاء اصطناعي للألعاب عملياً (تدريب واستخدام yolov10 على ROCm)<br>
       • Chat-甄嬛 — نموذج حوار بأسلوب تاريخي<br>
       • مخطط السفر — عرض توضيحي لعامل HelloAgents<br>
       • Torch-RecHub — أنظمة التوصية (CTR، الاسترجاع، المهام المتعددة، تصدير ONNX)<br>
-      • happy-llm — تدريب موزع لنماذج اللغة الكبيرة
+      • happy-llm — تدريب موزع لنماذج اللغة الكبيرة<br>
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — نسخ سياسات الذكاء المجسد ROCm</a><br>
     </td>
   </tr>
 </table>
