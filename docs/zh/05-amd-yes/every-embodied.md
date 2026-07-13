@@ -29,12 +29,12 @@ ROCm 不只可以部署和微调语言模型，也可以承担具身智能中的
 
 ## 模型与实验内容
 
-| 模型 | 专题中的主要内容 | 当前阅读重点 |
-|:---|:---|:---|
-| ACT | 单条与随机化数据训练、关节动作诊断、DAgger/recovery 数据 | 小数据模仿学习为什么会在闭环中累积误差 |
-| SmolVLA | 预训练权重加载、红蓝杯采样失衡、加权采样与随机位置评估 | 数据覆盖和采样分布如何影响泛化 |
-| Pi0 | 权限与权重 smoke test、raw policy 与学习辅助头分离评估 | 不把 scripted finisher 的成功误报为端到端 VLA 成功 |
-| Pi0.5 | LeRobot v3 数据规范、EEF-delta 动作表示、chunk 对齐和 recovery 训练 | 动作方向、执行窗口和闭环纠偏为什么比单纯增加训练步数更关键 |
+| 模型 | 专题中的主要内容 | 当前阅读重点 | Notebook |
+|:---|:---|:---|:---|
+| ACT | 单条与随机化数据训练、关节动作诊断、DAgger/recovery 数据 | 小数据模仿学习为什么会在闭环中累积误差 | [ACT ROCm 训练](https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb) |
+| SmolVLA | 预训练权重加载、红蓝杯采样失衡、加权采样与随机位置评估 | 数据覆盖和采样分布如何影响泛化 | [SmolVLA ROCm 训练](https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb) |
+| Pi0 | 权限与权重 smoke test、raw policy 与学习辅助头分离评估 | 不把 scripted finisher 的成功误报为端到端 VLA 成功 | [Pi0 ROCm 训练](https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb) · [严格端到端诊断](https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb) |
+| Pi0.5 | LeRobot v3 数据规范、EEF-delta 动作表示、chunk 对齐和 recovery 训练 | 动作方向、执行窗口和闭环纠偏为什么比单纯增加训练步数更关键 | [Pi0.5 随机位置与 EEF-delta](https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb) |
 
 专题会明确区分三种结果口径：**raw policy**、只使用视觉/语言/本体状态的**可学习辅助模块**，以及注入目标位置或手写阶段规则的**诊断脚手架**。三者用途不同，成功率不能混在一起比较。
 
@@ -56,4 +56,3 @@ ROCm 不只可以部署和微调语言模型，也可以承担具身智能中的
 ## 为什么值得尝试
 
 具身智能策略迁移到 ROCm 后，真正困难的部分通常不是把 `cuda` 字符串改成 `hip`，而是把模型依赖、数据格式、动作语义、执行频率和物理评估协议同时对齐。Every Embodied 把这些失败案例和修复工具一并保留下来，可以直接看到一个策略从“loss 正常”到“仿真中真正完成任务”之间还缺哪些工程环节。
-
