@@ -144,6 +144,21 @@
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>具身智能策略（ACT / SmolVLA / Pi0 / Pi0.5）</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/05-amd-yes/every-embodied.md">ROCm 具身智能策略复刻案例</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb">ACT ROCm 训练 Notebook</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb">SmolVLA ROCm 训练 Notebook</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb">Pi0 ROCm 训练 Notebook</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb">Pi0 严格端到端诊断 Notebook</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb">Pi0.5 EEF-delta 训练 Notebook</a><br>
+    </td>
+  </tr>
 </table>
 
 ## 项目意义
@@ -306,7 +321,8 @@ hello-rocm/
       • Chat-甄嬛 - 古风对话大模型<br>
       • 智能旅行规划助手 - HelloAgents Agent 实战<br>
       • Torch-RecHub - 推荐系统实战（CTR、召回、多任务、ONNX 导出）<br>
-      • happy-llm - 分布式大模型训练
+      • happy-llm - 分布式大模型训练<br>
+      • <a href="./docs/zh/05-amd-yes/every-embodied.md">Every Embodied - ROCm 具身智能策略复刻</a><br>
     </td>
   </tr>
 </table>

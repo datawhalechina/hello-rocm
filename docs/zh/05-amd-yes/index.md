@@ -22,6 +22,7 @@
 | [✈️ 智能旅行规划助手](/zh/05-amd-yes/hello-agents/) ✅️| |
 | [🦞 OpenClaw 全隐私助手](/zh/05-amd-yes/openclaw) ✅️| |
 | [📚 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/) ✅️| |
+| [🤖 Every Embodied 具身智能策略复刻](/zh/05-amd-yes/every-embodied) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 
@@ -126,6 +127,18 @@
 - **预计时间**：3 小时+
 
 📖 [开始学习 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/)
+
+---
+
+#### 🤖 Every Embodied - ROCm 具身智能策略复刻
+
+[Every Embodied](https://github.com/datawhalechina/every-embodied) 在 MuJoCo 桌面抓取任务中复刻 ACT、SmolVLA、Pi0 与 Pi0.5，覆盖数据采集、ROCm 训练、闭环部署、严格物理评估和失败诊断。
+
+- **适合人群**：想在 AMD GPU 上学习机器人模仿学习、VLA 和策略调试的开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：按专题 Notebook 分阶段学习
+
+📖 [开始学习 Every Embodied ROCm 策略复刻](/zh/05-amd-yes/every-embodied)
 
 ---
 
