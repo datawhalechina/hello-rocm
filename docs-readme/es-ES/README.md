@@ -143,6 +143,21 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Políticas de inteligencia incorporada (ACT / SmolVLA / Pi0 / Pi0.5)</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — Replicación de políticas de inteligencia incorporada en ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb">Notebook de entrenamiento ACT ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb">Notebook de entrenamiento SmolVLA ROCm</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb">Notebook de entrenamiento Pi0 ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb">Notebook de diagnóstico estricto de extremo a extremo Pi0</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb">Notebook de entrenamiento Pi0.5 EEF-delta</a><br>
+    </td>
+  </tr>
 </table>
 
 ## Por qué este proyecto
@@ -296,11 +311,12 @@ hello-rocm/
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — asistente ligero de LLM para terminal<br>
       • Minesweeper Agent — jugar al buscaminas con un LLM local (práctica del bucle Agent)<br>
-      • “Jump Jump” de WeChat con YOLOv10 — IA de juegos en acción (Entrenar y usar yolov10 en ROCm)<br>
+      • "Jump Jump" de WeChat con YOLOv10 — IA de juegos en acción (Entrenar y usar yolov10 en ROCm)<br>
       • Chat-甄嬛 — modelo de diálogo en estilo de época<br>
       • Planificador de viajes — demo del agente HelloAgents<br>
       • Torch-RecHub — sistemas de recomendación (CTR, recuperación, multi-tarea, exportación ONNX)<br>
-      • happy-llm — entrenamiento distribuido de LLM
+      • happy-llm — entrenamiento distribuido de LLM<br>
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — Replicación de políticas de inteligencia incorporada en ROCm</a><br>
     </td>
   </tr>
 </table>

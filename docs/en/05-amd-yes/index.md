@@ -22,6 +22,7 @@
 | [✈️ Smart Travel Planner](/05-amd-yes/hello-agents/) ✅️| |
 | [🦞 OpenClaw Private Assistant](/05-amd-yes/openclaw) ✅️| |
 | [📚 Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/) ✅️| |
+| [🤖 Every Embodied Policy Replication](/05-amd-yes/every-embodied) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
@@ -126,6 +127,18 @@ This case uses a Minesweeper board as the Agent's runtime environment. Through l
 - **Estimated Time**: 3+ hours
 
 📖 [Start Learning Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/)
+
+---
+
+#### 🤖 Every Embodied - ROCm Embodied Intelligence Policy Replication
+
+[Every Embodied](https://github.com/datawhalechina/every-embodied) replicates ACT, SmolVLA, Pi0, and Pi0.5 on MuJoCo desktop manipulation tasks, covering data collection, ROCm training, closed-loop deployment, strict physical evaluation, and failure diagnostics.
+
+- **Target Audience**: Developers who want to learn robot imitation learning, VLA, and policy debugging on AMD GPU
+- **Difficulty Level**: ⭐⭐⭐
+- **Project Resources**: Model notebooks and ROCm replication diagnostics
+
+📖 [Start Learning Every Embodied ROCm Policy Replication](/05-amd-yes/every-embodied)
 
 ---
 

@@ -143,6 +143,21 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     <td valign="top" width="50%" style="border: none !important;">
     </td>
   </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Chính sách Embodied AI (ACT / SmolVLA / Pi0 / Pi0.5)</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — Sao chép chính sách Embodied AI ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb">Notebook huấn luyện ACT ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb">Notebook huấn luyện SmolVLA ROCm</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb">Notebook huấn luyện Pi0 ROCm</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb">Notebook chẩn đoán nghiêm ngặt đầu cuối Pi0</a><br>
+      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb">Notebook huấn luyện Pi0.5 EEF-delta</a><br>
+    </td>
+  </tr>
 </table>
 
 ## Tại sao lại có dự án này
@@ -296,11 +311,12 @@ hello-rocm/
     <td valign="top" width="50%" style="border: none !important;" align="center">
 • toy-cli — trình trợ lý dòng lệnh nhẹ<br>
       • Minesweeper Agent — chơi dò mìn với LLM cục bộ (thực hành vòng lặp Agent)<br>
-• WeChat “Jump Jump” với YOLOv10 — AI Trò chơi Thực chiến (Huấn luyện và sử dụng yolov10 trên ROCm)<br>
+• WeChat "Jump Jump" với YOLOv10 — AI Trò chơi Thực chiến (Huấn luyện và sử dụng yolov10 trên ROCm)<br>
 • Chat-甄嬛 — mô hình hội thoại phong cách cổ trang<br>
 • Travel planner — demo tác nhân HelloAgents<br>
 • Torch-RecHub — hệ thống gợi ý (CTR, thu hồi, đa nhiệm, xuất ONNX)<br>
-• happy-llm — huấn luyện LLM phân tán
+• happy-llm — huấn luyện LLM phân tán<br>
+      • <a href="../../docs/en/05-amd-yes/every-embodied.md">Every Embodied — Sao chép chính sách Embodied AI ROCm</a><br>
     </td>
   </tr>
 </table>

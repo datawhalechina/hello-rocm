@@ -530,6 +530,12 @@ const enSidebar: DefaultTheme.Sidebar = {
           items: [
             { text: 'OpenClaw Private Local AI Agent Platform', link: '/05-amd-yes/openclaw' }
           ]
+        },
+        {
+          text: 'every-embodied',
+          items: [
+            { text: 'Every Embodied Policy Replication', link: '/05-amd-yes/every-embodied' }
+          ]
         }
       ]
     }
