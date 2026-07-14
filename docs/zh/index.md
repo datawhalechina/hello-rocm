@@ -22,6 +22,9 @@ hero:
       text: AMD Radeon Cloud
       link: /zh/cloud/amd-radeon-cloud
     - theme: alt
+      text: AUP Learning Cloud
+      link: /zh/cloud/aup-learning-cloud
+    - theme: alt
       text: English
       link: /
 

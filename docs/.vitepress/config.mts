@@ -289,7 +289,8 @@ const zhSidebar: DefaultTheme.Sidebar = {
     {
       text: '云平台',
       items: [
-        { text: 'AMD Radeon Cloud 使用指南', link: '/zh/cloud/amd-radeon-cloud' }
+        { text: 'AMD Radeon Cloud 使用指南', link: '/zh/cloud/amd-radeon-cloud' },
+        { text: 'AUP Learning Cloud 使用指南', link: '/zh/cloud/aup-learning-cloud' }
       ]
     }
   ]

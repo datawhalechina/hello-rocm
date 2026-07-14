@@ -24,7 +24,7 @@
 
 <div align="center">
 
-<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/%F0%9F%9A%80_在线体验-完整教程-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/learning/index.md"><img src="https://img.shields.io/badge/%F0%9F%A4%9D_组队学习-Datawhale-1a73e8?logo=bookstack&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/amd-radeon-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AMD_Radeon_Cloud-云算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
+<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/%F0%9F%9A%80_在线体验-完整教程-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/learning/index.md"><img src="https://img.shields.io/badge/%F0%9F%A4%9D_组队学习-Datawhale-1a73e8?logo=bookstack&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/amd-radeon-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AMD_Radeon_Cloud-云算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/aup-learning-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AUP_Learning_Cloud-端侧算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
 
 </div>
 
