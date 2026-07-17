@@ -11,9 +11,13 @@ description: AUP Learning Cloud 远程 JupyterHub/Code Server 使用指南与登
 
 > 基于 **AMD 端侧 Ryzen™ AI APU** 构建的远程 **JupyterHub / Code Server** 开发环境，无需本地配置，浏览器登录即可上手 ROCm 实战。
 
+::: tip 📦 开源项目
+[**AUP Learning Cloud**](https://github.com/AMDResearch/aup-learning-cloud) 是 **AMD Research** 开源的定制化 JupyterHub 学习云平台（**MIT 许可**），面向 AMD 硬件加速（CPU / GPU / NPU），内置计算机视觉、深度学习、大模型、物理仿真等实践课程工具包，并基于 Kubernetes（K3s）部署。源码、部署方式与镜像均公开在 GitHub：<https://github.com/AMDResearch/aup-learning-cloud>。
+:::
+
 ## 🖥 平台设备说明
 
-AUP Learning Cloud 的算力全部来自 **AMD 端侧（client）Ryzen™ AI APU**。与独立显卡方案不同，这里的 **CPU / GPU / NPU 集成在同一颗芯片上**，更贴近真实的 AMD AI PC 使用场景。目前后台主要部署两款设备：
+[**AUP Learning Cloud**](https://github.com/AMDResearch/aup-learning-cloud) 的算力全部来自 **AMD 端侧（client）Ryzen™ AI APU**。与独立显卡方案不同，这里的 **CPU / GPU / NPU 集成在同一颗芯片上**，更贴近真实的 AMD AI PC 使用场景。目前后台主要部署两款设备：
 
 | 设备 | 定位 | CPU | GPU（iGPU） | NPU |
 |------|------|-----|------------|-----|
@@ -331,7 +335,7 @@ python -m http.server 8080
 
 ## 参考链接
 
-- **AUP Learning Cloud 项目仓库**：<https://github.com/amdresearch/aup-learning-cloud>
+- **AUP Learning Cloud 开源仓库**（AMD Research · MIT 许可）：<https://github.com/AMDResearch/aup-learning-cloud>
 - **AUP Learning Cloud 项目文档**：<https://amdresearch.github.io/aup-learning-cloud/>
 
 ---
