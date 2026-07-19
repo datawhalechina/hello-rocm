@@ -49,6 +49,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ### Cập nhật mới nhất
 
+- *15/07/2026:* [*Ghi chú phát hành ROCm 7.14.0*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **Bản phát hành cột mốc: ROCm chính thức chuyển sang [TheRock](https://github.com/ROCm/TheRock), một hệ thống xây dựng và phát hành mô-đun hóa** (Core SDK tinh gọn + mở rộng theo trường hợp sử dụng + cài đặt mô-đun hóa). Xem [hướng dẫn chuyển đổi sang TheRock](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
+
 - *15/05/2026:* [*Ghi chú phát hành ROCm 7.13.0*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
 
 - *11/03/2026:* [*Ghi chú phát hành ROCm 7.12.0*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)

@@ -49,6 +49,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ### 最新情報
 
+- *2026年7月15日:* [*ROCm 7.14.0 リリースノート*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **マイルストーンリリース：ROCm が [TheRock](https://github.com/ROCm/TheRock) モジュラービルド・リリースシステムへ正式に移行**（軽量な Core SDK ＋ ユースケース別拡張 ＋ モジュラーインストール）。[TheRock 移行ガイド](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html) を参照
+
 - *2026年5月15日:* [*ROCm 7.13.0 リリースノート*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
 
 - *2026年3月11日:* [*ROCm 7.12.0 リリースノート*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)

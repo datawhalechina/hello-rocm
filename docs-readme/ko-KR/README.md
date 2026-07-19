@@ -49,6 +49,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ### 최신 업데이트
 
+- *2026.7.15:* [*ROCm 7.14.0 릴리스 노트*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **마일스톤 릴리스: ROCm이 [TheRock](https://github.com/ROCm/TheRock) 모듈형 빌드 및 릴리스 시스템으로 공식 전환**(경량화된 Core SDK + 용도별 확장 + 모듈형 설치). [TheRock 전환 가이드](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html) 참조
+
 - *2026.5.15:* [*ROCm 7.13.0 릴리스 노트*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
 
 - *2026.3.11:* [*ROCm 7.12.0 릴리스 노트*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)

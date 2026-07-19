@@ -16,6 +16,7 @@ description: >-
 - **一句话**：教用户在 **AMD GPU + ROCm** 上完成大模型 **环境安装 → 部署推理 → 微调 →（进阶）算子与 Infra**，并与 **Datawhale / 社区** 共建内容。
 - **背景要点**（便于回答「为什么现在是 ROCm」类问题）：
   - **ROCm 7.10+** 起支持类似 CUDA 的方式在 **Python 虚拟环境** 中安装；**Linux 与 Windows** 均可作为学习与推理环境（详见 `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`）。
+  - **ROCm 7.14.0（2026.7.15）是里程碑版本**：ROCm 正式转向 [TheRock](https://github.com/ROCm/TheRock) 模块化构建与发布体系（精简 Core SDK + 按需扩展 + 模块化安装），今后 ROCm 的演进将以 TheRock 为核心。资讯详见 `docs/zh/04-references/index.md` / `docs/en/04-references/index.md` 的“相关新闻 / News”。
   - AMD 对 ROCm 面向 AI 场景持续迭代；官方文档以 [ROCm 文档](https://rocm.docs.amd.com/) 与 [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 为准。
 
 ## 仓库目录结构（必读）

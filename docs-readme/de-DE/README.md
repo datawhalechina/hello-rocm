@@ -49,6 +49,8 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
 
 ### Neueste Updates
 
+- *2026.7.15:* [*ROCm 7.14.0 Versionshinweise*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **Meilenstein-Release: ROCm wechselt offiziell zu [TheRock](https://github.com/ROCm/TheRock), einem modularen Build- und Release-System** (schlankeres Core SDK + anwendungsfallspezifische Erweiterungen + modulare Installation). Siehe den [TheRock-Umstiegsleitfaden](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
+
 - *2026.5.15:* [*ROCm 7.13.0 Versionshinweise*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
 
 - *2026.3.11:* [*ROCm 7.12.0 Versionshinweise*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)

@@ -162,50 +162,6 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | rocFFT | Fast Fourier transforms | [rocFFT Docs](https://rocm.docs.amd.com/projects/rocFFT/en/latest/) |
 | rocSPARSE | Sparse matrix operations | [rocSPARSE Docs](https://rocm.docs.amd.com/projects/rocSPARSE/en/latest/) |
 
-## Community Resources
-
-### Tutorials & Blogs
-
-- [AMD ROCm Blog](https://rocm.blogs.amd.com/) - Official AMD technical blog
-- [AMD Developer](https://developer.amd.com/) - AMD developer resource center
-- [Datawhale](https://github.com/datawhalechina) - Open-source learning community
-
-### Video Tutorials
-
-> Coming soon...
-
-### Forums & Communities
-
-| Platform | Description | Link |
-|----------|-------------|------|
-| AMD Community | Official AMD community forum | [community.amd.com](https://community.amd.com/) |
-| GitHub Discussions | ROCm project discussions | [ROCm Discussions](https://github.com/ROCm/ROCm/discussions) |
-| Reddit r/Amd | AMD-related discussions | [r/Amd](https://www.reddit.com/r/Amd/) |
-
-## News
-
-### 2026
-
-- **2026.05.15** - [ROCm 7.13.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
-  - Compatibility information should follow the [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)
-  - New hardware support: Instinct MI350P (gfx950), Radeon AI PRO R9700S (gfx1201), Radeon RX 9060 XT LP (gfx1200), Ryzen AI Max+ 392/388 (gfx1151), Ryzen AI PRO 400 / AI 400 series models (gfx1150/gfx1152)
-  - New OS support: Ubuntu 26.04 (kernel 7.0), RHEL 10.0/10.1, Debian 13, Oracle Linux 10, Rocky Linux 9, SLES 16.0
-  - Latest amdgpu driver version 31.30.0; firmware PLDM bundle 01.26.00.02
-
-- **2026.03.11** - [ROCm 7.12.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
-  - Updated ROCm 7.12.0 preview release notes covering ROCm components, installation paths, and platform support changes
-  - Compatibility information should follow the [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip)
-  - pip index URLs are split by GPU architecture, making it easier to choose the matching wheel source in a virtual environment
-
-### 2025
-
-- **2025.12.11** - [ROCm 7.10.0 Released](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
-  - Windows platform support
-  - pip install into Python virtual environments
-  - TheRock project restructured underlying architecture
-
-> More news coming soon...
-
 ## Hardware Support
 
 ### Supported GPU List
@@ -250,6 +206,26 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 > For the full support list, follow the [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html).
 
+## Community Resources
+
+### Tutorials & Blogs
+
+- [AMD ROCm Blog](https://rocm.blogs.amd.com/) - Official AMD technical blog
+- [AMD Developer](https://developer.amd.com/) - AMD developer resource center
+- [Datawhale](https://github.com/datawhalechina) - Open-source learning community
+
+### Video Tutorials
+
+> Coming soon...
+
+### Forums & Communities
+
+| Platform | Description | Link |
+|----------|-------------|------|
+| AMD Community | Official AMD community forum | [community.amd.com](https://community.amd.com/) |
+| GitHub Discussions | ROCm project discussions | [ROCm Discussions](https://github.com/ROCm/ROCm/discussions) |
+| Reddit r/Amd | AMD-related discussions | [r/Amd](https://www.reddit.com/r/Amd/) |
+
 ## Common Tools
 
 ### Development Tools
@@ -269,6 +245,41 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | TensorFlow | ✅ | See official docs |
 | JAX | ✅ | See official docs |
 | ONNX Runtime | ✅ | See official docs |
+
+## News
+
+### 2026
+
+- **2026.07.15** - [ROCm 7.14.0 Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 🚀 **Milestone release: ROCm officially transitions to TheRock**
+  - **TheRock becomes the future build and release foundation of ROCm**: ROCm 7.14.0 officially migrates ROCm to [TheRock](https://github.com/ROCm/TheRock), a modular build and release system. This is the most significant architectural turning point since 7.10.0 introduced Windows / pip support, marking ROCm's shift from a monolithic package to a modular ecosystem. Going forward, ROCm's evolution, community hardware enablement, and independent component releases will all be centered on TheRock. See the [TheRock transition guide](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
+  - **Three design principles**: ① Leaner core (Core SDK keeps only essential runtime and development components); ② Use case-specific expansions (optional domain SDKs for AI, data science, HPC); ③ Modular installation (install only what your workflow needs — smaller footprint, faster innovation)
+  - **Installation and packaging changes**: install directory moves from `/opt/rocm/` to `/opt/rocm/core`; package prefixes are unified from `rocm-*` / `roc*` / `hip*` to `amdrocm-*` (e.g., hipBLAS and rocBLAS are combined into `amdrocm-blas`); a new `/opt/rocm/extras-7/` shared prefix is added. **ABI/API compatibility with ROCm 7.2 legacy is maintained, so recompilation is not required**; for package-manager installs, the `amdrocm` meta package configures `update-alternatives` and provides backward-compatible symlinks
+  - **AI framework updates**: PyTorch 2.12.0, JAX 0.10.0, vLLM 0.23.0, SGLang 0.5.13, TensorFlow 2.21 (replacing the previous PyTorch 2.9.1 / JAX 0.8.2 / vLLM 0.19.1 / SGLang 0.5.9)
+  - **New hardware support**: Ryzen AI MAX+ PRO 495 / MAX PRO 490/485 (gfx1151), Ryzen AI 5 435/430, AI 5 PRO 435, AI 7 445 (gfx1153) APUs
+  - **New OS support**: RHEL 10.2 / 9.8 (replacing 10.1 / 9.7 respectively); SLES 15 SP7, SLES 16, and Debian 13 on MI350P
+  - **Component reorganization (TheRock layering)**: ROCm SMI removed (replaced by AMD SMI); ROCm Bandwidth Test reaches EOL (use TransferBench or ROCm Validation Suite instead); ROCm Validation Suite, TransferBench, and MIGraphX move to ROCm-Extras; ONNX runtime becomes Standalone/ONNX; new hipFile direct storage I/O library added
+  - **Performance and tooling**: ROCprofiler-SDK becomes the default backend for PyTorch Profiler (2.12+); new SPM (Streaming Performance Monitors, Beta); ROCm Compute Profiler / Systems Profiler now pip-installable
+  - > **Note**: 7.14.0 follows the versioning discontinuity that began with the 7.9.0 preview; ASAN packages are not available in 7.14.0 and are planned for a future release
+
+- **2026.05.15** - [ROCm 7.13.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
+  - Compatibility information should follow the [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)
+  - New hardware support: Instinct MI350P (gfx950), Radeon AI PRO R9700S (gfx1201), Radeon RX 9060 XT LP (gfx1200), Ryzen AI Max+ 392/388 (gfx1151), Ryzen AI PRO 400 / AI 400 series models (gfx1150/gfx1152)
+  - New OS support: Ubuntu 26.04 (kernel 7.0), RHEL 10.0/10.1, Debian 13, Oracle Linux 10, Rocky Linux 9, SLES 16.0
+  - Latest amdgpu driver version 31.30.0; firmware PLDM bundle 01.26.00.02
+
+- **2026.03.11** - [ROCm 7.12.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
+  - Updated ROCm 7.12.0 preview release notes covering ROCm components, installation paths, and platform support changes
+  - Compatibility information should follow the [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip)
+  - pip index URLs are split by GPU architecture, making it easier to choose the matching wheel source in a virtual environment
+
+### 2025
+
+- **2025.12.11** - [ROCm 7.10.0 Released](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
+  - Windows platform support
+  - pip install into Python virtual environments
+  - TheRock project restructured underlying architecture
+
+> More news coming soon...
 
 ## Recommended Books
 
