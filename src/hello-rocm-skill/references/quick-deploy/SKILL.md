@@ -22,7 +22,7 @@ version: 0.1.0
 
 ```bash
 rocminfo          # 确认 GPU 被 ROCm 识别
-rocm-smi          # 查看 GPU 状态
+rocm-smi          # 查看 GPU 状态（ROCm 7.14+ 已由 amd-smi 替代，旧版仍可用）
 python -c "import torch; print(torch.cuda.is_available())"  # PyTorch 确认 ROCm 可用
 ```
 

@@ -49,6 +49,8 @@
 
 ### 最新動態
 
+- *2026.7.15:* [*ROCm 7.14.0 Release Notes*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **里程碑版本：ROCm 正式轉向 [TheRock](https://github.com/ROCm/TheRock) 模組化建置與發布體系**（精簡 Core SDK + 按需擴充 + 模組化安裝）。詳見 [TheRock 遷移指南](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
+
 - *2026.5.15:* [*ROCm 7.13.0 Release Notes*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
 
 - *2026.3.11:* [*ROCm 7.12.0 Release Notes*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)

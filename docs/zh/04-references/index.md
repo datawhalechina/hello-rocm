@@ -162,50 +162,6 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | rocFFT | 快速傅里叶变换 | [rocFFT Docs](https://rocm.docs.amd.com/projects/rocFFT/en/latest/) |
 | rocSPARSE | 稀疏矩阵库 | [rocSPARSE Docs](https://rocm.docs.amd.com/projects/rocSPARSE/en/latest/) |
 
-## 社区资源
-
-### 教程与博客
-
-- [AMD ROCm Blog](https://rocm.blogs.amd.com/) - AMD 官方技术博客
-- [AMD Developer](https://developer.amd.com/) - AMD 开发者资源中心
-- [Datawhale](https://github.com/datawhalechina) - 开源学习社区
-
-### 视频教程
-
-> 持续更新中...
-
-### 论坛与社区
-
-| 平台 | 描述 | 链接 |
-|------|------|------|
-| AMD Community | AMD 官方社区论坛 | [community.amd.com](https://community.amd.com/) |
-| GitHub Discussions | ROCm 项目讨论区 | [ROCm Discussions](https://github.com/ROCm/ROCm/discussions) |
-| Reddit r/Amd | AMD 相关讨论 | [r/Amd](https://www.reddit.com/r/Amd/) |
-
-## 相关新闻
-
-### 2026
-
-- **2026.05.15** - [ROCm 7.13.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
-  - 兼容性信息以 [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html) 为准
-  - 新增硬件支持：Instinct MI350P (gfx950)、Radeon AI PRO R9700S (gfx1201)、Radeon RX 9060 XT LP (gfx1200)、Ryzen AI Max+ 392/388 (gfx1151)、Ryzen AI PRO 400 / AI 400 系列多款型号 (gfx1150/gfx1152)
-  - 新增 OS 支持：Ubuntu 26.04 (kernel 7.0)、RHEL 10.0/10.1、Debian 13、Oracle Linux 10、Rocky Linux 9、SLES 16.0
-  - 最新 amdgpu 驱动版本 31.30.0；固件 PLDM bundle 01.26.00.02
-
-- **2026.03.11** - [ROCm 7.12.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
-  - 更新 ROCm 7.12.0 预览版发布说明，覆盖 ROCm 组件、安装方式与平台支持变化
-  - 兼容性信息以 [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip) 为准
-  - pip 安装索引按 GPU 架构拆分，便于在虚拟环境中选择对应 wheel 源
-
-### 2025
-
-- **2025.12.11** - [ROCm 7.10.0 发布](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
-  - 支持 Windows 平台
-  - 支持 pip 安装到 Python 虚拟环境
-  - TheRock 项目重构底层架构
-
-> 更多新闻持续更新中...
-
 ## 硬件支持
 
 ### 支持的 GPU 列表
@@ -250,6 +206,26 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 > 完整支持列表请以 [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html) 为准。
 
+## 社区资源
+
+### 教程与博客
+
+- [AMD ROCm Blog](https://rocm.blogs.amd.com/) - AMD 官方技术博客
+- [AMD Developer](https://developer.amd.com/) - AMD 开发者资源中心
+- [Datawhale](https://github.com/datawhalechina) - 开源学习社区
+
+### 视频教程
+
+> 持续更新中...
+
+### 论坛与社区
+
+| 平台 | 描述 | 链接 |
+|------|------|------|
+| AMD Community | AMD 官方社区论坛 | [community.amd.com](https://community.amd.com/) |
+| GitHub Discussions | ROCm 项目讨论区 | [ROCm Discussions](https://github.com/ROCm/ROCm/discussions) |
+| Reddit r/Amd | AMD 相关讨论 | [r/Amd](https://www.reddit.com/r/Amd/) |
+
 ## 常用工具
 
 ### 开发工具
@@ -269,6 +245,41 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | TensorFlow | ✅ | 参考官方文档 |
 | JAX | ✅ | 参考官方文档 |
 | ONNX Runtime | ✅ | 参考官方文档 |
+
+## 相关新闻
+
+### 2026
+
+- **2026.07.15** - [ROCm 7.14.0 Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 🚀 **里程碑版本：ROCm 正式转向 TheRock**
+  - **TheRock 成为 ROCm 的未来构建与发布基座**：ROCm 7.14.0 正式将 ROCm 迁移到 [TheRock](https://github.com/ROCm/TheRock) —— 一套模块化的构建与发布体系。这是自 7.10.0 引入 Windows / pip 支持以来最重要的架构转折，标志着 ROCm 从"单体大包"走向"模块化生态"。今后 ROCm 的演进、社区硬件启用与独立组件发布都将以 TheRock 为核心，详见 [TheRock 迁移指南](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
+  - **三大设计理念**：① 精简内核（Core SDK 只保留必要的运行时与开发组件）；② 按需扩展（面向 AI、数据科学、HPC 的可选领域 SDK）；③ 模块化安装（只装工作流所需组件，减小体积、加快创新）
+  - **安装与打包变化**：安装目录由 `/opt/rocm/` 变为 `/opt/rocm/core`；包名前缀由 `rocm-*` / `roc*` / `hip*` 统一为 `amdrocm-*`（如 hipBLAS 与 rocBLAS 合并为 `amdrocm-blas`）；新增 `/opt/rocm/extras-7/` 共享前缀。**保持与 ROCm 7.2 legacy 的 ABI/API 兼容，无需重新编译**；包管理器安装时 `amdrocm` 元包通过 `update-alternatives` 提供向后兼容软链接
+  - **AI 框架更新**：PyTorch 2.12.0、JAX 0.10.0、vLLM 0.23.0、SGLang 0.5.13、TensorFlow 2.21（替代此前 PyTorch 2.9.1 / JAX 0.8.2 / vLLM 0.19.1 / SGLang 0.5.9）
+  - **新增硬件支持**：Ryzen AI MAX+ PRO 495 / MAX PRO 490/485 (gfx1151)、Ryzen AI 5 435/430、AI 5 PRO 435、AI 7 445 (gfx1153) 等 APU
+  - **新增 OS 支持**：RHEL 10.2 / 9.8（分别替代 10.1 / 9.7）；MI350P 上支持 SLES 15 SP7、SLES 16、Debian 13
+  - **组件重组（TheRock 分层）**：ROCm SMI 移除（由 AMD SMI 替代）；ROCm Bandwidth Test 到达 EOL（改用 TransferBench 或 ROCm Validation Suite）；ROCm Validation Suite、TransferBench、MIGraphX 移入 ROCm-Extras；ONNX runtime 独立为 Standalone/ONNX；新增 hipFile 直连存储 I/O 库
+  - **性能与工具**：ROCprofiler-SDK 成为 PyTorch Profiler（2.12+）的默认后端；新增 SPM（流式性能监视器，Beta）；ROCm Compute Profiler / Systems Profiler 支持 pip 安装
+  - > **注意**：7.14.0 延续自 7.9.0 preview 起的版本编号断点；ASAN 包在 7.14.0 暂不提供，计划后续版本补齐
+
+- **2026.05.15** - [ROCm 7.13.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.13.0-preview/about/release-notes.html)
+  - 兼容性信息以 [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html) 为准
+  - 新增硬件支持：Instinct MI350P (gfx950)、Radeon AI PRO R9700S (gfx1201)、Radeon RX 9060 XT LP (gfx1200)、Ryzen AI Max+ 392/388 (gfx1151)、Ryzen AI PRO 400 / AI 400 系列多款型号 (gfx1150/gfx1152)
+  - 新增 OS 支持：Ubuntu 26.04 (kernel 7.0)、RHEL 10.0/10.1、Debian 13、Oracle Linux 10、Rocky Linux 9、SLES 16.0
+  - 最新 amdgpu 驱动版本 31.30.0；固件 PLDM bundle 01.26.00.02
+
+- **2026.03.11** - [ROCm 7.12.0 Preview Release Notes](https://rocm.docs.amd.com/en/7.12.0-preview/about/release-notes.html)
+  - 更新 ROCm 7.12.0 预览版发布说明，覆盖 ROCm 组件、安装方式与平台支持变化
+  - 兼容性信息以 [ROCm 7.12.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.12.0-preview/compatibility/compatibility-matrix.html?fam=instinct&gpu=mi355x&os=ubuntu&os-version=11_25h2&i=pip) 为准
+  - pip 安装索引按 GPU 架构拆分，便于在虚拟环境中选择对应 wheel 源
+
+### 2025
+
+- **2025.12.11** - [ROCm 7.10.0 发布](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
+  - 支持 Windows 平台
+  - 支持 pip 安装到 Python 虚拟环境
+  - TheRock 项目重构底层架构
+
+> 更多新闻持续更新中...
 
 ## 书籍推荐
 
