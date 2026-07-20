@@ -1,4 +1,4 @@
-## AMD GPU / APU Architecture Reference Table (ROCm 7.13.0)
+## AMD GPU / APU Architecture Reference Table (ROCm 7.14.0)
 
 > Quickly look up the LLVM target for your GPU to use as the architecture parameter in installation commands.
 
@@ -41,30 +41,46 @@
 
 | Device Series | Specific Models | LLVM Target | Architecture | iGPU Model |
 |:---|:---|:---|:---|:---|
+| **AI Max PRO 400** | AI Max+ PRO 495, Max PRO 490/485 | `gfx1151` | RDNA 3.5 | Radeon 8060S |
 | **AI Max PRO 300** | AI Max+ PRO 395, Max PRO 390/385/380 | `gfx1151` | RDNA 3.5 | Radeon 8060S |
 | **AI Max 300** | AI Max+ 395, AI Max+ 392, AI Max+ 388, Max 390, Max 385 | `gfx1151` | RDNA 3.5 | Radeon 8060S / 8050S |
 | **AI PRO 400** | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
 | **AI 400** | AI 9 HX 475/470, AI 9 465, AI 7 450 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
+| **AI 400 (gfx1153, new in 7.14.0)** | AI 7 445, AI 5 435/430, AI 5 PRO 435 | `gfx1153` | RDNA 3.5 | Radeon 860M / 840M |
 | **AI 300** | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M |
 | **Ryzen 200** | 9 270, 7 260/250, 5 240/230/220, 3 210 and PRO series | `gfx1103` | RDNA 3 | Radeon 780M / 760M / 740M |
 
 ---
 
-### pip Index URL Quick Reference
+### pip Install (device extras Quick Reference)
 
-| LLVM Target | pip index URL |
+> Since 7.14.0, wheels are served from a single multi-arch index `https://repo.amd.com/rocm/whl-multi-arch/`, and you select the architecture via the `[device-gfxXXXX]` extra (no more per-arch `--index-url`).
+
+| LLVM Target | device extras tag |
 |:---|:---|
-| `gfx950` | `https://repo.amd.com/rocm/whl/gfx950-dcgpu/` |
-| `gfx942` (gfx94X) | `https://repo.amd.com/rocm/whl/gfx94X-dcgpu/` |
-| `gfx90a` | `https://repo.amd.com/rocm/whl/gfx90a/` |
-| `gfx908` | `https://repo.amd.com/rocm/whl/gfx908/` |
-| `gfx1201` / `gfx1200` | `https://repo.amd.com/rocm/whl/gfx120X-all/` |
-| `gfx1100` / `gfx1101` / `gfx1102` | `https://repo.amd.com/rocm/whl/gfx110X-all/` |
-| `gfx1151` | `https://repo.amd.com/rocm/whl/gfx1151/` |
-| `gfx1150` | `https://repo.amd.com/rocm/whl/gfx1150/` |
-| `gfx1103` | `https://repo.amd.com/rocm/whl/gfx1103/` |
+| `gfx950` | `device-gfx950` |
+| `gfx942` | `device-gfx942` |
+| `gfx90a` | `device-gfx90a` |
+| `gfx908` | `device-gfx908` |
+| `gfx1201` | `device-gfx1201` |
+| `gfx1200` | `device-gfx1200` |
+| `gfx1100` / `gfx1101` / `gfx1102` | `device-gfx1100` / `device-gfx1101` / `device-gfx1102` |
+| `gfx1030` | `device-gfx1030` |
+| `gfx1151` | `device-gfx1151` |
+| `gfx1150` | `device-gfx1150` |
+| `gfx1152` | `device-gfx1152` |
+| `gfx1153` (new in 7.14.0) | `device-gfx1153` |
+| `gfx1103` | `device-gfx1103` |
+| All architectures | `device-all` |
 
-> 💡 When switching GPUs, simply replace the `--index-url` in your installation command with the corresponding URL from the table above.
+Install example (gfx1151):
+
+```bash
+uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "rocm[libraries,device-gfx1151]==7.14.0"
+uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1151]==2.12.0+rocm7.14.0" "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
+```
+
+> 💡 When switching GPUs, simply replace the `device-gfxXXXX` tag in the extra with the corresponding value from the table above.
 
 ---
 
@@ -89,4 +105,4 @@
 
 ---
 
-> 📖 For the full compatibility matrix, see: [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)
+> 📖 For the full compatibility matrix, see: [ROCm 7.14.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)
