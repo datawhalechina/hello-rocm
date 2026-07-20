@@ -1,4 +1,4 @@
-## AMD GPU / APU 架构对照表（ROCm 7.13.0）
+## AMD GPU / APU 架构对照表（ROCm 7.14.0）
 
 > 快速查询你的 GPU 对应的 LLVM target，用于安装命令中的架构参数。
 
@@ -41,30 +41,46 @@
 
 | 设备系列 | 具体型号 | LLVM Target | 架构 | iGPU 型号 |
 |:---|:---|:---|:---|:---|
+| **AI Max PRO 400** | AI Max+ PRO 495, Max PRO 490/485 | `gfx1151` | RDNA 3.5 | Radeon 8060S |
 | **AI Max PRO 300** | AI Max+ PRO 395, Max PRO 390/385/380 | `gfx1151` | RDNA 3.5 | Radeon 8060S |
 | **AI Max 300** | AI Max+ 395, AI Max+ 392, AI Max+ 388, Max 390, Max 385 | `gfx1151` | RDNA 3.5 | Radeon 8060S / 8050S |
 | **AI PRO 400** | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
 | **AI 400** | AI 9 HX 475/470, AI 9 465, AI 7 450 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
+| **AI 400（gfx1153，7.14.0 新增）** | AI 7 445, AI 5 435/430, AI 5 PRO 435 | `gfx1153` | RDNA 3.5 | Radeon 860M / 840M |
 | **AI 300** | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M |
 | **Ryzen 200** | 9 270, 7 260/250, 5 240/230/220, 3 210 及 PRO 系列 | `gfx1103` | RDNA 3 | Radeon 780M / 760M / 740M |
 
 ---
 
-### pip 安装索引 URL 速查
+### pip 安装（device extras 速查）
 
-| LLVM Target | pip index URL |
+> 7.14.0 起 wheel 统一从 `https://repo.amd.com/rocm/whl-multi-arch/` 分发，通过 `[device-gfxXXXX]` extras 指定架构（不再用分架构 `--index-url`）。
+
+| LLVM Target | device extras 标签 |
 |:---|:---|
-| `gfx950` | `https://repo.amd.com/rocm/whl/gfx950-dcgpu/` |
-| `gfx942` (gfx94X) | `https://repo.amd.com/rocm/whl/gfx94X-dcgpu/` |
-| `gfx90a` | `https://repo.amd.com/rocm/whl/gfx90a/` |
-| `gfx908` | `https://repo.amd.com/rocm/whl/gfx908/` |
-| `gfx1201` / `gfx1200` | `https://repo.amd.com/rocm/whl/gfx120X-all/` |
-| `gfx1100` / `gfx1101` / `gfx1102` | `https://repo.amd.com/rocm/whl/gfx110X-all/` |
-| `gfx1151` | `https://repo.amd.com/rocm/whl/gfx1151/` |
-| `gfx1150` | `https://repo.amd.com/rocm/whl/gfx1150/` |
-| `gfx1103` | `https://repo.amd.com/rocm/whl/gfx1103/` |
+| `gfx950` | `device-gfx950` |
+| `gfx942` | `device-gfx942` |
+| `gfx90a` | `device-gfx90a` |
+| `gfx908` | `device-gfx908` |
+| `gfx1201` | `device-gfx1201` |
+| `gfx1200` | `device-gfx1200` |
+| `gfx1100` / `gfx1101` / `gfx1102` | `device-gfx1100` / `device-gfx1101` / `device-gfx1102` |
+| `gfx1030` | `device-gfx1030` |
+| `gfx1151` | `device-gfx1151` |
+| `gfx1150` | `device-gfx1150` |
+| `gfx1152` | `device-gfx1152` |
+| `gfx1153` (7.14.0 新增) | `device-gfx1153` |
+| `gfx1103` | `device-gfx1103` |
+| 全部架构 | `device-all` |
 
-> 💡 切换 GPU 时只需把安装命令中的 `--index-url` 替换为上表对应 URL 即可。
+安装示例（以 gfx1151 为例）：
+
+```bash
+uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "rocm[libraries,device-gfx1151]==7.14.0"
+uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1151]==2.12.0+rocm7.14.0" "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
+```
+
+> 💡 切换 GPU 时只需把安装命令 extras 中的 `device-gfxXXXX` 替换为上表对应标签即可。
 
 ---
 
@@ -89,4 +105,4 @@
 
 ---
 
-> 📖 完整兼容性矩阵请参考：[ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html)
+> 📖 完整兼容性矩阵请参考：[ROCm 7.14.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)
