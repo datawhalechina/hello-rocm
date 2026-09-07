@@ -30,7 +30,7 @@ hero:
 
 features:
   - title: 统一环境基线
-    details: 先完成 ROCm、PyTorch 与 uv 环境配置，为后续部署、微调和算子实践建立统一前置条件。
+    details: 先完成 ROCm 10.0.0、PyTorch 2.13 与 uv 环境配置，为后续部署、微调和算子实践建立统一前置条件。
     link: /zh/00-environment/
   - title: 大模型部署
     details: 覆盖 LM Studio、vLLM、Ollama、llama.cpp 等常见框架在 AMD GPU 上的部署流程。

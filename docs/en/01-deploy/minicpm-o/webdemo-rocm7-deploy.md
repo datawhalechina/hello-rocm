@@ -1,4 +1,4 @@
-## MiniCPM-o Web Demo Full-Duplex Deployment (Ubuntu + ROCm 7+)
+## MiniCPM-o Web Demo Full-Duplex Deployment (Ubuntu + ROCm 10+)
 
 This section shows how to deploy the **MiniCPM-o 4.5 Web Demo** on AMD GPU, enabling full-duplex real-time conversation via microphone and camera in a browser. Four interaction modes are available once deployed:
 
@@ -10,7 +10,7 @@ This section shows how to deploy the **MiniCPM-o 4.5 Web Demo** on AMD GPU, enab
 | `/audio_duplex` | Audio-only full-duplex |
 
 > **Prerequisites**:
-> - [ROCm environment setup](/00-environment/) completed.
+> - [ROCm 10.0.0 environment setup](/00-environment/) completed.
 > - [llama.cpp-omni CLI deployment](./llamacpp-omni-rocm7-deploy.md) completed — the `llama-server` binary is ready.
 > - All GGUF model files downloaded (~8.3 GB in `~/omni/models/`).
 
@@ -157,10 +157,11 @@ set -e
 
 OMNI="$HOME/omni"
 
-# ── gfx1151 (Strix Halo) users: use TheRock 7.12-alpha rocBLAS ──
-# For other AMD GPUs not affected by the Tensile issue, replace the two lines below with:
+# ── gfx1151: TheRock injection is only for older systems / remaining Tensile errors ──
+# ROCm 10.0.0 officially supports gfx1151; normally use the system path instead:
 #   export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
 #   unset ROCBLAS_TENSILE_LIBPATH
+# The two lines below keep the old 7.12 local fallback directory name — do not rename the path
 SDK_LIB="$OMNI/rocm712/_rocm_sdk_libraries_gfx1151"
 SDK_CORE="$OMNI/rocm712/_rocm_sdk_core"
 export LD_LIBRARY_PATH="$SDK_LIB/lib:$SDK_CORE/lib"
@@ -181,10 +182,7 @@ SCRIPT
 chmod +x ~/omni/MiniCPM-o-Demo-Comni/start_amd.sh
 ```
 
-> **Other AMD GPU users** (gfx1100 / gfx1150 etc.): Replace the `SDK_LIB` / `SDK_CORE` block with:
-> ```bash
-> export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
-> ```
+> **ROCm 10.0.0 and GPUs not affected by the Tensile issue** (gfx1100 / gfx1150 / gfx1200, etc.): replace the `SDK_LIB` / `SDK_CORE` block with the system path. `~/omni/rocm712/` is only the old 7.12 local fallback directory name — 10.0.0 usually does not need this injection.
 
 ---
 
@@ -285,8 +283,9 @@ pkill -f llama-server 2>/dev/null
 <summary>llama-server exits immediately; logs show "hipErrorInvalidImage" or "Tensile" errors</summary>
 
 The rocBLAS environment was not correctly injected. Check:
-1. Confirm you're using `start_amd.sh`, not calling `start_all.sh` directly.
-2. Verify the gfx1151 TheRock SDK paths exist:
+1. ROCm 10.0.0 officially supports gfx1151 — try the system path first (`export LD_LIBRARY_PATH=/opt/rocm/lib`).
+2. Confirm you're using `start_amd.sh`, not calling `start_all.sh` directly.
+3. Only on older systems or if the error persists, verify the gfx1151 TheRock SDK paths exist:
 
 ```bash
 ls ~/omni/rocm712/_rocm_sdk_libraries_gfx1151/lib/rocblas/library/ | head

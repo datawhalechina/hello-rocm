@@ -1,4 +1,4 @@
-## llama.cpp Deployment of MiniCPM (Ubuntu 24.04 + ROCm 7+)
+## llama.cpp Deployment of MiniCPM (Ubuntu 24.04 + ROCm 10+)
 
 ### Model Overview
 
@@ -14,8 +14,8 @@ This guide deploys **MiniCPM5-1B Q4_K_M (GGUF)** using **llama.cpp**, covering:
 
 MiniCPM is text-only — a single GGUF file with standard `llama-cli` / `llama-server`. For multimodal (image + text), see the `minicpmv/` directory.
 
-> Prerequisite: ROCm 7+ system installation and verification is complete
-> (see `env-prepare-ubuntu24-rocm7.md`). Verified on **AMD Ryzen AI MAX+ 395 (Radeon 8060S,
+> Prerequisite: [ROCm 10.0.0 environment setup](/00-environment/) is complete.
+> Commands are aligned to ROCm 10.0.0; the original reference machine was **AMD Ryzen AI MAX+ 395 (Radeon 8060S,
 > gfx1151), ROCm 7.13**.
 
 ---
@@ -44,7 +44,7 @@ mkdir -p llama-bin && unzip -q llama-rocm-gfx1151.zip -d llama-bin
 
 ---
 
-#### 2. Verify ROCm 7+ Installation (Must Be System-level ROCm)
+#### 2. Verify ROCm 10+ Installation (Must Be System-level ROCm)
 
 ```bash
 amd-smi
@@ -55,7 +55,7 @@ You should see your GPU model, driver, and ROCm version, e.g.:
 ```
 MARKET_NAME: Radeon 8060S Graphics
 TARGET_GRAPHICS_VERSION: gfx1151
-ROCm version: 7.13.0
+ROCm version: 10.0.0
 ```
 
 Confirm llama.cpp can see the GPU:
@@ -152,7 +152,7 @@ curl -s -X POST http://127.0.0.1:8080/v1/chat/completions \
 '
 ```
 
-Reference: **~185 tokens/s** decode on Radeon 8060S (gfx1151), ROCm 7.13, ctx=8192. Actual speed depends on hardware.
+Reference: **~185 tokens/s** decode on Radeon 8060S (gfx1151), originally measured on ROCm 7.13, ctx=8192. Environment commands are aligned to 10.0.0; actual speed depends on hardware.
 
 #### Generation Parameters
 

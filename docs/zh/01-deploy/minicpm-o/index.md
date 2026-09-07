@@ -5,7 +5,7 @@
 
 <div align="center">
 
-*语音 · 视觉 · TTS · 全双工对话 · ROCm 7+ · llama.cpp-omni*
+*语音 · 视觉 · TTS · 全双工对话 · ROCm 10+ · llama.cpp-omni*
 
 [返回主页](/zh/) · [English](/01-deploy/minicpm-o/) · [返回部署总览](/zh/01-deploy/)
 
@@ -79,7 +79,7 @@
 ### 软件要求
 
 - 操作系统：Linux（Ubuntu 22.04 / 24.04）
-- ROCm 7.10.0 或更高版本（系统安装）
+- ROCm 10.0.0 或更高版本（系统安装）
 - CMake 3.21+，GCC / Clang（用于 HIP 编译）
 - Python 3.10+（Web Demo 依赖）
 
@@ -89,7 +89,7 @@
 硬件：AMD Ryzen AI MAX+ PRO 395 / Radeon™ 890M（Strix Halo）
 架构：gfx1151
 统一内存：64 GB（全部可作 VRAM 使用）
-ROCm：7.12.0（系统）+ TheRock 7.12.0a alpha（修复 Tensile）
+ROCm：目标基线 10.0.0；原实测为 7.12.0（系统）+ TheRock 7.12.0a alpha（修复 Tensile）
 OS：Ubuntu 24.04
 ```
 
@@ -107,9 +107,9 @@ MiniCPM-o 4.5 是全模态模型，包含独立的**语音编码器**、**视觉
 <details>
 <summary>Q: gfx1151（Strix Halo）需要特殊处理吗？</summary>
 
-是的。gfx1151 是 2025 年底推出的新架构，系统 `/opt/rocm` 内的 rocBLAS Tensile 库**尚不包含 gfx1151 的完整 GEMM 内核**，会导致推理时崩溃（`hipErrorInvalidImage`）。解决方法是安装 TheRock 7.12.0a alpha SDK 并在运行时指向其 rocBLAS 库目录——详见 [llama.cpp-omni 部署教程](./llamacpp-omni-rocm7-deploy.md)。
+**ROCm 10.0.0 官方已支持 gfx1151**，请先按通用流程用系统 `/opt/rocm` 编译运行。`hipErrorInvalidImage` / Tensile 问题主要出现在 **7.12 及更早**的系统 rocBLAS 上（当时尚未包含 gfx1151 的完整 GEMM 内核）。只有确实遇到该报错时，才需要安装匹配主版本的 TheRock nightly SDK 并在运行时指向其 rocBLAS 目录——详见 [llama.cpp-omni 部署教程](./llamacpp-omni-rocm7-deploy.md)。
 
-其他 AMD GPU（如 gfx1100 / RX 7900 XTX、gfx1150 / RX 9070 XT 等）不受此问题影响，可直接使用系统 rocBLAS。
+其他 AMD GPU（如 gfx1100 / RX 7900 XTX、gfx1150 / RX 9070 XT、gfx1200 / RX 9050 等）不受此问题影响，可直接使用系统 rocBLAS。
 
 </details>
 

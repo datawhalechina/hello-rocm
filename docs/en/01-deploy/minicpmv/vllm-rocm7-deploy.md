@@ -1,4 +1,4 @@
-## vLLM Deployment of MiniCPM-V (Ubuntu 24.04 + ROCm 7+)
+## vLLM Deployment of MiniCPM-V (Ubuntu 24.04 + ROCm 10+)
 
 ### Model Overview
 
@@ -11,8 +11,8 @@ This guide deploys **MiniCPM-V 4.6** using **vLLM**, covering:
 - Quick start with the official ROCm vLLM Docker image
 - Manually building ROCm vLLM from source (for environments without Docker)
 
-> Prerequisite: ROCm 7+ installation and verification is complete
-> (see `env-prepare-ubuntu24-rocm7.md`). Reference machine: **AMD Ryzen AI MAX+ 395
+> Prerequisite: [ROCm 10.0.0 environment setup](/00-environment/) is complete.
+> Commands are aligned to ROCm 10.0.0; the original reference machine was **AMD Ryzen AI MAX+ 395
 > (Radeon 8060S, gfx1151), ROCm 7.13**.
 
 ---
@@ -24,7 +24,7 @@ MiniCPM-V 4.6 is natively supported in vLLM as the architecture `MiniCPMV4_6ForC
 - **vLLM >= 0.22.0**
 - **transformers >= 5.7**
 
-> vLLM 0.22.0+ requires `torch == 2.11.0`. If your ROCm PyTorch is older (e.g. `torch 2.9.x+rocm`), build vLLM in a **separate virtual environment** to avoid breaking your existing setup. The Docker method avoids this entirely.
+> ROCm 10.0.0 official path: pip uses PyTorch 2.13.0; the Docker image ships PyTorch 2.12.0 + vLLM 0.27.0. Do not mix versions across the two paths. If your ROCm PyTorch is older, build vLLM in a **separate virtual environment** to avoid breaking your existing setup.
 
 ---
 
@@ -37,8 +37,10 @@ Reference: https://docs.vllm.ai/en/latest/getting_started/quickstart/#installati
 
 ### 1. Start the vLLM Container
 
+Prefer the official ROCm 10.0.0 validated image (PyTorch 2.12.0 + vLLM 0.27.0, which satisfies MiniCPM-V 4.6's >= 0.22.0 requirement):
+
 ```bash
-sudo docker pull rocm/vllm-dev:nightly
+sudo docker pull rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 
 sudo docker run -it --rm \
   --network=host \
@@ -51,12 +53,14 @@ sudo docker run -it --rm \
   --device /dev/dri \
   -v ~/models:/app/models \
   -e HF_HOME="/app/models" \
-  rocm/vllm-dev:nightly
+  rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 ```
 
 The container's `/app/models` is mounted to the host's `~/models`.
 
 > Verify version inside the container: `python -c "import vllm; print(vllm.__version__)"` should report >= 0.22.0.
+>
+> If you need a newer MiniCPM-V patch, you can fall back to `rocm/vllm-dev:nightly`.
 
 ### 2. Download the Model (HF format, NOT GGUF)
 
@@ -131,9 +135,9 @@ curl -s -X POST http://127.0.0.1:8000/v1/chat/completions \
 
 ### 1. Requirements
 
-- vLLM **>= 0.22.0**
-- ROCm **7.0.2+**, GPU support for gfx1151/1150
-- `torch == 2.11.0` (ROCm version), in an isolated venv
+- vLLM **>= 0.22.0** (ROCm 10.0.0 official corresponds to 0.27.0)
+- ROCm **10.0.0+**, GPU support for gfx1151/1150
+- `torch == 2.13.0` (ROCm 10.0.0 pip path), in an isolated venv
 
 ### 2. Create an Isolated Python venv
 
@@ -145,12 +149,13 @@ source ~/vllm-venv/bin/activate
 ### 3. Install ROCm PyTorch
 
 ```bash
-uv pip install --no-cache-dir \
-  --index-url https://download.pytorch.org/whl/nightly/rocm7.0 \
-  "torch==2.11.0.dev*" torchvision
+uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ \
+  "torch[device-gfx1151]==2.13.0+rocm10.0.0" \
+  "torchvision[device-gfx1151]==0.28.0+rocm10.0.0" \
+  "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
-> If no `torch 2.11` wheel is available, use the closest version and build with `--no-build-isolation`.
+> Replace `device-gfxXXXX` with your GPU. If no matching wheel is available, use the closest version and build with `--no-build-isolation`.
 
 ### 4. Install Triton
 
@@ -186,7 +191,7 @@ cp -r /opt/rocm/share/amd_smi ./amdsmi_src && (cd ./amdsmi_src && uv pip install
 
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
-git checkout v0.22.0
+git checkout v0.27.0
 
 uv pip install -r requirements/rocm.txt
 uv pip install numba scipy "huggingface-hub[cli,hf_transfer]" setuptools_scm setuptools wheel ninja cmake
@@ -221,5 +226,5 @@ Then use the same API tests as Method 1 (Section 4).
 
 ### Notes
 
-- Without Docker, vLLM must be compiled from source for gfx1151, and versions with 4.6 support require `torch 2.11`. Use an isolated venv.
+- Without Docker, vLLM must be compiled from source for gfx1151, and the ROCm 10.0.0 path requires `torch 2.13.0`. Use an isolated venv.
 - For llama.cpp deployment of the same model (lighter weight, prebuilt binaries), see `minicpmv/llamacpp-rocm7-deploy.md`.

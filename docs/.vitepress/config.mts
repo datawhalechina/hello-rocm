@@ -27,6 +27,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
       text: 'Environment',
       items: [
         { text: 'ROCm 基础环境安装与配置', link: '/zh/00-environment/' },
+        { text: 'ROCm 10.0.0 版本说明', link: '/zh/00-environment/rocm-10-0-0-release-notes' },
         { text: 'GPU 架构与 pip 索引对照表', link: '/zh/00-environment/rocm-gpu-architecture-table' }
       ]
     }
@@ -45,7 +46,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/01-deploy/qwen3/env-prepare-ubuntu24-rocm7' },
+                { text: 'Ubuntu 24.04 + ROCm 10 环境准备', link: '/zh/01-deploy/qwen3/env-prepare-ubuntu24-rocm7' },
                 { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/qwen3/lm-studio-rocm7-deploy' },
                 { text: 'vLLM 零基础部署', link: '/zh/01-deploy/qwen3/vllm-rocm7-deploy' },
                 { text: 'Ollama 零基础部署', link: '/zh/01-deploy/qwen3/ollama-rocm7-deploy' },
@@ -56,7 +57,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3.5',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7' },
+                { text: 'Ubuntu 24.04 + ROCm 10 环境准备', link: '/zh/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7' },
                 { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/qwen3.5/lm-studio-rocm7-deploy' },
                 { text: 'vLLM 部署调用', link: '/zh/01-deploy/qwen3.5/vllm-rocm7-deploy' },
                 { text: 'Ollama 零基础部署', link: '/zh/01-deploy/qwen3.5/ollama-rocm7-deploy' },
@@ -67,7 +68,7 @@ const zhSidebar: DefaultTheme.Sidebar = {
               text: 'Gemma4',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 环境准备', link: '/zh/01-deploy/gemma4/env-prepare-ubuntu24-rocm7' },
+                { text: 'Ubuntu 24.04 + ROCm 10 环境准备', link: '/zh/01-deploy/gemma4/env-prepare-ubuntu24-rocm7' },
                 { text: 'Gemma 4 模型介绍', link: '/zh/01-deploy/gemma4/gemma4_model' },
                 { text: 'LM Studio 零基础部署', link: '/zh/01-deploy/gemma4/lm-studio-rocm7-deploy' },
                 { text: 'vLLM 零基础部署', link: '/zh/01-deploy/gemma4/vllm-rocm7-deploy' },
@@ -302,6 +303,7 @@ const enSidebar: DefaultTheme.Sidebar = {
       text: 'Environment',
       items: [
         { text: 'ROCm Environment Setup', link: '/00-environment/' },
+        { text: 'ROCm 10.0.0 Release Notes', link: '/00-environment/rocm-10-0-0-release-notes' },
         { text: 'GPU Architecture and pip Index Table', link: '/00-environment/rocm-gpu-architecture-table' }
       ]
     }
@@ -320,7 +322,7 @@ const enSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/01-deploy/qwen3/env-prepare-ubuntu24-rocm7' },
+                { text: 'Ubuntu 24.04 + ROCm 10 Environment Preparation', link: '/01-deploy/qwen3/env-prepare-ubuntu24-rocm7' },
                 { text: 'LM Studio Deployment', link: '/01-deploy/qwen3/lm-studio-rocm7-deploy' },
                 { text: 'vLLM Deployment', link: '/01-deploy/qwen3/vllm-rocm7-deploy' },
                 { text: 'Ollama Deployment', link: '/01-deploy/qwen3/ollama-rocm7-deploy' },
@@ -331,7 +333,7 @@ const enSidebar: DefaultTheme.Sidebar = {
               text: 'Qwen3.5',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7' },
+                { text: 'Ubuntu 24.04 + ROCm 10 Environment Preparation', link: '/01-deploy/qwen3.5/env-prepare-ubuntu24-rocm7' },
                 { text: 'LM Studio Deployment', link: '/01-deploy/qwen3.5/lm-studio-rocm7-deploy' },
                 { text: 'vLLM Deployment and API Calls', link: '/01-deploy/qwen3.5/vllm-rocm7-deploy' },
                 { text: 'Ollama Deployment', link: '/01-deploy/qwen3.5/ollama-rocm7-deploy' },
@@ -342,7 +344,7 @@ const enSidebar: DefaultTheme.Sidebar = {
               text: 'Gemma4',
               collapsed: false,
               items: [
-                { text: 'Ubuntu 24.04 + ROCm 7 Environment Preparation', link: '/01-deploy/gemma4/env-prepare-ubuntu24-rocm7' },
+                { text: 'Ubuntu 24.04 + ROCm 10 Environment Preparation', link: '/01-deploy/gemma4/env-prepare-ubuntu24-rocm7' },
                 { text: 'Gemma 4 Model Introduction', link: '/01-deploy/gemma4/gemma4_model' },
                 { text: 'LM Studio Deployment', link: '/01-deploy/gemma4/lm-studio-rocm7-deploy' },
                 { text: 'vLLM Deployment', link: '/01-deploy/gemma4/vllm-rocm7-deploy' },

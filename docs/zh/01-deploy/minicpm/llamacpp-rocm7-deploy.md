@@ -1,4 +1,4 @@
-## llama.cpp 部署 MiniCPM（Ubuntu 24.04 + ROCm 7+）
+## llama.cpp 部署 MiniCPM（Ubuntu 24.04 + ROCm 10+）
 
 ### 模型简介
 
@@ -14,8 +14,8 @@
 
 MiniCPM 是纯文本模型，只需加载单个 GGUF 文件。如需部署多模态版本（图像+文本），请参见 `minicpmv/` 目录。
 
-> 前置条件：已完成 ROCm 7+ 系统安装与验证（见 `env-prepare-ubuntu24-rocm7.md`）。
-> 已在 **AMD Ryzen AI MAX+ 395（Radeon 8060S，gfx1151），ROCm 7.13** 上验证。
+> 前置条件：已完成 [ROCm 10.0.0 基础环境安装](/zh/00-environment/)。
+> 教程命令已对齐 ROCm 10.0.0；原实测参考机器为 **AMD Ryzen AI MAX+ 395（Radeon 8060S，gfx1151），ROCm 7.13**。
 
 ---
 
@@ -43,7 +43,7 @@ mkdir -p llama-bin && unzip -q llama-rocm-gfx1151.zip -d llama-bin
 
 ---
 
-#### 2. 确认 ROCm 7+ 安装（必须为系统版 ROCm）
+#### 2. 确认 ROCm 10+ 安装（必须为系统版 ROCm）
 
 ```bash
 amd-smi
@@ -54,7 +54,7 @@ amd-smi
 ```
 MARKET_NAME: Radeon 8060S Graphics
 TARGET_GRAPHICS_VERSION: gfx1151
-ROCm version: 7.13.0
+ROCm version: 10.0.0
 ```
 
 确认 llama.cpp 能识别到 GPU：
@@ -151,7 +151,7 @@ curl -s -X POST http://127.0.0.1:8080/v1/chat/completions \
 '
 ```
 
-参考性能（Radeon 8060S，gfx1151，ROCm 7.13，ctx=8192）：解码约 **185 tokens/s**。实际速度取决于硬件。
+参考性能（Radeon 8060S，gfx1151，原实测 ROCm 7.13，ctx=8192）：解码约 **185 tokens/s**。环境命令已对齐 10.0.0，实际速度取决于硬件。
 
 #### 生成参数参考
 

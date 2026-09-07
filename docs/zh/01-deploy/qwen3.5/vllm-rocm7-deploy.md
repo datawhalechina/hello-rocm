@@ -10,21 +10,21 @@ vllm/vllm-openai-rocm:latest
 
 旧的 `rocm/vllm`、`rocm/vllm-dev` 镜像已不再作为 vLLM 官方新文档的首选路径。Qwen3.5 架构较新，推荐使用官方镜像或较新的 vLLM 版本，避免旧版本不识别 `qwen3_5` 模型类型。
 
-> 前置条件：已完成 [Ubuntu 24.04 + ROCm 7 环境准备](./env-prepare-ubuntu24-rocm7.md)。
+> 前置条件：已完成 [Ubuntu 24.04 + ROCm 10 环境准备](./env-prepare-ubuntu24-rocm7.md)。
 
 ---
 
 ## 一、方式一：官方 vLLM ROCm Docker 镜像（推荐）
 
-### 1. 路线 A：ROCm 7.13 官方验证镜像（gfx1151）
+### 1. 路线 A：ROCm 10.0.0 官方验证镜像
 
-ROCm 7.13 官方文档提供了针对 `gfx1151` 的 vLLM 0.19.1 Docker 镜像：
+ROCm 10.0.0 官方文档提供的 vLLM 0.27.0 Docker 镜像：
 
 ```bash
-docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
+docker pull rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 ```
 
-> 注意：该镜像内置 PyTorch 2.10.0 + vLLM 0.19.1；PyTorch 2.11.0 属于 ROCm 7.13 pip 安装路线，不要把两条路线的版本混写。
+> 注意：该镜像内置 PyTorch 2.12.0 + vLLM 0.27.0；pip 路线是 PyTorch 2.13.0，不要把两条路线的版本混写。
 
 启动容器并进入 shell：
 
@@ -39,7 +39,7 @@ docker run -it --rm \
   --security-opt seccomp=unconfined \
   -v ~/models:/app/models \
   -e HF_HOME="/app/models" \
-  rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1 \
+  rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0 \
   bash
 ```
 

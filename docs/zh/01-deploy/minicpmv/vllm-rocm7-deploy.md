@@ -1,4 +1,4 @@
-## vLLM 部署 MiniCPM-V（Ubuntu 24.04 + ROCm 7+）
+## vLLM 部署 MiniCPM-V（Ubuntu 24.04 + ROCm 10+）
 
 ### 模型简介
 
@@ -11,8 +11,8 @@
 - 使用官方 ROCm vLLM Docker 镜像快速启动
 - 从源码手动编译 ROCm 版 vLLM（适用于没有 Docker 的环境）
 
-> 前置条件：已完成 ROCm 7+ 安装与验证（见 `env-prepare-ubuntu24-rocm7.md`）。
-> 参考机器：**AMD Ryzen AI MAX+ 395（Radeon 8060S，gfx1151），ROCm 7.13**。
+> 前置条件：已完成 [ROCm 10.0.0 基础环境安装](/zh/00-environment/)。
+> 教程命令已对齐 ROCm 10.0.0；原实测参考机器为 **AMD Ryzen AI MAX+ 395（Radeon 8060S，gfx1151），ROCm 7.13**。
 
 ---
 
@@ -23,7 +23,7 @@ MiniCPM-V 4.6 在 vLLM 中以架构 `MiniCPMV4_6ForConditionalGeneration` 被原
 - **vLLM ≥ 0.22.0**
 - **transformers ≥ 5.7**
 
-> vLLM 0.22.0+ 要求 `torch == 2.11.0`。如果已有较旧的 ROCm PyTorch（如 `torch 2.9.x+rocm`），请在**独立虚拟环境**中编译 vLLM，避免影响已有环境。Docker 方式不受此限制。
+> ROCm 10.0.0 官方路线：pip 为 PyTorch 2.13.0，Docker 镜像为 PyTorch 2.12.0 + vLLM 0.27.0。不要把两条路线的版本混写。如果已有较旧的 ROCm PyTorch，请在**独立虚拟环境**中编译 vLLM，避免影响已有环境。
 
 ---
 
@@ -36,8 +36,10 @@ MiniCPM-V 4.6 在 vLLM 中以架构 `MiniCPMV4_6ForConditionalGeneration` 被原
 
 ### 1. 启动 vLLM 容器
 
+优先使用 ROCm 10.0.0 官方验证镜像（内置 PyTorch 2.12.0 + vLLM 0.27.0，满足 MiniCPM-V 4.6 的 ≥ 0.22.0 要求）：
+
 ```bash
-sudo docker pull rocm/vllm-dev:nightly
+sudo docker pull rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 
 sudo docker run -it --rm \
   --network=host \
@@ -50,12 +52,14 @@ sudo docker run -it --rm \
   --device /dev/dri \
   -v ~/models:/app/models \
   -e HF_HOME="/app/models" \
-  rocm/vllm-dev:nightly
+  rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 ```
 
 容器内 `/app/models` 挂载到宿主机的 `~/models`。
 
 > 进入容器后确认版本：`python -c "import vllm; print(vllm.__version__)"` 应 ≥ 0.22.0。
+>
+> 若需要更新的 MiniCPM-V 补丁，可改用 `rocm/vllm-dev:nightly`。
 
 ### 2. 下载模型（HF 格式，不是 GGUF）
 
@@ -132,9 +136,9 @@ curl -s -X POST http://127.0.0.1:8000/v1/chat/completions \
 
 ### 1. 环境要求
 
-- vLLM **≥ 0.22.0**
-- ROCm **7.0.2+**，GPU 支持 gfx1151/1150
-- `torch == 2.11.0`（ROCm 版），在独立 venv 中编译
+- vLLM **≥ 0.22.0**（ROCm 10.0.0 官方对应 0.27.0）
+- ROCm **10.0.0+**，GPU 支持 gfx1151/1150
+- `torch == 2.13.0`（ROCm 10.0.0 pip 路线），在独立 venv 中编译
 
 ### 2. 创建独立 Python venv
 
@@ -146,12 +150,13 @@ source ~/vllm-venv/bin/activate
 ### 3. 安装 ROCm PyTorch
 
 ```bash
-uv pip install --no-cache-dir \
-  --index-url https://download.pytorch.org/whl/nightly/rocm7.0 \
-  "torch==2.11.0.dev*" torchvision
+uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ \
+  "torch[device-gfx1151]==2.13.0+rocm10.0.0" \
+  "torchvision[device-gfx1151]==0.28.0+rocm10.0.0" \
+  "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
-> 若没有 `torch 2.11` wheel，使用最接近的版本并以 `--no-build-isolation` 编译。
+> extras 中的 `device-gfxXXXX` 按实际 GPU 替换。若没有对应 wheel，使用最接近的版本并以 `--no-build-isolation` 编译。
 
 ### 4. 安装 Triton
 
@@ -187,7 +192,7 @@ cp -r /opt/rocm/share/amd_smi ./amdsmi_src && (cd ./amdsmi_src && uv pip install
 
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
-git checkout v0.22.0
+git checkout v0.27.0
 
 uv pip install -r requirements/rocm.txt
 uv pip install numba scipy "huggingface-hub[cli,hf_transfer]" setuptools_scm setuptools wheel ninja cmake
@@ -222,5 +227,5 @@ vllm serve ~/models/MiniCPM-V-4_6 \
 
 ### 补充说明
 
-- 没有 Docker 时 vLLM 需为 gfx1151 从源码编译，且依赖 `torch 2.11`。务必使用独立 venv，避免影响已有的推理/微调环境。
+- 没有 Docker 时 vLLM 需为 gfx1151 从源码编译，且依赖 ROCm 10.0.0 的 `torch 2.13.0`。务必使用独立 venv，避免影响已有的推理/微调环境。
 - 同一模型的 llama.cpp 部署（更轻量、有预构建二进制）见 `minicpmv/llamacpp-rocm7-deploy.md`。

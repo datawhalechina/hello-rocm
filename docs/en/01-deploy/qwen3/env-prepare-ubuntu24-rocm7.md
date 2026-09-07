@@ -1,143 +1,92 @@
-## Ubuntu 24.04 / Windows 11 Environment Setup: ROCm 7.13 + PyTorch + vLLM (gfx1151 Example)
+## Ubuntu 24.04 / Windows 11 Environment Preparation: ROCm 10.0.0 + PyTorch + vLLM (gfx1151)
 
-**ROCm 7.13.0-preview environment setup guide for Qwen3 deployment.**
+**ROCm 10.0.0 environment guide for deploying Qwen3 inference frameworks.**
 
-This guide uses **Ryzen AI Max / Ryzen AI Max+ (gfx1151)** as the reference GPU architecture and summarizes the key setup steps under ROCm 7.13 / TheRock.
+This section uses **Ryzen AI Max / Ryzen AI Max+ (gfx1151)** as the reference. Full baseline: [00-Environment](/00-environment/). 10.0.0 vs 7.14.0: [ROCm 10.0.0 release notes](/00-environment/rocm-10-0-0-release-notes).
 
 > Official references:
-> - [ROCm 7.13 installation guide (gfx1151)](https://rocm.docs.amd.com/en/7.13.0-preview/install/rocm.html?fam=ryzen&w=compute&os=windows&windows-ver=11&i=pip&gpu=max-pro-390&gfx=gfx1151)
-> - [PyTorch 2.11.0 on ROCm 7.13 (gfx1151)](https://rocm.docs.amd.com/en/7.13.0-preview/frameworks/pytorch/install.html?fam=ryzen&os=windows&pytorch-ver=2.11.0&w=compute&gpu=max-pro-390&gfx=gfx1151)
-> - [vLLM 0.19.1 on ROCm 7.13 (gfx1151)](https://rocm.docs.amd.com/en/7.13.0-preview/ai-inference/vllm.html?fam=ryzen&vllm-ver=0.19.1&i=docker&w=compute&gpu=max-pro-390&gfx=gfx1151)
-> - [TheRock transition guide](https://rocm.docs.amd.com/en/7.13.0-preview/about/transition-guide-TheRock.html)
+> - [ROCm 10.0.0 docs home](https://rocm.docs.amd.com/en/latest/)
+> - [Install ROCm](https://rocm.docs.amd.com/en/latest/install/rocm.html?fam=ryzen&w=compute&os=windows&windows-ver=11&i=pip&gpu=max-395&gfx=gfx1151)
+> - [PyTorch 2.13.0 on ROCm 10.0.0](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html?fam=ryzen&os=windows&pytorch-ver=2.13.0&w=compute&gpu=max-395&gfx=gfx1151)
+> - [vLLM 0.27.0](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/inference/vllm.html)
 
 ---
 
-### 1. ROCm 7.13 / TheRock Notes
-
-ROCm 7.13 moves into the TheRock / Core SDK packaging model:
-
-| Item | Legacy ROCm | ROCm 7.13 |
-|:---|:---|:---|
-| Core path | `/opt/rocm/` | `/opt/rocm/core` |
-| Package prefix | `rocm-*`, `hip*`, `roc*` | `amdrocm-*` |
-| Compatibility | Legacy ROCm layout | Core SDK with ABI / API compatibility and common symlinks |
-
----
-
-### 2. Clean Existing ROCm / AMD Components
-
-If an older ROCm stack, HIP SDK, or `amdgpu-dkms` has been installed, clean it first to avoid conflicts with ROCm 7.13 / TheRock components:
+### 1. Clean existing software
 
 ```bash
 sudo apt remove 'rocm*' 'amdrocm*' 'amdgpu-dkms*' -y
 sudo apt autoremove -y
 ```
 
-Also check `~/.bashrc`, `~/.zshrc`, and `/etc/profile.d/` for stale ROCm environment variables.
+Windows: uninstall the old HIP SDK and install [Adrenalin 26.8.1](https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-8-1.html#Downloads). Disable WDAG / SAC.
 
 ---
 
-### 3. Ubuntu 24.04 + gfx1151 Setup
+### 2. Ubuntu 24.04 + gfx1151
 
 ```bash
 sudo apt update
-sudo apt install -y linux-image-6.14.0-1018-oem
-sudo reboot
-```
-
-```bash
-sudo apt update
-sudo apt install -y \
-  python3.13 python3.13-venv \
-  libatomic1 libquadmath0 \
-  build-essential git curl wget jq pciutils
-```
-
-```bash
+sudo apt install -y linux-oem-24.04c libatomic1 libquadmath0 build-essential git curl wget jq pciutils
 sudo usermod -a -G render,video $LOGNAME
 sudo reboot
 ```
 
----
-
-### 4. Install PyTorch 2.11.0 (ROCm 7.13 / gfx1151)
-
 ```bash
-# Install uv if needed
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Install Python 3.13 and create the virtual environment
-uv python install 3.13
-uv venv --python 3.13
+uv python install 3.12
+uv venv --python 3.12
 source .venv/bin/activate
 
-# Fallback:
-# python3.13 -m venv .venv
-# source .venv/bin/activate
-# python -m pip install --upgrade pip
-
-uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ \
-  "torch==2.11.0+rocm7.13.0" \
-  "torchvision==0.26.0+rocm7.13.0" \
-  "torchaudio==2.11.0+rocm7.13.0"
+uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ \
+  "torch[device-gfx1151]==2.13.0+rocm10.0.0" \
+  "torchvision[device-gfx1151]==0.28.0+rocm10.0.0" \
+  "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
-Verify:
-
 ```bash
-python -c "import torch; print(torch.cuda.is_available())"
+python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 ```
 
 ---
 
-### 5. Windows 11 + pip Path
+### 3. Windows 11 + pip
 
 ```powershell
 irm https://astral.sh/uv/install.ps1 | iex
-uv python install 3.13
-uv venv --python 3.13
+uv python install 3.12
+uv venv --python 3.12
 .venv\Scripts\activate
 
-# Fallback:
-# py -3.13 -m venv .venv
-# .venv\Scripts\activate
-
-uv pip install --index-url https://repo.amd.com/rocm/whl/gfx1151/ `
-  "torch==2.11.0+rocm7.13.0" `
-  "torchvision==0.26.0+rocm7.13.0" `
-  "torchaudio==2.11.0+rocm7.13.0"
+uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ `
+  "torch[device-gfx1151]==2.13.0+rocm10.0.0" `
+  "torchvision[device-gfx1151]==0.28.0+rocm10.0.0" `
+  "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
 ---
 
-### 6. vLLM Environment Check
+### 4. vLLM Docker (0.27.0)
 
 ```bash
-docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
-```
+docker pull rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 
-> The Docker image includes PyTorch 2.10.0; PyTorch 2.11.0 is used by the pip path.
-
-```bash
 docker run -it --rm \
-  --device /dev/kfd \
-  --device /dev/dri \
-  --network=host \
-  --ipc=host \
-  --group-add=video \
-  --cap-add=SYS_PTRACE \
-  --security-opt seccomp=unconfined \
-  -v ~/models:/app/models \
-  -e HF_HOME="/app/models" \
-  rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1 \
+  --device /dev/kfd --device /dev/dri \
+  --network=host --ipc=host --group-add=video \
+  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
+  -v ~/models:/app/models -e HF_HOME="/app/models" \
+  rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0 \
   bash
 ```
 
+> The image bundles PyTorch 2.12.0. The pip path is 2.13.0. Do not mix them. `rocm install sdk` is the one-command alternative.
+
 ---
 
-### 7. Next Steps
+### 5. Next tutorials
 
-- [LM Studio Deployment](./lm-studio-rocm7-deploy.md)
-- [Ollama Deployment](./ollama-rocm7-deploy.md)
-- [llama.cpp Deployment](./llamacpp-rocm7-deploy.md)
-- [vLLM Deployment](./vllm-rocm7-deploy.md)
+- [LM Studio](./lm-studio-rocm7-deploy.md)
+- [Ollama](./ollama-rocm7-deploy.md)
+- [llama.cpp](./llamacpp-rocm7-deploy.md)
+- [vLLM](./vllm-rocm7-deploy.md)

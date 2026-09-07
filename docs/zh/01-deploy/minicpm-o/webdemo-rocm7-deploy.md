@@ -1,4 +1,4 @@
-## MiniCPM-o Web Demo 全双工部署（Ubuntu + ROCm 7+）
+## MiniCPM-o Web Demo 全双工部署（Ubuntu + ROCm 10+）
 
 本节介绍如何在 AMD GPU 上部署 **MiniCPM-o 4.5 Web Demo**，实现在浏览器中通过麦克风和摄像头与模型进行全双工实时对话。部署完成后可访问 4 种交互模式的 Web 界面：
 
@@ -10,7 +10,7 @@
 | `/audio_duplex` | 纯语音全双工 |
 
 > **前置条件**：
-> - 已完成 [ROCm 基础环境安装](/zh/00-environment/)。
+> - 已完成 [ROCm 10.0.0 基础环境安装](/zh/00-environment/)。
 > - 已按照 [llama.cpp-omni CLI 部署](./llamacpp-omni-rocm7-deploy.md) 完成编译，`llama-server` 二进制已就绪。
 > - 已下载全部 GGUF 模型文件（约 8.3 GB，位于 `~/omni/models/`）。
 
@@ -157,10 +157,11 @@ set -e
 
 OMNI="$HOME/omni"
 
-# ── gfx1151（Strix Halo）用户：使用 TheRock 7.12-alpha rocBLAS ──
-# 如果你的 GPU 不受 Tensile 问题影响，将下面两行改为系统路径即可：
+# ── gfx1151：仅旧系统 / 仍报 Tensile 错时才需要 TheRock 注入 ──
+# ROCm 10.0.0 官方已支持 gfx1151，通常改用系统路径即可：
 #   export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
 #   unset ROCBLAS_TENSILE_LIBPATH
+# 下面两行是旧 7.12 环境的本地兜底目录名，不要改路径
 SDK_LIB="$OMNI/rocm712/_rocm_sdk_libraries_gfx1151"
 SDK_CORE="$OMNI/rocm712/_rocm_sdk_core"
 export LD_LIBRARY_PATH="$SDK_LIB/lib:$SDK_CORE/lib"
@@ -181,11 +182,7 @@ SCRIPT
 chmod +x ~/omni/MiniCPM-o-Demo-Comni/start_amd.sh
 ```
 
-> **其他 AMD GPU 用户**（gfx1100 / gfx1150 等）：将 `SDK_LIB` / `SDK_CORE` 两行替换为：
-> ```bash
-> export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
-> ```
-> 其余行保持不变。
+> **ROCm 10.0.0 以及不受 Tensile 问题影响的 GPU**（gfx1100 / gfx1150 / gfx1200 等）：将 `SDK_LIB` / `SDK_CORE` 两行替换为系统路径即可。`~/omni/rocm712/` 只是旧 7.12 环境的本地兜底目录名，10.0.0 通常不需要这套注入。
 
 ---
 
@@ -286,8 +283,9 @@ pkill -f llama-server 2>/dev/null
 <summary>llama-server 启动后立即退出，日志报 "hipErrorInvalidImage" 或 "Tensile" 错误</summary>
 
 rocBLAS 环境没有正确注入。请检查：
-1. 确认使用 `start_amd.sh` 而非直接调用 `start_all.sh`。
-2. 确认 gfx1151 的 TheRock SDK 路径存在：
+1. ROCm 10.0.0 官方已支持 gfx1151，先改用系统路径（`export LD_LIBRARY_PATH=/opt/rocm/lib`）再启动。
+2. 确认使用 `start_amd.sh` 而非直接调用 `start_all.sh`。
+3. 仅旧系统或仍报错时，再确认 gfx1151 的 TheRock SDK 路径存在：
 
 ```bash
 ls ~/omni/rocm712/_rocm_sdk_libraries_gfx1151/lib/rocblas/library/ | head

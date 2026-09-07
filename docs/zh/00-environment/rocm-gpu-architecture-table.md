@@ -1,4 +1,4 @@
-## AMD GPU / APU 架构对照表（ROCm 7.14.0）
+## AMD GPU / APU 架构对照表（ROCm 10.0.0）
 
 > 快速查询你的 GPU 对应的 LLVM target，用于安装命令中的架构参数。
 
@@ -30,7 +30,7 @@
 | 设备系列 | 具体型号 | LLVM Target | 架构 |
 |:---|:---|:---|:---|
 | RX 9000 | RX 9070 XT, 9070 GRE, 9070 | `gfx1201` | RDNA 4 |
-| RX 9000  | RX 9060 XT LP, 9060 XT, 9060 | `gfx1200` | RDNA 4 |
+| RX 9000  | RX 9060 XT LP, 9060 XT, 9060, **RX 9050 / 9050 4GB（10.0.0 新增）** | `gfx1200` | RDNA 4 |
 | RX 7000  | RX 7900 XTX, 7900 XT, 7900 GRE | `gfx1100` | RDNA 3 |
 | RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | `gfx1101` | RDNA 3 |
 | RX 7000  | RX 7600 | `gfx1102` | RDNA 3 |
@@ -46,7 +46,7 @@
 | **AI Max 300** | AI Max+ 395, AI Max+ 392, AI Max+ 388, Max 390, Max 385 | `gfx1151` | RDNA 3.5 | Radeon 8060S / 8050S |
 | **AI PRO 400** | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
 | **AI 400** | AI 9 HX 475/470, AI 9 465, AI 7 450 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
-| **AI 400（gfx1153，7.14.0 新增）** | AI 7 445, AI 5 435/430, AI 5 PRO 435 | `gfx1153` | RDNA 3.5 | Radeon 860M / 840M |
+| **AI 400（gfx1153）** | AI 7 445, AI 5 435/430, AI 5 PRO 435 | `gfx1153` | RDNA 3.5 | Radeon 860M / 840M |
 | **AI 300** | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M |
 | **Ryzen 200** | 9 270, 7 260/250, 5 240/230/220, 3 210 及 PRO 系列 | `gfx1103` | RDNA 3 | Radeon 780M / 760M / 740M |
 
@@ -54,7 +54,7 @@
 
 ### pip 安装（device extras 速查）
 
-> 7.14.0 起 wheel 统一从 `https://repo.amd.com/rocm/whl-multi-arch/` 分发，通过 `[device-gfxXXXX]` extras 指定架构（不再用分架构 `--index-url`）。
+> 10.0.0 起 wheel 从 `https://stable.repo.amd.com/rocm/whl-next/` 分发，仍通过 `[device-gfxXXXX]` extras 指定架构。
 
 | LLVM Target | device extras 标签 |
 |:---|:---|
@@ -69,15 +69,14 @@
 | `gfx1151` | `device-gfx1151` |
 | `gfx1150` | `device-gfx1150` |
 | `gfx1152` | `device-gfx1152` |
-| `gfx1153` (7.14.0 新增) | `device-gfx1153` |
+| `gfx1153` | `device-gfx1153` |
 | `gfx1103` | `device-gfx1103` |
 | 全部架构 | `device-all` |
 
 安装示例（以 gfx1151 为例）：
 
 ```bash
-uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "rocm[libraries,device-gfx1151]==7.14.0"
-uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1151]==2.12.0+rocm7.14.0" "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
+uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ "torch[device-gfx1151]==2.13.0+rocm10.0.0" "torchvision[device-gfx1151]==0.28.0+rocm10.0.0" "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
 > 💡 切换 GPU 时只需把安装命令 extras 中的 `device-gfxXXXX` 替换为上表对应标签即可。
@@ -105,4 +104,4 @@ uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[devi
 
 ---
 
-> 📖 完整兼容性矩阵请参考：[ROCm 7.14.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)
+> 📖 完整兼容性矩阵请参考：[ROCm 10.0.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)

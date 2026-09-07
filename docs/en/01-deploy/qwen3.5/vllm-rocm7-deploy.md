@@ -2,19 +2,19 @@
 
 This guide shows how to serve and call **Qwen3.5-4B** with **vLLM** on ROCm.
 
-For ROCm 7.13 / gfx1151, there are two practical Docker routes:
+For ROCm 10.0.0, there are two practical Docker routes:
 
-- AMD ROCm validated image: `rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1`
+- AMD ROCm validated image: `rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0`
 - Upstream vLLM image: `vllm/vllm-openai-rocm:latest`
 
-> Prerequisite: complete [ROCm 7.13 environment setup](./env-prepare-ubuntu24-rocm7.md). Qwen3.5 is a newer model family, so prefer recent vLLM / Transformers versions.
+> Prerequisite: complete [ROCm 10.0.0 environment setup](./env-prepare-ubuntu24-rocm7.md). Qwen3.5 is a newer model family, so prefer recent vLLM / Transformers versions.
 
 ---
 
-## 1. ROCm 7.13 Validated Docker Image (gfx1151)
+## 1. ROCm 10.0.0 Validated Docker Image
 
 ```bash
-docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
+docker pull rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 ```
 
 ```bash
@@ -28,7 +28,7 @@ docker run -it --rm \
   --security-opt seccomp=unconfined \
   -v ~/models:/app/models \
   -e HF_HOME="/app/models" \
-  rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1 \
+  rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0 \
   bash
 ```
 

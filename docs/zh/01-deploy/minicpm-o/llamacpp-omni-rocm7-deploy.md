@@ -1,9 +1,9 @@
-## llama.cpp-omni 零基础部署（Ubuntu 24.04 + ROCm 7+）
+## llama.cpp-omni 零基础部署（Ubuntu 24.04 + ROCm 10+）
 
-本节介绍如何在 Ubuntu 24.04 + ROCm 7+ 环境下，使用 **llama.cpp-omni** 编译并运行 MiniCPM-o 4.5，实现语音输入、图像理解和 TTS 语音输出。
+本节介绍如何在 Ubuntu 24.04 + ROCm 10+ 环境下，使用 **llama.cpp-omni** 编译并运行 MiniCPM-o 4.5，实现语音输入、图像理解和 TTS 语音输出。
 
 > 前置条件：
-> - 已完成 [ROCm 基础环境安装](/zh/00-environment/)，系统已有 `/opt/rocm` 且 `rocminfo` 正常输出 GPU 信息。
+> - 已完成 [ROCm 10.0.0 基础环境安装](/zh/00-environment/)，系统已有 `/opt/rocm` 且 `rocminfo` 正常输出 GPU 信息。
 > - 已阅读 [MiniCPM-o 4.5 模型介绍](./minicpm-o-model.md)，了解所需 GGUF 文件。
 
 ---
@@ -25,6 +25,7 @@ amd-smi | grep -i "gfx"
 | RX 7900 XTX / 7900 XT | gfx1100 |
 | RX 7800 XT / 7700 XT | gfx1101 |
 | RX 9070 XT / 9070 | gfx1150 |
+| RX 9050 / 9050 4GB | gfx1200 |
 | Ryzen AI MAX+ 395（Strix Halo APU） | **gfx1151** |
 | Instinct MI300X | gfx942 |
 
@@ -231,7 +232,7 @@ cp your_image.jpg /tmp/test0000.jpg
 
 #### 4. 参考性能指标
 
-在 AMD Ryzen AI MAX+ 395（gfx1151，64 GB 统一内存）上：
+在 AMD Ryzen AI MAX+ 395（gfx1151，64 GB 统一内存）上，原实测于 ROCm 7.12 + TheRock 7.12.0a（环境命令已对齐 10.0.0）：
 
 | 阶段 | 速度 |
 |------|------|
@@ -254,7 +255,7 @@ Tensile: hipModuleLoadData failed
 
 **原因**：gfx1151（Strix Halo APU）是较新的架构。早期系统 `/opt/rocm`（如 7.12.0）的 rocBLAS Tensile 库缺少该 GPU 的完整 GEMM 内核。
 
-> **先确认是否仍需修复**：自 ROCm 7.13 起，gfx1151 已进入官方支持列表。如果你的系统是 ROCm 7.13 或更新版本，建议先按第二节的通用流程直接编译运行；只有确实遇到上述报错时，再执行下面的修复步骤。
+> **先确认是否仍需修复**：ROCm 10.0.0 官方已支持 gfx1151。请先按第二节的通用流程直接编译运行；只有确实遇到上述报错时，再执行下面的修复步骤。旧系统（7.12 / 7.13）若仍报错，也按同样步骤处理。
 
 **修复方案**：安装与系统 ROCm 主版本匹配的 [TheRock nightly SDK](https://rocm.nightlies.amd.com/v2/gfx1151/)（含完整的 gfx1151 Tensile 内核），用合并前缀重新编译，并在运行时指向其 rocBLAS 目录。
 
@@ -263,12 +264,13 @@ Tensile: hipModuleLoadData failed
 ```bash
 mkdir -p ~/omni/rocm_sdk && cd ~/omni/rocm_sdk
 
-# 选择与系统 ROCm 主版本匹配的 alpha 版本（系统 7.12 → 7.12.0a，系统 7.13 → 7.13.0a）
+# 选择与系统 ROCm 主版本匹配的 alpha 版本
+# 系统 10.0 → 10.0.0a*；旧系统 7.12 → 7.12.0a*，7.13 → 7.13.0a*
 # 关键：SDK 的 .so soname 必须与系统驱动一致，否则会出现 hipMemcpy 等运行时错误
 pip install --index-url https://rocm.nightlies.amd.com/v2/gfx1151/ \
-    "rocm-sdk-core==7.13.0a*" \
-    "rocm-sdk-devel==7.13.0a*" \
-    "rocm-sdk-libraries-gfx1151==7.13.0a*" \
+    "rocm-sdk-core==10.0.0a*" \
+    "rocm-sdk-devel==10.0.0a*" \
+    "rocm-sdk-libraries-gfx1151==10.0.0a*" \
     --target ./pkg --no-deps
 
 # rocm-sdk-devel 的头文件/cmake 在 tar 包中，手动解压

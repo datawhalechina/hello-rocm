@@ -15,9 +15,9 @@ description: >-
 - **定位**：面向 **AMD ROCm** 的 **教程型** 开源仓库（主体是文档与 Notebook），补齐「CUDA 教程很多、ROCm 系统教程偏少」的空白。
 - **一句话**：教用户在 **AMD GPU + ROCm** 上完成大模型 **环境安装 → 部署推理 → 微调 →（进阶）算子与 Infra**，并与 **Datawhale / 社区** 共建内容。
 - **背景要点**（便于回答「为什么现在是 ROCm」类问题）：
-  - **ROCm 7.10+** 起支持类似 CUDA 的方式在 **Python 虚拟环境** 中安装；**Linux 与 Windows** 均可作为学习与推理环境（详见 `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`）。
-  - **ROCm 7.14.0（2026.7.15）是里程碑版本**：ROCm 正式转向 [TheRock](https://github.com/ROCm/TheRock) 模块化构建与发布体系（精简 Core SDK + 按需扩展 + 模块化安装），今后 ROCm 的演进将以 TheRock 为核心。资讯详见 `docs/zh/04-references/index.md` / `docs/en/04-references/index.md` 的“相关新闻 / News”。
-  - AMD 对 ROCm 面向 AI 场景持续迭代；官方文档以 [ROCm 文档](https://rocm.docs.amd.com/) 与 [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 为准。
+  - **当前基线是 ROCm 10.0.0（2026.8.26）**：pip 索引为 `https://stable.repo.amd.com/rocm/whl-next/`，配套 PyTorch 2.13.0。详见 `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`。
+  - **7.14.0 把 TheRock 做成生产基座；10.0.0 在其上补齐 ROCm.AI**：AMD Skills（Claude / Cursor / Codex）、Hyperloom（自动剖析与改内核）、ROCm CLI（`rocm install sdk` / `examine` / `serve`）。解读见 `docs/zh/00-environment/rocm-10-0-0-release-notes.md`。
+  - 官方总入口以 [ROCm latest](https://rocm.docs.amd.com/en/latest/) 与 [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 为准。平台官方 Skill 目录是 [amd/skills](https://github.com/amd/skills)，与本仓库 hello-rocm Skill 可并存。
 
 ## 仓库目录结构（必读）
 
@@ -37,7 +37,8 @@ description: >-
 按 **README** 中的建议，向用户说明顺序时优先采用下面路径；可根据目标裁剪。
 
 1. **先环境（必做）**  
-   - 阅读并完成 **`docs/zh/00-environment/index.md`** / **`docs/en/00-environment/index.md`**：对应平台的 ROCm、驱动、Python/`uv`、PyTorch 安装与校验。  
+   - 阅读并完成 **`docs/zh/00-environment/index.md`** / **`docs/en/00-environment/index.md`**：对应平台的 ROCm 10.0.0、驱动、Python/`uv`、PyTorch 2.13 安装与校验。  
+   - 10.0.0 相对 7.14.0、以及 AMD Skills / Hyperloom / ROCm CLI： **`docs/zh/00-environment/rocm-10-0-0-release-notes.md`**。  
    - 需要换 GPU 架构或 pip 源时，对照 **`docs/zh/00-environment/rocm-gpu-architecture-table.md`** / **`docs/en/00-environment/rocm-gpu-architecture-table.md`**。  
    - **平台提示**：Windows 适合体验与轻量推理；**完整工具链、多卡与工程化**更推荐 **Ubuntu 24.04**（见环境 README 中的说明）。
 

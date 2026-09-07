@@ -2,8 +2,12 @@
 
 ## 官方与文档（优先以最新版为准）
 
-- ROCm 文档首页：<https://rocm.docs.amd.com/>
+- ROCm 10.0.0 文档首页：<https://rocm.docs.amd.com/en/latest/>
 - ROCm Release Notes：<https://rocm.docs.amd.com/en/latest/about/release-notes.html>
+- 本项目 10.0.0 版本说明：`docs/zh/00-environment/rocm-10-0-0-release-notes.md` / `docs/en/00-environment/rocm-10-0-0-release-notes.md`
+- AMD Skills：<https://github.com/amd/skills>
+- ROCm CLI：<https://github.com/ROCm/rocm-cli>
+- Hyperloom：<https://rocm.docs.amd.com/projects/hyperloom/en/latest/>
 - AMD GitHub 组织：<https://github.com/amd>
 
 ## Skill 快速索引：框架与推理服务

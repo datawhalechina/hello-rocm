@@ -1,9 +1,9 @@
-## llama.cpp-omni Deployment on Ubuntu 24.04 + ROCm 7+
+## llama.cpp-omni Deployment on Ubuntu 24.04 + ROCm 10+
 
-This section explains how to build and run **llama.cpp-omni** on AMD GPU under Ubuntu 24.04 + ROCm 7+, enabling voice input, image understanding, and TTS voice output for MiniCPM-o 4.5.
+This section explains how to build and run **llama.cpp-omni** on AMD GPU under Ubuntu 24.04 + ROCm 10+, enabling voice input, image understanding, and TTS voice output for MiniCPM-o 4.5.
 
 > Prerequisites:
-> - [ROCm environment setup](/00-environment/) completed — `/opt/rocm` is present and `rocminfo` reports your GPU.
+> - [ROCm 10.0.0 environment setup](/00-environment/) completed — `/opt/rocm` is present and `rocminfo` reports your GPU.
 > - [MiniCPM-o 4.5 model introduction](./minicpm-o-model.md) read — you know which GGUF files are required.
 
 ---
@@ -25,6 +25,7 @@ Common AMD GPU architecture codes:
 | RX 7900 XTX / 7900 XT | gfx1100 |
 | RX 7800 XT / 7700 XT | gfx1101 |
 | RX 9070 XT / 9070 | gfx1150 |
+| RX 9050 / 9050 4GB | gfx1200 |
 | Ryzen AI MAX+ 395 (Strix Halo APU) | **gfx1151** |
 | Instinct MI300X | gfx942 |
 
@@ -231,7 +232,7 @@ cp your_image.jpg /tmp/test0000.jpg
 
 #### 4.4 Reference performance
 
-On AMD Ryzen AI MAX+ 395 (gfx1151, 64 GB unified memory):
+On AMD Ryzen AI MAX+ 395 (gfx1151, 64 GB unified memory), originally measured on ROCm 7.12 + TheRock 7.12.0a (environment commands are aligned to 10.0.0):
 
 | Phase | Speed |
 |-------|-------|
@@ -254,7 +255,7 @@ Tensile: hipModuleLoadData failed
 
 **Cause**: gfx1151 (Strix Halo APU) is a relatively new architecture. Early system `/opt/rocm` releases (e.g. 7.12.0) shipped a rocBLAS Tensile library missing the complete GEMM kernels for this GPU.
 
-> **Check whether you still need this fix**: As of ROCm 7.13, gfx1151 is on the official support list. If your system is ROCm 7.13 or later, try the generic build/run flow from Section 2 first — only apply the fix below if you actually hit the error above.
+> **Check whether you still need this fix**: ROCm 10.0.0 officially supports gfx1151. Try the generic build/run flow from Section 2 first — only apply the fix below if you actually hit the error above. The same steps apply on older 7.12 / 7.13 systems that still fail.
 
 **Fix**: Install the [TheRock nightly SDK](https://rocm.nightlies.amd.com/v2/gfx1151/) matching your system's ROCm major version (it includes complete gfx1151 Tensile kernels), rebuild with a merged prefix, and point the runtime at its rocBLAS directory.
 
@@ -263,12 +264,13 @@ Tensile: hipModuleLoadData failed
 ```bash
 mkdir -p ~/omni/rocm_sdk && cd ~/omni/rocm_sdk
 
-# Choose the alpha version matching your system ROCm major (system 7.12 → 7.12.0a, system 7.13 → 7.13.0a)
+# Choose the alpha version matching your system ROCm major
+# System 10.0 → 10.0.0a*; older 7.12 → 7.12.0a*, 7.13 → 7.13.0a*
 # Key: the SDK .so soname must match the system driver, or you'll hit runtime errors like hipMemcpy failures
 pip install --index-url https://rocm.nightlies.amd.com/v2/gfx1151/ \
-    "rocm-sdk-core==7.13.0a*" \
-    "rocm-sdk-devel==7.13.0a*" \
-    "rocm-sdk-libraries-gfx1151==7.13.0a*" \
+    "rocm-sdk-core==10.0.0a*" \
+    "rocm-sdk-devel==10.0.0a*" \
+    "rocm-sdk-libraries-gfx1151==10.0.0a*" \
     --target ./pkg --no-deps
 
 # Extract the devel tar (headers/cmake are bundled inside)

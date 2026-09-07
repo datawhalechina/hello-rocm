@@ -1,4 +1,4 @@
-## AMD GPU / APU Architecture Reference Table (ROCm 7.14.0)
+## AMD GPU / APU Architecture Reference Table (ROCm 10.0.0)
 
 > Quickly look up the LLVM target for your GPU to use as the architecture parameter in installation commands.
 
@@ -30,7 +30,7 @@
 | Device Series | Specific Models | LLVM Target | Architecture |
 |:---|:---|:---|:---|
 | RX 9000 | RX 9070 XT, 9070 GRE, 9070 | `gfx1201` | RDNA 4 |
-| RX 9000  | RX 9060 XT LP, 9060 XT, 9060 | `gfx1200` | RDNA 4 |
+| RX 9000  | RX 9060 XT LP, 9060 XT, 9060, **RX 9050 / 9050 4GB (new in 10.0.0)** | `gfx1200` | RDNA 4 |
 | RX 7000  | RX 7900 XTX, 7900 XT, 7900 GRE | `gfx1100` | RDNA 3 |
 | RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | `gfx1101` | RDNA 3 |
 | RX 7000  | RX 7600 | `gfx1102` | RDNA 3 |
@@ -46,7 +46,7 @@
 | **AI Max 300** | AI Max+ 395, AI Max+ 392, AI Max+ 388, Max 390, Max 385 | `gfx1151` | RDNA 3.5 | Radeon 8060S / 8050S |
 | **AI PRO 400** | AI 9 HX PRO 475/470, AI 9 PRO 465, AI 7 PRO 450, AI 5 PRO 440 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
 | **AI 400** | AI 9 HX 475/470, AI 9 465, AI 7 450 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M / 860M |
-| **AI 400 (gfx1153, new in 7.14.0)** | AI 7 445, AI 5 435/430, AI 5 PRO 435 | `gfx1153` | RDNA 3.5 | Radeon 860M / 840M |
+| **AI 400 (gfx1153)** | AI 7 445, AI 5 435/430, AI 5 PRO 435 | `gfx1153` | RDNA 3.5 | Radeon 860M / 840M |
 | **AI 300** | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | `gfx1150` / `gfx1152` | RDNA 3.5 | Radeon 890M / 880M |
 | **Ryzen 200** | 9 270, 7 260/250, 5 240/230/220, 3 210 and PRO series | `gfx1103` | RDNA 3 | Radeon 780M / 760M / 740M |
 
@@ -54,7 +54,7 @@
 
 ### pip Install (device extras Quick Reference)
 
-> Since 7.14.0, wheels are served from a single multi-arch index `https://repo.amd.com/rocm/whl-multi-arch/`, and you select the architecture via the `[device-gfxXXXX]` extra (no more per-arch `--index-url`).
+> Since 10.0.0, wheels are served from `https://stable.repo.amd.com/rocm/whl-next/`, and you still select the architecture via the `[device-gfxXXXX]` extra.
 
 | LLVM Target | device extras tag |
 |:---|:---|
@@ -69,15 +69,14 @@
 | `gfx1151` | `device-gfx1151` |
 | `gfx1150` | `device-gfx1150` |
 | `gfx1152` | `device-gfx1152` |
-| `gfx1153` (new in 7.14.0) | `device-gfx1153` |
+| `gfx1153` | `device-gfx1153` |
 | `gfx1103` | `device-gfx1103` |
 | All architectures | `device-all` |
 
 Install example (gfx1151):
 
 ```bash
-uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "rocm[libraries,device-gfx1151]==7.14.0"
-uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[device-gfx1151]==2.12.0+rocm7.14.0" "torchvision[device-gfx1151]==0.27.0+rocm7.14.0" "torchaudio==2.11.0+rocm7.14.0"
+uv pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ "torch[device-gfx1151]==2.13.0+rocm10.0.0" "torchvision[device-gfx1151]==0.28.0+rocm10.0.0" "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
 > 💡 When switching GPUs, simply replace the `device-gfxXXXX` tag in the extra with the corresponding value from the table above.
@@ -105,4 +104,4 @@ uv pip install --index-url https://repo.amd.com/rocm/whl-multi-arch/ "torch[devi
 
 ---
 
-> 📖 For the full compatibility matrix, see: [ROCm 7.14.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)
+> 📖 For the full compatibility matrix, see: [ROCm 10.0.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)

@@ -2,7 +2,7 @@
 
 This page introduces the **MiniCPM-o 4.5** omni-modal architecture, sub-model breakdown, and GGUF file checklist to help you prepare before deployment.
 
-> Prerequisite: Recommended to complete [ROCm Environment Setup](/00-environment/) first.
+> Prerequisite: Recommended to complete [ROCm 10.0.0 Environment Setup](/00-environment/) first.
 
 ---
 

@@ -29,9 +29,9 @@
 
 ## 教程列表
 
-### Ubuntu 24.04 + ROCm 7 环境准备教程
+### Ubuntu 24.04 + ROCm 10 环境准备教程
 
-&emsp;&emsp;本教程将手把手带你在 Ubuntu 24.04 上完成 ROCm 7.1.0 的安装与验证，包括卸载旧 ROCm 环境、运行官方脚本安装 ROCm、以及使用 `rocminfo` / `rocm-smi` / `amd-smi` 等工具确认 GPU 与驱动状态。建议在开始任何部署教程之前先完成本篇。
+&emsp;&emsp;本教程将手把手带你在 Ubuntu 24.04 / Windows 11 上完成 **ROCm 10.0.0** 的安装与验证，包括清理旧环境、用 `uv pip` 安装 PyTorch 2.13.0、用官方 vLLM 0.27.0 镜像做校验，以及可选的 `rocm install sdk` 一条命令路径。建议在开始任何部署教程之前先完成本篇，或先读 [00-Environment 基线](/zh/00-environment/) 与 [ROCm 10.0.0 版本说明](/zh/00-environment/rocm-10-0-0-release-notes)。
 
 - **适合人群**：首次在 AMD GPU 上搭建 ROCm 环境的用户
 - **难度等级**：⭐⭐
@@ -116,7 +116,7 @@
 ### 软件要求
 
 - 操作系统：Linux (Ubuntu 22.04+) 或 Windows 11
-- ROCm 7.10.0 或更高版本
+- ROCm 10.0.0 或更高版本（本模块环境准备已对齐 10.0.0）
 - Python 3.10+
 
 ## 常见问题
@@ -146,7 +146,7 @@ Gemma 系列模型需要先在 Hugging Face 对应模型页（例如 <a href="ht
 
 ## 参考资源
 
-- [ROCm 官方文档](https://rocm.docs.amd.com/)
+- [ROCm 10.0.0 官方文档](https://rocm.docs.amd.com/en/latest/)
 - [vLLM 官方文档](https://docs.vllm.ai/)
 - [Ollama 官方文档](https://docs.ollama.com/)
 - [llama.cpp 仓库](https://github.com/ggerganov/llama.cpp)

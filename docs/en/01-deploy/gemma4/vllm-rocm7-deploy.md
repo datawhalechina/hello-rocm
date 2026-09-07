@@ -2,22 +2,22 @@
 
 This guide shows how to deploy and call **Gemma 4** with **vLLM** on ROCm.
 
-For ROCm 7.13 / gfx1151, there are two practical Docker routes:
+For ROCm 10.0.0, there are two practical Docker routes:
 
-- AMD ROCm validated image: `rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1`
+- AMD ROCm validated image: `rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0`
 - Upstream vLLM image: `vllm/vllm-openai-rocm:latest`
 
-> Prerequisite: complete [ROCm 7.13 environment setup](./env-prepare-ubuntu24-rocm7.md). Gemma models may require accepting the license on Hugging Face and passing `HF_TOKEN`.
+> Prerequisite: complete [ROCm 10.0.0 environment setup](./env-prepare-ubuntu24-rocm7.md). Gemma models may require accepting the license on Hugging Face and passing `HF_TOKEN`.
 
 ---
 
-## 1. ROCm 7.13 Validated Docker Image (gfx1151)
+## 1. ROCm 10.0.0 Validated Docker Image
 
 ```bash
-docker pull rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1
+docker pull rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0
 ```
 
-> This image includes PyTorch 2.10.0 + vLLM 0.19.1. PyTorch 2.11.0 belongs to the pip installation path.
+> This image includes PyTorch 2.12.0 + vLLM 0.27.0. The pip path uses PyTorch 2.13.0. Do not mix the two.
 
 ```bash
 docker run -it --rm \
@@ -30,7 +30,7 @@ docker run -it --rm \
   --security-opt seccomp=unconfined \
   -v ~/models:/app/models \
   -e HF_HOME="/app/models" \
-  rocm/vllm:rocm7.13.0_gfx1151_ubuntu24.04_py3.13_pytorch_2.10.0_vllm_0.19.1 \
+  rocm/vllm:rocm10.0.0_ubuntu24.04_py3.14_pytorch_2.12.0_vllm_0.27.0 \
   bash
 ```
 

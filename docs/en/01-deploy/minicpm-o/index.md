@@ -5,7 +5,7 @@
 
 <div align="center">
 
-*Audio · Vision · TTS · Full-Duplex · ROCm 7+ · llama.cpp-omni*
+*Audio · Vision · TTS · Full-Duplex · ROCm 10+ · llama.cpp-omni*
 
 [Home](/) · [中文](/zh/01-deploy/minicpm-o/) · [Deploy Overview](/01-deploy/)
 
@@ -79,7 +79,7 @@
 ### Software
 
 - OS: Linux (Ubuntu 22.04 / 24.04)
-- ROCm 7.10.0 or later (system installation)
+- ROCm 10.0.0 or later (system installation)
 - CMake 3.21+, GCC / Clang (for HIP compilation)
 - Python 3.10+ (Web Demo dependency)
 
@@ -89,7 +89,7 @@
 Hardware:  AMD Ryzen AI MAX+ PRO 395 / Radeon™ 890M (Strix Halo)
 GPU arch:  gfx1151
 Memory:    64 GB unified (all usable as VRAM)
-ROCm:      7.12.0 (system) + TheRock 7.12.0a alpha (Tensile fix)
+ROCm:      target baseline 10.0.0; originally measured on 7.12.0 (system) + TheRock 7.12.0a alpha (Tensile fix)
 OS:        Ubuntu 24.04
 ```
 
@@ -107,9 +107,9 @@ MiniCPM-o 4.5 includes independent sub-modules — an audio encoder, a vision en
 <details>
 <summary>Q: Does gfx1151 (Strix Halo) require special handling?</summary>
 
-Yes. gfx1151 was introduced in late 2025. The system `/opt/rocm` rocBLAS Tensile library doesn't include complete GEMM kernels for gfx1151, causing a crash at runtime (`hipErrorInvalidImage`). The fix is to install the TheRock 7.12.0a alpha SDK and point the runtime at its rocBLAS library directory — see the [llama.cpp-omni tutorial](./llamacpp-omni-rocm7-deploy.md) for details.
+**ROCm 10.0.0 officially supports gfx1151.** Start with the generic system `/opt/rocm` build. The `hipErrorInvalidImage` / Tensile crash mainly appeared on **7.12 and earlier**, when system rocBLAS lacked complete GEMM kernels for gfx1151. Only apply the TheRock nightly SDK workaround if you actually hit that error — see the [llama.cpp-omni tutorial](./llamacpp-omni-rocm7-deploy.md).
 
-Other AMD GPUs (gfx1100 / RX 7900 XTX, gfx1150 / RX 9070 XT, etc.) are not affected.
+Other AMD GPUs (gfx1100 / RX 7900 XTX, gfx1150 / RX 9070 XT, gfx1200 / RX 9050, etc.) are not affected.
 
 </details>
 

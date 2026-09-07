@@ -29,9 +29,9 @@
 
 ## Tutorial List
 
-### Ubuntu 24.04 + ROCm 7 Environment Setup Tutorial
+### Ubuntu 24.04 + ROCm 10 Environment Setup Tutorial
 
-&emsp;&emsp;This tutorial walks you through installing and verifying ROCm 7.1.0 on Ubuntu 24.04 step by step, including uninstalling old ROCm environments, running the official script to install ROCm, and using tools like `rocminfo` / `rocm-smi` / `amd-smi` to confirm GPU and driver status. It is recommended to complete this tutorial before starting any deployment tutorial.
+&emsp;&emsp;This tutorial walks you through installing and verifying **ROCm 10.0.0** on Ubuntu 24.04 / Windows 11, including cleaning an old stack, installing PyTorch 2.13.0 with `uv pip`, validating the official vLLM 0.27.0 image, and the optional `rocm install sdk` path. Complete this before any deploy tutorial, or start from the [00-Environment baseline](/00-environment/) and the [ROCm 10.0.0 release notes](/00-environment/rocm-10-0-0-release-notes).
 
 - **Target Audience**: Users setting up a ROCm environment on an AMD GPU for the first time
 - **Difficulty Level**: ⭐⭐
@@ -116,7 +116,7 @@
 ### Software Requirements
 
 - Operating System: Linux (Ubuntu 22.04+) or Windows 11
-- ROCm 7.10.0 or higher
+- ROCm 10.0.0 or later (this module's environment guides target 10.0.0)
 - Python 3.10+
 
 ## FAQ
@@ -146,7 +146,7 @@ Gemma series models require you to first click **Agree & Access** on the corresp
 
 ## Reference Resources
 
-- [ROCm Official Documentation](https://rocm.docs.amd.com/)
+- [ROCm 10.0.0 Official Documentation](https://rocm.docs.amd.com/en/latest/)
 - [vLLM Official Documentation](https://docs.vllm.ai/)
 - [Ollama Official Documentation](https://docs.ollama.com/)
 - [llama.cpp Repository](https://github.com/ggerganov/llama.cpp)

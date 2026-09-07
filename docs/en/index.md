@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: Unified environment baseline
-    details: Set up ROCm, PyTorch, and uv first so deployment, fine-tuning, and operator optimization tutorials share the same foundation.
+    details: Set up ROCm 10.0.0, PyTorch 2.13, and uv first so deployment, fine-tuning, and operator optimization tutorials share the same foundation.
     link: /00-environment/
   - title: LLM deployment
     details: Deploy models on AMD GPUs with LM Studio, vLLM, Ollama, llama.cpp, and related ROCm workflows.

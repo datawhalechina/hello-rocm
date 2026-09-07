@@ -17,7 +17,7 @@
 
 ## hello-rocm Skill
 
-hello-rocm Skill 是本项目内置的 AI 助手导航能力。它会把本项目的学习路径、Reference 索引、GPU 架构表、部署教程与排障清单提供给支持 Skills、Rules 或 Agent 配置的 AI 编程工具使用。
+hello-rocm Skill 是本项目内置的 AI 助手导航能力。它会把本项目的学习路径、Reference 索引、GPU 架构表、部署教程与排障清单提供给支持 Skills、Rules 或 Agent 配置的 AI 编程工具使用。ROCm 10.0.0 另有官方 [AMD Skills](https://github.com/amd/skills)（`npx skills add amd/skills`），管的是 AMD 平台最佳实践，可与本 Skill 同时安装。详见 [ROCm 10.0.0 版本说明](/zh/00-environment/rocm-10-0-0-release-notes)。
 
 | 你想问 | Skill 会索引 |
 |------|-------------|
@@ -70,8 +70,11 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 | 资源 | 描述 | 链接 |
 |------|------|------|
-| ROCm 文档 | ROCm 平台官方文档 | [rocm.docs.amd.com](https://rocm.docs.amd.com/) |
+| ROCm 文档（latest / 10.0.0） | 当前稳定版官方文档总入口 | [rocm.docs.amd.com/en/latest](https://rocm.docs.amd.com/en/latest/) |
 | ROCm Release Notes | 版本发布说明 | [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) |
+| AMD Skills | 把 AMD 官方优化知识做进 Claude / Cursor / Codex | [github.com/amd/skills](https://github.com/amd/skills) |
+| ROCm CLI | 装环境、验证、部署、管理 | [github.com/ROCm/rocm-cli](https://github.com/ROCm/rocm-cli) |
+| Hyperloom | 开源自动优化引擎 | [Hyperloom 文档](https://rocm.docs.amd.com/projects/hyperloom/en/latest/) |
 | HIP 编程指南 | HIP API 和编程指南 | [HIP Docs](https://rocm.docs.amd.com/projects/HIP/en/latest/) |
 | AMD GitHub | AMD 开源项目仓库 | [github.com/amd](https://github.com/amd) |
 | ROCm GitHub | ROCm 项目仓库 | [github.com/ROCm](https://github.com/ROCm) |
@@ -188,7 +191,7 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | 系列 | 型号 | 架构 | LLVM Target | ROCm 支持 |
 |------|------|------|-------------|-----------|
 | RX 9000 | RX 9070 XT, 9070 GRE, 9070 | RDNA 4 | `gfx1201` | ✅ |
-| RX 9000 | RX 9060 XT LP, 9060 XT, 9060 | RDNA 4 | `gfx1200` | ✅ |
+| RX 9000 | RX 9060 XT LP, 9060 XT, 9060, RX 9050 / 9050 4GB | RDNA 4 | `gfx1200` | ✅ |
 | RX 7000 | RX 7900 XTX, 7900 XT, 7900 GRE | RDNA 3 | `gfx1100` | ✅ |
 | RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | RDNA 3 | `gfx1101` | ✅ |
 | RX 7000 | RX 7600 | RDNA 3 | `gfx1102` | ✅ |
@@ -204,7 +207,7 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 | Ryzen AI 300 | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
 | Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 及 PRO 系列 | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
 
-> 完整支持列表请以 [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html) 为准。
+> 完整支持列表请以 [ROCm 10.0.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html) 为准。
 
 ## 社区资源
 
@@ -250,7 +253,15 @@ cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 
 ### 2026
 
-- **2026.07.15** - [ROCm 7.14.0 Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 🚀 **里程碑版本：ROCm 正式转向 TheRock**
+- **2026.08.26** - [ROCm 10.0.0 Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 🚀 **十年节点大版本：TheRock 之上补齐 ROCm.AI**
+  - **官方总入口**：[https://rocm.docs.amd.com/en/latest/](https://rocm.docs.amd.com/en/latest/)
+  - **ROCm.AI 三件套**：AMD Skills（把官方优化知识做进 Claude / Cursor / Codex）、Hyperloom（剖析 → 找瓶颈 → 重写内核 → 调参）、ROCm CLI（`rocm install sdk` / `examine` / `serve` 一条命令走完）
+  - **框架升级**：PyTorch 2.13.0、JAX 0.11.0、vLLM 0.27.0、SGLang 0.5.15（替代 7.14.0 的 2.12.0 / 0.10.0 / 0.23.0 / 0.5.13）
+  - **安装变化**：pip 索引改为 `https://stable.repo.amd.com/rocm/whl-next/`；系统包仓库收到 `stable.repo.amd.com`；Windows HIP SDK 退役；ASAN 包随标准包提供
+  - **新增硬件**：Radeon RX 9050 / 9050 4GB（gfx1200）；Windows 驱动升至 Adrenalin 26.8.1
+  - 本项目解读：[ROCm 10.0.0 版本说明](/zh/00-environment/rocm-10-0-0-release-notes)
+
+- **2026.07.15** - [ROCm 7.14.0 Release Notes](https://rocm.docs.amd.com/en/docs-7.14.0/about/release-notes.html) 🚀 **里程碑版本：ROCm 正式转向 TheRock**
   - **TheRock 成为 ROCm 的未来构建与发布基座**：ROCm 7.14.0 正式将 ROCm 迁移到 [TheRock](https://github.com/ROCm/TheRock) —— 一套模块化的构建与发布体系。这是自 7.10.0 引入 Windows / pip 支持以来最重要的架构转折，标志着 ROCm 从"单体大包"走向"模块化生态"。今后 ROCm 的演进、社区硬件启用与独立组件发布都将以 TheRock 为核心，详见 [TheRock 迁移指南](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
   - **三大设计理念**：① 精简内核（Core SDK 只保留必要的运行时与开发组件）；② 按需扩展（面向 AI、数据科学、HPC 的可选领域 SDK）；③ 模块化安装（只装工作流所需组件，减小体积、加快创新）
   - **安装与打包变化**：安装目录由 `/opt/rocm/` 变为 `/opt/rocm/core`；包名前缀由 `rocm-*` / `roc*` / `hip*` 统一为 `amdrocm-*`（如 hipBLAS 与 rocBLAS 合并为 `amdrocm-blas`）；新增 `/opt/rocm/extras-7/` 共享前缀。**保持与 ROCm 7.2 legacy 的 ABI/API 兼容，无需重新编译**；包管理器安装时 `amdrocm` 元包通过 `update-alternatives` 提供向后兼容软链接

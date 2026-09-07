@@ -17,7 +17,7 @@
 
 ## hello-rocm Skill
 
-The hello-rocm Skill is the AI-assistant navigation layer built into this project. It exposes the project’s learning path, reference index, GPU architecture table, deployment tutorials, and troubleshooting checklist to AI coding tools that support Skills, Rules, or Agent configuration.
+The hello-rocm Skill is the AI-assistant navigation layer built into this project. It exposes the project’s learning path, reference index, GPU architecture table, deployment tutorials, and troubleshooting checklist to AI coding tools that support Skills, Rules, or Agent configuration. ROCm 10.0.0 also ships official [AMD Skills](https://github.com/amd/skills) (`npx skills add amd/skills`) for platform best practices; install both. See the [ROCm 10.0.0 release notes](/00-environment/rocm-10-0-0-release-notes).
 
 | If you ask | The Skill indexes |
 |-----------|-------------------|
@@ -70,8 +70,11 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 
 | Resource | Description | Link |
 |----------|-------------|------|
-| ROCm Documentation | Official ROCm platform docs | [rocm.docs.amd.com](https://rocm.docs.amd.com/) |
+| ROCm docs (latest / 10.0.0) | Canonical entry for the current stable docs | [rocm.docs.amd.com/en/latest](https://rocm.docs.amd.com/en/latest/) |
 | ROCm Release Notes | Release notes for each version | [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) |
+| AMD Skills | Official AMD optimization knowledge for Claude / Cursor / Codex | [github.com/amd/skills](https://github.com/amd/skills) |
+| ROCm CLI | Install, verify, deploy, and manage | [github.com/ROCm/rocm-cli](https://github.com/ROCm/rocm-cli) |
+| Hyperloom | Open-source auto-optimization engine | [Hyperloom docs](https://rocm.docs.amd.com/projects/hyperloom/en/latest/) |
 | HIP Programming Guide | HIP API and programming guide | [HIP Docs](https://rocm.docs.amd.com/projects/HIP/en/latest/) |
 | AMD GitHub | AMD open-source repositories | [github.com/amd](https://github.com/amd) |
 | ROCm GitHub | ROCm project repositories | [github.com/ROCm](https://github.com/ROCm) |
@@ -188,7 +191,7 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | Series | Models | Architecture | LLVM Target | ROCm Support |
 |--------|--------|--------------|-------------|--------------|
 | RX 9000 | RX 9070 XT, 9070 GRE, 9070 | RDNA 4 | `gfx1201` | ✅ |
-| RX 9000 | RX 9060 XT LP, 9060 XT, 9060 | RDNA 4 | `gfx1200` | ✅ |
+| RX 9000 | RX 9060 XT LP, 9060 XT, 9060, RX 9050 / 9050 4GB | RDNA 4 | `gfx1200` | ✅ |
 | RX 7000 | RX 7900 XTX, 7900 XT, 7900 GRE | RDNA 3 | `gfx1100` | ✅ |
 | RX 7000 | RX 7800 XT, 7700 XT, 7700 XE, 7700 | RDNA 3 | `gfx1101` | ✅ |
 | RX 7000 | RX 7600 | RDNA 3 | `gfx1102` | ✅ |
@@ -204,7 +207,7 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 | Ryzen AI 300 | AI 9 HX 375/370, AI 9 365, AI 7 350/345, AI 5 340/330 | Radeon 890M / 880M | RDNA 3.5 | `gfx1150` / `gfx1152` | ✅ |
 | Ryzen 200 | 9 270, 7 260/250, 5 240/230/220, 3 210 and PRO series | Radeon 780M / 760M / 740M | RDNA 3 | `gfx1103` | ✅ |
 
-> For the full support list, follow the [ROCm 7.13.0 Compatibility Matrix](https://rocm.docs.amd.com/en/7.13.0-preview/compatibility/compatibility-matrix.html).
+> For the full support list, follow the [ROCm 10.0.0 Compatibility Matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html).
 
 ## Community Resources
 
@@ -249,6 +252,14 @@ For troubleshooting and FAQs, you can also join the [Feishu community discussion
 ## News
 
 ### 2026
+
+- **2026.08.26** - [ROCm 10.0.0 Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 🚀 **Decade milestone: ROCm.AI lands on TheRock**
+  - **Canonical docs**: [https://rocm.docs.amd.com/en/latest/](https://rocm.docs.amd.com/en/latest/)
+  - **ROCm.AI trio**: AMD Skills (official optimization knowledge in Claude / Cursor / Codex), Hyperloom (profile → bottleneck → rewrite kernels → tune), ROCm CLI (`rocm install sdk` / `examine` / `serve`)
+  - **Frameworks**: PyTorch 2.13.0, JAX 0.11.0, vLLM 0.27.0, SGLang 0.5.15 (replacing 7.14.0's 2.12.0 / 0.10.0 / 0.23.0 / 0.5.13)
+  - **Install**: pip index moves to `https://stable.repo.amd.com/rocm/whl-next/`; system packages move to `stable.repo.amd.com`; Windows HIP SDK retired; ASAN packages ship
+  - **Hardware**: Radeon RX 9050 / 9050 4GB (gfx1200); Windows driver Adrenalin 26.8.1
+  - Project write-up: [ROCm 10.0.0 release notes](/00-environment/rocm-10-0-0-release-notes)
 
 - **2026.07.15** - [ROCm 7.14.0 Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 🚀 **Milestone release: ROCm officially transitions to TheRock**
   - **TheRock becomes the future build and release foundation of ROCm**: ROCm 7.14.0 officially migrates ROCm to [TheRock](https://github.com/ROCm/TheRock), a modular build and release system. This is the most significant architectural turning point since 7.10.0 introduced Windows / pip support, marking ROCm's shift from a monolithic package to a modular ecosystem. Going forward, ROCm's evolution, community hardware enablement, and independent component releases will all be centered on TheRock. See the [TheRock transition guide](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
