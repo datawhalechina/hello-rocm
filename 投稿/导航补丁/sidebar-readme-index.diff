@@ -1,0 +1,210 @@
+commit 3260ce4823a3611e1e53b17acbdc21c45b64a9b3
+Author: 陈榆 <lucachencs@gmail.com>
+Date:   Wed Sep 9 10:32:40 2026 +0800
+
+    docs: add Strix Halo DS4 and Qwen3.8-Flash-CIRU deploy guides
+    
+    Record native HIP and CIRU llama-server recipes with measured prefill, decode, and cache charts so 128 GB gfx1151 users can reproduce both stacks.
+    
+    Co-authored-by: Cursor <cursoragent@cursor.com>
+
+diff --git a/README.md b/README.md
+index edb4366..f88b0c1 100644
+--- a/README.md
++++ b/README.md
+@@ -154,6 +154,26 @@
+     <td valign="top" width="50%" style="border: none !important;">
+     </td>
+   </tr>
++  <tr>
++    <td colspan="2" align="center" style="border: none !important;"><strong>DeepSeek-V4-Flash（Strix Halo）</strong></td>
++  </tr>
++  <tr>
++    <td valign="top" width="50%" style="border: none !important;">
++      • <a href="./docs/zh/01-deploy/ds4/dflash-native-hip-rocm7-deploy.md">原生 HIP dflash_server 部署</a><br>
++    </td>
++    <td valign="top" width="50%" style="border: none !important;">
++    </td>
++  </tr>
++  <tr>
++    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.8-Flash-CIRU（Strix Halo）</strong></td>
++  </tr>
++  <tr>
++    <td valign="top" width="50%" style="border: none !important;">
++      • <a href="./docs/zh/01-deploy/qwen3.8/ciru-llamacpp-rocm7-deploy.md">CIRU llama-server 部署</a><br>
++    </td>
++    <td valign="top" width="50%" style="border: none !important;">
++    </td>
++  </tr>
+   <tr>
+     <td colspan="2" align="center" style="border: none !important;"><strong>具身智能策略（ACT / SmolVLA / Pi0 / Pi0.5）</strong></td>
+   </tr>
+diff --git a/README_en.md b/README_en.md
+index 101af57..0a652e2 100644
+--- a/README_en.md
++++ b/README_en.md
+@@ -153,6 +153,26 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
+     <td valign="top" width="50%" style="border: none !important;">
+     </td>
+   </tr>
++  <tr>
++    <td colspan="2" align="center" style="border: none !important;"><strong>DeepSeek-V4-Flash (Strix Halo)</strong></td>
++  </tr>
++  <tr>
++    <td valign="top" width="50%" style="border: none !important;">
++      • <a href="./docs/en/01-deploy/ds4/dflash-native-hip-rocm7-deploy.md">Native HIP dflash_server</a><br>
++    </td>
++    <td valign="top" width="50%" style="border: none !important;">
++    </td>
++  </tr>
++  <tr>
++    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.8-Flash-CIRU (Strix Halo)</strong></td>
++  </tr>
++  <tr>
++    <td valign="top" width="50%" style="border: none !important;">
++      • <a href="./docs/en/01-deploy/qwen3.8/ciru-llamacpp-rocm7-deploy.md">CIRU llama-server</a><br>
++    </td>
++    <td valign="top" width="50%" style="border: none !important;">
++    </td>
++  </tr>
+   <tr>
+     <td colspan="2" align="center" style="border: none !important;"><strong>Embodied Intelligence Policies (ACT / SmolVLA / Pi0 / Pi0.5)</strong></td>
+   </tr>
+diff --git a/docs/.vitepress/config.mts b/docs/.vitepress/config.mts
+index 803c017..fdad467 100644
+--- a/docs/.vitepress/config.mts
++++ b/docs/.vitepress/config.mts
+@@ -100,6 +100,20 @@ const zhSidebar: DefaultTheme.Sidebar = {
+                 { text: 'llama.cpp-omni 零基础部署', link: '/zh/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy' },
+                 { text: 'Web Demo 全双工部署', link: '/zh/01-deploy/minicpm-o/webdemo-rocm7-deploy' }
+               ]
++            },
++            {
++              text: 'DeepSeek-V4-Flash',
++              collapsed: false,
++              items: [
++                { text: '原生 HIP dflash_server 部署', link: '/zh/01-deploy/ds4/dflash-native-hip-rocm7-deploy' }
++              ]
++            },
++            {
++              text: 'Qwen3.8-Flash-CIRU',
++              collapsed: false,
++              items: [
++                { text: 'CIRU llama-server 部署', link: '/zh/01-deploy/qwen3.8/ciru-llamacpp-rocm7-deploy' }
++              ]
+             }
+           ]
+         }
+@@ -376,6 +390,20 @@ const enSidebar: DefaultTheme.Sidebar = {
+                 { text: 'llama.cpp-omni Deployment', link: '/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy' },
+                 { text: 'Web Demo Full-Duplex Deployment', link: '/01-deploy/minicpm-o/webdemo-rocm7-deploy' }
+               ]
++            },
++            {
++              text: 'DeepSeek-V4-Flash',
++              collapsed: false,
++              items: [
++                { text: 'Native HIP dflash_server', link: '/01-deploy/ds4/dflash-native-hip-rocm7-deploy' }
++              ]
++            },
++            {
++              text: 'Qwen3.8-Flash-CIRU',
++              collapsed: false,
++              items: [
++                { text: 'CIRU llama-server', link: '/01-deploy/qwen3.8/ciru-llamacpp-rocm7-deploy' }
++              ]
+             }
+           ]
+         }
+diff --git a/docs/en/01-deploy/index.md b/docs/en/01-deploy/index.md
+index d461ca3..7723003 100644
+--- a/docs/en/01-deploy/index.md
++++ b/docs/en/01-deploy/index.md
+@@ -24,7 +24,9 @@
+ └── models/
+     ├── Gemma4/           # Deployment tutorials with Gemma 4 as the primary model (recommended)
+     ├── Qwen3/            # Qwen3 series deployment tutorials (reference/comparison)
+-    └── Qwen3.5/          # Qwen3.5 series deployment tutorials (new architecture reference)
++    ├── Qwen3.5/          # Qwen3.5 series deployment tutorials (new architecture reference)
++    ├── DS4/              # DeepSeek-V4-Flash (Strix Halo native HIP)
++    └── Qwen3.8/          # Qwen3.8-Flash-CIRU (Strix Halo IU4 / PLE)
+ ```
+ 
+ ## Tutorial List
+@@ -106,6 +108,30 @@
+ 
+ ---
+ 
++### DeepSeek-V4-Flash native HIP (Strix Halo)
++
++&emsp;&emsp;For **Ryzen AI MAX+ 395 / 128 GB unified memory**. Build lucebox `dflash_server` on host ROCm, load the ROCmFPX MIX-STRIX checkpoint, and enable sparse prefill. Measured decode is a flat **~25 tok/s** from 8K–256K; 3K-prompt sparse prefill is about **230 tok/s**. Mutually exclusive with Qwen3.8-Flash-CIRU.
++
++- **Audience**: Developers who already have a Strix Halo box and want a local DeepSeek-V4-Flash
++- **Difficulty**: ⭐⭐⭐
++- **Time**: compile + ~100 GiB download + reading the measurements
++
++📖 [Open the DS4 native HIP guide](/en/01-deploy/ds4/dflash-native-hip-rocm7-deploy.md)
++
++---
++
++### Qwen3.8-Flash-CIRU (Strix Halo)
++
++&emsp;&emsp;Same **gfx1151 + 128 GB** target. Build CIRU v1.1 `llama-server` with the PLE sidecar (stock llama.cpp cannot load it). Local prefill **matches or beats** the published 512–8K ladder; code / JSON decode at MTP depth 4 is about **46–52 tok/s**. Full pack ~127 GiB; do not co-reside with DS4.
++
++- **Audience**: Developers who already have a Strix Halo box and want a local Qwen3.8-Flash
++- **Difficulty**: ⭐⭐⭐
++- **Time**: compile + ~127 GiB download + reading the measurements
++
++📖 [Open the Qwen3.8-Flash-CIRU guide](/en/01-deploy/qwen3.8/ciru-llamacpp-rocm7-deploy.md)
++
++---
++
+ ## Requirements
+ 
+ ### Hardware Requirements
+diff --git a/docs/zh/01-deploy/index.md b/docs/zh/01-deploy/index.md
+index b9831b9..b464756 100644
+--- a/docs/zh/01-deploy/index.md
++++ b/docs/zh/01-deploy/index.md
+@@ -24,7 +24,9 @@
+ └── models/
+     ├── Gemma4/           # 以 Gemma 4 为主的部署教程（主推荐）
+     ├── Qwen3/            # Qwen3 系列部署教程（参考对比）
+-    └── Qwen3.5/          # Qwen3.5 系列部署教程（新架构参考）
++    ├── Qwen3.5/          # Qwen3.5 系列部署教程（新架构参考）
++    ├── DS4/              # DeepSeek-V4-Flash（Strix Halo 原生 HIP）
++    └── Qwen3.8/          # Qwen3.8-Flash-CIRU（Strix Halo IU4 / PLE）
+ ```
+ 
+ ## 教程列表
+@@ -106,6 +108,30 @@
+ 
+ ---
+ 
++### DeepSeek-V4-Flash 原生 HIP 部署（Strix Halo）
++
++&emsp;&emsp;面向 **Ryzen AI MAX+ 395 / 128 GB 统一内存**。用 lucebox `dflash_server` 在宿主 ROCm 上编译 HIP 后端，加载 ROCmFPX MIX-STRIX 权重，开启 sparse prefill。本机实测 decode 恒定约 **25 tok/s**（8K–256K 不衰减），3K prompt sparse prefill 约 **230 tok/s**。与 Qwen3.8-Flash-CIRU 互斥。
++
++- **适合人群**：已有 Strix Halo 整机、需要本地 DeepSeek-V4-Flash 的开发者
++- **难度等级**：⭐⭐⭐
++- **预计时间**：编译 + 下载权重（约 100 GiB）+ 测评阅读
++
++📖 [开始学习 DS4 原生 HIP 部署](/zh/01-deploy/ds4/dflash-native-hip-rocm7-deploy.md)
++
++---
++
++### Qwen3.8-Flash-CIRU 部署（Strix Halo）
++
++&emsp;&emsp;同样面向 **gfx1151 + 128 GB**。按 CIRU v1.1 编译带 PLE sidecar 的 `llama-server`（普通 llama.cpp 不能加载）。本机 prefill 在 512–8K **达到或超过官方**；MTP depth 4 下代码 / JSON decode 约 **46–52 tok/s**。完整包约 127 GiB，与 DS4 不能同时常驻。
++
++- **适合人群**：已有 Strix Halo 整机、需要本地 Qwen3.8-Flash 的开发者
++- **难度等级**：⭐⭐⭐
++- **预计时间**：编译 + 下载权重（约 127 GiB）+ 测评阅读
++
++📖 [开始学习 Qwen3.8-Flash-CIRU 部署](/zh/01-deploy/qwen3.8/ciru-llamacpp-rocm7-deploy.md)
++
++---
++
+ ## 环境要求
+ 
+ ### 硬件要求

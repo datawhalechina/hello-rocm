@@ -23,6 +23,8 @@
 | [🦞 OpenClaw 全隐私助手](/zh/05-amd-yes/openclaw) ✅️| |
 | [📚 Torch-RecHub 推荐系统实战](/zh/05-amd-yes/torch-rechub/) ✅️| |
 | [🤖 Every Embodied 具身智能策略复刻](/zh/05-amd-yes/every-embodied) ✅️| |
+| [⚡ DeepSeek-V4-Flash 原生 HIP](/zh/05-amd-yes/ds4) ✅️| |
+| [🌀 Qwen3.8-Flash-CIRU](/zh/05-amd-yes/qwen3.8) ✅️| |
 
 > ✅ 支持 | 🚧 开发中 
 
@@ -139,6 +141,30 @@
 - **预计时间**：按专题 Notebook 分阶段学习
 
 📖 [开始学习 Every Embodied ROCm 策略复刻](/zh/05-amd-yes/every-embodied)
+
+---
+
+#### ⚡ DeepSeek-V4-Flash - Strix Halo 原生 HIP 部署
+
+在 **Ryzen AI MAX+ 395 / 128 GB 统一内存** 上编译 lucebox `dflash_server`，加载 ROCmFPX MIX-STRIX 权重，开启 sparse prefill。本机实测 decode 恒定约 **25 tok/s**（8K–256K 不衰减），3K prompt sparse prefill 约 **230 tok/s**。与 Qwen3.8-Flash-CIRU **互斥**，不能同时常驻。
+
+- **适合人群**：已有 Strix Halo 整机、需要本地 DeepSeek-V4-Flash 的开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：编译 + 下载权重（约 100 GiB）+ 测评阅读
+
+📖 [开始学习 DS4 原生 HIP 部署](/zh/05-amd-yes/ds4)
+
+---
+
+#### 🌀 Qwen3.8-Flash-CIRU - Strix Halo llama-server 部署
+
+同样面向 **gfx1151 + 128 GB**。按 CIRU v1.1 编译带 PLE sidecar 的 `llama-server`（普通 llama.cpp 不能加载）。本机 prefill 在 512–8K **达到或超过官方**；MTP depth 4 下代码 / JSON decode 约 **46–52 tok/s**。完整包约 127 GiB，与 DS4 不能同时常驻。
+
+- **适合人群**：已有 Strix Halo 整机、需要本地 Qwen3.8-Flash 的开发者
+- **难度等级**：⭐⭐⭐
+- **预计时间**：编译 + 下载权重（约 127 GiB）+ 测评阅读
+
+📖 [开始学习 Qwen3.8-Flash-CIRU 部署](/zh/05-amd-yes/qwen3.8)
 
 ---
 

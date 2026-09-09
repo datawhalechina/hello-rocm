@@ -263,6 +263,18 @@ const zhSidebar: DefaultTheme.Sidebar = {
           items: [
             { text: 'Every Embodied 具身智能策略复刻', link: '/zh/05-amd-yes/every-embodied' }
           ]
+        },
+        {
+          text: 'ds4',
+          items: [
+            { text: 'DeepSeek-V4-Flash 原生 HIP 部署', link: '/zh/05-amd-yes/ds4' }
+          ]
+        },
+        {
+          text: 'qwen3.8',
+          items: [
+            { text: 'Qwen3.8-Flash-CIRU 部署', link: '/zh/05-amd-yes/qwen3.8' }
+          ]
         }
       ]
     }
@@ -538,6 +550,18 @@ const enSidebar: DefaultTheme.Sidebar = {
           text: 'every-embodied',
           items: [
             { text: 'Every Embodied Policy Replication', link: '/05-amd-yes/every-embodied' }
+          ]
+        },
+        {
+          text: 'ds4',
+          items: [
+            { text: 'DeepSeek-V4-Flash Native HIP', link: '/05-amd-yes/ds4' }
+          ]
+        },
+        {
+          text: 'qwen3.8',
+          items: [
+            { text: 'Qwen3.8-Flash-CIRU', link: '/05-amd-yes/qwen3.8' }
           ]
         }
       ]

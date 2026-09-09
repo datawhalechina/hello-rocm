@@ -23,6 +23,8 @@
 | [🦞 OpenClaw Private Assistant](/05-amd-yes/openclaw) ✅️| |
 | [📚 Torch-RecHub Recommender Practice](/05-amd-yes/torch-rechub/) ✅️| |
 | [🤖 Every Embodied Policy Replication](/05-amd-yes/every-embodied) ✅️| |
+| [⚡ DeepSeek-V4-Flash Native HIP](/05-amd-yes/ds4) ✅️| |
+| [🌀 Qwen3.8-Flash-CIRU](/05-amd-yes/qwen3.8) ✅️| |
 
 > ✅ Supported | 🚧 In progress 
 
@@ -139,6 +141,30 @@ This case uses a Minesweeper board as the Agent's runtime environment. Through l
 - **Project Resources**: Model notebooks and ROCm replication diagnostics
 
 📖 [Start Learning Every Embodied ROCm Policy Replication](/05-amd-yes/every-embodied)
+
+---
+
+#### ⚡ DeepSeek-V4-Flash — Native HIP on Strix Halo
+
+For **Ryzen AI MAX+ 395 / 128 GB unified memory**. Build lucebox `dflash_server` on host ROCm, load the ROCmFPX MIX-STRIX checkpoint, and enable sparse prefill. Measured decode is a flat **~25 tok/s** from 8K–256K; 3K-prompt sparse prefill is about **230 tok/s**. Mutually exclusive with Qwen3.8-Flash-CIRU.
+
+- **Target Audience**: Developers who already have a Strix Halo box and want a local DeepSeek-V4-Flash
+- **Difficulty Level**: ⭐⭐⭐
+- **Estimated Time**: compile + ~100 GiB download + reading the measurements
+
+📖 [Start Learning DS4 Native HIP](/05-amd-yes/ds4)
+
+---
+
+#### 🌀 Qwen3.8-Flash-CIRU — llama-server on Strix Halo
+
+Same **gfx1151 + 128 GB** target. Build CIRU v1.1 `llama-server` with the PLE sidecar (stock llama.cpp cannot load it). Local prefill **matches or beats** the published 512–8K ladder; code / JSON decode at MTP depth 4 is about **46–52 tok/s**. Full pack ~127 GiB; do not co-reside with DS4.
+
+- **Target Audience**: Developers who already have a Strix Halo box and want a local Qwen3.8-Flash
+- **Difficulty Level**: ⭐⭐⭐
+- **Estimated Time**: compile + ~127 GiB download + reading the measurements
+
+📖 [Start Learning Qwen3.8-Flash-CIRU](/05-amd-yes/qwen3.8)
 
 ---
 

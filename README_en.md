@@ -154,6 +154,26 @@ Use src/hello-rocm-skill in the current repository as the hello-rocm Skill. If y
     </td>
   </tr>
   <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>DeepSeek-V4-Flash (Strix Halo)</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/en/05-amd-yes/ds4.md">Native HIP dflash_server</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.8-Flash-CIRU (Strix Halo)</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/en/05-amd-yes/qwen3.8.md">CIRU llama-server</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
     <td colspan="2" align="center" style="border: none !important;"><strong>Embodied Intelligence Policies (ACT / SmolVLA / Pi0 / Pi0.5)</strong></td>
   </tr>
   <tr>
@@ -329,6 +349,8 @@ hello-rocm/
       • Torch-RecHub — recommender systems (CTR, retrieval, multi-task, ONNX export)<br>
       • happy-llm — distributed LLM training<br>
       • <a href="./docs/en/05-amd-yes/every-embodied.md">Every Embodied — ROCm embodied-intelligence policy replication</a><br>
+      • <a href="./docs/en/05-amd-yes/ds4.md">DeepSeek-V4-Flash — native HIP on Strix Halo</a><br>
+      • <a href="./docs/en/05-amd-yes/qwen3.8.md">Qwen3.8-Flash-CIRU — llama-server on Strix Halo</a><br>
     </td>
   </tr>
 </table>

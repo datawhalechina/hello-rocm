@@ -155,6 +155,26 @@
     </td>
   </tr>
   <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>DeepSeek-V4-Flash（Strix Halo）</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/05-amd-yes/ds4.md">原生 HIP dflash_server 部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.8-Flash-CIRU（Strix Halo）</strong></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%" style="border: none !important;">
+      • <a href="./docs/zh/05-amd-yes/qwen3.8.md">CIRU llama-server 部署</a><br>
+    </td>
+    <td valign="top" width="50%" style="border: none !important;">
+    </td>
+  </tr>
+  <tr>
     <td colspan="2" align="center" style="border: none !important;"><strong>具身智能策略（ACT / SmolVLA / Pi0 / Pi0.5）</strong></td>
   </tr>
   <tr>
@@ -333,6 +353,8 @@ hello-rocm/
       • Torch-RecHub - 推荐系统实战（CTR、召回、多任务、ONNX 导出）<br>
       • happy-llm - 分布式大模型训练<br>
       • <a href="./docs/zh/05-amd-yes/every-embodied.md">Every Embodied - ROCm 具身智能策略复刻</a><br>
+      • <a href="./docs/zh/05-amd-yes/ds4.md">DeepSeek-V4-Flash - Strix Halo 原生 HIP 部署</a><br>
+      • <a href="./docs/zh/05-amd-yes/qwen3.8.md">Qwen3.8-Flash-CIRU - Strix Halo llama-server 部署</a><br>
     </td>
   </tr>
 </table>

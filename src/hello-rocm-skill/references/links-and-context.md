@@ -24,6 +24,8 @@
 | llama.cpp HIP/ROCm | <https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md> | <https://rocm.blogs.amd.com/search.html?q=llama.cpp> | `docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md` |
 | LM Studio GPU | <https://lmstudio.ai/docs/app/advanced/gpu> | <https://rocm.blogs.amd.com/search.html?q=LM%20Studio> | `docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md` |
 | ONNX Runtime on ROCm | <https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/3rd-party/onnxruntime-install.html> | <https://rocm.blogs.amd.com/search.html?q=ONNX%20Runtime> | `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md` |
+| DeepSeek-V4-Flash（Strix Halo / lucebox HIP） | <https://www.lucebox.com/blog/deepseek-v4-strix-halo> | — | `docs/zh/05-amd-yes/ds4.md` / `docs/en/05-amd-yes/ds4.md` |
+| Qwen3.8-Flash-CIRU（Strix Halo / PLE） | <https://github.com/ciru-ai/Qwen3.8-Flash-CIRU-STRIX-IU4> | — | `docs/zh/05-amd-yes/qwen3.8.md` / `docs/en/05-amd-yes/qwen3.8.md` |
 
 ## Skill 快速索引：AMD GPU 架构资料
 
@@ -57,7 +59,7 @@
 
 - 根目录 `README.md`：总览、已支持模型表、各章节入口。
 - `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`：ROCm + PyTorch + uv 基线与版本表。
-- `docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md`、`docs/zh/02-fine-tune/index.md` / `docs/en/02-fine-tune/index.md`、`docs/zh/03-infra/index.md` / `docs/en/03-infra/index.md`：各阶段入口。
+- `docs/zh/01-deploy/index.md` / `docs/en/01-deploy/index.md`、`docs/zh/02-fine-tune/index.md` / `docs/en/02-fine-tune/index.md`、`docs/zh/03-infra/index.md` / `docs/en/03-infra/index.md`、`docs/zh/05-amd-yes/index.md` / `docs/en/05-amd-yes/index.md`：各阶段入口。
 - `CONTENT_GUIDE.md` / `CONTENT_GUIDE_en.md`：教程 Markdown 与目录命名约定。
 
 ## 与 README 一致的初学者节奏（摘录）
