@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600">
+  <defs>
+    <style>
+      .bg{fill:#0b1220;}
+      .card{fill:#0f1b33;stroke:#223a66;stroke-width:2;}
+      .title{fill:#eaf2ff;font:700 32px "Noto Sans SC", "Microsoft YaHei", Arial;}
+      .subtitle{fill:#94a3b8;font:400 18px "Noto Sans SC", "Microsoft YaHei", Arial;}
+      .h{fill:#cfe3ff;font:700 22px "Noto Sans SC", "Microsoft YaHei", Arial;}
+      .t{fill:#b9c8e6;font:400 16px "Noto Sans SC", "Microsoft YaHei", Arial; line-height: 1.5;}
+      .label-lg{fill:#e2e8f0;font:600 16px "Noto Sans SC", "Microsoft YaHei", Arial;}
+      /* Colors */
+      .stroke{stroke:#38bdf8;stroke-width:3;fill:#1e293b;stroke-linecap:round;stroke-linejoin:round;}
+      .stroke-gpu{stroke:#34d399;stroke-width:3;fill:#1e293b;stroke-linecap:round;stroke-linejoin:round;}
+      /* Packages */
+      .pkg{fill:#fbbf24;stroke:#92400e;stroke-width:2;}
+      .pkg2{fill:#f43f5e;stroke:#881337;stroke-width:2;}
+      /* Tracks Nodes */
+      .arrow-track{stroke:#334155;stroke-width:4;stroke-dasharray:10 10;}
+      .node-bg{fill:#0f1b33;stroke-width:3;}
+      .node-text{fill:#fff;font-weight:bold;font-size:20px;font-family:Arial;}
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1600" height="600"/>
+  <!-- Header -->
+  <text class="title" x="60" y="60">CPU vs GPU：低延迟 (Latency) 与 高吞吐 (Throughput)</text>
+  <text class="subtitle" x="60" y="95">可视化对比：CPU 像跑车（单次快、载量少），GPU 像高铁货运（启动慢、单次运量巨大）</text>
+  <line x1="60" y1="115" x2="1540" y2="115" stroke="#1e293b" stroke-width="2"/>
+  <!-- ================= LEFT CARD (CPU) ================= -->
+  <rect class="card" x="60" y="150" rx="24" ry="24" width="720" height="420"/>
+  <text class="h" x="100" y="200">CPU = 跑车 (低延迟)</text>
+  <g transform="translate(100, 235)">
+    <text class="t" x="0" y="0">• 核心少，逻辑控制强，转向灵活</text>
+    <text class="t" x="0" y="30">• 就像送快递：专车专送，一个包裹马上出发</text>
+    <text class="t" x="0" y="60">• 优势：从 A 到 B 的单次时间极短 (Latency 低)</text>
+  </g>
+  <!-- CPU Graphics Container -->
+  <g transform="translate(110, 360)">
+    <!-- Road Track -->
+    <line class="arrow-track" x1="50" y1="130" x2="570" y2="130"/>
+    <!-- Nodes -->
+    <circle cx="50" cy="130" r="24" class="node-bg" stroke="#38bdf8"/>
+    <text class="node-text" x="50" y="136" text-anchor="middle">A</text>
+    <circle cx="570" cy="130" r="24" class="node-bg" stroke="#38bdf8"/>
+    <text class="node-text" x="570" y="136" text-anchor="middle">B</text>
+    <!-- The Car -->
+    <g transform="translate(220, 50)">
+       <path d="M-40 40 L-10 40 M-50 60 L-20 60" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+       <path class="stroke" d="M0 60 L20 30 L80 30 L110 60 L140 60 L140 85 L-10 85 L-10 60 Z"/>
+       <path d="M30 35 L70 35 L95 60 L20 60 Z" fill="#38bdf8" opacity="0.3"/>
+       <circle cx="25" cy="85" r="14" fill="#0b1220" stroke="#38bdf8" stroke-width="3"/>
+       <circle cx="105" cy="85" r="14" fill="#0b1220" stroke="#38bdf8" stroke-width="3"/>
+       <!-- The Package (On the car) -->
+       <g transform="translate(70, 35)">
+          <rect class="pkg" x="0" y="-15" width="30" height="24" rx="3"/>
+          <path d="M15 -15 L15 9 M0 -3 L30 -3" stroke="#92400e" stroke-width="1.5"/>
+       </g>
+    </g>
+    <text class="label-lg" x="310" y="170" text-anchor="middle">单次送货快，但载货量小</text>
+  </g>
+  <!-- ================= RIGHT CARD (GPU) ================= -->
+  <rect class="card" x="820" y="150" rx="24" ry="24" width="720" height="420"/>
+  <text class="h" x="860" y="200">GPU = 高铁 / 货运专列 (高吞吐)</text>
+  <g transform="translate(860, 235)">
+    <text class="t" x="0" y="0">• 核心成千上万，适合做重复、简单的并行任务</text>
+    <text class="t" x="0" y="30">• 就像送货运专列：装满一万个包裹才发车</text>
+    <text class="t" x="0" y="60">• 优势：单位时间内运送的总量巨大 (Throughput 高)</text>
+  </g>
+  <!-- GPU Graphics Container -->
+  <g transform="translate(870, 360)">
+    <!-- Rail Track -->
+    <line class="arrow-track" x1="50" y1="130" x2="570" y2="130"/>
+    <!-- Nodes -->
+    <circle cx="50" cy="130" r="24" class="node-bg" stroke="#34d399"/>
+    <text class="node-text" x="50" y="136" text-anchor="middle">A</text>
+    <circle cx="570" cy="130" r="24" class="node-bg" stroke="#34d399"/>
+    <text class="node-text" x="570" y="136" text-anchor="middle">B</text>
+    <!-- The Train (Modeled after reference, facing Right A->B) -->
+    <g transform="translate(110, 20)">
+        <!-- Train Body Main Shape -->
+        <!-- Flat roof, angled nose on right, cutouts for wheels -->
+        <path class="stroke-gpu" d="M10 90 L10 20 L350 20 L400 55 L400 90 L10 90 Z" />
+        <!-- Driver Cab Window (The angled part) -->
+        <path d="M350 25 L390 55 L350 55 Z" fill="#34d399" opacity="0.3"/>
+        <!-- Main Windows Strip (Showing packages inside) -->
+        <rect x="25" y="30" width="310" height="45" rx="4" fill="none" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+        <!-- Door Lines -->
+        <line x1="80" y1="20" x2="80" y2="90" stroke="#34d399" stroke-width="2"/>
+        <line x1="220" y1="20" x2="220" y2="90" stroke="#34d399" stroke-width="2"/>
+        <!-- Wheels (Bogies) -->
+        <path d="M40 90 L40 100 L90 100 L90 90 Z" fill="#34d399" opacity="0.8"/>
+        <circle cx="50" cy="100" r="10" fill="#0b1220" stroke="#34d399" stroke-width="2"/>
+        <circle cx="80" cy="100" r="10" fill="#0b1220" stroke="#34d399" stroke-width="2"/>
+        <path d="M280 90 L280 100 L330 100 L330 90 Z" fill="#34d399" opacity="0.8"/>
+        <circle cx="290" cy="100" r="10" fill="#0b1220" stroke="#34d399" stroke-width="2"/>
+        <circle cx="320" cy="100" r="10" fill="#0b1220" stroke="#34d399" stroke-width="2"/>
+        <!-- Pantograph (Power connector on top) -->
+        <polyline points="70,20 50,5 90,5 70,20" fill="none" stroke="#34d399" stroke-width="2"/>
+        <!-- The Packages (Inside the train windows) -->
+        <g transform="translate(35, 38)">
+           <!-- Row 1 -->
+           <rect class="pkg" x="0" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="24" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="65" y="0" width="20" height="14" rx="1"/> <!-- Skip door area -->
+           <rect class="pkg2" x="89" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="113" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="137" y="0" width="20" height="14" rx="1"/>
+           <!-- Row 2 -->
+           <rect class="pkg2" x="0" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="24" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="65" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="89" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="113" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="137" y="18" width="20" height="14" rx="1"/>
+           <text x="170" y="25" fill="#34d399" font-size="20" font-weight="bold">...</text>
+           <!-- More towards the front -->
+           <rect class="pkg" x="205" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="229" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="253" y="0" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="205" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg" x="229" y="18" width="20" height="14" rx="1"/>
+           <rect class="pkg2" x="253" y="18" width="20" height="14" rx="1"/>
+        </g>
+    </g>
+    <text class="label-lg" x="310" y="180" text-anchor="middle">启动慢，但一次运走海量数据</text>
+  </g>
+</svg>
