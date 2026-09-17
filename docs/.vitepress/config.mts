@@ -186,7 +186,8 @@ const zhSidebar: DefaultTheme.Sidebar = {
           items: [
             { text: '为 PyTorch 编写自定义 ROCm 算子', link: '/zh/03-infra/custom-pytorch-operator' }
           ]
-        }
+        },
+        { text: 'ROCm 图谱', link: '/atlas/rocm/index.html', target: '_blank' }
       ]
     }
   ],
@@ -492,7 +493,8 @@ const enSidebar: DefaultTheme.Sidebar = {
           items: [
             { text: 'Custom ROCm Operators for PyTorch', link: '/03-infra/custom-pytorch-operator' }
           ]
-        }
+        },
+        { text: 'ROCm Atlas', link: '/atlas/rocm/index.html', target: '_blank' }
       ]
     }
   ],

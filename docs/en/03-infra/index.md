@@ -17,6 +17,8 @@ This module is designed for developers who want to build a systematic understand
 
 The default lab environment is **Ubuntu 22.04 / 24.04 + ROCm 7.x**, with example devices including **AMD AI+ MAX395 / Radeon 8060S (gfx1151)** and others. Readers can adapt according to their own GPU and ROCm version.
 
+🗺️ <a href="/hello-rocm/atlas/rocm/index.html" target="_blank" rel="noreferrer">Open the ROCm Atlas</a>
+
 ## Tutorial List
 
 ### Chapter 1: Embracing the New Era of AMD AI Computing

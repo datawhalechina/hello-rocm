@@ -17,6 +17,8 @@
 
 &emsp;&emsp;默认实验环境为 **Ubuntu 22.04 / 24.04 + ROCm 7.x**，示例设备以 **AMD AI+ MAX395 / Radeon 8060S（gfx1151）** 等为主，读者可按自身显卡与 ROCm 版本对照阅读。
 
+🗺️ <a href="/hello-rocm/atlas/rocm/index.html" target="_blank" rel="noreferrer">打开 ROCm 图谱</a>
+
 ## 教程列表
 
 ### 第 1 章：拥抱 AMD AI 算力新时代

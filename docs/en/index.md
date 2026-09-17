@@ -16,6 +16,11 @@ hero:
       text: View practice cases
       link: /05-amd-yes/
     - theme: alt
+      text: ROCm Atlas
+      link: /atlas/rocm/index.html
+      target: _blank
+      rel: noreferrer
+    - theme: alt
       text: 简体中文
       link: /zh/
 

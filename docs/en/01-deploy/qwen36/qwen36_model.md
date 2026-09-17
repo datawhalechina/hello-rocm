@@ -2,7 +2,7 @@
 
 Qwen3.6-35B-A3B is a Qwen MoE text model (~**35B total / 3B active**). This chapter has two hardware paths: Lemonade / llama.cpp on **GGUF + iGPU**, FastFlowLM on **NPU2 + XDNA2**. Do not feed GGUF to `flm`, or `model.q4nx` to llama.cpp.
 
-> GPU tutorials for earlier Qwen generations: [Qwen3](/01-deploy/qwen3/) · [Qwen3.5](/01-deploy/qwen3.5/). A Lemonade id like `Qwen3.5-35B-A3B-GGUF` is a different generation — use an id that contains **3.6**.
+> GPU tutorials for earlier Qwen generations: [Qwen3](/01-deploy/qwen3/llamacpp-rocm7-deploy) · [Qwen3.5](/01-deploy/qwen3.5/llamacpp-rocm7-deploy). A Lemonade id like `Qwen3.5-35B-A3B-GGUF` is a different generation — use an id that contains **3.6**.
 
 | Path | Format | Typical size | Runtime |
 |:---|:---|:---|:---|

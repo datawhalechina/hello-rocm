@@ -2,7 +2,7 @@
 
 Qwen3.6-35B-A3B 是通义的 MoE 文本模型（约 **35B 总参 / 3B 激活**）。本模块两条硬件路径：Lemonade / llama.cpp 走 **GGUF + iGPU**，FastFlowLM 走 **NPU2 + XDNA2**。不要把 GGUF 塞给 `flm`，也不要把 `model.q4nx` 塞给 llama.cpp。
 
-> 对照：同系列更早的 GPU 教程见 [Qwen3](/zh/01-deploy/qwen3/) · [Qwen3.5](/zh/01-deploy/qwen3.5/)。Lemonade 目录若写成 `Qwen3.5-35B-A3B-GGUF`，那是另一代，不要当 3.6 用。以 `lemonade list` 里带 **3.6** 的 id 为准。
+> 对照：同系列更早的 GPU 教程见 [Qwen3](/zh/01-deploy/qwen3/llamacpp-rocm7-deploy) · [Qwen3.5](/zh/01-deploy/qwen3.5/llamacpp-rocm7-deploy)。Lemonade 目录若写成 `Qwen3.5-35B-A3B-GGUF`，那是另一代，不要当 3.6 用。以 `lemonade list` 里带 **3.6** 的 id 为准。
 
 ---
 

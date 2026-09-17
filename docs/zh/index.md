@@ -16,6 +16,11 @@ hero:
       text: 查看实践案例
       link: /zh/05-amd-yes/
     - theme: alt
+      text: ROCm 图谱
+      link: /atlas/rocm/index.html
+      target: _blank
+      rel: noreferrer
+    - theme: alt
       text: 组队学习
       link: /zh/learning/
     - theme: alt

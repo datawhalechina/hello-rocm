@@ -23,7 +23,7 @@
 </div>
 <div align="center">
 
-<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/hello--rocm_Full_Tutorial-Try_Online-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
+<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/hello--rocm_Full_Tutorial-Try_Online-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="https://datawhalechina.github.io/hello-rocm/atlas/rocm/index.html"><img alt="ROCm Atlas" src="https://img.shields.io/badge/ROCm_Atlas-Explore_the_Stack-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
 
 </div>
 
