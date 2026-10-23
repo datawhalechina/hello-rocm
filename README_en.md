@@ -390,6 +390,14 @@ hello-rocm/
 
 &emsp;&emsp;Want to help maintain the project long-term? Reach out—we'd be happy to add you as a maintainer.
 
+## Friends
+
+### [Strix Arena](https://strix-arena.web.app/) — AMD Strix Halo LLM leaderboard
+
+&emsp;&emsp;[Strix Arena](https://strix-arena.web.app/) collects real-hardware LLM inference results on **AMD Strix Halo** (Ryzen AI Max+ 395 / Radeon 8060S / 128GB unified memory, gfx1151). Numbers come from llama-benchy runs, with public YAML recipes and unified-memory settings, comparing prefill and decode across ROCm llama.cpp, Vulkan RADV, Gufo, vLLM, and related runtimes. Local runs and recipes can be submitted to the board.
+
+&emsp;&emsp;It sits on the same AMD on-device path as **hello-rocm**, with a different job: this repo covers environment setup, deployment, fine-tuning, and GPU programming; Strix Arena is the performance comparison and reproducible-recipe board for that hardware. The leaderboard is maintained together by Gufo, AMD ROCm vLLM (gfx11), Datawhale (hello-rocm, hello-gpu), and community Strix Halo tools. On Strix Halo, check the board to pick a model and runtime, then come back to the matching deploy guide here to stand the environment up.
+
 ## Acknowledgments
 
 ### Core contributors

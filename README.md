@@ -394,6 +394,14 @@ hello-rocm/
 
 &emsp;&emsp;想要深度参与的同学可以联系我们，我们会将你加入到项目的维护者中。
 
+## 友情链接
+
+### [Strix Arena](https://strix-arena.web.app/) — AMD Strix Halo 大模型性能排行榜
+
+&emsp;&emsp;[Strix Arena](https://strix-arena.web.app/) 汇总大模型在 **AMD Strix Halo**（锐龙 AI Max+ 395 / Radeon 8060S / 128GB 统一内存，gfx1151）上的真机推理成绩。数据来自 llama-benchy 实测，公开 YAML 推理配方和统一内存参数，并对照 ROCm llama.cpp、Vulkan RADV、Gufo、vLLM 等运行时的预填充（prefill）与解码（decode）速度。也可以把本机跑分和配方提交上榜。
+
+&emsp;&emsp;它和 **hello-rocm** 落在同一条 AMD 端侧路径上，分工不同：本仓库写环境安装、模型部署、微调训练和 GPU 编程；Strix Arena 给同一类硬件做性能对照和可复现配方。榜单由 Gufo、AMD ROCm vLLM（gfx11）、Datawhale（hello-rocm、hello-gpu）和社区 Strix Halo 工具一起维护。在 Strix Halo 上选模型和运行时，可以先看榜，再回到本仓库里对应的部署教程把环境跑起来。
+
 ## 致谢
 ### 核心贡献者
 
