@@ -168,6 +168,113 @@ AMD 与魔搭社区联合启动激励计划，提供 **3 条完全独立的进�
 3. 进入 [LoRA 微调实战](/zh/02-fine-tune/) 体验训练
 4. 进阶 [算子优化](/zh/03-infra/) 了解底层
 
+### 6. 从本地连接：SSH 与 VS Code（进阶）
+
+默认工作区在浏览器内通过 JupyterLab 使用。如果你希望用本地终端、VS Code 或 AI 编程工具直接操作工作区文件与 GPU，可以通过 SSH 接入。
+
+> ⚠️ 该方式需要手动完成配置，且**实例重建后部分设置会失效**，请按本节顺序操作。
+
+#### 6.1 生成密钥并上传公钥
+
+本地生成密钥（Windows / macOS / Linux 通用）：
+
+```bash
+ssh-keygen -t ed25519 -C "amd-radeon-cloud" -f ~/.ssh/id_ed25519_radeon_cloud
+```
+
+在平台 **SSH Public Keys** 中粘贴公钥内容：
+
+```bash
+cat ~/.ssh/id_ed25519_radeon_cloud.pub
+```
+
+> ⚠️ 公钥**必须一行一个**。多粘贴一行裸 base64 会导致整份配置报 `SSH public key type is unsupported`，且该改动**只对之后启动的实例生效**。
+
+#### 6.2 连接实例
+
+实例卡片的 `SSH access` 会给出 `Host:Port`。建议在本地 `~/.ssh/config` 中配置别名，避免每次手输：
+
+```text
+Host radeon-cloud
+  HostName <实例 Host>
+  Port     <实例 Port>
+  User     root
+  IdentityFile ~/.ssh/id_ed25519_radeon_cloud
+  IdentitiesOnly yes
+```
+
+之后直接 `ssh radeon-cloud` 即可。
+
+> ⚠️ **每次重建实例，Host 与 Port 都会变化**，需要在实例卡片上重新核对并更新 `Port`。这是最容易卡住的一步。
+
+#### 6.3 VS Code 卡在「正在初始化」
+
+用 VS Code 的 Remote-SSH 连接时，若界面一直停在「正在初始化 VS Code 服务器」，且日志停在 `Install and start server if needed`，通常不是网络问题，而是**平台默认关闭了 TCP 端口转发**。
+
+平台运行中的 sshd 使用独立配置文件（非 `/etc/ssh/sshd_config`），其中 `AllowTcpForwarding` 默认为 `no`。因此 `sshd -T` 查到的配置与实际生效配置不一致，是本问题最容易误判的地方。
+
+确认当前 sshd 的启动参数：
+
+```bash
+ps aux | grep sshd | grep -v grep
+```
+
+若输出中包含 `-f /tmp/amd-oneclick-sshd_config`，即为实际生效的配置文件。将其中的 `AllowTcpForwarding no` 改为 `yes` 并重载：
+
+```bash
+sed -i 's/^AllowTcpForwarding no/AllowTcpForwarding yes/' /tmp/amd-oneclick-sshd_config
+kill -HUP $(cat /tmp/amd-oneclick-sshd.pid)
+```
+
+验证端口转发是否生效：
+
+```bash
+ssh -o ExitOnForwardFailure=yes -L 18080:127.0.0.1:22 radeon-cloud "echo FORWARD_OK"
+```
+
+输出 `FORWARD_OK` 即表示转发可用。
+
+> ⚠️ 该配置文件位于 `/tmp` 下，**实例重建后会重新生成**，需要再次执行上述修改。
+
+#### 6.4 Remote-SSH 推荐设置
+
+在 VS Code 的 `settings.json` 中加入以下配置，可避免大部分连接问题：
+
+| 设置项 | 值 | 作用 |
+|:---|:---|:---|
+| `remote.SSH.path` | `C:\\Windows\\System32\\OpenSSH\\ssh.exe` | 避免调用到 Git 自带的 ssh（读不到 ssh-agent） |
+| `remote.SSH.useExecServer` | `false` | 规避部分环境下执行通道静默失败 |
+| `remote.SSH.showLoginTerminal` | `true` | 失败时可见 SSH 原始输出，便于定位 |
+| `remote.SSH.enableDynamicForwarding` | `false` | 改用普通端口转发，兼容性更好 |
+
+#### 6.5 组件与扩展下载失败
+
+平台出网经过 egress 代理，直接访问部分 CDN 会失败（例如 `wget download failed`、扩展市场返回 `403`）。
+
+可通过平台预设代理访问，代理地址可从当前会话的环境变量中读取：
+
+```bash
+echo $HTTP_PROXY
+```
+
+配置后重试：
+
+```bash
+export HTTPS_PROXY="$HTTP_PROXY"
+```
+
+若 VS Code Server 或扩展仍无法下载，可在本地下载对应产物后上传至远程目录，或改用平台镜像中已预装的工具。
+
+#### 6.6 已知限制
+
+部分第三方远程开发工具仅实现 TCP 端口转发。若工具的服务端进程监听的是 Unix domain socket（形如 `~/.xxx/server/run/control.sock`），则无法通过该类客户端连接。排查方法：
+
+```bash
+ss -ltnp        # 无任何 TCP 监听端口
+```
+
+此时应改用支持 StreamLocal 转发的客户端（如系统 OpenSSH + VS Code Remote-SSH），或等待工具侧支持。
+
 ## 常见问题
 
 **Q1：完全免费吗？**
