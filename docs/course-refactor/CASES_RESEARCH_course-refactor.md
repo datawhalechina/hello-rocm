@@ -113,7 +113,7 @@
 | **Case 03** | 📊 报告生成 | **一键高级感周报 Skill & 全本地深度调研报告专家** | 零散流水账/Git 记录 30 秒生成周报（封装专属 Skill），复杂课题多轮自动检索生成万字带引用研报 | 🟢 8G / 🔵 16G | `WorkBuddy Skill` + `Local Deep Research` |
 | **Case 04** | 📄 论文阅读 | **多篇文献横评对比表 & 组会双语汇报 PPT 一键生成** | `@` 授权多篇英文论文或行业 PDF，自动输出研究方法局限性横评表，并直接交付组会汇报双语 PPT | 🔵 16G | `WorkBuddy (Plan模式)` + 本地长上下文 |
 | **Case 05** | 📄 论文阅读 | **公式排版零损双语论文精翻器（PDFMathTranslate + Zotero）** | 调用本地模型一键把英文 arXiv 论文翻成双语对照 PDF，数学公式与双栏图表丝毫不乱 | 🟢 8G | `Byaidu/PDFMathTranslate` + `Zotero` |
-| **Case 06** | 📚 个人知识库 | **Obsidian 私人第二大脑（Cherry Studio / AMD GAIA + MCP）** | 本地笔记免上传秒变向量库，还能通过 MCP 让 AI 自动写复盘存回本地目录 | 🟢 8G | `Cherry Studio` / `amd/gaia` + `Obsidian` |
+| **Case 06** | 📚 个人知识库 | **Obsidian 私人第二大脑（WorkBuddy + Obsidian / AMD GAIA）** | 免装多余客户端，在 WorkBuddy 加载官方 `obsidian-skills` 检索笔记并自动写入 `[[双向链接]]` 卡片 | 🟢 8G | `WorkBuddy + Obsidian` / `amd/gaia` |
 | **Case 07** | 📚 个人知识库 | **讲义秒变双人播客 & 赛博数字分身（Open Notebook / WeClone）** | 把复习 PDF 转成双人对话播客路上听，或用微信聊天记录微调专属“数字分身” | 🟢 8G / 🔵 16G | `lfnovo/open-notebook` + `WeClone` |
 | **Case 08** | 🎙️ 语音交互 | **全离线保密会议与网课纪要神器（Meetily + Whisper）** | 录音一秒不上云，实时捕获音频离线转写、区分发言人并提炼待办事项清单（Action Items） | 🟢 8G | `Zackriya-Solutions/meetily` + `Faster-Whisper` |
 | **Case 09** | 🎙️ 语音交互 | **桌面 Live2D 实时语音伴侣与口语陪练（Open-LLM-VTuber / MiniCPM-o）** | 告别打字！和桌面上有表情、支持随时打断的本地虚拟伙伴实时练英语口语 | 🟢 8G / 🔵 16G | `Open-LLM-VTuber` + 仓库 `minicpm-o` |

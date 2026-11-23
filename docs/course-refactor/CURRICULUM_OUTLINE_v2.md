@@ -97,7 +97,7 @@
 - **3.1 提示词闯关课：6 关本地交互式 Notebook 驯服中小模型**
   - 借鉴 Anthropic 官方交互式提示词教程与 Datawhale `smart-prompt`，将 Jupyter 闯关场直连本机 API，边改边通关（角色边界、分隔符隔离、Few-Shot 示例、JSON/表格强约束、防幻觉认怂）。
 - **3.2 个人知识库实战（RAG）：从「黑暗料理菜谱切分实验」到私人开卷笔记库**
-  - 借鉴 Datawhale `all-in-rag`「今天吃什么」菜谱实验，直观对比“硬切 150 字教出黑暗料理 vs 按标题结构切分变大厨”；并在 `Cherry Studio + Obsidian` 中零代码搭好带出处角标的私人课件问答库。
+  - 借鉴 Datawhale `all-in-rag`「今天吃什么」菜谱实验，直观对比“硬切 150 字教出黑暗料理 vs 按标题结构切分变大厨”；并直接复用第 2 章配好的 **`WorkBuddy + Obsidian`**（配合 Obsidian 官方开源的 `obsidianmd/obsidian-skills` 双链技能），零代码搭好带 `[[双向链接]]` 与出处溯源、能自动沉淀知识卡片的私人课件问答库。
 - **3.3 工具与万能插座 MCP：体验 B站/微信读书/12306 趣味服务 + 20 行手搓「AMD 显卡管家」**
   - 结合 HuggingFace `agents-course` 与 Datawhale `hello-agents` 看清 `观察→思考→行动` 循环；一键挂载 B站视频字幕弹幕总结、微信读书划线、高德周边美食或麦当劳领券趣味 MCP；再用 `FastMCP` (`@mcp.tool()`) 10 分钟手写一个在聊天框实时查本机显卡温度与剩余显存的专属 MCP！
 - **3.4 模块化技能包 Agent Skills（`SKILL.md`）：渐进式省显存秘籍与自制办公技能**
@@ -164,7 +164,7 @@
 | **Case 03** | 📊 报告生成 | **【办公连招】脏乱 Excel 自动洗表汇总 + 周报 Skill + 全本地万字深度研报（WorkBuddy + `Local Deep Research`）** | 自动去重汇总多张乱表出分析报告、把日常流水账封成 `/weekly-report` 技能、多轮检索写深度研报 | 🟢 8G / 🔵 16G |
 | **Case 04** | 📄 论文阅读 | **多篇英文文献横评对比表 & 组会双语汇报 PPT 一键生成（WorkBuddy `Plan` 科研流 + `PPTAgent`）** | `@` 授权多篇同方向 PDF 论文，自动拉出研究方法局限性对比表，并一键生成组会双语汇报 PPT | 🔵 16G |
 | **Case 05** | 📄 论文阅读 | **公式图表纹丝不乱：双语学术论文精翻神器（`PDFMathTranslate` + `Zotero`）** | 调用本地模型整本精翻英文 arXiv 论文 PDF，复杂数学公式与双栏排版 100% 零损保留 | 🟢 8G |
-| **Case 06** | 📚 个人知识库 | **Obsidian 私人第二大脑 & AMD 原生本地 Agent（`Cherry Studio` / `amd/gaia` + MCP）** | 个人笔记免上传秒建向量库，还能通过 Filesystem MCP 让 AI 写完总结自动存回本地笔记库 | 🟢 8G |
+| **Case 06** | 📚 个人知识库 | **Obsidian 私人第二大脑 & AMD 原生本地 Agent（`WorkBuddy + Obsidian` / `amd/gaia`）** | 免装多余客户端，在 WorkBuddy 中加载官方 `obsidian-skills` 直接检索笔记并生成带 `[[双链]]` 的知识卡片 | 🟢 8G |
 | **Case 07** | 📚 个人知识库 | **复习讲义秒变双人播客 & 微信赛博数字分身（`Open Notebook` + `WeClone`）** | 把枯燥教材 PDF 一键转成双人对话播客 MP3 路上听，并用个人聊天记录微调专属“数字分身” | 🟢 8G / 🔵 16G |
 | **Case 08** | 🎙️ 语音交互 | **全离线保密会议与网课纪要神器（`Meetily` + `Faster-Whisper`）** | 录音一秒不上云，实时捕获音频离线转写、区分发言人并自动提炼待办事项清单（Action Items） | 🟢 8G |
 | **Case 09** | 🎙️ 语音交互 | **桌面 Live2D 实时语音伴侣与英语口语陪练（`Open-LLM-VTuber` / 仓库 `MiniCPM-o`）** | 告别打字！与桌面上有表情、支持随时打断的本地虚拟伙伴全离线练口语对话 | 🟢 8G / 🔵 16G |

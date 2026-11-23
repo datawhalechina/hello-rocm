@@ -162,7 +162,7 @@ flowchart LR
   - `3.1` **提示词闯关课：6 关交互式 Notebook 驯服本地小模型**
     - 借鉴 Anthropic 官方交互式提示词教程与 Datawhale `ai-prompting-for-everyone` / `smart-prompt`，将 Jupyter Playground 直连本机 AMD 模型 API，边改边通关（角色边界、分隔符隔离、Few-Shot 示范、JSON 强约束、防幻觉认怂）。
   - `3.2` **个人知识库实战（RAG）：从「黑暗料理菜谱切分实验」到私人笔记开卷问答库**
-    - 借鉴 Datawhale `all-in-rag`「今天吃什么」趣味菜谱实验，亲眼对比“乱切块做出黑暗料理 vs 按结构切块精准推荐菜谱”；并在 `Cherry Studio + Obsidian` 中零代码搭好带出处溯源的个人课程笔记库。
+    - 借鉴 Datawhale `all-in-rag`「今天吃什么」趣味菜谱实验，亲眼对比“乱切块做出黑暗料理 vs 按结构切块精准推荐菜谱”；并直接复用 **`WorkBuddy + Obsidian`**（配合官方 `obsidianmd/obsidian-skills` 双链技能），零代码搭好带 `[[双向链接]]` 与出处溯源的个人课程笔记库。
   - `3.3` **Agent 工具与万能插座 MCP：玩转 B站/微信读书/12306 趣味服务 + 20 行代码手搓「AMD 显卡管家 MCP」**
     - 结合 HuggingFace `agents-course` 与 Datawhale `hello-agents` 看懂 `观察→思考→行动` 循环；先一键挂载 B站字幕总结、微信读书划线、高德周边美食或 12306 余票等中文趣味 MCP，再用 `FastMCP` (`@mcp.tool()`) 10 分钟手写一个查本机显卡温度与显存余量的专属 MCP 服务！
   - `3.4` **模块化技能包 Agent Skills（`SKILL.md`）：省显存秘籍与一键装大招**
@@ -250,7 +250,7 @@ flowchart LR
 | **Case 03** | 📊 报告生成 | **一键高级感周报 Skill & 全本地深度调研报告专家** | 零散流水账/Git 记录 30 秒出周报（封装专属 Skill），复杂课题多轮检索生成万字带引用研报 | `WorkBuddy Skill` + `Local Deep Research` | 🟢 入门档 / 🔵 甜点档 | 联动第 3 章：把高频办公套路封装成 `SKILL.md` |
 | **Case 04** | 📄 论文阅读 | **多篇 PDF 文献横评对比表 & 组会双语汇报 PPT 生成** | `@` 授权多篇英文论文或财报 PDF，自动输出研究方法局限性横评表，并一键生成组会汇报双语 PPT | `WorkBuddy (Plan模式)` + 本地长上下文 | 🔵 甜点档 (16G) | 发布经过验证的 `models.json` 32K 上下文配置 |
 | **Case 05** | 📄 论文阅读 | **公式排版零损双语论文精翻器** | 调用本地模型把英文 arXiv PDF 翻成双语对照版，数学公式与双栏图表丝毫不乱 | `Byaidu/PDFMathTranslate` (20k⭐) + `Zotero` | 🟢 入门档 (8G) | 联动第 5 章：开启 `vLLM` 并发批处理提速 8 倍 |
-| **Case 06** | 📚 个人知识库 | **Obsidian 私人第二大脑与 AMD 原生 Agent** | 本地笔记免上传秒变向量库，还能通过 Filesystem MCP 让 AI 自动写复盘存回本地 | `Cherry Studio` (30k⭐) / `amd/gaia` + `Obsidian` | 🟢 入门档 (8G) | 体验 AMD 官方 `GAIA` 本地 RAG 与自动评测 |
+| **Case 06** | 📚 个人知识库 | **Obsidian 私人第二大脑与 AMD 原生 Agent** | 免装多余客户端，在 WorkBuddy 中加载官方 `obsidian-skills` 检索笔记并自动生成带 `[[双链]]` 知识卡片 | `WorkBuddy + Obsidian` / `amd/gaia` | 🟢 入门档 (8G) | 体验 WorkBuddy 双链沉淀与 AMD `GAIA` 自动评测 |
 | **Case 07** | 📚 个人知识库 | **讲义秒变双人播客 & 赛博数字分身** | NotebookLM 本地平替把教材转双人播客 MP3，并用微信记录微调专属“数字分身” | `lfnovo/open-notebook` + `WeClone` | 🟢 入门档 / 🔵 甜点档 | 联动第 4 章：用个人中文语料做 LoRA 微调 |
 | **Case 08** | 🎙️ 语音交互 | **全离线保密会议与网课纪要神器** | 录音一秒不上云，实时捕获音频离线转写、区分发言人并提炼待办清单（Action Items） | `Meetily` (`Zackriya-Solutions/meetily`) + `Faster-Whisper` | 🟢 入门档 (8G) | ROCm 语音转写加速 + 结构化待办抽取 |
 | **Case 09** | 🎙️ 语音交互 | **桌面 Live2D 实时语音伴侣与口语陪练** | 告别打字！与桌面上有表情、支持随时打断的 AI 虚拟伙伴全离线练英语口语 | `Open-LLM-VTuber` (8k⭐) / 仓库 `MiniCPM-o 4.5` | 🟢 入门档 / 🔵 甜点档 | 端到端低延迟本地语音流（ASR+LLM+TTS/Omni） |

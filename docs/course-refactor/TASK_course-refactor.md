@@ -77,11 +77,11 @@ flowchart TD
 - **输出契约**：
   - 新建 `docs/zh/03-agentic-ai/` 与配套实验代码：
     - `01-prompt-game.ipynb`：直连本机 API 的 6 关交互式提示词闯关练习场；
-    - `02-rag-kitchen.md`：「黑暗料理菜谱切分对比实验」+ `Cherry Studio / Obsidian` 零代码个人知识库实战；
+    - `02-rag-kitchen.md`：「黑暗料理菜谱切分对比实验」+ `WorkBuddy + Obsidian`（搭配 `obsidian-skills`）零代码个人知识库实战；
     - `03-mcp-playground.md`：中文趣味 MCP（B站字幕/微信读书/高德/12306）体验 + 20 行 `FastMCP` 手写《AMD 显卡健康管家 MCP Server》；
-    - `04-agent-skills.md`：解剖渐进式披露省显存机制与 `hello-rocm-skill`，体验归藏 PPT / 种草 Skill，并在 WorkBuddy (`.codebuddy/skills/`) 与 Codex (`.agents/skills/`) 中手写第一个自定义 `SKILL.md`；
+    - `04-agent-skills.md`：解剖渐进式披露省显存机制与 `hello-rocm-skill`，体验大师 PPT / 种草 Skill，并在 WorkBuddy (`.codebuddy/skills/`) 与 Codex (`.agents/skills/`) 中手写第一个自定义 `SKILL.md`；
     - `05-guardrails.md`：防死循环护栏与引出微调/推理优化的痛点复盘。
-- **验收标准**：单卡 8G 环境下可跑通全部 4 个趣味互动实验，自定义 MCP 与 `SKILL.md` 可在 WorkBuddy / Cherry Studio / Codex 中真实触发。
+- **验收标准**：单卡 8G 环境下可跑通全部 4 个趣味互动实验，自定义 MCP 与 `SKILL.md` 可在 WorkBuddy / Codex 中真实触发。
 - **依赖关系**：前置 Task 3；后置 Task 5、Task 6、Task 9。
 
 ### Task 5：第 4 章重构 —— 纯中文生态双通道微调实战（魔搭原生中文集 + LLaMA-Factory / TRL）
@@ -120,7 +120,7 @@ flowchart TD
   - **Case 03（周报与研报·报告生成）**：一键高级感周报 Skill & 全本地深度调研报告专家（`WorkBuddy Skill` + `Local Deep Research`）
   - **Case 04（学术办公·论文阅读）**：多篇 PDF 文献横评对比表 & 组会双语汇报 PPT 一键生成（`WorkBuddy Plan模式`）
   - **Case 05（排版零损·论文阅读）**：公式图表纹丝不乱双语论文精翻器（`PDFMathTranslate` + `Zotero`）
-  - **Case 06（第二大脑·个人知识库）**：Obsidian 私人笔记库与 MCP 自动写复盘（`Cherry Studio` / `amd/gaia`）
+  - **Case 06（第二大脑·个人知识库）**：Obsidian 私人笔记库与双链卡片自动沉淀（`WorkBuddy + Obsidian` / `amd/gaia`）
   - **Case 07（听学与分身·个人知识库）**：复习讲义秒变双人播客 & 微信赛博数字分身（`Open Notebook` + `WeClone`）
   - **Case 08（离线纪要·语音交互）**：网课与保密会议实时离线转写纪要神器（`Meetily` + `Faster-Whisper`）
 - **验收标准**：排在最前面的办公案例零代码即可复现，配齐 `models.json`、安全沙盒指引与冒烟验收。

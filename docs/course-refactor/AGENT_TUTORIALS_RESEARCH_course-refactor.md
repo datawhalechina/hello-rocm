@@ -12,7 +12,7 @@
 | 核心模块 | 生活化直觉比喻 | 解决什么问题？ | 代表开源教程与生态 |
 |:---|:---|:---|:---|
 | **1. 提示词（Prompt）** | **🗣️ 交代任务的说话艺术** | 别让实习生猜心思：说清身份、给参考模板、规定输出表格/JSON 格式 | Anthropic 9关交互式闯关 Notebook、Datawhale `ai-prompting-for-everyone` |
-| **2. 个人知识库（RAG）** | **📖 放在桌上的开卷参考书** | 实习生没背过你的私人笔记和课件，先翻书找到原文再回答，绝不瞎编 | Datawhale `all-in-rag`（「今天吃什么」菜谱切分实验）、`Cherry Studio + Obsidian` |
+| **2. 个人知识库（RAG）** | **📖 放在桌上的开卷参考书** | 实习生没背过你的私人笔记和课件，先翻书找到原文再回答，绝不瞎编 | Datawhale `all-in-rag`（「今天吃什么」菜谱切分实验）、`WorkBuddy + Obsidian` (`obsidian-skills`) |
 | **3. 工具与 MCP** | **🔌 万能 USB-C 外设手脚** | 光长嘴不行，给它接上查 12306 余票、刷 B 站字幕、查高德地图、读写文件的手脚 | HuggingFace `agents-course`、Datawhale `hello-agents`、`FastMCP` 中文趣味套件 |
 | **4. 技能包（Skills）** | **📋 老师傅的 SOP 作业锦囊** | 平时合上不占显存脑容量，一旦喊它“做汇报 PPT / 写种草文 / 查代码”，按需翻开锦囊严丝合缝执行 | Datawhale `agent-skills-with-anthropic`、归藏 PPT Skill、本仓库 `hello-rocm-skill` |
 
@@ -37,10 +37,10 @@
 - **全网最有趣标杆教程**：
   1. **Datawhale `all-in-rag`（《RAG 技术全栈指南》）及其衍生趣味项目 `What-to-eat-today`（今天吃什么）**
      - **为什么好玩不枯燥**：很多 RAG 教程上来就讲余弦相似度公式把人看睡着；而用**「私人菜谱库（今天吃什么）」**做实验时——如果你用呆板的“每 150 字硬切一刀（Bad Chunking）”，会把《红烧肉》的“炒糖色火候”和《西红柿炒蛋》拼在一起，AI 当场教你做出黑暗料理！当你改成按 Markdown 标题语义切块 + 混合检索，AI 立刻精准告诉你冰箱里剩一颗土豆能做哪三道快手菜！
-  2. **零代码个人阅读神器：`Cherry Studio + Obsidian 本地笔记库`**
-     - **亮点**：无需写代码、无需装 Docker，直接用本地轻量 Embedding 模型（`bge-m3` / `nomic-embed-text`）关联本地课程笔记文件夹，句句带原文角标溯源。
+  2. **零代码个人阅读与自进化图谱：`WorkBuddy + Obsidian 本地笔记库`（搭配官方 `obsidianmd/obsidian-skills`）**
+     - **亮点**：**无需额外安装新客户端**（直接复用第 2 章刚装好的 WorkBuddy）！将工作区挂载至本地 Obsidian Vault，并装入 Obsidian CEO 开源的 `obsidian-skills`（`obsidian-markdown`），不仅能跨 `.md` 笔记与 PDF 课件带出处溯源问答，还能把 `00_Inbox` 里的零散资料自动提炼成带 `[[wikilinks 双向链接]]` 与 YAML 元数据的原子卡片写回知识图谱！
 - **`hello-rocm 2.0` 改造落地设计**：
-  - **上半场（零代码 10 分钟体验）**：在桌面端把自己的一个 Markdown/PDF 课程文件夹变成开卷问答库；
+  - **上半场（零代码 10 分钟体验）**：用 `WorkBuddy + Obsidian` 把自己的一个 Markdown/PDF 课程文件夹变成带双链溯源的开卷问答库；
   - **下半场（动手对比小实验）**：跑通 40 行 Python 的「菜谱/错题集切坏 vs 切对」对比实验，直观搞懂 Chunk Size、Overlap 与 Embedding 是怎么影响回答质量的。
 
 ---
