@@ -39,7 +39,7 @@
 
 作为 **Datawhale 社区面向零基础学习者的「AI 与 Agentic AI 全栈总览先导课」**，本项目告别“上来先背底层术语、面对十几种工具无从下手”的传统痛点，以**真实办公与学习获得感**为主线，做好以下 **三大收敛与闭环**：
 
-1. **主体模型收敛为三大黄金主力**：全书主线围绕 **`Gemma 4 E4B`**（8G 端侧全模态轻量王牌）、**`Qwen3.5-9B`**（中文办公、表格抽取与中文微调主力）与 **`Gemma 4 12B`**（强逻辑推理、`Qoder` 编程与复杂 Agent 进阶主力）展开；
+1. **主体模型收敛为四大分档黄金主力**：全书主线围绕 **`Gemma 4 E4B`**（🟢 8G 端侧全模态轻量王牌）、**`Qwen3.5-9B`**（🔵 16G+ 中文办公填表与中文微调主力）、**`Gemma 4 12B`**（🔵 16G+ 强逻辑推理与 `Qoder` 编程主力）以及 **`Qwen3.6-35B-A3B`**（🟣 旗舰档 35B 总参 / 3B 激活 MoE 超长上下文王牌）展开；
 2. **推理服务收敛为三大标准引擎**：统一仅使用 **`llama-server`（`llama.cpp`）**、**`lemonade-server`** 与 **`vLLM`** 拉起本地 OpenAI 兼容服务（`/v1`），配套 [`src/configs/`](./src/configs/README.md) 现成验证配置；
 3. **第一步先用起来，学完精准导流深造**：开篇即接入 **WorkBuddy**（唯一采用开源 **`dashi-ppt-skill` 大师 PPT Skill** 生成可编辑 `.pptx` + AI 自动填表 + 定时处理日常办公）及 **`Qoder` / `Codex`**；随后跑通个人知识库、可共享给别人调用的 **「知识管理 MCP」**、中文 LoRA 微调与 **`AMD Quark` / `Hyperloom`** 量化加速，沉淀简历五件套并一章一课导流至 Datawhale 各专精课程继续深造！
 
@@ -47,15 +47,16 @@
 
 ---
 
-## 🎯 课程三大主体模型与硬件档位选型表
+## 🎯 课程四大主体模型与硬件档位选型表
 
-全书所有章节实验、[`src/configs/`](./src/configs/README.md) 配置文件与评测脚本均以以下 **三款最新高性价比开源模型** 为主体构建：
+全书所有章节实验、[`src/configs/`](./src/configs/README.md) 配置文件与评测脚本均以以下 **四款最新高性价比开源模型** 为主体构建（精准对应入门、甜点与旗舰档位）：
 
 | 主体模型 | 官方权重标识 | 核心特长与课程分工 | 推荐硬件档位 | 主推服务引擎 |
 |:---|:---|:---|:---|:---|
 | **`Gemma 4 E4B`** | `google/gemma-4-E4B-it`<br/>(`Gemma-4-E4B-it-GGUF`) | 有效参数 ~4.5B 原生多模态（文本/图像/音频 + 原生工具调用），极省显存，8G 卡开 32K 上下文依然丝滑 | 🟢 **入门档**（8G–12G 独显 / 16G–32G 锐龙核显 & XDNA2 NPU） | `llama-server` / `lemonade-server` |
 | **`Qwen3.5-9B`** | `Qwen/Qwen3.5-9B`<br/>(`Qwen3.5-9B-GGUF`) | 中文母语级语义理解与结构化 JSON 抽取强项，担纲 **第 2 章中文办公填表** 与 **第 5 章纯中文 LoRA 微调 / `AMD Quark` 量化对比** 主力 | 🔵 **甜点档**（16G–24G 独显） / ☁️ **云算力** | `llama-server` / `vLLM` |
-| **`Gemma 4 12B`** | `google/gemma-4-12B-it`<br/>(`gemma-4-12B-it-GGUF`) | 12B 稠密统一多模态强推理模型，擅长跨文件代码重构、长文献横评与复杂多步 Agent 规划，担纲 **`Qoder` / `Codex` 编程与高阶案例** 主力 | 🔵 **甜点档**（16G–24G 独显） / 🟣 **旗舰统一内存 AI PC** | `vLLM` / `llama-server` / `lemonade-server` |
+| **`Gemma 4 12B`** | `google/gemma-4-12B-it`<br/>(`gemma-4-12B-it-GGUF`) | 12B 稠密统一多模态强推理模型，擅长跨文件代码重构、长文献横评与多步推理，担纲 **`Qoder` / `Codex` 编程** 主力 | 🔵 **甜点档**（16G–24G 独显） / 🟣 **旗舰档** | `vLLM` / `llama-server` / `lemonade-server` |
+| **`Qwen3.6-35B-A3B`** | `Qwen/Qwen3.6-35B-A3B`<br/>(`Qwen3.6-35B-A3B-GGUF`) | **35B 总参数 / 仅 3B 激活参数** 的 MoE 旗舰模型（GGUF UD-Q4 约 20–23 GiB），兼具大模型智商与 3B 级飞快解码速度，担纲 **`OpenClaw` 全隐私管家与复杂长上下文规划** 旗舰主力 | 🟣 **旗舰档**（64G–128G 统一内存 AI PC 如 Ryzen AI Max+ 395） / ☁️ **云算力** | `lemonade-server` / `llama-server` / `vLLM` |
 
 > 💡 *手头暂时没有 AMD 显卡？* 直接查看 **[AMD Radeon Cloud 免费云算力指南](./docs/zh/cloud/amd-radeon-cloud.md)** 或 **[AUP Learning Cloud 指南](./docs/zh/cloud/aup-learning-cloud.md)**，通过一条 SSH 端口映射命令即可在本地桌面无缝使用云端算力完成全部实操！
 
@@ -102,7 +103,7 @@ hello-rocm/
 ├── docs/                           # VitePress 教程站点源文件
 │   ├── zh/
 │   │   ├── 00-guide/               # 第0章：导读、6站体验旅程与硬件选型
-│   │   ├── 01-first-model/         # 第1章：数据类型三本账与三大引擎部署 (Gemma 4 E4B/12B & Qwen3.5-9B)
+│   │   ├── 01-first-model/         # 第1章：数据类型三本账与三大引擎部署 (Gemma 4 E4B/12B & Qwen3.5-9B & Qwen3.6-35B)
 │   │   ├── 02-connect-tools/       # 第2章：WorkBuddy办公三件套(dashi-ppt/填表/定时)、Qoder与Codex
 │   │   ├── 03-prompt-and-rag/      # 第3章：提示词6关闯关与WorkBuddy+Obsidian私人知识库
 │   │   ├── 04-mcp-and-skills/      # 第4章：可共享「知识管理MCP」、Agent Skills与智能体实战

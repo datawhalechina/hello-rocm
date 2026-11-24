@@ -22,7 +22,7 @@
 |:---|:---|
 | **验证硬件与系统** | Windows 11 / Ubuntu 24.04（🟢 8G 独显核显 / 🔵 16G 独显 / ☁️ AMD Radeon Cloud） |
 | **底层推理服务引擎** | `llama-server`（端口 `8080`）/ `lemonade-server`（端口 `13305`）/ `vLLM`（端口 `8000`） |
-| **推荐模型与精度** | `Gemma 4 E4B`（8G 入门主力）、`Qwen3.5-9B` 或 `Gemma 4 12B`（16G+ 甜点/进阶主力） |
+| **推荐模型与精度** | `Gemma 4 E4B`（入门）、`Qwen3.5-9B` & `Gemma 4 12B`（甜点）、`Qwen3.6-35B-A3B`（旗舰） |
 | **必带服务端启动参数** | `--ctx-size 32768 --jinja`（`llama-server`）或 `--max-model-len 32768 --enable-auto-tool-choice`（`vLLM`） |
 | **客户端与配套配置** | 对照仓库 `src/configs/` 下已验证模板 |
 

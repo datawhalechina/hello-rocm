@@ -2,7 +2,7 @@
   "models": [
     {
       "id": "rocm-llama-gemma4-e4b",
-      "name": "AMD 主体模型 1：Gemma 4 E4B (llama-server 8G轻量全模态)",
+      "name": "🟢 入门档主体：Gemma 4 E4B (llama-server 8G轻量全模态)",
       "vendor": "custom",
       "apiKey": "rocm-local",
       "url": "http://127.0.0.1:8080/v1/chat/completions",
@@ -15,22 +15,8 @@
       "supportsImages": true
     },
     {
-      "id": "rocm-lemonade-gemma4-e4b",
-      "name": "AMD 主体模型 2：Gemma 4 E4B / 12B (lemonade-server GPU/NPU)",
-      "vendor": "custom",
-      "apiKey": "lemonade",
-      "url": "http://127.0.0.1:13305/v1/chat/completions",
-      "model": "Gemma-4-E4B-it-GGUF",
-      "maxInputTokens": 28672,
-      "maxOutputTokens": 4096,
-      "maxContextTokens": 32768,
-      "temperature": 0.3,
-      "supportsToolCall": true,
-      "supportsImages": true
-    },
-    {
       "id": "rocm-vllm-qwen35-9b",
-      "name": "AMD 主体模型 3：Qwen3.5-9B (vLLM 中文办公主力)",
+      "name": "🔵 甜点档主体：Qwen3.5-9B (vLLM 中文办公主力)",
       "vendor": "custom",
       "apiKey": "rocm-local",
       "url": "http://127.0.0.1:8000/v1/chat/completions",
@@ -44,7 +30,7 @@
     },
     {
       "id": "rocm-vllm-gemma4-12b",
-      "name": "AMD 主体模型 4：Gemma 4 12B (vLLM 进阶推理与编程主力)",
+      "name": "🔵 甜点档主体：Gemma 4 12B (vLLM 进阶推理与编程主力)",
       "vendor": "custom",
       "apiKey": "rocm-local",
       "url": "http://127.0.0.1:8000/v1/chat/completions",
@@ -55,6 +41,20 @@
       "temperature": 0.3,
       "supportsToolCall": true,
       "supportsImages": true
+    },
+    {
+      "id": "rocm-lemonade-qwen36-35b",
+      "name": "🟣 旗舰档主体：Qwen3.6-35B-A3B MoE (lemonade-server 统一内存旗舰)",
+      "vendor": "custom",
+      "apiKey": "lemonade",
+      "url": "http://127.0.0.1:13305/v1/chat/completions",
+      "model": "Qwen3.6-35B-A3B-GGUF",
+      "maxInputTokens": 28672,
+      "maxOutputTokens": 4096,
+      "maxContextTokens": 32768,
+      "temperature": 0.3,
+      "supportsToolCall": true,
+      "supportsImages": false
     }
   ]
 }

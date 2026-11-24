@@ -56,7 +56,7 @@ flowchart LR
 |:---|:---|:---|:---|
 | **🟢 入门档**<br/>（8G–12G 独显 / 16G–32G 核显本） | RX 7600 / 7650 GRE、Ryzen AI 7/9 轻薄本（780M / 880M / 890M） | **`Gemma 4 E4B`**（`Q4_K_M` / FLM NPU） | 畅玩部署、WorkBuddy 办公、`Qoder`、知识库 MCP、`Gemma 4 E4B` 微调与量化对比 |
 | **🔵 甜点档**<br/>（16G–24G 独显） | RX 7800 XT / 7900 GRE / 7900 XTX / RX 9070 XT | **`Qwen3.5-9B`** & **`Gemma 4 12B`**（`Q4_K_M` / `Q8_0`） | 全模块丝滑畅玩（中文办公填表、`Qwen3.5-9B` 微调、`AMD Quark` 量化对比与 `vLLM` 并发） |
-| **🟣 旗舰档**<br/>（64G–128G 统一内存 AI PC） | Ryzen AI Max+ 395（Radeon 8060S + XDNA 2 NPU）迷你工作站 | **`Gemma 4 12B` / `Qwen3.5-9B` (`BF16`/`Q8_0`)** 及更大 MoE | 满血运行超长上下文多端智能体（如 `OpenClaw`）、多模型常驻与异构加速 |
+| **🟣 旗舰档**<br/>（64G–128G 统一内存 AI PC） | Ryzen AI Max+ 395（Radeon 8060S + XDNA 2 NPU）迷你工作站 | **`Qwen3.6-35B-A3B`**（35B 总参 / 3B 激活 MoE 旗舰主力） | 满血运行超长上下文多端智能体（如 `OpenClaw`）、多模型常驻与异构加速 |
 | **☁️ 云端兜底档**<br/>（手头暂无 AMD 显卡 / Mac 用户） | 浏览器或 SSH 接入免费云端算力 | 同甜点档 / 旗舰档 | 立即阅读 **[AMD Radeon Cloud 使用指南](../cloud/amd-radeon-cloud.md)** 或 **[AUP Learning Cloud 指南](../cloud/aup-learning-cloud.md)** 免费实操全书内容！ |
 
 ---

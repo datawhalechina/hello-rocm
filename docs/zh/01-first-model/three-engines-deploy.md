@@ -54,8 +54,10 @@ export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
 lemonade backends
 lemonade pull Gemma-4-E4B-it-GGUF --source modelscope
 
-# 2. 加载模型并在后台启动 13305 端口服务（支持 --llamacpp vulkan / rocm，或 NPU flm 后端）
+# 2. 加载模型并在后台启动 13305 端口服务（8G 入门选 Gemma-4-E4B-it-GGUF；64G+ 旗舰 AI PC 可直拉 Qwen3.6-35B-A3B-GGUF）
 lemonade load Gemma-4-E4B-it-GGUF --llamacpp vulkan --ctx-size 32768
+# 旗舰档 Ryzen AI Max+ 395 一键切换 35B MoE 命令（详见 01-deploy/qwen36/lemonade-gpu-deploy.md）：
+# lemonade pull Qwen3.6-35B-A3B-GGUF --source modelscope && lemonade load Qwen3.6-35B-A3B-GGUF --llamacpp vulkan --ctx-size 32768
 lemonade status
 ```
 

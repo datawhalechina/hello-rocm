@@ -64,7 +64,7 @@
 ## Case 14：24 小时全隐私多端个人管家中枢（仓库 `OpenClaw` + Prefix Caching 加速） {#case-14}
 
 - **🎬 效果演示**：人不在电脑前，用手机飞书随手发一句消息，家里开着的 AMD 电脑立刻唤醒本地智能体拆解复杂任务、检索本地资料并把结果发回你手机，全程隐私数据不经第三方AI云！
-- **✅ 支持配置**：🟣 旗舰档统一内存 AI PC（如 Ryzen AI Max+ 395）或 ☁️ 云算力 / 24G 独显；本仓库重磅案例 **[🦞 OpenClaw 全隐私本地 AI 智能体平台](../05-amd-yes/openclaw.md)**。
+- **✅ 支持配置**：🟣 旗舰档统一内存 AI PC（如 Ryzen AI Max+ 395 搭载旗舰主体模型 **`Qwen3.6-35B-A3B`**）或 ☁️ 云算力；本仓库重磅案例 **[🦞 OpenClaw 全隐私本地 AI 智能体平台](../05-amd-yes/openclaw.md)**。
 - **💻 代码与步骤**：
   1. 启动本地 `llama-server` 或 `vLLM` 时**务必打开第 6.4 节讲过的 Prefix Caching**（`OpenClaw` 系统提示词长达 ~39K Tokens，开启缓存后次轮响应从十余秒直降至秒回！）；
   2. 按照仓库 **[OpenClaw 完整部署与飞书接入指南](../05-amd-yes/openclaw.md)** 完成本地网关配置。

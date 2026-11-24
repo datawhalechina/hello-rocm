@@ -1,22 +1,23 @@
-# ~/.codex/config.toml —— 连接本地 AMD 三大引擎与三大主体模型 (Gemma 4 E4B / Gemma 4 12B / Qwen3.5-9B)
+# ~/.codex/config.toml —— 连接本地 AMD 三大引擎与四大主体模型
+# 主体模型：Gemma 4 E4B (入门) / Qwen3.5-9B & Gemma 4 12B (甜点) / Qwen3.6-35B-A3B (旗舰)
 
 model_provider = "rocm_llama"
 model = "gemma-4-E4B-it-Q4_K_M"
 
 [model_providers.rocm_llama]
-name = "AMD ROCm llama-server (Gemma 4 E4B / 12B / Qwen3.5-9B)"
+name = "AMD ROCm llama-server (Gemma 4 E4B / 12B / Qwen3.5-9B / Qwen3.6-35B-A3B)"
 base_url = "http://127.0.0.1:8080/v1"
 env_key = "ROCM_LOCAL_API_KEY"
 wire_api = "chat"
 
 [model_providers.rocm_lemonade]
-name = "AMD Lemonade Server (Gemma 4 E4B / 12B)"
+name = "AMD Lemonade Server (Gemma 4 E4B / Qwen3.6-35B-A3B)"
 base_url = "http://127.0.0.1:13305/v1"
 env_key = "ROCM_LOCAL_API_KEY"
 wire_api = "chat"
 
 [model_providers.rocm_vllm]
-name = "AMD ROCm vLLM Server (Qwen3.5-9B / Gemma 4 12B)"
+name = "AMD ROCm vLLM Server (Qwen3.5-9B / Gemma 4 12B / Qwen3.6-35B-A3B)"
 base_url = "http://127.0.0.1:8000/v1"
 env_key = "ROCM_LOCAL_API_KEY"
 wire_api = "chat"
