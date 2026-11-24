@@ -73,31 +73,42 @@ const zhCourseSidebar: DefaultTheme.SidebarItem[] = [
     text: '第 3 章｜提示词闯关与个人知识库',
     collapsed: false,
     items: [
-      { text: '3.1~3.2 提示词 6 关与菜谱切分实验', link: '/zh/03-prompt-and-rag/' },
-      { text: '3.3~3.4 WorkBuddy + Obsidian 知识库', link: '/zh/03-prompt-and-rag/workbuddy-obsidian-rag' }
+      { text: '导览：提示词 vs RAG 决策边界', link: '/zh/03-prompt-and-rag/' },
+      { text: '3.1 提示词闯关：6 关驯服本地模型', link: '/zh/03-prompt-and-rag/01-prompt-6-levels' },
+      { text: '3.2 黑暗料理菜谱切分对比实验', link: '/zh/03-prompt-and-rag/02-chunking-intuition' },
+      { text: '3.3~3.4 WorkBuddy + Obsidian 双链知识库', link: '/zh/03-prompt-and-rag/03-workbuddy-obsidian-rag' }
     ]
   },
   {
     text: '第 4 章｜知识管理 MCP 与 Skills',
     collapsed: false,
     items: [
-      { text: '可共享「知识管理 MCP」与自定义 Skill', link: '/zh/04-mcp-and-skills/' }
+      { text: '4.1 ReAct 循环与 MCP 万能扩展坞', link: '/zh/04-mcp-and-skills/' },
+      { text: '4.2 🌟 实战：可共享「知识管理 MCP」', link: '/zh/04-mcp-and-skills/02-knowledge-mcp-server' },
+      { text: '4.3 SKILL.md 省显存原理与办公技能', link: '/zh/04-mcp-and-skills/03-custom-office-skill' },
+      { text: '4.4 四道安全护栏与助手 v2.0 验收', link: '/zh/04-mcp-and-skills/04-safety-guardrails' }
     ]
   },
   {
     text: '第 5 章｜第一次中文模型微调',
     collapsed: false,
     items: [
-      { text: '5.1~5.3 微调决策树与弱智吧 5 分钟破冰', link: '/zh/05-fine-tune/' },
-      { text: '5.4~5.6 中文通知抽取与 WeClone 分身', link: '/zh/05-fine-tune/chinese-lora-and-persona' }
+      { text: '5.1 微调决策树与纯中文技术栈', link: '/zh/05-fine-tune/' },
+      { text: '5.2 LoRA 显存账与弱智吧 5 分钟破冰', link: '/zh/05-fine-tune/02-lora-and-ruozhiba' },
+      { text: '5.3 主线：中文群通知 JSON 抽取微调', link: '/zh/05-fine-tune/03-office-json-sft' },
+      { text: '5.4 自建中文测试集前后客观评测', link: '/zh/05-fine-tune/04-eval-before-after' },
+      { text: '5.5 🌟 WeClone 微信分身与小红书种草体', link: '/zh/05-fine-tune/05-weclone-and-xhs' }
     ]
   },
   {
     text: '第 6 章｜AMD 量化对比与自动加速',
     collapsed: false,
     items: [
-      { text: '6.1~6.3 AMD Quark 量化前后对比与融合算子', link: '/zh/06-optimize-speed/' },
-      { text: '6.4~6.5 Prefix Caching 与 Hyperloom 寻优', link: '/zh/06-optimize-speed/agent-cache-and-hyperloom' }
+      { text: '6.1 两阶段瓶颈与 TraceLens 体检', link: '/zh/06-optimize-speed/' },
+      { text: '6.2 🌟 AMD Quark 单模型量化前后对比', link: '/zh/06-optimize-speed/02-quark-before-after' },
+      { text: '6.3 零 C++ 唤醒 @torch.compile 与 AITER', link: '/zh/06-optimize-speed/03-zero-cpp-operators' },
+      { text: '6.4 Prefix Caching 秒回与 NPU+GPU 异构', link: '/zh/06-optimize-speed/04-agent-prefix-caching' },
+      { text: '6.5 🌟 Hyperloom 与 AMD Skills 自动寻优', link: '/zh/06-optimize-speed/05-hyperloom-auto-opt' }
     ]
   },
   {

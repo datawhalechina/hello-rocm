@@ -307,7 +307,7 @@ flowchart LR
 ### Day 11 ｜ 训练实战 · 轻量模型 LoRA + SwanLab
 
 - **目标**：完整跑完一次训练，会看 loss 曲线
-- **读**：[第 5 章：5 分钟弱智吧破冰实验与 SwanLab 可视化](/zh/05-fine-tune/)
+- **读**：[第 5.2 节：5 分钟弱智吧破冰实验与 SwanLab 可视化](/zh/05-fine-tune/02-lora-and-ruozhiba)
 - **做**：
   1. 跑通训练，SwanLab 看 loss 曲线
   2. 逐项理解 `per_device_train_batch_size` / `gradient_accumulation_steps` / `gradient_checkpointing` / `learning_rate` / `save_steps`
@@ -318,7 +318,7 @@ flowchart LR
 ### Day 12 ｜ 进阶 · Gemma 4 E4B / Qwen3.5-9B 中文 LoRA（ModelScope 单卡）
 
 - **目标**：在主体模型上体会显存管理与微调前后客观评估
-- **读**：[第 5 章：中文通知 JSON 提取微调与客观评测](/zh/05-fine-tune/chinese-lora-and-persona)
+- **读**：[第 5.3 节：中文通知 JSON 提取微调](/zh/05-fine-tune/03-office-json-sft) · [第 5.4 节：微调前后客观评测](/zh/05-fine-tune/04-eval-before-after)
 - **做**：
   1. ModelScope 拉取 `AI-ModelScope/emotion` 数据集与 `google/gemma-4-E4B-it`（**不需要 `HF_TOKEN`**）
   2. 单卡 BF16 LoRA 训练
@@ -383,7 +383,7 @@ flowchart LR
 
 ### Day 17 ｜ 零 C++ 算子加速与自定义算子拓展
 
-- **读**：[第 6 章：零 C++ 算子加速与 Hyperloom 自动寻优](/zh/06-optimize-speed/agent-cache-and-hyperloom) · [`hello-gpu` PyTorch C++ Extension 实战](https://github.com/datawhalechina/hello-gpu)
+- **读**：[第 6.3 节：零 C++ 算子加速](/zh/06-optimize-speed/03-zero-cpp-operators) · [第 6.5 节：Hyperloom 自动寻优](/zh/06-optimize-speed/05-hyperloom-auto-opt) · [`hello-gpu` PyTorch C++ Extension 实战](https://github.com/datawhalechina/hello-gpu)
 - **做**：
   1. 用 C++ Extension 把 HIP Kernel 注册成 PyTorch 可调用算子
   2. 实战 Fused Swish；用 Grid-Stride Loop 优化；接 Autograd 自动求导
@@ -415,7 +415,7 @@ flowchart LR
 ### Day 19 ｜ 案例实战 · 命令行智能体与人设对话应用
 
 - **任务**：用 **Day 13 自己微调的 LoRA 模型**，做一个纯命令行的多轮对话或终端 Agent 应用
-- **读**：[第 2.4 节：Codex CLI 与 toy-cli 终端智能体实战](/zh/02-connect-tools/06-codex-and-toy-cli) · [第 5 章：WeClone 与人设分身微调](/zh/05-fine-tune/chinese-lora-and-persona)
+- **读**：[第 2.4 节：Codex CLI 与 toy-cli 终端智能体实战](/zh/02-connect-tools/06-codex-and-toy-cli) · [第 5.5 节：WeClone 与人设分身微调](/zh/05-fine-tune/05-weclone-and-xhs)
 - **参考实现方式**（二选一，或自己写）：
   - **A · 本地推理脚本**：`transformers` + `PeftModel` 加载基座与 LoRA，命令行多轮对话
   - **B · API + 客户端**：用 Day 4 学的 vLLM 起服务挂 LoRA，再写一个终端客户端调 `/v1/chat/completions`
@@ -507,8 +507,8 @@ flowchart LR
 | 云平台 | [AMD Radeon Cloud 使用指南](/zh/cloud/amd-radeon-cloud) |
 | 环境与硬件 | [第 0.3 节：硬件体检与模型选型](/zh/00-guide/03-hardware-and-cloud) · [第 1.2 节：ROCm 10 环境准备](/zh/01-first-model/02-rocm-env-setup) |
 | 部署 | [第 1.3 节：llama-server 部署](/zh/01-first-model/03-llama-server) · [第 1.4 节：lemonade-server 部署](/zh/01-first-model/04-lemonade-server) · [第 1.5 节：vLLM 部署](/zh/01-first-model/05-vllm-server) |
-| 微调 | [第 5 章：中文 LoRA 微调概览](/zh/05-fine-tune/) · [中文通知抽取与人设分身实战](/zh/05-fine-tune/chinese-lora-and-persona) · [`happy-llm`](https://github.com/datawhalechina/happy-llm) |
-| 量化与算子 | [第 6 章：AMD Quark 量化对比](/zh/06-optimize-speed/) · [零 C++ 算子加速与 Hyperloom](/zh/06-optimize-speed/agent-cache-and-hyperloom) · [`hello-gpu`](https://github.com/datawhalechina/hello-gpu) |
+| 微调 | [第 5 章：中文 LoRA 微调概览](/zh/05-fine-tune/) · [中文通知抽取微调](/zh/05-fine-tune/03-office-json-sft) · [WeClone 人设分身](/zh/05-fine-tune/05-weclone-and-xhs) · [`happy-llm`](https://github.com/datawhalechina/happy-llm) |
+| 量化与算子 | [第 6.2 节：AMD Quark 量化对比](/zh/06-optimize-speed/02-quark-before-after) · [零 C++ 算子加速](/zh/06-optimize-speed/03-zero-cpp-operators) · [Hyperloom 自动寻优](/zh/06-optimize-speed/05-hyperloom-auto-opt) · [`hello-gpu`](https://github.com/datawhalechina/hello-gpu) |
 | 案例 | [第 2.4 节：Codex 与 toy-cli 终端智能体](/zh/02-connect-tools/06-codex-and-toy-cli) · [第 8 章：15 个趣味应用案例超市](/zh/08-fun-cases/) |
 
 ---

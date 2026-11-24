@@ -79,6 +79,6 @@
 - **✅ 支持配置**：🟢 8G / 🔵 16G；本仓库内置 **[`src/cases/minesweeper_agent`](https://github.com/datawhalechina/hello-rocm/tree/dev_1.0/src/cases/minesweeper_agent)**、古风数据集 [`src/fine-tune/datasets/huanhuan-100.json`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/fine-tune/datasets/huanhuan-100.json) 以及开源 [`Mindcraft`](https://github.com/kolbytn/mindcraft)。
 - **💻 代码与步骤**：
   1. **第一关（必玩推荐！）**：打开仓库配套源码 [`src/cases/minesweeper_agent/minesweeper_agent.ipynb`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/cases/minesweeper_agent/minesweeper_agent.ipynb)，连接本地 `llama-server` 亲眼观察模型如何“看棋盘 → 逻辑推理 → 调工具翻格子”；
-  2. **第二关（创意拓展）**：在 [`Mindcraft`](https://github.com/kolbytn/mindcraft) 的 `profiles/` 中将模型指向本地 `/v1` 接口召唤 AI 矿工，或用 [第 5 章人设 LoRA](../05-fine-tune/chinese-lora-and-persona.md) 结合规则书 RAG 搭建专属文字跑团守秘人（TRPG DM）！
+  2. **第二关（创意拓展）**：在 [`Mindcraft`](https://github.com/kolbytn/mindcraft) 的 `profiles/` 中将模型指向本地 `/v1` 接口召唤 AI 矿工，或用 [第 5.5 节人设 LoRA](../05-fine-tune/05-weclone-and-xhs.md) 结合规则书 RAG 搭建专属文字跑团守秘人（TRPG DM）！
 - **🔍 验证方法**：成功跑完一局初级扫雷棋盘并对比记录约束式与自主式 Agent 的胜率差异。
 - **🚀 扩展任务与导流**：尝试优化扫雷 Agent 的提示词让通关步数更少；🔗 进阶学习 **[`hello-agents`](https://github.com/datawhalechina/hello-agents)** 与 **[`all-in-rag`](https://github.com/datawhalechina/all-in-rag)**。

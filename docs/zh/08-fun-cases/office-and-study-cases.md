@@ -93,7 +93,7 @@
 
 - **🎬 效果演示**：不仅能对本地 Obsidian 双链笔记库进行带精确出处的开卷问答，还能通过 `FastMCP` 将知识库打包成标准 MCP 服务，在 `Qoder`、Codex 及队友电脑上跨端调用！
 - **✅ 支持配置**：🟢 8G；三大引擎任一 + 仓库 [`src/main-assistant/knowledge_mcp/server.py`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/main-assistant/knowledge_mcp/server.py)。
-- **💻 代码与步骤**：完整分步代码与挂载 JSON 见 **[第 3.3 节](../03-prompt-and-rag/workbuddy-obsidian-rag.md)** 与 **[第 4.2 节](../04-mcp-and-skills/index.md)**。
+- **💻 代码与步骤**：完整分步代码与挂载 JSON 见 **[第 3.3 节](../03-prompt-and-rag/03-workbuddy-obsidian-rag.md)** 与 **[第 4.2 节](../04-mcp-and-skills/02-knowledge-mcp-server.md)**。
 - **🔍 验证方法**：在 `Qoder` 中调用 `search_notes` 查到笔记，再调用 `create_note_card` 新增卡片并在 Obsidian 图谱中看到双链生效。
 - **🚀 扩展任务与导流**：为 `server.py` 增加一个 `summarize_weekly_notes` 工具统计近 7 天新增卡片；🔗 进阶学习 **[`all-in-rag`](https://github.com/datawhalechina/all-in-rag)** 与 **[`hello-agents`](https://github.com/datawhalechina/hello-agents)**。
 
@@ -106,6 +106,6 @@
 - **💻 代码与步骤**：
   1. 使用 Docker 启动 `open-notebook` 并将 OpenAI Base URL 指向宿主机本地引擎端口；
   2. 上传课程 PDF 讲义，点击生成 Podcast 音频脚本并合成双人对话 MP3；
-  3. 联动 [第 5.6 节](../05-fine-tune/chinese-lora-and-persona.md) 换上你微调后的个性化模型生成更具网感的播客台词！
+  3. 联动 [第 5.5 节](../05-fine-tune/05-weclone-and-xhs.md) 换上你微调后的个性化模型生成更具网感的播客台词！
 - **🔍 验证方法**：播放导出的 MP3 音频，确认双角色轮流对谈自然且核心知识点准确无遗漏。
 - **🚀 扩展任务与导流**：将你微调前后的台词做一次客服腔破功词对比测试；🔗 进阶学习 **[`happy-llm`](https://github.com/datawhalechina/happy-llm)**。
