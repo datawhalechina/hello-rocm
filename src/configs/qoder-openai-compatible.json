@@ -1,0 +1,35 @@
+{
+  "description": "Qoder IDE 本地自定义模型参考配置（路径：Qoder 设置 -> 模型 -> 添加模型 -> OpenAI Compatible / Chat Completions API）",
+  "providers": [
+    {
+      "name": "AMD-llama-server",
+      "protocol": "OpenAI Compatible (Chat Completions API)",
+      "baseUrl": "http://127.0.0.1:8080/v1",
+      "apiKey": "rocm-local",
+      "modelId": "qwen3.5-4b-q4_k_m",
+      "contextLength": 32768,
+      "maxOutputTokens": 4096,
+      "supportsToolCall": true
+    },
+    {
+      "name": "AMD-lemonade-server",
+      "protocol": "OpenAI Compatible (Chat Completions API)",
+      "baseUrl": "http://127.0.0.1:13305/v1",
+      "apiKey": "lemonade",
+      "modelId": "Gemma-4-E4B-it-GGUF",
+      "contextLength": 32768,
+      "maxOutputTokens": 4096,
+      "supportsToolCall": true
+    },
+    {
+      "name": "AMD-vLLM-ROCm",
+      "protocol": "OpenAI Compatible (Chat Completions API)",
+      "baseUrl": "http://127.0.0.1:8000/v1",
+      "apiKey": "rocm-local",
+      "modelId": "Qwen3.5-4B",
+      "contextLength": 32768,
+      "maxOutputTokens": 4096,
+      "supportsToolCall": true
+    }
+  ]
+}

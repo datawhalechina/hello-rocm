@@ -8,6 +8,9 @@
 
 | 类型 | 约定 | 示例 |
 |:---|:---|:---|
+| **2.0 主线章节（第 0～9 章）** | `docs/zh/00-guide/` ～ `docs/zh/09-amd-ecosystem/`，聚焦小白体验旅程、三大统一服务引擎（`llama-server` / `lemonade-server` / `vLLM`）与专精课程导流 | `docs/zh/02-connect-tools/workbuddy-office-suite.md` |
+| **趣味实战案例（第 8 章）** | 严格遵循 `docs/zh/08-fun-cases/_CASE_TEMPLATE.md` 五要素标准（演示、支持配置、代码、验证、扩展任务与导流 + 试学 FAQ） | `docs/zh/08-fun-cases/office-and-study-cases.md` |
+| **已验证配置与主线源码** | 客户端/引擎验证配置放 `src/configs/`；纵向主线助手（知识管理 MCP、评测与量化测速脚本）放 `src/main-assistant/` | `src/configs/workbuddy-models.json`、`src/main-assistant/knowledge_mcp/server.py` |
 | 中文部署教程 | `docs/zh/01-deploy/<model>/`，模型名使用小写目录名 | `docs/zh/01-deploy/qwen3/`、`docs/zh/01-deploy/gemma4/` |
 | 英文部署教程 | `docs/en/01-deploy/<model>/`，与中文目录保持同名结构 | `docs/en/01-deploy/qwen3/` |
 | 中文微调教程 | `docs/zh/02-fine-tune/<model>/` | `docs/zh/02-fine-tune/qwen3/` |

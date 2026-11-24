@@ -3,12 +3,32 @@ import mathjax3 from 'markdown-it-mathjax3'
 
 const zhNav: DefaultTheme.NavItem[] = [
   { text: '首页', link: '/zh/' },
-  { text: '基础环境', link: '/zh/00-environment/' },
-  { text: '大模型部署', link: '/zh/01-deploy/' },
-  { text: '大模型微调', link: '/zh/02-fine-tune/' },
-  { text: '算子优化', link: '/zh/03-infra/' },
-  { text: '参考资料', link: '/zh/04-references/' },
-  { text: '实践案例', link: '/zh/05-amd-yes/' }
+  {
+    text: '入门主线 (0~6章)',
+    items: [
+      { text: '第0章｜导读与体验旅程', link: '/zh/00-guide/' },
+      { text: '第1章｜直觉认知与三大引擎部署', link: '/zh/01-first-model/' },
+      { text: '第2章｜WorkBuddy办公三件套与Qoder', link: '/zh/02-connect-tools/' },
+      { text: '第3章｜提示词闯关与个人知识库', link: '/zh/03-prompt-and-rag/' },
+      { text: '第4章｜可共享知识管理MCP与Skills', link: '/zh/04-mcp-and-skills/' },
+      { text: '第5章｜第一次中文模型微调', link: '/zh/05-fine-tune/' },
+      { text: '第6章｜AMD量化对比与自动加速', link: '/zh/06-optimize-speed/' }
+    ]
+  },
+  { text: '简历与作品 (第7章)', link: '/zh/07-portfolio-resume/' },
+  { text: '15大趣味案例 (第8章)', link: '/zh/08-fun-cases/' },
+  { text: 'AMD生态百宝箱 (第9章)', link: '/zh/09-amd-ecosystem/' },
+  {
+    text: '专项档案库',
+    items: [
+      { text: '00-基础环境详细手册', link: '/zh/00-environment/' },
+      { text: '01-多模型部署档案', link: '/zh/01-deploy/' },
+      { text: '02-单模型微调实录', link: '/zh/02-fine-tune/' },
+      { text: '03-HIP算子与GPU编程', link: '/zh/03-infra/' },
+      { text: '04-ROCm参考资料总表', link: '/zh/04-references/' },
+      { text: '05-AMD-YES高阶项目集', link: '/zh/05-amd-yes/' }
+    ]
+  }
 ]
 
 const enNav: DefaultTheme.NavItem[] = [
@@ -21,7 +41,101 @@ const enNav: DefaultTheme.NavItem[] = [
   { text: 'AMD Practice', link: '/05-amd-yes/' }
 ]
 
+const zhCourseSidebar: DefaultTheme.SidebarItem[] = [
+  {
+    text: '第 0 章｜导读与体验旅程',
+    collapsed: false,
+    items: [
+      { text: '把你的 AMD 电脑变成 AI 助手', link: '/zh/00-guide/' }
+    ]
+  },
+  {
+    text: '第 1 章｜直觉认知与三大引擎部署',
+    collapsed: false,
+    items: [
+      { text: '1.1 数据类型与显存“三本明白账”', link: '/zh/01-first-model/' },
+      { text: '1.2 极简环境准备 (Win11 / Ubuntu / 云)', link: '/zh/01-first-model/quick-env' },
+      { text: '1.3~1.5 三大标准引擎极速部署', link: '/zh/01-first-model/three-engines-deploy' }
+    ]
+  },
+  {
+    text: '第 2 章｜办公先行：WorkBuddy 与 Qoder',
+    collapsed: false,
+    items: [
+      { text: '2.1 万能插座与三大安全铁律', link: '/zh/02-connect-tools/' },
+      { text: '2.2 🌟 首发：WorkBuddy 办公三件套', link: '/zh/02-connect-tools/workbuddy-office-suite' },
+      { text: '2.3~2.4 接入 Qoder 与 Codex CLI', link: '/zh/02-connect-tools/qoder-and-codex' }
+    ]
+  },
+  {
+    text: '第 3 章｜提示词闯关与个人知识库',
+    collapsed: false,
+    items: [
+      { text: '3.1~3.2 提示词 6 关与菜谱切分实验', link: '/zh/03-prompt-and-rag/' },
+      { text: '3.3~3.4 WorkBuddy + Obsidian 知识库', link: '/zh/03-prompt-and-rag/workbuddy-obsidian-rag' }
+    ]
+  },
+  {
+    text: '第 4 章｜知识管理 MCP 与 Skills',
+    collapsed: false,
+    items: [
+      { text: '可共享「知识管理 MCP」与自定义 Skill', link: '/zh/04-mcp-and-skills/' }
+    ]
+  },
+  {
+    text: '第 5 章｜第一次中文模型微调',
+    collapsed: false,
+    items: [
+      { text: '5.1~5.3 微调决策树与弱智吧 5 分钟破冰', link: '/zh/05-fine-tune/' },
+      { text: '5.4~5.6 中文通知抽取与 WeClone 分身', link: '/zh/05-fine-tune/chinese-lora-and-persona' }
+    ]
+  },
+  {
+    text: '第 6 章｜AMD 量化对比与自动加速',
+    collapsed: false,
+    items: [
+      { text: '6.1~6.3 AMD Quark 量化前后对比与融合算子', link: '/zh/06-optimize-speed/' },
+      { text: '6.4~6.5 Prefix Caching 与 Hyperloom 寻优', link: '/zh/06-optimize-speed/agent-cache-and-hyperloom' }
+    ]
+  },
+  {
+    text: '第 7 章｜作品集与简历成果锻造',
+    collapsed: false,
+    items: [
+      { text: '成功故事、五件套与简历面试指南', link: '/zh/07-portfolio-resume/' }
+    ]
+  },
+  {
+    text: '第 8 章｜15 个趣味实战案例库',
+    collapsed: false,
+    items: [
+      { text: '全景矩阵与新手试学机制', link: '/zh/08-fun-cases/' },
+      { text: '上辑 (Case 01~08)：办公、论文与知识库', link: '/zh/08-fun-cases/office-and-study-cases' },
+      { text: '下辑 (Case 09~15)：语音、Qoder编程与游戏', link: '/zh/08-fun-cases/voice-code-agent-game-cases' },
+      { text: '附：五要素标准案例模板', link: '/zh/08-fun-cases/_CASE_TEMPLATE' }
+    ]
+  },
+  {
+    text: '第 9 章｜AMD 优秀项目与资源百宝箱',
+    collapsed: false,
+    items: [
+      { text: '官方明星项目、行业案例与算力字典', link: '/zh/09-amd-ecosystem/' }
+    ]
+  }
+]
+
 const zhSidebar: DefaultTheme.Sidebar = {
+  '/zh/00-guide/': zhCourseSidebar,
+  '/zh/01-first-model/': zhCourseSidebar,
+  '/zh/02-connect-tools/': zhCourseSidebar,
+  '/zh/03-prompt-and-rag/': zhCourseSidebar,
+  '/zh/04-mcp-and-skills/': zhCourseSidebar,
+  '/zh/05-fine-tune/': zhCourseSidebar,
+  '/zh/06-optimize-speed/': zhCourseSidebar,
+  '/zh/07-portfolio-resume/': zhCourseSidebar,
+  '/zh/08-fun-cases/': zhCourseSidebar,
+  '/zh/09-amd-ecosystem/': zhCourseSidebar,
+
   '/zh/00-environment/': [
     {
       text: 'Environment',
@@ -312,7 +426,8 @@ const zhSidebar: DefaultTheme.Sidebar = {
     {
       text: '组队学习',
       items: [
-        { text: 'hello-rocm 组队学习', link: '/zh/learning/' }
+        { text: 'hello-rocm 组队学习', link: '/zh/learning/' },
+        { text: '20 天纯云端组队学习计划', link: '/zh/learning/20-day-learning-plan' }
       ]
     }
   ],

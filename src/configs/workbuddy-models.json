@@ -1,0 +1,46 @@
+{
+  "models": [
+    {
+      "id": "rocm-llama-qwen3.5-4b",
+      "name": "AMD 本地引擎 1：llama-server (Qwen3.5-4B GGUF)",
+      "vendor": "custom",
+      "apiKey": "rocm-local",
+      "url": "http://127.0.0.1:8080/v1/chat/completions",
+      "model": "qwen3.5-4b-q4_k_m",
+      "maxInputTokens": 28672,
+      "maxOutputTokens": 4096,
+      "maxContextTokens": 32768,
+      "temperature": 0.3,
+      "supportsToolCall": true,
+      "supportsImages": false
+    },
+    {
+      "id": "rocm-lemonade-gemma4-e4b",
+      "name": "AMD 本地引擎 2：lemonade-server (GPU/NPU 异构)",
+      "vendor": "custom",
+      "apiKey": "lemonade",
+      "url": "http://127.0.0.1:13305/v1/chat/completions",
+      "model": "Gemma-4-E4B-it-GGUF",
+      "maxInputTokens": 28672,
+      "maxOutputTokens": 4096,
+      "maxContextTokens": 32768,
+      "temperature": 0.3,
+      "supportsToolCall": true,
+      "supportsImages": true
+    },
+    {
+      "id": "rocm-vllm-qwen3.5-4b",
+      "name": "AMD 本地引擎 3：vLLM ROCm (高并发服务)",
+      "vendor": "custom",
+      "apiKey": "rocm-local",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "model": "Qwen3.5-4B",
+      "maxInputTokens": 28672,
+      "maxOutputTokens": 4096,
+      "maxContextTokens": 32768,
+      "temperature": 0.3,
+      "supportsToolCall": true,
+      "supportsImages": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+name: "🧪 新手试学反馈卡 (Novice Trial Feedback)"
+description: "零基础试学章节或趣味案例时遇到卡点、报错或有改进建议？提交反馈即可点亮已验证徽章并成为仓库贡献者！"
+title: "[试学反馈] 第X章 / Case XX - <简述你的显卡型号与反馈重点>"
+labels: ["novice-trial", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你参与 **hello-rocm 2.0 新手试学计划**！凡是被采纳补充进章节底部的排错经验与改进建议，我们都会将你计入仓库贡献者名单。
+  - type: input
+    id: target_chapter
+    attributes:
+      label: "📖 试学章节或案例编号"
+      placeholder: "例如：第 2.2 节 WorkBuddy AI PPT / Case 07 知识管理 MCP"
+    validations:
+      required: true
+  - type: dropdown
+    id: hardware_tier
+    attributes:
+      label: "🎮 你的硬件与系统档位"
+      options:
+        - "🟢 入门档 (8G-12G 独显 / 16G-32G 锐龙核显本)"
+        - "🔵 甜点档 (16G-24G Radeon 独显)"
+        - "🟣 旗舰档 (64G-128G 统一内存 AI PC 如 Ryzen AI Max+ 395)"
+        - "☁️ 云端兜底档 (AMD Radeon Cloud / AUP Learning Cloud)"
+    validations:
+      required: true
+  - type: input
+    id: env_detail
+    attributes:
+      label: "💻 具体设备型号、操作系统与所选推理引擎"
+      placeholder: "例如：RX 7800 XT + Windows 11 + llama-server (Qwen3.5-4B-Q4_K_M)"
+    validations:
+      required: true
+  - type: input
+    id: duration
+    attributes:
+      label: "⏱️ 实际完成耗时 vs 教程预计耗时"
+      placeholder: "例如：实际耗时 40 分钟（教程预计 30 分钟）"
+  - type: textarea
+    id: first_blocker
+    attributes:
+      label: "🛑 第一卡点位置（哪怕是一个没解释清楚的缩写也请告诉我们！）"
+      description: "你在哪一步停下来思考或排查超过了 5 分钟？"
+      placeholder: "例如：在配置 models.json 时一开始把 /v1/chat/completions 写成了 /v1..."
+    validations:
+      required: true
+  - type: textarea
+    id: error_and_fix
+    attributes:
+      label: "🐛 报错日志原文与你的最终解决方法（可选）"
+      render: shell
+  - type: dropdown
+    id: satisfaction
+    attributes:
+      label: "💡 实用获得感评分"
+      options:
+        - "⭐⭐⭐⭐⭐ 5分 - 非常实用，已经用进日常学习/工作了！"
+        - "⭐⭐⭐⭐ 4分 - 顺利跑通，小有卡点但收获很大"
+        - "⭐⭐⭐ 3分 - 勉强跑通，部分步骤需要补充说明"
+        - "⭐⭐ 2分 - 卡在中途未能跑通，急需维护者协助"

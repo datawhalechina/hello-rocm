@@ -1,0 +1,23 @@
+# ~/.codex/config.toml —— 连接本地 AMD 三大标准服务引擎配置模板
+# 默认启用 llama-server；如需切换 vLLM 或 lemonade-server，修改下方 model_provider 与 model 即可。
+
+model_provider = "rocm_llama"
+model = "qwen3.5-4b-q4_k_m"
+
+[model_providers.rocm_llama]
+name = "AMD ROCm llama-server (Port 8080)"
+base_url = "http://127.0.0.1:8080/v1"
+env_key = "ROCM_LOCAL_API_KEY"
+wire_api = "chat"
+
+[model_providers.rocm_lemonade]
+name = "AMD Lemonade Server (Port 13305)"
+base_url = "http://127.0.0.1:13305/v1"
+env_key = "ROCM_LOCAL_API_KEY"
+wire_api = "chat"
+
+[model_providers.rocm_vllm]
+name = "AMD ROCm vLLM Server (Port 8000)"
+base_url = "http://127.0.0.1:8000/v1"
+env_key = "ROCM_LOCAL_API_KEY"
+wire_api = "chat"

@@ -1,6 +1,7 @@
 <div align=center>
   <img src="./docs/public/images/head.png" >
-  <strong>AMD YES! 🚀</strong>
+  <h2>每个 AI 小白，从零开始，动手实践的第一站。</h2>
+  <strong>基于 AMD 平台的 AI 与 Agentic AI 入门实践手册（全栈总览先导课） 🚀</strong>
 </div>
 
 <div align="center">
@@ -34,15 +35,30 @@
   <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
-&emsp;&emsp;自 **ROCm 7.10.0** (2025年12月11日发布) 以来，ROCm 已支持像 CUDA 一样在 Python 虚拟环境中无缝安装，并正式支持 **Linux 和 Windows** 双系统。这标志着 AMD 在 AI 领域的重大突破——学习者与大模型爱好者在硬件选择上不再局限于 NVIDIA，AMD GPU 正成为一个强有力的竞争选择。
+&emsp;&emsp;**“我把自己的 AMD 电脑，变成了学习和工作的 AI 助手。”** —— 这是 **hello-rocm 2.0** 贯穿始终的学习者成功故事。自 **ROCm 7.10+** 与 **TheRock / ROCm 10** 架构升级以来，Windows 11 与 Ubuntu 用户都能以极低门槛在 AMD Radeon 独显、Ryzen AI 核显/NPU（或免费 AMD Radeon Cloud 云算力）上玩转本地大模型。
 
-&emsp;&emsp;然而，**硬件门槛的降低并不意味着学习路径自动清晰**。对于已经具备大模型基础、希望在 AMD GPU 上付诸实践的学习者来说，真正的问题才刚刚开始：如何在 AMD GPU 上把一个模型部署起来？如何在此基础上对模型进行微调与训练？如何理解 ROCm 的 GPU 编程体系、完成从 CUDA 到 ROCm 的迁移？最终，这些能力又如何汇聚成一个可以落地运行的 AI 应用？
+&emsp;&emsp;作为 **Datawhale 社区面向零基础学习者的「AI 全景总览入口课」**，本项目摒弃“上来先背底层术语”的传统路径，统一锁定 **`llama-server`（`llama.cpp`）、`lemonade-server` 与 `vLLM`** 三大标准推理服务引擎，带你一站式跑通：
+1. **第一步重点首发 · 零代码办公先行**：接入 **WorkBuddy** 完成 `dashi-ppt-skill` 一键生成可编辑 `.pptx`、AI 自动填表与定时处理日常办公，并接入 **`Qoder`** 与 **`Codex`** 辅助编程；
+2. **个人知识库与可共享 MCP**：用 `WorkBuddy + Obsidian` 搭建双链私人笔记库，并用 `FastMCP` 将知识库制作成可给别人调用的 **「知识管理 MCP」**；
+3. **痛点驱动中文微调与量化加速**：完成第一次魔搭纯中文 LoRA 微调（群通知抽取 & `WeClone`/小红书网感分身），再用 **`AMD Quark`** 实测同一模型量化前后速度/大小对比，零 C++ 唤醒融合算子并体验 **`AMD-AGI/Hyperloom`** 全自动优化；
+4. **沉淀简历成果与专精深造导流**：打包五件套简历项目作品，畅玩 **15 个趣味实战案例**，并按一章一课精准导流至 Datawhale 各垂直专精课程继续深造！
 
-&emsp;&emsp;**hello-rocm** 正是为这条路径而生。本项目系统覆盖 AMD ROCm 平台上大模型的完整使用链路，带你从**把第一个模型跑起来**，走到**在 AMD GPU 上构建真实 AI 应用**，中间经过微调训练与 GPU 编程的每一个关键环节——让 AMD GPU 不只是一块显卡，而是你进入 AI 开发世界的真实起点。
+> &emsp;&emsp;***🚀 零基础推荐起跑线：直接点击阅读 [第 0 章｜导读与体验旅程](./docs/zh/00-guide/index.md) → [第 1 章｜数据类型三本账与三大引擎部署](./docs/zh/01-first-model/index.md) → [第 2.2 节｜WorkBuddy 办公三件套首发实战](./docs/zh/02-connect-tools/workbuddy-office-suite.md)！***
 
-&emsp;&emsp;**项目的主要内容就是教程，让更多的学生和未来的从业者了解和熟悉 AMD ROCm 的使用方法！任何人都可以提出 issue 或是提交 PR，共同构建维护这个项目。**
+### 🧭 0～9 章全景课程目录与 Datawhale 专精课程引用地图
 
-> &emsp;&emsp;***学习建议：建议先完成 [00-Environment](./docs/zh/00-environment/index.md) 中的环境安装（ROCm + PyTorch + uv）。Ryzen AI 用户若要用 NPU，再完成 [FastFlowLM](./docs/zh/00-environment/fastflowlm.md) / [Lemonade](./docs/zh/00-environment/lemonade.md)。然后学习部署与微调，最后探索算子优化与 GPU 编程。初学者可在环境就绪后从 LM Studio、vLLM 或 FastFlowLM 开始。***
+| 章节入口 | 核心动手内容与阶段交付物 | 双向引用与进阶导流课程 |
+|:---|:---|:---|
+| **[第 0 章｜导读：把 AMD 电脑变成 AI 助手](./docs/zh/00-guide/index.md)** | 6 站学习体验旅程、绿/蓝/紫/云四档硬件 3 分钟对号入座 | 全栈总览先导入口 |
+| **[第 1 章｜直觉认知与三大引擎部署](./docs/zh/01-first-model/index.md)** | 参数/显存/精度“三本明白账” + `llama-server` / `lemonade-server` / `vLLM` 部署 | 🔗 [`self-llm`](https://github.com/datawhalechina/self-llm) |
+| **[第 2 章｜零代码办公先行：WorkBuddy 与 Qoder](./docs/zh/02-connect-tools/index.md)** | 🌟 **首发重点**：`dashi-ppt-skill` 出 PPT + AI 自动填表 + 定时任务 + `Qoder` / `Codex` | 🔗 [Datawhale WorkBuddy 教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage) |
+| **[第 3 章｜让助手读懂你：提示词与个人知识库](./docs/zh/03-prompt-and-rag/index.md)** | 6 关本地提示词闯关 + 黑暗料理菜谱切分实验 + `WorkBuddy + Obsidian` 双链笔记库 | 🔗 [`all-in-rag`](https://github.com/datawhalechina/all-in-rag) |
+| **[第 4 章｜让助手长出手脚：知识管理 MCP 与 Skills](./docs/zh/04-mcp-and-skills/index.md)** | 用 `FastMCP` 将个人知识库封装为可分享给别人调用的 **知识管理 MCP** + 自定义 `SKILL.md` | 🔗 [`hello-agents`](https://github.com/datawhalechina/hello-agents) |
+| **[第 5 章｜能力不够？第一次中文模型微调](./docs/zh/05-fine-tune/index.md)** | 弱智吧破冰 + 中文通知抽取微调 + `WeClone` 微信分身/小红书种草体 + 自建测试集评测 | 🔗 [`happy-llm`](https://github.com/datawhalechina/happy-llm) |
+| **[第 6 章｜速度不够？AMD 量化对比与自动加速](./docs/zh/06-optimize-speed/index.md)** | `AMD Quark` 单模型量化前后速度/体积对比 + 零 C++ 唤醒 `AITER` 算子 + `Hyperloom` 自动寻优 | 🔗 [`hello-gpu`](https://github.com/datawhalechina/hello-gpu) |
+| **[第 7 章｜收获时刻：作品集与简历成果锻造](./docs/zh/07-portfolio-resume/index.md)** | 成功故事纪实模板、个人作品集五件套打包清单、STAR 简历项目示例与面试追问指南 | 毕业深造驿站 |
+| **[第 8 章｜学以致用：15 个趣味实战案例库](./docs/zh/08-fun-cases/index.md)** | 办公三件套置顶，覆盖 8 大场景，统一「五要素规范」与「新手试学 FAQ」 | 全场景实战 |
+| **[第 9 章｜拓展视野：AMD 优秀项目与资源百宝箱](./docs/zh/09-amd-ecosystem/index.md)** | `amd/gaia`、`Hyperloom`、`Quark`、`AITER`、具身智能、推荐系统、HIP 算子实验室与算力字典 | [`every-embodied`](https://github.com/datawhalechina/every-embodied) / [`torch-rechub`](https://github.com/datawhalechina/torch-rechub) |
 
 ### hello-rocm Skill：把本项目装进你的 AI 助手
 
@@ -240,17 +256,26 @@
 
 ```
 hello-rocm/
-├── docs/                   # VitePress 文档源文件
-│   ├── zh/                 # 中文文档
-│   │   ├── 00-environment/ # ROCm 基础环境安装与配置
-│   │   ├── 01-deploy/      # ROCm 大模型部署实践
-│   │   ├── 02-fine-tune/   # ROCm 大模型微调实践
-│   │   ├── 03-infra/       # ROCm 算子优化实践
-│   │   ├── 04-references/  # ROCm 优质参考资料
-│   │   └── 05-amd-yes/     # AMD 实践案例集合
-│   └── en/                 # English docs
-├── src/                    # 源码与脚本
-└── assets/                 # 公共资源
+├── docs/                           # VitePress 在线教程源文件
+│   ├── zh/                         # 中文教程
+│   │   ├── 00-guide/               # 第0章：导读、体验旅程与硬件选型
+│   │   ├── 01-first-model/         # 第1章：数据类型三本账与三大标准引擎部署
+│   │   ├── 02-connect-tools/       # 第2章：WorkBuddy办公三件套、Qoder与Codex接入
+│   │   ├── 03-prompt-and-rag/      # 第3章：提示词闯关与WorkBuddy+Obsidian个人知识库
+│   │   ├── 04-mcp-and-skills/      # 第4章：可共享「知识管理MCP」、Agent Skills与智能体
+│   │   ├── 05-fine-tune/           # 第5章：中文模型微调与自建测试集前后评估
+│   │   ├── 06-optimize-speed/      # 第6章：AMD Quark量化对比、零C++算子与Hyperloom寻优
+│   │   ├── 07-portfolio-resume/    # 第7章：成功故事、五件套作品集与简历成果锻造
+│   │   ├── 08-fun-cases/           # 第8章：15个趣味实战案例库（统一五要素+新手试学FAQ）
+│   │   ├── 09-amd-ecosystem/       # 第9章：AMD优秀开源项目、前沿行业案例与资源百宝箱
+│   │   └── 00-environment ~ 05-amd-yes/  # 专项深度档案库（多模型字典、HIP算子、具身/推荐/集群）
+│   └── en/                         # English docs
+├── src/
+│   ├── configs/                    # 已验证 WorkBuddy / Qoder / Codex 配置文件模板库
+│   ├── main-assistant/             # 知识管理 MCP Server、中文评测与 AMD Quark 测速源码
+│   ├── hello-rocm-skill/           # 内置 AI 伴学助教 Skill
+│   └── fine-tune / infra / amd-yes # 专项实验源码与 Notebook
+└── tests/                          # 教程死链、配置契约与实战源码自动化测试套件
 ```
 
 ### 00. Environment - ROCm 基础环境
