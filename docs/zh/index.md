@@ -14,7 +14,7 @@ hero:
       link: /zh/00-guide/
     - theme: alt
       text: 🌟 首发实战：WorkBuddy 办公三件套
-      link: /zh/02-connect-tools/workbuddy-office-suite
+      link: /zh/02-connect-tools/03-workbuddy-dashi-ppt
     - theme: alt
       text: 🎮 15 个趣味实战案例库
       link: /zh/08-fun-cases/

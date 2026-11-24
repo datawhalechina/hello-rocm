@@ -1,6 +1,6 @@
 # 第 8 章案例上辑（Case 01 ～ Case 08）：日常办公、论文阅读与个人知识库实战
 
-> 本辑所有案例底层统一使用 [第 1 章](../01-first-model/three-engines-deploy.md) 启动的 **`llama-server`（`8080`）**、**`lemonade-server`（`13305`）** 或 **`vLLM`（`8000`）** 服务，客户端配置见 [`src/configs/`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/README.md)。
+> 本辑所有案例底层统一使用 [第 1 章](../01-first-model/index.md) 启动的 **`llama-server`（`8080`）**、**`lemonade-server`（`13305`）** 或 **`vLLM`（`8000`）** 服务，客户端配置见 [`src/configs/`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/README.md)。
 
 ---
 
@@ -25,7 +25,7 @@
 - **💻 代码与步骤**：
   1. 新建沙盒目录 `office_sandbox/inbox/` 并放入测试报销单与杂乱文档副本；
   2. 第一步归档指令：*“请先以 dry-run 模式列出拟将 `inbox/` 文件按【单据/课件/代码】分类移动的预览表，待我确认后执行并生成《目录盘点清单.md》。”*
-  3. 第二步自动填表指令：按 [2.2 节实战二](../02-connect-tools/workbuddy-office-suite.md) 字段契约提取单据写入 `汇总表.xlsx`（缺失项强制填 `待确认`）。
+  3. 第二步自动填表指令：按 [2.2.3 节自动填表实战](../02-connect-tools/04-workbuddy-excel-and-cron.md) 字段契约提取单据写入 `汇总表.xlsx`（缺失项强制填 `待确认`）。
 - **🔍 验证方法**：核对 Excel 列名与源文件金额 100% 一致，故意放入一份无金额单据确认填为 `待确认` 无编造。
 - **🚀 扩展任务与导流**：结合第 5 章中文抽取微调模型对比复杂口语报销说明的提取准确率；🔗 进阶学习 **[Datawhale WorkBuddy 官方教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)**。
 

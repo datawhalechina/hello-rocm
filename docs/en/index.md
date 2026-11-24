@@ -3,69 +3,39 @@ layout: home
 
 hero:
   name: hello-rocm
-  text: ROCm tutorials and practice cases for AMD GPUs
-  tagline: A structured learning path for AMD ROCm in LLM workflows, from environment setup and deployment to fine-tuning and operator optimization.
+  text: Your First Hands-On Station for AI & Agentic AI on AMD.
+  tagline: Turn your AMD PC into an everyday AI assistant for study and work — from local deployment (Gemma 4 E4B/12B, Qwen3.5-9B, Qwen3.6-35B-A3B) to WorkBuddy office automation, shareable Knowledge MCP, Chinese LoRA fine-tuning, and AMD Quark / Hyperloom acceleration.
   image:
     src: /images/logo.png
     alt: hello-rocm
   actions:
     - theme: brand
-      text: Start with environment setup
-      link: /00-environment/
+      text: 🚀 Read Full 2.0 Guide (简体中文)
+      link: /zh/
     - theme: alt
-      text: View practice cases
-      link: /05-amd-yes/
+      text: 📖 Start Chapter 0 (中文导读)
+      link: /zh/00-guide/
     - theme: alt
-      text: ROCm Atlas
+      text: 🗺️ ROCm Atlas
       link: /atlas/rocm/index.html
       target: _blank
       rel: noreferrer
-    - theme: alt
-      text: 简体中文
-      link: /zh/
 
 features:
-  - title: Unified environment baseline
-    details: Set up ROCm 10.0.0, PyTorch 2.13, and uv first so deployment, fine-tuning, and operator optimization tutorials share the same foundation.
-    link: /00-environment/
-  - title: LLM deployment
-    details: Deploy models on AMD GPUs with LM Studio, vLLM, Ollama, llama.cpp, plus FastFlowLM / Lemonade on Ryzen AI (NPU + GPU).
-    link: /01-deploy/
-  - title: LLM fine-tuning
-    details: Follow ROCm fine-tuning examples for models such as Qwen3 and Gemma4.
-    link: /02-fine-tune/
-  - title: Operator optimization
-    details: Learn AMD AI hardware, the ROCm software stack, HIP operators, PyTorch custom operators, and performance-oriented practices.
-    link: /03-infra/
-  - title: References
-    details: Curated ROCm, AMD GPU, and AI development resources for deeper reading.
-    link: /04-references/
-  - title: AMD practice cases
-    details: Community examples covering local agents, model training, vision applications, and developer tools on AMD platforms.
-    link: /05-amd-yes/
+  - title: 🚀 4 Tiered Flagship Models × 3 Standard Engines
+    details: Standardized on Gemma 4 E4B (8G entry), Qwen3.5-9B & Gemma 4 12B (16G+ sweet-spot), and Qwen3.6-35B-A3B (64G+ unified memory flagship) served via llama-server, lemonade-server, and vLLM.
+    link: /zh/01-first-model/
+  - title: 💼 Zero-Code Office & Coding First
+    details: Connect local models directly to WorkBuddy (editable .pptx via dashi-ppt-skill, auto Excel filling, RRULE scheduled tasks), Qoder IDE, and Codex CLI.
+    link: /zh/02-connect-tools/
+  - title: 🧠 Personal RAG & Shareable Knowledge MCP
+    details: Build a bi-directional Obsidian knowledge base and wrap it with FastMCP into a reusable Knowledge Management MCP Server alongside progressive Agent Skills.
+    link: /zh/04-mcp-and-skills/
+  - title: ⚡ LoRA Fine-Tuning, AMD Quark & Hyperloom
+    details: Fine-tune Chinese notification extraction & digital personas, benchmark before/after quantization with AMD Quark, unlock AITER kernels, and auto-optimize via AMD-AGI/Hyperloom.
+    link: /zh/06-optimize-speed/
 ---
 
-## Recommended Path
+## 🌐 Language Note
 
-1. Read [Environment](/00-environment/) first and finish the ROCm, PyTorch, and Python toolchain setup. For Ryzen AI NPU, also complete [FastFlowLM](/00-environment/fastflowlm) / [Lemonade](/00-environment/lemonade).
-2. Move to [Deploy](/01-deploy/) and validate your environment with LM Studio, vLLM, or FastFlowLM.
-3. Continue with [Fine-tune](/02-fine-tune/) to understand LoRA fine-tuning on ROCm.
-4. Explore [Operator Optimization](/03-infra/) if you want to go deeper into low-level performance and operator development.
-5. Check [AMD Practice](/05-amd-yes/) when you need complete project examples.
-
-## Content Map
-
-| Section | Content |
-| --- | --- |
-| [Environment](/00-environment/) | ROCm installation, configuration, validation, GPU architecture, plus FastFlowLM / Lemonade NPU |
-| [Deploy](/01-deploy/) | Multi-framework local deployment for models such as Qwen3, Gemma4, and Qwen3.6 (including NPU) |
-| [Fine-tune](/02-fine-tune/) | LLM fine-tuning notes and examples on ROCm |
-| [Operator Optimization](/03-infra/) | AMD AI hardware, ROCm software stack, HIP operators, and PyTorch custom operators |
-| [References](/04-references/) | ROCm and AMD AI ecosystem resources |
-| [AMD Practice](/05-amd-yes/) | Application cases and community projects for AMD platforms |
-
-## Who This Is For
-
-- Learners who have an AMD GPU and want to run or fine-tune LLMs locally.
-- Developers who want a structured ROCm workflow instead of scattered setup notes.
-- Practitioners who want to move from inference deployment into operator development and performance analysis.
+**hello-rocm 2.0** has been completely redesigned into a clean 10-chapter (**Chapters 0–9**) hands-on curriculum. The complete edition is currently published in Simplified Chinese at **[/zh/](/zh/)**, with verified client configurations available under `src/configs/` and runnable MCP / evaluation scripts under `src/main-assistant/`.

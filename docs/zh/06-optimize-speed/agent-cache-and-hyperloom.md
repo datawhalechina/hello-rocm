@@ -17,7 +17,7 @@
 ### 二、投机采样与 Ryzen AI `NPU + GPU` 异构双打
 
 - **投机采样（Speculative Decoding）**：让一个 `0.6B` 超快草稿小模型先一口气猜出后面 5 个词，再让 `8B`/`14B` 主模型并行一次性核对盖章，不损失一分钱准确率却能提速 `1.5x ~ 2x`！
-- **锐龙 AI 笔记本省电绝招**：通过 `lemonade-server` 将常驻后台的轻量定时办公任务交由超低功耗 **XDNA 2 NPU**（详见 [FastFlowLM NPU 实测](../01-deploy/gemma4/fastflowlm-npu-results.md)）运行，重度代码与 PPT 生成再唤醒 Radeon GPU，续航与性能兼得！
+- **锐龙 AI 笔记本省电绝招**：通过 `lemonade-server`（详见 [第 1.4 节](../01-first-model/04-lemonade-server.md)）将常驻后台的轻量定时办公任务交由超低功耗 **XDNA 2 NPU**（`FastFlowLM` 后端）运行，重度代码与 PPT 生成再唤醒 Radeon GPU，续航与性能兼得！
 
 ---
 
@@ -55,6 +55,6 @@ flowchart LR
 ## 🎯 第 6 章实战产出与专精课程导流：直通 `hello-gpu`
 
 - **本章产出**：《模型量化前后与算子加速实测对比表（体积 / 显存 / TTFT / `tok/s`）》。
-- 🔗 **课程引用与进阶导流**：当你在本章亲眼见证了开启 `AITER` 融合算子与 `Hyperloom` 自动改写内核带来的翻倍加速后，如果你渴望**彻底揭开黑盒，亲手深入 AMD GPU 计算单元（CU / Wavefront / LDS）底层架构，手写极致性能的 HIP 与 Triton 算子**，欢迎无缝进阶进入 Datawhale 硬核专精课程 —— **[`hello-gpu`（GPU 架构与算子优化实战）](https://github.com/datawhalechina/hello-gpu)**（同时可结合本仓库第 9 章收录的 [ROCm 算子编程实验室](../03-infra/index.md) 对照学习）！
+- 🔗 **课程引用与进阶导流**：当你在本章亲眼见证了开启 `AITER` 融合算子与 `Hyperloom` 自动改写内核带来的翻倍加速后，如果你渴望**彻底揭开黑盒，亲手深入 AMD GPU 计算单元（CU / Wavefront / LDS）底层架构，手写极致性能的 HIP 与 Triton 算子**，欢迎无缝进阶进入 Datawhale 硬核专精课程 —— **[`hello-gpu`（GPU 架构与算子优化实战）](https://github.com/datawhalechina/hello-gpu)**！
 
 👉 至此，你的本地 AI 助手已经集齐了「部署 + 办公/IDE 接入 + 私人知识库 + 可共享 MCP + 中文微调 + 量化加速」全套神装！马上进入 **[第 7 章｜收获时刻：把你的成长故事转化为作品集与高含金量简历项目](../07-portfolio-resume/index.md)**！

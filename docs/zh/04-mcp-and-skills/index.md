@@ -17,7 +17,7 @@ flowchart LR
     O -.->|"还需补充"| T
 ```
 
-其中，**MCP（Model Context Protocol，模型上下文协议）** 就是 AI 界的 **“USB-C 万能扩展坞”** —— 只要按 MCP 标准写好一次工具服务，无论是 **WorkBuddy**、**`Qoder`** 还是 **Codex**，插上就能立刻调用（比如一键挂载高德地图 MCP 查天气排旅行路线，详见本仓库 [智能旅行规划助手](../05-amd-yes/hello-agents/index.md)）。
+其中，**MCP（Model Context Protocol，模型上下文协议）** 就是 AI 界的 **“USB-C 万能扩展坞”** —— 只要按 MCP 标准写好一次工具服务，无论是 **WorkBuddy**、**`Qoder`** 还是 **Codex**，插上就能立刻调用（比如一键挂载高德地图 MCP 查天气排旅行路线，详见本仓库第 8 章案例与 [`src/cases/hello-agents`](https://github.com/datawhalechina/hello-rocm/tree/dev_1.0/src/cases/hello-agents)）。
 
 ---
 

@@ -163,7 +163,7 @@ class TestVerifiedConfigsAndDocsLinks(unittest.TestCase):
                     candidate = REPO_ROOT / "docs" / clean.lstrip("/") / "index.md"
             self.assertTrue(candidate.exists(), f"config.mts 存在失效中文路由: {route} -> 找不到 {candidate}")
 
-        # 检查新增 00~09 章节内所有 Markdown 相对链接与图片真实存在
+        # 检查全站 docs/zh 与 docs/en 下所有核心文档的 Markdown 相对链接与图片真实存在
         chapter_dirs = [
             "00-guide",
             "01-first-model",
@@ -176,40 +176,47 @@ class TestVerifiedConfigsAndDocsLinks(unittest.TestCase):
             "08-fun-cases",
             "09-amd-ecosystem",
         ]
-        md_link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
         for ch in chapter_dirs:
             ch_dir = REPO_ROOT / "docs/zh" / ch
             self.assertTrue(ch_dir.exists(), f"章节目录尚未创建: {ch_dir}")
-            for md_file in ch_dir.rglob("*.md"):
-                # 忽略代码块中的示例链接
-                content_no_fence = re.sub(r"```.*?```", "", md_file.read_text(encoding="utf-8"), flags=re.S)
-                for raw_target in md_link_re.findall(content_no_fence):
-                    target = raw_target.strip().split()[0].split("#")[0]
-                    if not target or target.startswith(("http://", "https://", "mailto:")):
-                        continue
-                    if target.startswith("/zh/"):
-                        # VitePress 站内根路径
-                        p1 = REPO_ROOT / "docs" / target.lstrip("/") / "index.md"
-                        p2 = REPO_ROOT / "docs" / f"{target.lstrip('/')}.md"
-                        self.assertTrue(p1.exists() or p2.exists(), f"{md_file} 含失效站内链接: {raw_target}")
-                    elif target.startswith("/"):
-                        p_pub = REPO_ROOT / "docs/public" / target.lstrip("/")
-                        self.assertTrue(p_pub.exists(), f"{md_file} 含失效静态资源路径: {raw_target}")
-                    else:
-                        resolved = (md_file.parent / target).resolve()
+
+        all_site_md_files = [
+            *list((REPO_ROOT / "docs/zh").rglob("*.md")),
+            *list((REPO_ROOT / "docs/en").rglob("*.md")),
+        ]
+        md_link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+        for md_file in all_site_md_files:
+            # 忽略代码块中的示例链接
+            content_no_fence = re.sub(r"```.*?```", "", md_file.read_text(encoding="utf-8"), flags=re.S)
+            for raw_target in md_link_re.findall(content_no_fence):
+                target = raw_target.strip().split()[0].split("#")[0]
+                if not target or target.startswith(("http://", "https://", "mailto:")):
+                    continue
+                if target.startswith("/zh/"):
+                    # VitePress 站内根路径
+                    p1 = REPO_ROOT / "docs" / target.lstrip("/") / "index.md"
+                    p2 = REPO_ROOT / "docs" / f"{target.lstrip('/')}.md"
+                    self.assertTrue(p1.exists() or p2.exists(), f"{md_file} 含失效站内链接: {raw_target}")
+                elif target == "/":
+                    self.assertTrue((REPO_ROOT / "docs/en/index.md").exists())
+                elif target.startswith("/"):
+                    p_pub = REPO_ROOT / "docs/public" / target.lstrip("/")
+                    self.assertTrue(p_pub.exists(), f"{md_file} 含失效静态资源路径: {raw_target}")
+                else:
+                    resolved = (md_file.parent / target).resolve()
+                    self.assertTrue(
+                        resolved.is_relative_to((REPO_ROOT / "docs").resolve()),
+                        f"VitePress 禁止相对链接越出 docs/ 目录: {md_file} -> {raw_target}",
+                    )
+                    if not resolved.exists() and not resolved.suffix:
+                        resolved_md = Path(f"{resolved}.md")
+                        resolved_idx = resolved / "index.md"
                         self.assertTrue(
-                            resolved.is_relative_to((REPO_ROOT / "docs").resolve()),
-                            f"VitePress 禁止相对链接越出 docs/ 目录: {md_file} -> {raw_target}",
+                            resolved_md.exists() or resolved_idx.exists(),
+                            f"{md_file} 含失效相对链接: {raw_target}",
                         )
-                        if not resolved.exists() and not resolved.suffix:
-                            resolved_md = Path(f"{resolved}.md")
-                            resolved_idx = resolved / "index.md"
-                            self.assertTrue(
-                                resolved_md.exists() or resolved_idx.exists(),
-                                f"{md_file} 含失效相对链接: {raw_target}",
-                            )
-                        else:
-                            self.assertTrue(resolved.exists(), f"{md_file} 含失效相对路径: {raw_target} -> {resolved}")
+                    else:
+                        self.assertTrue(resolved.exists(), f"{md_file} 含失效相对路径: {raw_target} -> {resolved}")
 
         # 同时校验根目录 README.md 所有本地相对链接真实存在
         readme_no_fence = re.sub(r"```.*?```", "", (REPO_ROOT / "README.md").read_text(encoding="utf-8"), flags=re.S)
@@ -219,6 +226,46 @@ class TestVerifiedConfigsAndDocsLinks(unittest.TestCase):
                 continue
             resolved = (REPO_ROOT / target).resolve()
             self.assertTrue(resolved.exists(), f"README.md 含失效相对链接: {raw_target} -> {resolved}")
+
+    def test_no_legacy_00_05_directories_or_links(self) -> None:
+        """确保旧版 00-environment ~ 05-amd-yes 中英文目录与遗留文档链接已 100% 清理干净"""
+        legacy_dirs = [
+            "00-environment",
+            "01-deploy",
+            "02-fine-tune",
+            "03-infra",
+            "04-references",
+            "05-amd-yes",
+        ]
+        for lang in ("zh", "en"):
+            for d in legacy_dirs:
+                p = REPO_ROOT / "docs" / lang / d
+                self.assertFalse(p.exists(), f"遗留旧目录尚未清理: {p}")
+
+        self.assertFalse((REPO_ROOT / "src/infra").exists(), "src/infra 旧目录尚未清理")
+        self.assertFalse((REPO_ROOT / "src/amd-yes").exists(), "src/amd-yes 旧目录尚未清理")
+
+        # 扫描核心文档与配置，禁止指向旧文档路由（允许 docs/public/images/05-amd-yes 等静态图片资源路径）
+        legacy_doc_route_re = re.compile(
+            r"(?<!images)(?:/|\.\./)(?:00-environment|01-deploy|02-fine-tune|03-infra|04-references|05-amd-yes)(?:/|\b)"
+        )
+        scan_targets = [
+            REPO_ROOT / "README.md",
+            REPO_ROOT / "CONTENT_GUIDE.md",
+            REPO_ROOT / "docs/.vitepress/config.mts",
+            *list((REPO_ROOT / "docs/zh").rglob("*.md")),
+            *list((REPO_ROOT / "docs/en").rglob("*.md")),
+            *list((REPO_ROOT / "src/hello-rocm-skill").rglob("*.md")),
+        ]
+        for f in scan_targets:
+            if not f.exists():
+                continue
+            text = f.read_text(encoding="utf-8")
+            m = legacy_doc_route_re.search(text)
+            self.assertIsNone(
+                m,
+                f"文件 {f} 仍包含已删除的 00~05 旧文档路由引用: {m.group(0) if m else ''}",
+            )
 
 
 if __name__ == "__main__":

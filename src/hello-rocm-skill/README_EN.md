@@ -1,75 +1,13 @@
-# hello-rocm-skill
+# hello-rocm Skill (2.0 Companion Guide)
 
-A Claude Code skill that helps you navigate the [hello-rocm](https://github.com/datawhalechina/hello-rocm) tutorial project — deploy, fine-tune, and optimize LLMs on AMD GPUs with ROCm.
+Built-in AI companion skill for **hello-rocm 2.0**, compatible with **WorkBuddy** (`.codebuddy/skills/`), **`Qoder`** (`.agents/skills/`), **Codex**, and **Claude Code**.
 
-## Installation
-
-Copy the `hello-rocm-skill/` directory to your IDE's skills folder:
-
-| IDE | Destination |
-|-----|-------------|
-| **Claude Code** | `.claude/skills/hello-rocm-skill/` |
-| **Cursor** | `.cursor/skills/hello-rocm-skill/` |
-| **Windsurf** | `.windsurf/skills/hello-rocm-skill/` |
-| **Trae** | `.trae/skills/hello-rocm-skill/` |
-| **Codex / Qoder** | `.agents/skills/hello-rocm-skill/` |
-| **Kiro** | `.kiro/skills/hello-rocm-skill/` |
-| **OpenCode** | `.opencode/skills/hello-rocm-skill/` |
-| **VS Code Copilot** | `.github/skills/hello-rocm-skill/` |
-
-### One-command install (Claude Code)
+## Quick Install
 
 ```bash
-git clone https://github.com/datawhalechina/hello-rocm.git
-cp -r hello-rocm/hello-rocm-skill/ .claude/skills/hello-rocm-skill/
+mkdir -p .codebuddy/skills .agents/skills
+cp -r src/hello-rocm-skill .codebuddy/skills/hello-rocm
+cp -r src/hello-rocm-skill .agents/skills/hello-rocm
 ```
 
-### Verify
-
-Start a new conversation and say: **"How do I deploy a model on my AMD GPU?"**
-
-## Quick Start by Persona
-
-| I am... | Try saying... |
-|---------|---------------|
-| **New AMD device owner** | "Does my GPU support ROCm?" / "Help me install ROCm and run my first model" |
-| **AI learner** | "I want to fine-tune a model with LoRA" / "Show me practice projects" |
-| **Experienced developer** | "Help me write a HIP kernel" / "Deploy vLLM in production on ROCm" |
-| **Contributor** | "Where should I put a new deployment tutorial?" / "Show me the contribution guide" |
-
-## What This Skill Does
-
-- Detects your experience level from what you say (no questionnaire)
-- Points you to the exact tutorial file or reference index you need in the hello-rocm project
-- Summarizes relevant content and suggests next steps
-- For contribution questions, points English users to `CONTENT_GUIDE_en.md` and `CONTRIBUTING_en.md`
-- Uses `docs/en/04-references/index.md` / `docs/zh/04-references/index.md` as the quick lookup index for ROCm framework installs, inference services, AMD GPU architecture resources, and AMD ROCm Blog cross-references
-- Falls back to AMD official docs for version-specific or edge-case questions
-
-## What This Skill Does NOT Do
-
-- Install software on your machine
-- Diagnose hardware failures
-- Replace official AMD support
-
-## Files
-
-| File | Purpose |
-|------|---------|
-| `SKILL.md` | Core agent instructions (consumed by LLM) |
-| `skill.json` | Machine-readable skill manifest |
-| `README.md` | Human-facing documentation (Chinese) |
-| `README_EN.md` | Human-facing documentation (English) |
-| `references/quick-deploy/SKILL.md` | 5-step lightning deploy checklist for new users |
-| `references/troubleshooting/SKILL.md` | Common error patterns and fixes |
-
-## Links
-
-- [hello-rocm Project](https://github.com/datawhalechina/hello-rocm)
-- [ROCm Official Docs](https://rocm.docs.amd.com/)
-- [hello-rocm Skill guide](../../docs/en/04-references/index.md#hello-rocm-skill)
-- [hello-rocm Skill 使用指南](../../docs/zh/04-references/index.md#hello-rocm-skill)
-
-## Version
-
-0.1.0 — Initial framework. Trigger tables will be expanded as the project grows.
+See `docs/zh/00-guide/` and `docs/zh/09-amd-ecosystem/` for the full 0–9 chapter syllabus and AMD GPU `gfx` reference tables.

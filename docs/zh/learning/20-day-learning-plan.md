@@ -179,7 +179,7 @@ flowchart LR
 ### Day 2 ｜ 环境基线 · ROCm 10.0.0 + PyTorch 2.13
 
 - **目标**：建成统一环境，`torch.cuda.is_available()` 返回 `True`
-- **读**：[ROCm 基础环境安装与配置](/zh/00-environment/)
+- **读**：[第 1.2 节：ROCm 10 环境一键配置与体检](/zh/01-first-model/02-rocm-env-setup)
 - **做**：
   1. 安装 uv，创建 Python 3.12 虚拟环境
   2. 按自己的 GPU 架构安装 wheel：
@@ -201,7 +201,7 @@ flowchart LR
 ### Day 3 ｜ GPU 架构与显存预算
 
 - **目标**：拿到一张「我的卡能跑什么」的清单
-- **读**：[GPU 架构与 pip 索引对照表](/zh/00-environment/rocm-gpu-architecture-table)
+- **读**：[第 0.3 节：硬件档位与主体模型速查](/zh/00-guide/03-hardware-and-cloud) · [第 1.1 节：大模型显存三本账与量化直觉](/zh/01-first-model/01-model-intuition)
 - **做**：
   1. 查表确认自己的 GPU 对应的 `gfxXXXX` 架构标签与 `device-gfxXXXX` extras
   2. 理解显存由三部分构成：**模型权重 + KV Cache + 激活值**
@@ -215,7 +215,7 @@ flowchart LR
 ### Day 4 ｜ vLLM 基础部署
 
 - **目标**：用 Docker 拉起一个 OpenAI 兼容推理服务
-- **读**：[vLLM 零基础部署](/zh/01-deploy/gemma4/vllm-rocm7-deploy)
+- **读**：[第 1.5 节：vLLM 高并发工业级引擎部署实战](/zh/01-first-model/05-vllm-server)
 - **做**：
   1. 拉取官方 ROCm vLLM 镜像并启动容器
   2. 加载 Gemma 4 E4B-it，暴露 OpenAI 兼容端口
@@ -242,7 +242,7 @@ flowchart LR
 ### Day 6 ｜ llama.cpp 基础部署
 
 - **目标**：不靠 Docker，用预编译二进制跑通 GGUF 推理
-- **读**：[llama.cpp 零基础部署](/zh/01-deploy/gemma4/llamacpp-rocm7-deploy)
+- **读**：[第 1.3 节：llama-server 轻量级全能引擎部署实战](/zh/01-first-model/03-llama-server)
 - **做**：
   1. 获取面向 ROCm 的 llama.cpp（预编译二进制或 Docker 二选一）
   2. 下载 Gemma 4 E4B-it 的 GGUF 量化权重
@@ -283,7 +283,7 @@ flowchart LR
 ### Day 9 ｜ 数据构造与 chat template
 
 - **目标**：把自己想教模型的东西变成训练样本
-- **读**：[ROCm 大模型微调实践](/zh/02-fine-tune/) 通用教程「微调数据集构造」小节
+- **读**：[第 5 章：中文 LoRA 微调实战](/zh/05-fine-tune/)（进阶原理可对照 [`happy-llm`](https://github.com/datawhalechina/happy-llm)）
 - **做**：
   1. 理解 `instruction` / `input` / `output` 三键结构
   2. 用 `tokenizer.get_chat_template()` 打印 Qwen3-0.6B 的指令模板
@@ -304,10 +304,10 @@ flowchart LR
 - **交**：参数量对比数字 + 「r=8 和 r=64 该怎么选」的一句话答案
 - **分值**：+10
 
-### Day 11 ｜ 训练实战 · Qwen3-0.6B LoRA + SwanLab
+### Day 11 ｜ 训练实战 · 轻量模型 LoRA + SwanLab
 
 - **目标**：完整跑完一次训练，会看 loss 曲线
-- **读**：[Qwen3-0.6B LoRA 及 SwanLab 可视化记录](/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab)
+- **读**：[第 5 章：5 分钟弱智吧破冰实验与 SwanLab 可视化](/zh/05-fine-tune/)
 - **做**：
   1. 跑通训练，SwanLab 看 loss 曲线
   2. 逐项理解 `per_device_train_batch_size` / `gradient_accumulation_steps` / `gradient_checkpointing` / `learning_rate` / `save_steps`
@@ -315,10 +315,10 @@ flowchart LR
 - **交**：loss 曲线 + 训练总时长 + 「梯度累积 = 2 时全局 batch 是多少」
 - **分值**：+10
 
-### Day 12 ｜ 进阶 · Gemma4-E4B LoRA（ModelScope 单卡）
+### Day 12 ｜ 进阶 · Gemma 4 E4B / Qwen3.5-9B 中文 LoRA（ModelScope 单卡）
 
-- **目标**：在更大模型上体会显存管理
-- **读**：[Gemma4-E4B LoRA（ModelScope 单卡）](/zh/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu)
+- **目标**：在主体模型上体会显存管理与微调前后客观评估
+- **读**：[第 5 章：中文通知 JSON 提取微调与客观评测](/zh/05-fine-tune/chinese-lora-and-persona)
 - **做**：
   1. ModelScope 拉取 `AI-ModelScope/emotion` 数据集与 `google/gemma-4-E4B-it`（**不需要 `HF_TOKEN`**）
   2. 单卡 BF16 LoRA 训练
@@ -349,19 +349,19 @@ flowchart LR
 
 > 本模块是全课难度峰值。每天只推进一章，**不要提前预习堆叠**。第 3、4 章需要 `hipcc` / CMake / GCC 环境。
 
-### Day 14 ｜ 硬件全景 + ROCm 在栈中的位置
+### Day 14 ｜ 性能剖析与硬件全景
 
-- **读**：[拥抱 AMD AI 算力新时代](/zh/03-infra/embrace-amd-ai)
+- **读**：[第 6 章：TraceLens 瓶颈剖析与量化加速总览](/zh/06-optimize-speed/) · [第 9 章：AMD 硬件架构与生态全景](/zh/09-amd-ecosystem/)
 - **做**：
-  1. 梳理 Radeon 独显与 Instinct 数据中心卡两条产品线与各自典型场景
+  1. 梳理 Radeon 独显、Ryzen AI APU 与 Instinct 数据中心卡产品线与典型场景
   2. 说清 ROCm 在「框架 → 运行时 → 驱动 → GPU」中的位置
-  3. PyTorch 跑 ResNet 训练，同时 `amd-smi monitor` 看利用率 / 温度 / 功耗
+  3. 用 `amd-smi monitor` 结合 `TraceLens` 观察利用率 / 温度 / 功耗 / 瓶颈算子
 - **交**：`amd-smi` 曲线 + 「我的卡属于哪条产品线、适合干什么」
 - **分值**：+10
 
 ### Day 15 ｜ 从软件栈到硬件架构
 
-- **读**：[解密 AI 加速器：从软件栈到硬件架构](/zh/03-infra/decode-ai-accelerator)
+- **读**：[`hello-gpu`：GPU 架构与算子优化实战](https://github.com/datawhalechina/hello-gpu)
 - **做**：
   1. 用 `ldd` 追踪 PyTorch → HIP → HSA → 驱动 → GPU 的调用链
   2. 理解 SIMT 执行模型、CPU 低延迟 vs GPU 高吞吐、CU / LDS / 显存带宽
@@ -370,9 +370,9 @@ flowchart LR
 
 > ⚠️ 今天是纯认知日，不写代码，但要想清楚「为什么 GPU 需要这么多线程」。
 
-### Day 16 ｜ 手写第一个 HIP 算子
+### Day 16 ｜ 手写第一个 HIP 算子（联动 `hello-gpu`）
 
-- **读**：[迈入 ROCm 编程世界：手写 ROCm 算子](/zh/03-infra/handwrite-rocm-operator)
+- **读**：[`hello-gpu` HIP / GPU 算子编程章节](https://github.com/datawhalechina/hello-gpu)
 - **做**：
   1. HIP 与 CUDA 的对应关系、Host / Device 代码结构
   2. 手写 Kernel 复现 Tensor 加法
@@ -381,9 +381,9 @@ flowchart LR
 - **交**：手写算子 vs `torch` 原生算子耗时对比表
 - **分值**：+10
 
-### Day 17 ｜ 为 PyTorch 编写自定义 ROCm 算子
+### Day 17 ｜ 零 C++ 算子加速与自定义算子拓展
 
-- **读**：[为 PyTorch 编写自定义 ROCm 算子](/zh/03-infra/custom-pytorch-operator)
+- **读**：[第 6 章：零 C++ 算子加速与 Hyperloom 自动寻优](/zh/06-optimize-speed/agent-cache-and-hyperloom) · [`hello-gpu` PyTorch C++ Extension 实战](https://github.com/datawhalechina/hello-gpu)
 - **做**：
   1. 用 C++ Extension 把 HIP Kernel 注册成 PyTorch 可调用算子
   2. 实战 Fused Swish；用 Grid-Stride Loop 优化；接 Autograd 自动求导
@@ -412,10 +412,10 @@ flowchart LR
 
 > 本模块只做**一个**案例，且必须是命令行可完成的。选它是因为能直接吃掉 Day 13 的微调成果，把「部署 + 微调」两个模块串起来。
 
-### Day 19 ｜ 案例实战 · 命令行对话应用
+### Day 19 ｜ 案例实战 · 命令行智能体与人设对话应用
 
-- **任务**：用 **Day 13 自己微调的 LoRA 模型**，做一个纯命令行的多轮对话应用
-- **读**：[Chat-甄嬛](/zh/05-amd-yes/huanhuan-chat) · [toy-cli](/zh/05-amd-yes/toy-cli)
+- **任务**：用 **Day 13 自己微调的 LoRA 模型**，做一个纯命令行的多轮对话或终端 Agent 应用
+- **读**：[第 2.4 节：Codex CLI 与 toy-cli 终端智能体实战](/zh/02-connect-tools/06-codex-and-toy-cli) · [第 5 章：WeClone 与人设分身微调](/zh/05-fine-tune/chinese-lora-and-persona)
 - **参考实现方式**（二选一，或自己写）：
   - **A · 本地推理脚本**：`transformers` + `PeftModel` 加载基座与 LoRA，命令行多轮对话
   - **B · API + 客户端**：用 Day 4 学的 vLLM 起服务挂 LoRA，再写一个终端客户端调 `/v1/chat/completions`
@@ -505,11 +505,11 @@ flowchart LR
 | 模块 | 教程链接 |
 |:---|:---|
 | 云平台 | [AMD Radeon Cloud 使用指南](/zh/cloud/amd-radeon-cloud) |
-| 环境 | [ROCm 基础环境安装与配置](/zh/00-environment/) · [GPU 架构与 pip 索引对照表](/zh/00-environment/rocm-gpu-architecture-table) |
-| 部署 | [vLLM 零基础部署](/zh/01-deploy/gemma4/vllm-rocm7-deploy) · [llama.cpp 零基础部署](/zh/01-deploy/gemma4/llamacpp-rocm7-deploy) |
-| 微调 | [ROCm 大模型微调实践](/zh/02-fine-tune/) · [Qwen3-0.6B LoRA](/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab) · [Gemma4-E4B LoRA](/zh/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu) |
-| 算子 | [拥抱 AMD AI](/zh/03-infra/embrace-amd-ai) · [解密 AI 加速器](/zh/03-infra/decode-ai-accelerator) · [手写 ROCm 算子](/zh/03-infra/handwrite-rocm-operator) · [PyTorch 自定义 ROCm 算子](/zh/03-infra/custom-pytorch-operator) |
-| 案例 | [Chat-甄嬛](/zh/05-amd-yes/huanhuan-chat) · [toy-cli](/zh/05-amd-yes/toy-cli) |
+| 环境与硬件 | [第 0.3 节：硬件体检与模型选型](/zh/00-guide/03-hardware-and-cloud) · [第 1.2 节：ROCm 10 环境准备](/zh/01-first-model/02-rocm-env-setup) |
+| 部署 | [第 1.3 节：llama-server 部署](/zh/01-first-model/03-llama-server) · [第 1.4 节：lemonade-server 部署](/zh/01-first-model/04-lemonade-server) · [第 1.5 节：vLLM 部署](/zh/01-first-model/05-vllm-server) |
+| 微调 | [第 5 章：中文 LoRA 微调概览](/zh/05-fine-tune/) · [中文通知抽取与人设分身实战](/zh/05-fine-tune/chinese-lora-and-persona) · [`happy-llm`](https://github.com/datawhalechina/happy-llm) |
+| 量化与算子 | [第 6 章：AMD Quark 量化对比](/zh/06-optimize-speed/) · [零 C++ 算子加速与 Hyperloom](/zh/06-optimize-speed/agent-cache-and-hyperloom) · [`hello-gpu`](https://github.com/datawhalechina/hello-gpu) |
+| 案例 | [第 2.4 节：Codex 与 toy-cli 终端智能体](/zh/02-connect-tools/06-codex-and-toy-cli) · [第 8 章：15 个趣味应用案例超市](/zh/08-fun-cases/) |
 
 ---
 

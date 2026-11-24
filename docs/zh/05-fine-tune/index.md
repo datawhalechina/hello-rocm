@@ -22,8 +22,8 @@
 
 如果把包含 40 亿参数的原版模型全部解冻修改（全量微调），光存梯度和优化器状态就要吃掉 **50 GB+** 显存。  
 而 **LoRA（低秩自适应）** 的聪明之处在于：**冻结原版“大字典”一字不改，只在旁边贴几张极薄的“透明便利贴适配器”（仅占总参数量的 `0.1% ~ 1%`）专门记录新规矩**！
-- **`Gemma 4 E4B` / 轻量模型 LoRA & QLoRA 微调**：仅需 **6 GB ~ 10 GB 显存**（🟢 8G–12G 入门卡可跑 QLoRA，详见本仓库实测教程 [Gemma4-E4B 单卡微调](../02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu.md) 与超轻量拓展 [Qwen3-0.6B LoRA + SwanLab 记录](../02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md)）；
-- **`Qwen3.5-9B` / `Gemma 4 12B` LoRA & QLoRA 微调**：仅需 **12 GB ~ 22 GB 显存**（🔵 16G–24G 甜点卡与云算力丝滑跑通，亦可对照仓库同系实录 [Qwen3.5 LoRA + SwanLab 记录](../02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md)）。
+- **`Gemma 4 E4B` / 轻量模型 LoRA & QLoRA 微调**：仅需 **6 GB ~ 10 GB 显存**（🟢 8G–12G 入门卡即可流畅训练单卡 LoRA / QLoRA）；
+- **`Qwen3.5-9B` / `Gemma 4 12B` LoRA & QLoRA 微调**：仅需 **12 GB ~ 22 GB 显存**（🔵 16G–24G 甜点卡与云算力丝滑跑通，支持 `SwanLab` 全程 Loss 可视化）。
 
 ### 🧪 5 分钟中文破冰实验：用「弱智吧（`COIG-CQIA`）」治好小模型被中文双关忽悠
 

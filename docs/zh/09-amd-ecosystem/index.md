@@ -34,14 +34,13 @@ AMD 正在 GitHub（[`github.com/amd`](https://github.com/amd)、[`github.com/RO
 
 如果你已经不满足于日常办公和单卡轻量应用，渴望挑战 **机器人具身智能、工业级推荐系统、多卡分布式大模型训练、百亿/千亿模型极限部署或底层 C++ HIP 算子开发**，本仓库为你完整保留并打磨了以下进阶实战专题：
 
-| 进阶方向 | 本仓库完整实操教程入口 | 联合生态与进阶深造课程 |
+| 进阶方向 | 生态代表项目与复现要点 | 联合生态与进阶深造课程 |
 |:---|:---|:---|
-| 🤖 **具身智能（Embodied AI）** | **[Every Embodied：ROCm 具身智能策略复刻](../05-amd-yes/every-embodied.md)**<br/>在 MuJoCo 桌面抓取环境中复刻 ACT、SmolVLA、Pi0 与 Pi0.5 训练与闭环评估 | 🔗 [`datawhalechina/every-embodied`](https://github.com/datawhalechina/every-embodied) |
-| 📚 **工业级推荐系统** | **[Torch-RecHub：ROCm 推荐系统全链路实战](../05-amd-yes/torch-rechub/index.md)**<br/>覆盖 DeepFM (CTR)、DIN (序列建模)、DSSM (召回)、MMOE (多任务) 与 ONNX 导出 | 🔗 [`datawhalechina/torch-rechub`](https://github.com/datawhalechina/torch-rechub) |
-| 🧠 **分布式从零训练大模型** | **[Happy-LLM：AMD 多卡集群预训练与偏好对齐实战](../05-amd-yes/happy-llm/index.md)**<br/>亲手搭建大模型架构并跑通多卡预训练与对齐流程 | 🔗 [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) |
-| ⚡ **旗舰 AI PC 极限部署** | • **[DeepSeek-V4-Flash：Strix Halo 128GB 原生 HIP 部署](../05-amd-yes/ds4.md)**<br/>• **[Qwen3.8-Flash-CIRU：Strix Halo 高速部署实测](../05-amd-yes/qwen3.8.md)**<br/>• **[Strix Arena 性能排行榜](https://strix-arena.web.app/)**（Ryzen AI Max+ 395 真机推理跑分与可复现配方榜） | 🔗 [`datawhalechina/self-llm`](https://github.com/datawhalechina/self-llm) |
-| 🎯 **计算机视觉游戏 AI** | **[YOLOv10 微信跳一跳：ROCm 目标检测训练与自动化实战](../05-amd-yes/wechat-jump.md)** | CV 实时检测与控制闭环 |
-| 🔬 **底层 GPU 架构与 HIP 算子实验室** | **[ROCm 算子优化与 GPU 编程专区（03-Infra）](../03-infra/index.md)**<br/>• [拥抱 AMD AI 算力新时代](../03-infra/embrace-amd-ai.md)<br/>• [解密 AI 加速器：从软件栈到硬件架构](../03-infra/decode-ai-accelerator.md)<br/>• [手写你的第一个 ROCm HIP 算子](../03-infra/handwrite-rocm-operator.md)<br/>• [为 PyTorch 编写自定义 C++/HIP 算子](../03-infra/custom-pytorch-operator.md) | 🔗 **[`datawhalechina/hello-gpu`](https://github.com/datawhalechina/hello-gpu)** |
+| 🤖 **具身智能（Embodied AI）** | **Every Embodied 策略复刻**：在 MuJoCo 桌面抓取环境中基于 ROCm 复刻 ACT、SmolVLA、Pi0 与 Pi0.5 训练与闭环评估 | 🔗 [`datawhalechina/every-embodied`](https://github.com/datawhalechina/every-embodied) |
+| 📚 **工业级推荐系统** | **Torch-RecHub 全链路实战**：基于 ROCm + PyTorch 跑通 DeepFM (CTR)、DIN (序列建模)、DSSM (召回)、MMOE (多任务) 与 ONNX 导出 | 🔗 [`datawhalechina/torch-rechub`](https://github.com/datawhalechina/torch-rechub) |
+| 🧠 **分布式从零训练大模型** | **Happy-LLM 多卡集群实战**：亲手搭建 Transformer 大模型架构并在 AMD 多卡环境跑通预训练、SFT 与偏好对齐流程 | 🔗 [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) |
+| ⚡ **旗舰 AI PC 极限部署** | • **Ryzen AI Max+ 395 (Strix Halo 128GB)** 超大统一内存跑通 `Qwen3.6-35B-A3B` 等百亿级 MoE 模型<br/>• **[Strix Arena 性能排行榜](https://strix-arena.web.app/)**（真机推理跑分与可复现配方榜） | 🔗 [`datawhalechina/self-llm`](https://github.com/datawhalechina/self-llm) |
+| 🔬 **底层 GPU 架构与算子编程** | 深入 AMD GPU 计算单元（CU / Wavefront / LDS）底层架构，手写高性能 HIP 与 Triton 融合算子及 PyTorch C++ 扩展 | 🔗 **[`datawhalechina/hello-gpu`](https://github.com/datawhalechina/hello-gpu)** |
 
 ---
 
@@ -51,13 +50,13 @@ AMD 正在 GitHub（[`github.com/amd`](https://github.com/amd)、[`github.com/RO
 - ☁️ **[AMD Radeon Cloud 使用与 SSH 远程连接指南](../cloud/amd-radeon-cloud.md)**：手头无卡也能免费体验大显存 AMD GPU。
 - 🎓 **[AUP Learning Cloud 端侧算力指南](../cloud/aup-learning-cloud.md)**：AMD 大学计划（AMD University Program）教学与实训算力支持。
 
-### 2. 权威硬件架构字典与版本速查库
+### 2. 权威硬件架构字典与官方文档入口
 - 🗺️ **[ROCm 软件栈交互式全景图谱](/atlas/rocm/index.html)**：一图看清从底层驱动、编译器到上层 AI 框架的全景拼图。
-- 📋 **[AMD GPU / APU 架构与 `pip` 索引对照表](../00-environment/rocm-gpu-architecture-table.md)**：一秒查清你的显卡属于 RDNA 3 / RDNA 3.5 / RDNA 4 / CDNA 哪一代以及对应的 `gfx` Target 编号（如 `gfx1100`、`gfx1151`、`gfx1201`、`gfx942`）。
-- 📰 **[ROCm 10.0.0 里程碑版本深度解读](../00-environment/rocm-10-0-0-release-notes.md)** 与 **[ROCm 官方与社区完整参考资料索引（04-References）](../04-references/index.md)**（含白皮书、官方文档总入口、[AMD ROCm 技术博客](https://rocm.blogs.amd.com/)）。
+- 📋 **[硬件体检与 `gfx` 架构对照表](../00-guide/03-hardware-and-cloud.md)** · **[ROCm 10.0.0 环境配置指南](../01-first-model/02-rocm-env-setup.md)**：一秒查清 RDNA 3 (`gfx110X`) / RDNA 3.5 (`gfx115X`) / RDNA 4 (`gfx120X`) / CDNA 3 (`gfx942`) 架构代号与 `pip` 安装源。
+- 📰 **[AMD ROCm 官方文档总站](https://rocm.docs.amd.com/)** 与 **[AMD ROCm 技术博客](https://rocm.blogs.amd.com/)**。
 
 ### 3. 已验证配置总索引与开源共建邀请
-- ⚙️ **全书已验证客户端与引擎配置模板库**：[`src/configs/`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/README.md)（含 WorkBuddy、`Qoder`、Codex 标准配置）与 [NPU / Lemonade 专项排错清单](../00-environment/npu-troubleshooting.md)。
+- ⚙️ **全书已验证客户端与引擎配置模板库**：[`src/configs/`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/README.md)（含 WorkBuddy、`Qoder`、Codex 标准配置）与 [Lemonade / NPU 引擎部署排错](../01-first-model/04-lemonade-server.md)。
 - 🤝 **加入我们，一起共建更友好的 AMD AI 开源学习生态**！
   - 提交 **[新手试学反馈卡](https://github.com/datawhalechina/hello-rocm/issues/new/choose)** 帮助打磨零卡点教程；
   - 参照 **[内容规范指南](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/CONTENT_GUIDE.md)** 与 **[案例五要素模板](../08-fun-cases/_CASE_TEMPLATE.md)** 提交你的创意案例 PR；

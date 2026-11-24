@@ -1,79 +1,35 @@
 ---
 name: hello-rocm
 description: >-
-  hello-rocm 开源教程项目：AMD ROCm 上大模型环境、部署、微调与算子/Infra。
-  当用户询问 AMD GPU、ROCm、Windows/Linux 上本地 LLM 推理与部署、vLLM/Ollama/LM Studio、
-  FastFlowLM/Lemonade/XDNA2 NPU、
-  LoRA 微调、HIP/RCCL、hello-rocm 仓库结构、学习顺序或贡献规范时，必须加载并遵循本 Skill。
+  hello-rocm 2.0 伴学助教技能：基于 AMD 平台的 AI 与 Agentic AI 入门实践手册（全栈总览先导课）。
+  当用户询问 AMD GPU/APU 选型、ROCm 10 环境安装、四大主体模型（Gemma 4 E4B/12B、Qwen3.5-9B、Qwen3.6-35B-A3B）、
+  三大推理引擎（llama-server / lemonade-server / vLLM）、WorkBuddy 办公三件套（dashi-ppt-skill / 自动填表 / 定时任务）、
+  Qoder / Codex 接入、Obsidian 知识库与可共享「知识管理 MCP」、中文 LoRA 微调或 AMD Quark / Hyperloom 量化加速时自动激活。
 ---
 
-# hello-rocm 项目 Skill
+# hello-rocm 2.0 伴学助教 Skill
 
-本 Skill 汇总 **hello-rocm** 仓库的定位、目录结构与推荐学习路径，便于助手准确指路（路径相对于仓库根目录）。
+本 Skill 索引 **hello-rocm 2.0** 纯净架构的完整章节地图、硬件选型与排障入口（所有路径均相对于仓库根目录）。
 
-## 项目是什么
+## 一、核心技术基线
 
-- **定位**：面向 **AMD ROCm** 的 **教程型** 开源仓库（主体是文档与 Notebook），补齐「CUDA 教程很多、ROCm 系统教程偏少」的空白。
-- **一句话**：教用户在 **AMD GPU + ROCm** 上完成大模型 **环境安装 → 部署推理 → 微调 →（进阶）算子与 Infra**，并与 **Datawhale / 社区** 共建内容。
-- **背景要点**（便于回答「为什么现在是 ROCm」类问题）：
-  - **当前基线是 ROCm 10.0.0（2026.8.26）**：pip 索引为 `https://stable.repo.amd.com/rocm/whl-next/`，配套 PyTorch 2.13.0。详见 `docs/zh/00-environment/index.md` / `docs/en/00-environment/index.md`。
-  - **7.14.0 把 TheRock 做成生产基座；10.0.0 在其上补齐 ROCm.AI**：AMD Skills（Claude / Cursor / Codex）、Hyperloom（自动剖析与改内核）、ROCm CLI（`rocm install sdk` / `examine` / `serve`）。解读见 `docs/zh/00-environment/rocm-10-0-0-release-notes.md`。
-  - 官方总入口以 [ROCm latest](https://rocm.docs.amd.com/en/latest/) 与 [Release Notes](https://rocm.docs.amd.com/en/latest/about/release-notes.html) 为准。平台官方 Skill 目录是 [amd/skills](https://github.com/amd/skills)，与本仓库 hello-rocm Skill 可并存。
+1. **四大分档主体模型**：
+   - 🟢 **入门档（8G–12G 独显 / 核显 & XDNA2 NPU）**：`Gemma 4 E4B`（`google/gemma-4-E4B-it`）
+   - 🔵 **甜点档（16G–24G 独显）**：`Qwen3.5-9B`（中文办公/微调主力）与 `Gemma 4 12B`（推理/`Qoder` 编程主力）
+   - 🟣 **旗舰档（64G–128G 统一内存 AI PC / 云）**：`Qwen3.6-35B-A3B`（35B 总参 / 3B 激活 MoE 旗舰主力）
+2. **三大标准推理服务引擎**：仅使用 `llama-server`（端口 `8080`）、`lemonade-server`（端口 `13305`）、`vLLM`（端口 `8000`），接入 Agent 时强制开启 `32768` 上下文与工具调用参数。
 
-## 仓库目录结构（必读）
+## 二、第 0～9 章精准导航索引
 
-| 目录 | 含义 |
-|:---|:---|
-| `00-Environment/` | **统一环境基线**：ROCm、驱动、Windows/Ubuntu、`uv` + PyTorch 等；**几乎所有后续章节的前置** |
-| `01-Deploy/` | **部署推理**：LM Studio、vLLM、Ollama、llama.cpp、FastFlowLM、Lemonade 等；按 **模型系列** 分子目录（如 `models/Qwen3/`、`models/Gemma4/`、`models/Qwen3.6/`） |
-| `02-Fine-tune/` | **微调**：LoRA 等实践与 Notebook，同样按模型分子目录 |
-| `03-Infra/` | **算子/基础设施**：HIPify、BLAS/DNN、NCCL→RCCL、Nsight→Rocprof 等迁移与优化 |
-| `04-References/` | **官方与社区参考链接**汇总 |
-| `05-AMD-YES/` | **社区案例**：终端助手、YOLO、Agent、分布式训练等实践 |
-
-根目录还有：`README.md` / `README_en.md`、`CONTRIBUTING.md` / `CONTRIBUTING_en.md`、**`CONTENT_GUIDE.md` / `CONTENT_GUIDE_en.md`**（教程排版与目录命名以 **Qwen3** 等目录为范例）。
-
-## 推荐学习路径（AMD / 模型推理）
-
-按 **README** 中的建议，向用户说明顺序时优先采用下面路径；可根据目标裁剪。
-
-1. **先环境（必做）**  
-   - 阅读并完成 **`docs/zh/00-environment/index.md`** / **`docs/en/00-environment/index.md`**：对应平台的 ROCm 10.0.0、驱动、Python/`uv`、PyTorch 2.13 安装与校验。  
-   - 10.0.0 相对 7.14.0、以及 AMD Skills / Hyperloom / ROCm CLI： **`docs/zh/00-environment/rocm-10-0-0-release-notes.md`**。  
-   - 需要换 GPU 架构或 pip 源时，对照 **`docs/zh/00-environment/rocm-gpu-architecture-table.md`** / **`docs/en/00-environment/rocm-gpu-architecture-table.md`**。  
-   - **平台提示**：Windows 适合体验与轻量推理；**完整工具链、多卡与工程化**更推荐 **Ubuntu 24.04**（见环境 README 中的说明）。
-
-2. **再推理部署（模型推理入门）**  
-   - 入口：**`docs/zh/01-deploy/index.md`** / **`docs/en/01-deploy/index.md`**。  
-   - **零基础快速跑起来**：可在环境就绪后从 **LM Studio**、**vLLM** 或 **FastFlowLM（NPU）** 入手（与 README「初学者」建议一致）。  
-   - Ryzen AI NPU：先读 **`docs/zh/00-environment/xdna2-npu.md`** / **`docs/en/00-environment/xdna2-npu.md`**，再 **`fastflowlm.md`** / **`lemonade.md`**。  
-   - 具体模型请进 **`docs/zh/01-deploy/<系列名>/`** / **`docs/en/01-deploy/<系列名>/`**（如 `qwen3`、`gemma4`、`qwen36`），GPU 框架看 `*-rocm7-deploy.md`，NPU 看 `fastflowlm-npu-deploy.md` / `lemonade-*-deploy.md`。
-
-3. **然后微调**  
-   - 入口：**`docs/zh/02-fine-tune/index.md`** / **`docs/en/02-fine-tune/index.md`**，按对应模型子目录中的 Notebook/文档操作（含 SwanLab 等记录方式）。
-
-4. **进阶：算子与 Infra**  
-   - 入口：**`docs/zh/03-infra/index.md`** / **`docs/en/03-infra/index.md`**，面向已有 CUDA/底层经验、需要做迁移与性能分析的用户。
-
-5. **扩展阅读与实践**  
-   - **`docs/zh/04-references/index.md` / `docs/en/04-references/index.md`**：面向 Skill 的官方资源索引，包括 AMD GPU 架构资料、框架与推理服务 ROCm 快速安装入口、AMD ROCm Blog 互相印证链接。  
-   - **`05-AMD-YES/README.md`**：社区项目练手。
-
-## 如何学「AMD」与「模型推理」（给用户的可复述要点）
-
-- **学 AMD / ROCm**：以 **官方文档**为主线（版本、安装矩阵、已知问题），本仓库 **`00-Environment`** 提供与教程一致的 **实操步骤**；遇到框架差异时以当前 ROCm 版本对应页面为准。  
-- **学模型推理**：先掌握 **一种部署栈**（例如 vLLM 或 Ollama）在同目录教程下跑通；再换框架或换模型系列，目录结构与文件名在仓库内保持一致（中文见 **`CONTENT_GUIDE.md`**，英文见 **`CONTENT_GUIDE_en.md`**）。
-- **学微调**：在推理与环境稳定后进入 **`02-Fine-tune`**，从小参数 LoRA 示例开始，再扩展多机多卡等高级主题。
-
-## 贡献与协作（简述）
-
-- 贡献文档或新模型教程前：中文先读 **`CONTENT_GUIDE.md`** / **`CONTRIBUTING.md`**；英文先读 **`CONTENT_GUIDE_en.md`** / **`CONTRIBUTING_en.md`**（Issue/PR 与目录约定）。
-- 新增部署文命名与结构应对齐 **`docs/zh/01-deploy/qwen3/`** / **`docs/en/01-deploy/qwen3/`** 等现有范例。
-
-## 何时查阅 references
-
-需要 **链接清单、官方入口或更长背景** 时，可读 `references/links-and-context.md`（本 Skill 附属参考，非仓库正文），并同步参考仓库正文：
-
-- `docs/zh/04-references/index.md` / `docs/en/04-references/index.md`：官方资源索引，当前重点服务 Skill 的快速查阅，包括 GPU 架构资料、框架与推理服务 ROCm 快速安装入口、AMD ROCm Blog 互相印证链接。
-- `docs/zh/00-environment/rocm-gpu-architecture-table.md` / `docs/en/00-environment/rocm-gpu-architecture-table.md`：回答 GPU 架构、gfx 目标、pip 索引等问题。
-- 故障排查与常见问题社区讨论：<https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO>。
+| 用户想解决的问题 | 引导阅读的仓库路径 | 进阶导流专精课 |
+|:---|:---|:---|
+| 查硬件档位、领免费云算力、看全局学习旅程 | `docs/zh/00-guide/` & `docs/zh/cloud/amd-radeon-cloud.md` | 总览先导 |
+| 算显存账、装 ROCm 10 + `uv` + PyTorch 2.13、拉起三大服务引擎 | `docs/zh/01-first-model/` | `datawhalechina/self-llm` |
+| 接入 WorkBuddy（`dashi-ppt-skill` 出 PPT / 自动填表 / 定时办公）、`Qoder`、`Codex` | `docs/zh/02-connect-tools/` & `src/configs/` | Datawhale WorkBuddy 教程 |
+| 练 6 关提示词、菜谱切分实验、搭 `WorkBuddy + Obsidian` 双链笔记库 | `docs/zh/03-prompt-and-rag/` | `datawhalechina/all-in-rag` |
+| 把个人知识库封装成可共享给别人调用的「知识管理 MCP」与自定义 `SKILL.md` | `docs/zh/04-mcp-and-skills/` & `src/main-assistant/knowledge_mcp/server.py` | `datawhalechina/hello-agents` |
+| 做第一次中文 LoRA 微调（弱智吧 / 通知抽取 / `WeClone` 分身）与测试集评测 | `docs/zh/05-fine-tune/` & `src/main-assistant/eval/eval_before_after_zh.py` | `datawhalechina/happy-llm` |
+| 用 `AMD Quark` 对比单模型量化前后速度体积、开启 `AITER`/Prefix Cache 与 `Hyperloom` | `docs/zh/06-optimize-speed/` & `src/main-assistant/quant_bench/quark_before_after_bench.py` | `datawhalechina/hello-gpu` |
+| 打包个人作品集五件套、打磨 STAR 简历项目与准备面试 | `docs/zh/07-portfolio-resume/` | 毕业深造驿站 |
+| 选做 8 大场景 15 个趣味实战案例（`case-01` ～ `case-15`） | `docs/zh/08-fun-cases/` | 全场景实战 |
+| 查 AMD 官方明星开源项目、高阶行业案例与全系 GPU `gfx` 架构速查表 | `docs/zh/09-amd-ecosystem/` | 生态百宝箱 |

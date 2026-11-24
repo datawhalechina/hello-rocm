@@ -63,7 +63,7 @@ python3 src/main-assistant/eval/eval_before_after_zh.py \
 
 1. **玩法一：个人微信聊天记录数字分身（参考开源明星项目 [`WeClone`](https://github.com/xming521/WeClone)）**
    - 导出自己与好友的日常聊天记录 → 执行严格隐私清洗（剔除手机号、密码、转账敏感词）→ 将连续发出的多条短消息拼接为自然轮次进行 LoRA 微调，打造口头禅和你一模一样的本地赛博分身！
-   - *零门槛平替体验*：如果不想导出个人微信，可直接使用本仓库内置的经典角色台词集 **[`src/fine-tune/datasets/huanhuan-100.json`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/fine-tune/datasets/huanhuan-100.json)**（参考 [Chat-甄嬛微调实录](../05-amd-yes/huanhuan-chat.md)）快速体验语气迁移。
+   - *零门槛平替体验*：如果不想导出个人微信，可直接使用本仓库内置的经典角色台词集 **[`src/fine-tune/datasets/huanhuan-100.json`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/fine-tune/datasets/huanhuan-100.json)** 快速体验语气迁移。
 2. **玩法二：小红书爆款种草文案机**
    - 从魔搭社区拉取高赞中文种草笔记语料微调，彻底消灭大模型张嘴就是“总而言之、综上所述、作为一个人工智能”的机械客服腔！
    - **科学评测指标**：调用 `eval_before_after_zh.py` 中的 `has_ai_cliche()` 函数统计 **「AI 客服破功词出现率」**（如从 `42%` 降至 `0%`），并找 3 位朋友做 10 题双盲测试猜哪条是真人写的！
@@ -76,6 +76,6 @@ python3 src/main-assistant/eval/eval_before_after_zh.py \
 - **“大模型内部的 Attention 注意力层和 MLP 到底是怎么一行行代码搭出来的？”**
 - **“从零开始做预训练（Pre-training）、全参数 SFT 指令微调以及 DPO / GRPO 强化学习偏好对齐，底层数学与工程是怎么运转的？”**
 
-强烈推荐在完成本章后，无缝衔接进入 Datawhale 现象级王牌教程 —— **[`happy-llm`（从零开始的大语言模型原理与实践教程）](https://github.com/datawhalechina/happy-llm)**（本仓库第 9 章亦同步收录了在 AMD 多卡环境复现 [Happy-LLM 训练全流程](../05-amd-yes/happy-llm/index.md) 的配套指南；若想查阅更多单模型微调案例也可结合 [`self-llm`](https://github.com/datawhalechina/self-llm)）！
+强烈推荐在完成本章后，无缝衔接进入 Datawhale 现象级王牌教程 —— **[`happy-llm`（从零开始的大语言模型原理与实践教程）](https://github.com/datawhalechina/happy-llm)**（本仓库 [第 9 章](../09-amd-ecosystem/index.md) 亦同步梳理了在 AMD 多卡环境复现 `happy-llm` 训练全流程的要点；若想查阅更多单模型微调案例也可结合 [`self-llm`](https://github.com/datawhalechina/self-llm)）！
 
 👉 搞定了“更聪明”，下一步我们零 C++ 代码解决“不够快”：**[第 6 章｜AMD 量化对比、零 C++ 算子加速与 `Hyperloom` 自动优化](../06-optimize-speed/index.md)**！

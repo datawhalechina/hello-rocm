@@ -164,9 +164,9 @@ AMD 与魔搭社区联合启动激励计划，提供 **3 条完全独立的进�
 平台预置了开箱即用的环境，建议起步路径：
 
 1. 启动一个内置 ROCm + PyTorch 模板的工作区
-2. 参考本仓库 [Gemma4 部署教程](/zh/01-deploy/) 跑通推理
-3. 进入 [LoRA 微调实战](/zh/02-fine-tune/) 体验训练
-4. 进阶 [算子优化](/zh/03-infra/) 了解底层
+2. 参考本仓库 [第 1 章：跑通第一个本地大模型与三大标准引擎](/zh/01-first-model/) 跑通推理
+3. 进入 [第 5 章：中文 LoRA 微调实战](/zh/05-fine-tune/) 体验训练
+4. 进阶 [第 6 章：AMD 量化对比与零 C++ 算子加速](/zh/06-optimize-speed/)（或直通 [`hello-gpu`](https://github.com/datawhalechina/hello-gpu) 了解底层算子开发）
 
 ### 6. 从本地连接：SSH 与 VS Code（进阶）
 
@@ -284,7 +284,7 @@ ss -ltnp        # 无任何 TCP 监听端口
 不需要。中文站本地化部署，访问与登录均针对中国网络环境优化。
 
 **Q3：可以用本仓库的教程吗？**
-可以。平台内置 ROCm + PyTorch 等常见模板，本仓库 `01-deploy` / `02-fine-tune` / `03-infra` 的教程可直接在工作区内运行。
+可以。平台内置 ROCm + PyTorch 等常见模板，本仓库 `01-first-model`（三大推理引擎部署）、`05-fine-tune`（中文 LoRA 微调）与 `06-optimize-speed`（量化与算子加速）教程可直接在工作区内运行。
 
 **Q4：遇到 ROCm 软件栈或硬件适配问题怎么办？**
 加入「中国成员专属技术支持微信群」，AMD 官方技术支持团队会随群协助解答。入口在中文站个人中心。
@@ -301,9 +301,9 @@ ss -ltnp        # 无任何 TCP 监听端口
 
 | 学习阶段 | 对应教程 | 推荐工作区模板 |
 |---------|---------|---------|
-| 大模型部署 | [Gemma 4 / Qwen3 / Qwen3.5 部署](/zh/01-deploy/) | ROCm + PyTorch |
-| LoRA 微调 | [Gemma4-E4B LoRA 微调](/zh/02-fine-tune/) | ROCm + PyTorch + Transformers |
-| 算子优化 | [ROCm 算子优化实践](/zh/03-infra/) | ROCm + HIP 开发环境 |
+| 大模型部署 | [第 1 章：Gemma 4 / Qwen3.5 / Qwen3.6 部署](/zh/01-first-model/) | ROCm + PyTorch |
+| LoRA 微调 | [第 5 章：中文 LoRA 微调与人设分身实战](/zh/05-fine-tune/) | ROCm + PyTorch + Transformers |
+| 量化与加速 | [第 6 章：AMD Quark 量化对比与 Hyperloom 加速](/zh/06-optimize-speed/) | ROCm + PyTorch |
 | 组队学习 | [hello-rocm 组队学习](/zh/learning/) | 由 Datawhale 组队营提供 |
 
 ---
