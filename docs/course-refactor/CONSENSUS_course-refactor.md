@@ -12,7 +12,12 @@
 
 - **项目名称**：`hello-rocm`
 - **主标语（Slogan）**：**每个 AI 小白，从零开始，动手实践的第一站。**
-- **副标题（手册定位）**：**基于 AMD 平台的 AI 与 Agentic AI 入门实践手册。**
+- **副标题（手册定位）**：**基于 AMD 平台的 AI 与 Agentic AI 入门实践手册（全栈总览先导课）。**
+- **生态角色与课程导流定位**：**`hello-rocm` 是面向零基础学习者的「AI 全景总览入口课」**，带小白在一台 AMD 电脑上低成本跑通全链路闭环后，精准导流至 Datawhale 各垂直专精课程继续学习：
+  - **模型部署与微调进阶** ➡️ [`self-llm`](https://github.com/datawhalechina/self-llm)
+  - **第 2 章 AI 办公自动化深造** ➡️ [Datawhale WorkBuddy 教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)
+  - **知识库与 Agent 项目深造** ➡️ [`all-in-rag`](https://github.com/datawhalechina/all-in-rag) 与 [`hello-agents`](https://github.com/datawhalechina/hello-agents)
+  - **GPU 架构与算子优化深造** ➡️ [`hello-gpu`](https://github.com/datawhalechina/hello-gpu)
 - **贯穿全书的成功故事**：「我把自己的 AMD 电脑，变成了学习和工作的 AI 助手。」
 
 ### 1.2 核心教学范式与收敛边界（精炼锁定版）

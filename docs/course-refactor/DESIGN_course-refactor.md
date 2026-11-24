@@ -14,7 +14,8 @@
 |:---|:---|
 | **课程名称** | **hello-rocm** |
 | **核心主标语（Slogan）** | **每个 AI 小白，从零开始，动手实践的第一站。** |
-| **课程副标题（定位）** | **基于 AMD 平台的 AI 与 Agentic AI 入门实践手册。** |
+| **课程副标题（定位）** | **基于 AMD 平台的 AI 与 Agentic AI 入门实践手册（全栈总览先导课）。** |
+| **生态角色与导流机制** | **总览第一站入口课** —— 学完各模块及结业后精准导流至 [`self-llm`](https://github.com/datawhalechina/self-llm)（部署/微调）、[Datawhale WorkBuddy 教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)（第2章办公）、[`all-in-rag`](https://github.com/datawhalechina/all-in-rag) & [`hello-agents`](https://github.com/datawhalechina/hello-agents)（知识库与Agent）、[`hello-gpu`](https://github.com/datawhalechina/hello-gpu)（算子优化） |
 | **统一推理服务底座** | 全书仅使用 **`llama-server`（`llama.cpp`）**、**`vLLM`**、**`lemonade-server`** 三大标准引擎拉起本地 `/v1` 服务 |
 | **核心成长故事线** | **“我把自己的 AMD 电脑，变成了学习和工作的 AI 助手。”** |
 | **教学方法论** | **先用起来，再深进去（Use First, Deepen by Need）** —— 第一步直接用 WorkBuddy 做出可编辑 PPT、自动填表与定时办公，再按真实痛点进入 RAG/MCP、中文微调与量化加速 |

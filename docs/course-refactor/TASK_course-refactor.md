@@ -114,7 +114,10 @@ flowchart TD
 - **输出契约**：按统一五要素模板落地 **Case 09（`Meetily` + `Faster-Whisper` 离线会议纪要）**、**Case 10（`Open-LLM-VTuber` / `MiniCPM-o` 桌面口语伴侣）**、**Case 11（`Qoder` 全离线 AI 编程搭档）**、**Case 12（`Codex CLI` + `toy-cli` 终端修 Bug）**、**Case 13（`Browser-Use` + 高德 MCP 旅行规划）**、**Case 14（`OpenClaw` 多端个人管家 + Prefix Caching）**、**Case 15（`Minesweeper Agent` + `Mindcraft` 游戏互动）**。
 - **依赖关系**：前置 Task 3、Task 7；后置 Task 10。
 
-### Task 10：第 6 章（成功故事与简历指南）建设、硬核附录无损归档与组队课表同步
+### Task 10：第 6 章（成功故事、简历指南与毕业课程导流）建设、硬核附录无损归档与组队课表同步
 - **输入契约**：Task 5、6、8、9 全部成果。
-- **输出契约**：新建 `docs/zh/06-portfolio-resume/`，无损归档原 `03-infra` 等高阶资产至 `docs/zh/99-advanced-appendix/`，同步更新组队学习课表并验证全站构建通过。
+- **输出契约**：
+  - 新建 `docs/zh/06-portfolio-resume/`（含 `6.4 毕业导流驿站`：将完成总览课的学习者按兴趣精准导流至 `self-llm`、Datawhale WorkBuddy 教程、`all-in-rag`、`hello-agents`、`hello-gpu`）；
+  - 在第 1~5 章章末及第 7 章 15 个案例扩展任务中嵌入上述对应专精课程外链（部署/微调→`self-llm`、第2章办公→WorkBuddy教程、知识库/Agent→`all-in-rag` & `hello-agents`、算子优化与原 `03-infra`→`hello-gpu`）；
+  - 无损归档原 `03-infra` 等高阶资产至 `docs/zh/99-advanced-appendix/`，同步更新组队学习课表并验证全站构建通过。
 - **依赖关系**：前置 Task 5、6、8、9。
