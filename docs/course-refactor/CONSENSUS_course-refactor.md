@@ -1,64 +1,43 @@
-# CONSENSUS：hello-rocm 课程定位重构与大纲规划共识文档
+# CONSENSUS：hello-rocm 2.0 课程定位重构与大纲规划共识文档
 
-> **当前阶段**：6A 工作流 - 阶段 1：Align（最终共识 · 精炼定稿版）  
+> **当前阶段**：6A 工作流 - 阶段 1：Align（最终共识 · 0～9 章定稿版）  
 > **任务名称**：`course-refactor`  
-> **状态**：所有关键不确定性已澄清，七大精炼约束已锁定
+> **状态**：所有关键边界已锁定（三大引擎、办公三件套、Qoder、拆章为 0～9 章、课程双向引用与导流、收官第 9 章 AMD 生态百宝箱）
 
 ---
 
 ## 一、明确的需求描述与核心定位共识
 
-### 1.1 课程品牌重塑
+### 1.1 课程品牌重塑与生态角色
 
 - **项目名称**：`hello-rocm`
 - **主标语（Slogan）**：**每个 AI 小白，从零开始，动手实践的第一站。**
 - **副标题（手册定位）**：**基于 AMD 平台的 AI 与 Agentic AI 入门实践手册（全栈总览先导课）。**
-- **生态角色与课程导流定位**：**`hello-rocm` 是面向零基础学习者的「AI 全景总览入口课」**，带小白在一台 AMD 电脑上低成本跑通全链路闭环后，精准导流至 Datawhale 各垂直专精课程继续学习：
-  - **模型部署与微调进阶** ➡️ [`self-llm`](https://github.com/datawhalechina/self-llm)
-  - **第 2 章 AI 办公自动化深造** ➡️ [Datawhale WorkBuddy 教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)
-  - **知识库与 Agent 项目深造** ➡️ [`all-in-rag`](https://github.com/datawhalechina/all-in-rag) 与 [`hello-agents`](https://github.com/datawhalechina/hello-agents)
-  - **GPU 架构与算子优化深造** ➡️ [`hello-gpu`](https://github.com/datawhalechina/hello-gpu)
 - **贯穿全书的成功故事**：「我把自己的 AMD 电脑，变成了学习和工作的 AI 助手。」
+- **大纲三大必含顶层模块**：
+  1. **用户学习体验旅程（6 站心智跃迁与获得感曲线）**；
+  2. **本课程与其他课程的双向引用与导流关系（一章一专精课映射）**；
+  3. **完整课程章节大纲（第 0 章 ～ 第 9 章）**。
 
-### 1.2 核心教学范式与收敛边界（精炼锁定版）
+### 1.2 核心章节拆分与一章一课映射规范（第 0～9 章）
 
-1. **零门槛起跑 + 直觉化认知 + 三大标准推理服务引擎**：
-   - 面向拥有 AMD 独显或核显/NPU 电脑的学习者（无卡提供免费 AMD Radeon Cloud 兜底）；用非公式的直觉算账讲透**参数量、权重文件大小、运行显存/内存的区别**，以及**不同精度版本（BF16/FP16/FP8/Q8_0/Q4_K_M）的原理与硬件匹配选型**。
-   - **底层推理引擎收敛**：全书统一仅使用 **`llama-server`（`llama.cpp`）**、**`vLLM`** 与 **`lemonade-server`** 拉起本地 OpenAI 兼容服务（去除 LM Studio / Ollama 主线分支，避免新手选择困难）。
-2. **第一步重点推出：接入 WorkBuddy 办公自动化三件套 + Qoder + Codex**：
-   - 部署后立即接入 **WorkBuddy**、**Qoder** 与 **Codex**，发布经过实测验证的软件版本、模型档位与配置文件。
-   - **WorkBuddy 办公首发三件套**参考 [Datawhale WorkBuddy 官方教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)：
-     1. **AI PPT 生成**：唯一采用开源 **`dashi-ppt-skill`（大师 PPT Skill，`chuspeeism/dashi-ppt-skill`）**，支持浏览器局部微调并导出 PowerPoint/WPS 可二次编辑的 `.pptx`；
-     2. **AI 自动填表**：批量提取非结构化报销单/简历/原始单据并按严格字段契约填入标准 Excel 表；
-     3. **用 AI 定时任务自动处理日常办公事项**：配置 RRULE 定时规则，到点自动汇总数据、填表统计与生成日报周报。
-   - **编程 IDE 接入（2.3 节）**：采用 **`Qoder`**（替代原 VS Code Continue + Cline 方案），通过 `OpenAI Compatible` 接口直连本地三大引擎，并联动 `Codex CLI`。
-3. **Agentic AI 应用能力筑基 + 可共享「知识管理 MCP」**：
-   - 系统讲授面向本地模型的**提示词闯关（Prompt）**、**个人知识库（RAG：`WorkBuddy + Obsidian` + `obsidian-skills`）**、**工具协议（MCP）** 与 **模块化技能（`SKILL.md`）**。
-   - **第 3 章核心实战产出**：**「个人学习助手 v2.0」（集成私人笔记 RAG + 知识管理 MCP + 自定义办公 `SKILL.md`）** —— 使用 `FastMCP` 将个人知识库封装成标准的 **`知识管理 MCP Server`**，可跨软件复用并直接分享给他人调用。
-4. **痛点驱动微调与量化加速（聚焦高性价比单点突破）**：
-   - **第 4 章（能力不够做中文微调）**：主线基于魔搭 `COIG-CQIA`（弱智吧破冰）与 `MSAgent-Bench`/`InstructIE`（中文办公通知提取与工具调用）完成微调与自建测试集评估；**4.6 进阶选修唯一聚焦配方 A（网感与分身）：`WeClone` 微信聊天记录数字分身 / 小红书爆款种草体**。
-   - **第 5 章（速度不够做 AMD 量化与自动加速）**：**5.2 `AMD Quark` 量化实战**聚焦选定单个基准模型，跑通量化前与量化后对比（直观实测文件体积、显存占用、生成速度 `tok/s` 与回答效果）；配合零 C++ 算子唤醒（`@torch.compile`、`hipBLASLt`、`rocWMMA FA`、`AITER`）、Prefix Caching 与 [`AMD-AGI/Hyperloom`](https://github.com/AMD-AGI/Hyperloom) 全自动寻优。
-5. **双层案例编排 + 15 个趣味实战案例**：
-   - **纵向主线微案例**：每章串联升级同一个「个人学习与工作 AI 助手」。
-   - **横向趣味案例库**：独立提供 **15 个标准化趣味案例**（办公三件套置顶为 Case 01–03），完整覆盖 **编程助手、个人知识库、论文阅读、文件整理、报告生成、语音交互、游戏互动、任务规划** 8 大场景。
-6. **统一案例标准与新手试学闭环**：
-   - 每个案例强制统一五要素：**代码、演示、支持配置、验证方法、扩展任务**，并执行**新手试学 SOP** 持续完善 FAQ。
-7. **作品集与简历成果转化**：
-   - 沉淀**应用代码、交互演示、训练/微调记录、效果评估报告（自建测试集 + 量化前后测速对比）、个人贡献说明**，并提供标准**简历项目示例**。
+- **底层推理服务收敛**：全书仅使用 **`llama-server`（`llama.cpp`）**、**`vLLM`** 与 **`lemonade-server`** 拉起本地 `/v1` 服务。
+- **0～9 章结构与外部课程引用/导流映射**：
+  - **第 0 章｜导读**：痛点价值、成功故事、四档硬件自检、6 站体验旅程与课程引用全景图。
+  - **第 1 章｜数据类型直觉与三大引擎部署** ⇄ 链接 **[`self-llm`](https://github.com/datawhalechina/self-llm)**。
+  - **第 2 章｜零代码办公先行（WorkBuddy 三件套：`dashi-ppt-skill` 出 PPT + AI 自动填表 + AI 定时任务）+ `Qoder` + `Codex`** ⇄ 链接 **[Datawhale WorkBuddy 教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)**。
+  - **第 3 章｜让助手读懂你：提示词闯关 + `WorkBuddy + Obsidian` 个人知识库（原第 3 章前半独立成章）** ⇄ 引用菜谱切分实验并导流 **[`all-in-rag`](https://github.com/datawhalechina/all-in-rag)**。
+  - **第 4 章｜让助手长出手脚：可共享「知识管理 MCP」+ Agent Skills + 智能体实战（原第 3 章后半独立成章，交付「个人学习助手 v2.0」）** ⇄ 引用核心循环并导流 **[`hello-agents`](https://github.com/datawhalechina/hello-agents)**。
+  - **第 5 章｜能力不够做中文微调（弱智吧破冰 + 中文通知抽取 + `WeClone`/小红书网感分身 + 自建测试集评测）** ⇄ **链接 [`happy-llm`](https://github.com/datawhalechina/happy-llm)**（深入大模型底层原理、预训练与微调对齐；多模型食谱兼顾 `self-llm`）。
+  - **第 6 章｜速度不够做量化与加速（`AMD Quark` 单模型量化前后对比 + 零 C++ 唤醒融合算子 + `Hyperloom` 自动寻优）** ⇄ 链接 **[`hello-gpu`](https://github.com/datawhalechina/hello-gpu)**。
+  - **第 7 章｜收获时刻：成功故事、个人作品集五件套与简历成果锻造**。
+  - **第 8 章｜学以致用：15 个趣味实战案例库**（办公三件套置顶，覆盖 8 大场景，统一五要素 + 新手试学 FAQ）。
+  - **第 9 章｜拓展视野：AMD 优秀开源项目、前沿行业案例与开发者资源百宝箱（新增收官章）**：汇聚 `amd/gaia`、`Hyperloom`、`Quark`、`AITER`、`Primus`、`TheRock` 等官方项目，无损沉淀仓库 `Every Embodied`、`Torch-RecHub`、`Happy-LLM`、Strix Halo 极限部署与原 `03-infra` 算子实验室，附算力福利与硬件架构字典。
 
 ---
 
-## 二、技术约束与现有仓库演进方案
+## 二、技术约束与分支保护
 
-1. **Git 分支隔离约束**：所有 2.0 规划与改造工作均在独立分支 **`dev_1.0`** 上推进并推送至 `origin/dev_1.0`，保持本地 `master` 与云端 `origin/master` 100% 一致零污染。
-2. **双系统与多硬件分档兼容**：本地优先支持 **Windows 11** 与 **Ubuntu 24.04**，按「8G–12G 入门档 / 16G–24G 甜点档 / 64G–128G 旗舰 AI PC / 免费云算力」四档给出经过验证的现成配置。
-3. **历史硬核资产无损兼容**：原 `03-infra`（手写 HIP 算子、自定义 PyTorch 算子）及 `05-amd-yes` 重度工程项目移入 **「进阶选修 / 硬核附录」**，保持旧 URL 路由兼容零 404。
-
----
-
-## 三、验收标准
-
-- [x] 课程定位清晰传达「AI 小白第一站」与「基于 AMD 平台的 AI 与 Agentic AI 入门实践手册」核心价值。
-- [x] 全书底层推理服务收敛为 `llama-server`、`vLLM`、`lemonade-server` 三大引擎；PPT 生成唯一锁定 `dashi-ppt-skill`；2.3 编程 IDE 切换为 `Qoder`；3.3 落地可给别人调用的 `知识管理 MCP`；4.6 聚焦 `WeClone`/小红书网感分身；5.2 聚焦单模型 `AMD Quark` 量化前后速度与体积实测对比。
-- [x] 15 个趣味案例置顶 WorkBuddy 办公自动化三件套（参考 Datawhale 官方教程），100% 覆盖全部 8 大场景。
-- [x] 配套完整的「案例五要素标准模板」、「新手试学 SOP」及「简历项目经历示例」。
+1. **分支隔离**：全部规划与重构工作在 **`dev_1.0`** 分支推进并推送到 `origin/dev_1.0`，保持本地 `master` 与 `origin/master` 100% 一致不污染。
+2. **双平台四档硬件适配**：Windows 11 & Ubuntu 本地优先（绿/蓝/紫三档硬件 + 云端免费 AMD Radeon Cloud 兜底）。
+3. **历史外链零 404**：原仓库硬核内容归入第 9 章进阶案例与实验室，保持原有路由兼容。
