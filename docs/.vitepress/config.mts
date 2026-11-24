@@ -50,11 +50,11 @@ const zhCourseSidebar: DefaultTheme.SidebarItem[] = [
     ]
   },
   {
-    text: '第 1 章｜直觉认知与三大引擎部署',
+    text: '第 1 章｜环境配置与三大引擎部署',
     collapsed: false,
     items: [
       { text: '1.1 数据类型与显存“三本明白账”', link: '/zh/01-first-model/' },
-      { text: '1.2 极简环境准备 (Win11 / Ubuntu / 云)', link: '/zh/01-first-model/quick-env' },
+      { text: '1.2 ROCm 与推理环境完整配置', link: '/zh/01-first-model/quick-env' },
       { text: '1.3~1.5 三大标准引擎极速部署', link: '/zh/01-first-model/three-engines-deploy' }
     ]
   },

@@ -68,9 +68,9 @@ flowchart LR
 
 ## 本章实操分步导航
 
-算清这三本明白账后，接下来两步带你 15 分钟拉起本地模型服务：
+算清这三本明白账后，接下来两步带你配好环境并跑起本地模型服务：
 
-1. 👉 **[1.2 极简环境准备（Windows 11 / Ubuntu 24.04 / 免费云算力连通）](./quick-env.md)**
+1. 👉 **[1.2 ROCm 基础环境与推理运行环境完整配置（Windows 11 / Ubuntu 24.04 / 免费云算力）](./quick-env.md)**
 2. 👉 **[1.3～1.5 三大标准引擎部署实战（`llama-server` / `lemonade-server` / `vLLM`）](./three-engines-deploy.md)**
 
 > 🔗 **本章课程引用与进阶导流**：完成本章首个模型服务部署后，若你想进一步探索 DeepSeek、GLM、InternLM、Llama 等**百余款国内外主流开源大模型的部署食谱**，欢迎延伸学习 Datawhale 王牌课程 **[`self-llm`（开源大模型食用指南）](https://github.com/datawhalechina/self-llm)**！
