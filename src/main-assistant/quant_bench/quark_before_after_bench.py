@@ -88,7 +88,7 @@ if __name__ == "__main__":
         run_amd_quark_quantize(args.quantize_model, args.output_dir)
     else:
         demo = compute_comparison(
-            before={"name": "Qwen3.5-4B (BF16)", "size_gb": 8.05, "vram_gb": 9.60, "tps": 38.4, "ttft_ms": 410},
-            after={"name": "Qwen3.5-4B (Quark INT4)", "size_gb": 2.65, "vram_gb": 3.85, "tps": 88.6, "ttft_ms": 185},
+            before={"name": "Qwen3.5-9B (BF16)", "size_gb": 18.10, "vram_gb": 20.80, "tps": 24.5, "ttft_ms": 620},
+            after={"name": "Qwen3.5-9B (Quark INT4)", "size_gb": 5.45, "vram_gb": 7.20, "tps": 58.2, "ttft_ms": 275},
         )
         print(format_markdown_report(demo))

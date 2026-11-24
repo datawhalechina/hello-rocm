@@ -34,8 +34,8 @@ hero:
       link: /
 
 features:
-  - title: 🚀 三大标准引擎极速部署
-    details: 直观算清参数量、权重大小与运行显存“三本账”，收敛锁定 llama-server、lemonade-server 与 vLLM 最低成本跑起本地服务。
+  - title: 🚀 三大主体模型 × 三大引擎极速部署
+    details: 主体采用 Gemma 4 E4B、Gemma 4 12B 与 Qwen3.5-9B，算清显存“三本账”，锁定 llama-server、lemonade-server 与 vLLM 最低成本跑起服务。
     link: /zh/01-first-model/
   - title: 💼 零代码办公与编程先行
     details: 第一步直连 WorkBuddy（dashi-ppt-skill 一键导出可编辑 .pptx、AI 自动填表、定时处理办公事项）以及 Qoder 与 Codex。

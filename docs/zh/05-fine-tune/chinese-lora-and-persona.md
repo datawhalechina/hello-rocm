@@ -18,13 +18,13 @@ export USE_MODELSCOPE_HUB=1
 llamafactory-cli train \
   --stage sft \
   --do_train true \
-  --model_name_or_path Qwen/Qwen3.5-4B \
+  --model_name_or_path Qwen/Qwen3.5-9B \
   --dataset alpaca_zh_demo \
   --template qwen3 \
   --finetuning_type lora \
   --lora_target all \
   --lora_rank 16 \
-  --output_dir ./saves/qwen3.5-4b-office-ie-lora \
+  --output_dir ./saves/qwen3.5-9b-office-ie-lora \
   --per_device_train_batch_size 2 \
   --gradient_accumulation_steps 4 \
   --learning_rate 1.0e-4 \
@@ -49,8 +49,8 @@ llamafactory-cli train \
 
 ```bash
 python3 src/main-assistant/eval/eval_before_after_zh.py \
-  --base-url http://127.0.0.1:8080/v1 \
-  --model qwen3.5-4b-q4_k_m
+  --base-url http://127.0.0.1:8000/v1 \
+  --model Qwen3.5-9B
 ```
 
 将两次运行输出的 **`JSON 格式合法率`** 与 **`关键字段准确率`**（例如：从微调前的 `76.0%` 跃升至微调后的 `98.0%`）填入你的《微调前后效果评估报告》，这就是最有说服力的工程证据！

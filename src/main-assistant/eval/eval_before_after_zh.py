@@ -96,7 +96,7 @@ BUILTIN_DEMO_TESTSET = [
 def main() -> None:
     parser = argparse.ArgumentParser(description="中文微调前后效果评估脚本")
     parser.add_argument("--base-url", default="http://127.0.0.1:8080/v1", help="本地服务 /v1 地址")
-    parser.add_argument("--model", default="qwen3.5-4b-q4_k_m", help="模型名称")
+    parser.add_argument("--model", default="Qwen3.5-9B", help="模型名称 (如 gemma-4-E4B-it-Q4_K_M / Qwen3.5-9B / gemma-4-12B-it)")
     parser.add_argument("--testset", default="", help="可选：自定义 JSONL 测试集路径")
     args = parser.parse_args()
 

@@ -17,10 +17,13 @@
 ### Step 1：获取预构建可执行文件与 GGUF 模型
 
 1. 前往 [lemonade-sdk/llamacpp-rocm Releases](https://github.com/lemonade-sdk/llamacpp-rocm/releases) 或 [ggml-org/llama.cpp Releases](https://github.com/ggml-org/llama.cpp/releases) 下载对应你系统（Windows x64 / Ubuntu x64）的 ROCm / Vulkan 预编译压缩包并解压。
-2. 从魔搭社区（ModelScope，国内满速免代理）下载一个 `Q4_K_M` 量化权重（以 `Qwen3.5-4B` 为例）：
+2. 下载本课程三大主体模型之一的 `Q4_K_M` 量化权重（🟢 8G 卡选 **`Gemma 4 E4B`**，🔵 16G+ 卡可选 **`Qwen3.5-9B`** 或 **`Gemma 4 12B`**）：
    ```bash
    uv pip install modelscope
-   modelscope download --model Qwen/Qwen3.5-4B-GGUF --include "*q4_k_m*.gguf" --local_dir ~/ai_models/qwen3.5
+   # 示例 A（8G 轻量全模态主力）：拉取 Gemma 4 E4B GGUF
+   modelscope download --model unsloth/gemma-4-E4B-it-GGUF --include "*Q4_K_M*.gguf" --local_dir ~/ai_models/gemma4
+   # 示例 B（16G+ 中文办公主力）：拉取 Qwen3.5-9B GGUF
+   modelscope download --model unsloth/Qwen3.5-9B-GGUF --include "*Q4_K_M*.gguf" --local_dir ~/ai_models/qwen3.5
    ```
 
 ### Step 2：带齐「Agent 防截断参数」启动服务
@@ -32,8 +35,8 @@
 export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
 
 ./llama-server \
-  -m ~/ai_models/qwen3.5/qwen3.5-4b-q4_k_m.gguf \
-  --alias qwen3.5-4b-q4_k_m \
+  -m ~/ai_models/gemma4/gemma-4-E4B-it-Q4_K_M.gguf \
+  --alias gemma-4-E4B-it-Q4_K_M \
   -ngl 99 \
   --ctx-size 32768 \
   --jinja \
@@ -72,14 +75,16 @@ docker run --rm -it \
   -v ~/ai_models:/app/models \
   -p 8000:8000 \
   vllm/vllm-openai-rocm:latest \
-  --model Qwen/Qwen3.5-4B \
-  --served-model-name Qwen3.5-4B \
+  --model Qwen/Qwen3.5-9B \
+  --served-model-name Qwen3.5-9B \
   --max-model-len 32768 \
   --gpu-memory-utilization 0.88 \
   --enable-auto-tool-choice \
   --tool-call-parser hermes \
   --trust-remote-code
 ```
+
+> 💡 如需用 `vLLM` 启动 **`Gemma 4 12B`**，只需将 `--model` 换为 `google/gemma-4-12B-it`（或本地挂载目录）即可。
 
 ---
 
@@ -88,12 +93,12 @@ docker run --rm -it \
 新开一个终端窗口，对你刚刚启动的端口（`8080`、`13305` 或 `8000`）发送一条标准验证请求：
 
 ```bash
-# 将 PORT 替换为你启动的引擎端口（8080 / 13305 / 8000），MODEL 替换为对应模型名
+# 将 PORT 替换为你启动的引擎端口（8080 / 13305 / 8000），MODEL 替换为对应主体模型名
 curl -s http://127.0.0.1:8080/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer rocm-local" \
   -d '{
-    "model": "qwen3.5-4b-q4_k_m",
+    "model": "gemma-4-E4B-it-Q4_K_M",
     "messages": [{"role": "user", "content": "请用一句话向我打招呼，并告诉我你已准备就绪！"}]
   }'
 ```

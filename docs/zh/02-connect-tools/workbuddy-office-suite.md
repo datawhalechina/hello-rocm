@@ -16,18 +16,18 @@ WorkBuddy 支持通过界面添加或直接放入 `models.json` 配置文件来�
 {
   "models": [
     {
-      "id": "rocm-llama-qwen3.5-4b",
-      "name": "AMD 本地引擎 1：llama-server (Qwen3.5-4B GGUF)",
+      "id": "rocm-llama-gemma4-e4b",
+      "name": "AMD 主体模型 1：Gemma 4 E4B (llama-server 8G轻量全模态)",
       "vendor": "custom",
       "apiKey": "rocm-local",
       "url": "http://127.0.0.1:8080/v1/chat/completions",
-      "model": "qwen3.5-4b-q4_k_m",
+      "model": "gemma-4-E4B-it-Q4_K_M",
       "maxInputTokens": 28672,
       "maxOutputTokens": 4096,
       "maxContextTokens": 32768,
       "temperature": 0.3,
       "supportsToolCall": true,
-      "supportsImages": false
+      "supportsImages": true
     }
   ]
 }

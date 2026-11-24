@@ -18,7 +18,7 @@
      - 若用 `lemonade-server`：`http://127.0.0.1:13305/v1`
      - 若用 `vLLM`：`http://127.0.0.1:8000/v1`
    - **API Key**：填 `rocm-local`（Lemonade 填 `lemonade`）
-   - **Model ID**：填 `qwen3.5-4b-q4_k_m`（或你启动的模型名）
+   - **Model ID**：填 `gemma-4-E4B-it-Q4_K_M`、`Qwen3.5-9B` 或 `Gemma-4-12B-it-GGUF`（与你启动的主体模型名一致）
    - **上下文长度（Context Length）**：填 `32768`，最大输出填 `4096`，勾选支持 Tool Calling。
 3. **一键校验并挂载项目技能**：
    - 点击右下角 **「校验并添加模型」**，提示连通成功后将其设为当前对话/编辑模型；
@@ -43,7 +43,7 @@
 
 ```toml
 model_provider = "rocm_llama"
-model = "qwen3.5-4b-q4_k_m"
+model = "gemma-4-E4B-it-Q4_K_M"
 
 [model_providers.rocm_llama]
 name = "AMD ROCm llama-server (Port 8080)"

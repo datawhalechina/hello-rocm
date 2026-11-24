@@ -1,22 +1,22 @@
 {
   "models": [
     {
-      "id": "rocm-llama-qwen3.5-4b",
-      "name": "AMD 本地引擎 1：llama-server (Qwen3.5-4B GGUF)",
+      "id": "rocm-llama-gemma4-e4b",
+      "name": "AMD 主体模型 1：Gemma 4 E4B (llama-server 8G轻量全模态)",
       "vendor": "custom",
       "apiKey": "rocm-local",
       "url": "http://127.0.0.1:8080/v1/chat/completions",
-      "model": "qwen3.5-4b-q4_k_m",
+      "model": "gemma-4-E4B-it-Q4_K_M",
       "maxInputTokens": 28672,
       "maxOutputTokens": 4096,
       "maxContextTokens": 32768,
       "temperature": 0.3,
       "supportsToolCall": true,
-      "supportsImages": false
+      "supportsImages": true
     },
     {
       "id": "rocm-lemonade-gemma4-e4b",
-      "name": "AMD 本地引擎 2：lemonade-server (GPU/NPU 异构)",
+      "name": "AMD 主体模型 2：Gemma 4 E4B / 12B (lemonade-server GPU/NPU)",
       "vendor": "custom",
       "apiKey": "lemonade",
       "url": "http://127.0.0.1:13305/v1/chat/completions",
@@ -29,18 +29,32 @@
       "supportsImages": true
     },
     {
-      "id": "rocm-vllm-qwen3.5-4b",
-      "name": "AMD 本地引擎 3：vLLM ROCm (高并发服务)",
+      "id": "rocm-vllm-qwen35-9b",
+      "name": "AMD 主体模型 3：Qwen3.5-9B (vLLM 中文办公主力)",
       "vendor": "custom",
       "apiKey": "rocm-local",
       "url": "http://127.0.0.1:8000/v1/chat/completions",
-      "model": "Qwen3.5-4B",
+      "model": "Qwen3.5-9B",
       "maxInputTokens": 28672,
       "maxOutputTokens": 4096,
       "maxContextTokens": 32768,
       "temperature": 0.3,
       "supportsToolCall": true,
-      "supportsImages": false
+      "supportsImages": true
+    },
+    {
+      "id": "rocm-vllm-gemma4-12b",
+      "name": "AMD 主体模型 4：Gemma 4 12B (vLLM 进阶推理与编程主力)",
+      "vendor": "custom",
+      "apiKey": "rocm-local",
+      "url": "http://127.0.0.1:8000/v1/chat/completions",
+      "model": "gemma-4-12B-it",
+      "maxInputTokens": 28672,
+      "maxOutputTokens": 4096,
+      "maxContextTokens": 32768,
+      "temperature": 0.3,
+      "supportsToolCall": true,
+      "supportsImages": true
     }
   ]
 }

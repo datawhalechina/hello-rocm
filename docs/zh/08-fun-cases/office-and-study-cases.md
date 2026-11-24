@@ -21,7 +21,7 @@
 ## Case 02：【办公必装】AI 自动填表与杂乱文件夹智能归档 {#case-02}
 
 - **🎬 效果演示**：扫描本地沙盒目录中多份杂乱单据、简历或下载文件，自动按类别归档重命名，并将非结构化单据信息严格提取填入汇总 Excel 报表。
-- **✅ 支持配置**：🟢 8G 入门档即可；WorkBuddy + 三大引擎任一（建议开启 `Qwen3.5-4B-Q4_K_M`）。
+- **✅ 支持配置**：🟢 8G 入门档即可；WorkBuddy + 三大引擎任一（推荐开启 `Gemma 4 E4B` 或 16G 卡开启 `Qwen3.5-9B`）。
 - **💻 代码与步骤**：
   1. 新建沙盒目录 `office_sandbox/inbox/` 并放入测试报销单与杂乱文档副本；
   2. 第一步归档指令：*“请先以 dry-run 模式列出拟将 `inbox/` 文件按【单据/课件/代码】分类移动的预览表，待我确认后执行并生成《目录盘点清单.md》。”*
@@ -47,13 +47,13 @@
 ## Case 04：全本地万字深度调研报告专家（`Local Deep Research`） {#case-04}
 
 - **🎬 效果演示**：输入一个调研课题（如“2026 端侧小模型量化技术对比”），AI 自动拆解子问题、多轮检索网页与本地文献，撰写带完整引用角标的万字深度研报。
-- **✅ 支持配置**：🔵 16G 甜点档及以上；推荐 `vLLM` 或 `llama-server`（`Qwen3.5-8B-Q4_K_M`，开启 Prefix Caching）。
+- **✅ 支持配置**：🔵 16G 甜点档及以上；推荐 `vLLM` 或 `llama-server`（`Qwen3.5-9B` 或 `Gemma 4 12B`，开启 Prefix Caching）。
 - **💻 代码与步骤**：
   ```bash
   uv pip install local-deep-research
   export LDR_LLM__PROVIDER=openai_endpoint
-  export LDR_LLM__OPENAI_ENDPOINT_URL=http://127.0.0.1:8080/v1
-  export LDR_LLM__MODEL=qwen3.5-8b-q4_k_m
+  export LDR_LLM__OPENAI_ENDPOINT_URL=http://127.0.0.1:8000/v1
+  export LDR_LLM__MODEL=Qwen3.5-9B
   ldr-web
   ```
 - **🔍 验证方法**：浏览器打开本地 Web 界面输入课题，确认完成 ≥2 轮子问题检索且文末参考文献链接真实可点。
@@ -82,7 +82,7 @@
   uv pip install pdf2zh
   export OPENAI_BASE_URL=http://127.0.0.1:8000/v1
   export OPENAI_API_KEY=rocm-local
-  pdf2zh paper.pdf -s openai:Qwen3.5-4B -t 4
+  pdf2zh paper.pdf -s openai:Qwen3.5-9B -t 4
   ```
 - **🔍 验证方法**：打开生成的 `paper-dual.pdf` 与 `paper-mono.pdf`，检查行内/行间公式未乱码、双栏图片未错位。
 - **🚀 扩展任务与导流**：配合 Zotero `PDF2zh` 插件实现文献库右键一键本地双语精翻；🔗 进阶学习 **[`self-llm`](https://github.com/datawhalechina/self-llm)**。

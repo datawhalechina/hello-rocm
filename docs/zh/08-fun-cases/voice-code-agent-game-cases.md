@@ -30,7 +30,7 @@
 ## Case 11：`Qoder` 全离线 AI 编程搭档实战 {#case-11}
 
 - **🎬 效果演示**：在飞机高铁断网环境下或涉密内网代码库中，使用 `Qoder` IDE 直连本机 AMD 显卡服务，零成本完成跨文件代码解释、重构优化与单元测试自动生成。
-- **✅ 支持配置**：🟢 8G（`Qwen3.5-4B-Q4_K_M`）/ 🔵 16G（推荐 `Qwen3-8B` / `14B` 编程能力更强）；配置对照 [`src/configs/qoder-openai-compatible.json`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/qoder-openai-compatible.json)。
+- **✅ 支持配置**：🟢 8G（`Gemma 4 E4B`）/ 🔵 16G（推荐 `Gemma 4 12B` 或 `Qwen3.5-9B` 编程与重构能力更强）；配置对照 [`src/configs/qoder-openai-compatible.json`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/qoder-openai-compatible.json)。
 - **💻 代码与步骤**：按 **[第 2.3 节完整配置步骤](../02-connect-tools/qoder-and-codex.md)** 在 `Qoder` 添加本地 `OpenAI Compatible` 模型并通过一键校验，开启第 6.4 节 Prefix Caching 实现多轮改代码秒回。
 - **🔍 验证方法**：让 `Qoder` 为本仓库 `src/main-assistant/knowledge_mcp/server.py` 新增一个按日期过滤笔记的函数并生成单测，运行单测全部通过。
 - **🚀 扩展任务与导流**：为你的项目编写专属代码规范 `.agents/skills/`；🔗 进阶学习 **[`hello-agents`](https://github.com/datawhalechina/hello-agents)**。

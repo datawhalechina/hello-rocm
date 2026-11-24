@@ -29,7 +29,7 @@ AMD 官方开源的 **[`AMD-AGI/Hyperloom`](https://github.com/AMD-AGI/Hyperloom
 
 ```mermaid
 flowchart LR
-    G["🎯 自然语言下达目标<br/>例：最大化 Qwen3.5-4B 吞吐且精度零损"] --> M["📊 Magpie<br/>自动采集基准延迟与吞吐"]
+    G["🎯 自然语言下达目标<br/>例：最大化 Qwen3.5-9B / Gemma 4 12B 吞吐且精度零损"] --> M["📊 Magpie<br/>自动采集基准延迟与吞吐"]
     M --> T["🔍 TraceLens-Agent<br/>自动剖析揪出 Top 瓶颈算子"]
     T --> A["🌲 Arbor + GEAK<br/>自动搜索引擎参数 & 多Agent重写融合 Triton/HIP 算子"]
     A --> V["✅ 自动编译回归核验<br/>输出最优配置与提速报告"]

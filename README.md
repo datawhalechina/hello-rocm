@@ -1,12 +1,12 @@
-<div align=center>
-  <img src="./docs/public/images/head.png" >
+<div align="center">
+  <img src="./docs/public/images/head.png" alt="hello-rocm banner" />
   <h2>每个 AI 小白，从零开始，动手实践的第一站。</h2>
   <strong>基于 AMD 平台的 AI 与 Agentic AI 入门实践手册（全栈总览先导课） 🚀</strong>
 </div>
 
 <div align="center">
 
-*开源 · 社区驱动 · 让 AMD AI 生态更易用*
+*“我把自己的 AMD 电脑，变成了学习和工作的 AI 助手。”*
 
 <p align="center">
   <a href="./README_en.md"><img alt="English" src="https://img.shields.io/badge/English-d9d9d9"></a>
@@ -21,11 +21,7 @@
   <a href="./docs-readme/de-DE/README.md"><img alt="Deutsch" src="https://img.shields.io/badge/Deutsch-d9d9d9"></a>
 </p>
 
-</div>
-
-<div align="center">
-
-<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/%F0%9F%9A%80_在线体验-完整教程-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="https://datawhalechina.github.io/hello-rocm/atlas/rocm/index.html"><img alt="ROCm 图谱" src="https://img.shields.io/badge/%F0%9F%97%BA%EF%B8%8F_ROCm_图谱-软件栈图谱-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/learning/index.md"><img src="https://img.shields.io/badge/%F0%9F%A4%9D_组队学习-Datawhale-1a73e8?logo=bookstack&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/amd-radeon-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AMD_Radeon_Cloud-云算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/aup-learning-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AUP_Learning_Cloud-端侧算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
+<a href="https://datawhalechina.github.io/hello-rocm/"><img src="https://img.shields.io/badge/%F0%9F%9A%80_在线阅读-完整教程-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="https://datawhalechina.github.io/hello-rocm/atlas/rocm/index.html"><img alt="ROCm 图谱" src="https://img.shields.io/badge/%F0%9F%97%BA%EF%B8%8F_ROCm_图谱-软件栈图谱-ed1941?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/learning/index.md"><img src="https://img.shields.io/badge/%F0%9F%A4%9D_组队学习-Datawhale-1a73e8?logo=bookstack&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/amd-radeon-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AMD_Radeon_Cloud-免费云算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a> | <a href="./docs/zh/cloud/aup-learning-cloud.md"><img src="https://img.shields.io/badge/%E2%98%81%EF%B8%8F_AUP_Learning_Cloud-端侧算力-00a3e0?logo=amd&logoColor=white&labelColor=1a1a1a" height="28"></a>
 
 </div>
 
@@ -35,423 +31,157 @@
   <img src="./docs/public/images/rocm-logo.png" alt="AMD ROCm" height="44">
 </p>
 
-&emsp;&emsp;**“我把自己的 AMD 电脑，变成了学习和工作的 AI 助手。”** —— 这是 **hello-rocm 2.0** 贯穿始终的学习者成功故事。自 **ROCm 7.10+** 与 **TheRock / ROCm 10** 架构升级以来，Windows 11 与 Ubuntu 用户都能以极低门槛在 AMD Radeon 独显、Ryzen AI 核显/NPU（或免费 AMD Radeon Cloud 云算力）上玩转本地大模型。
+---
 
-&emsp;&emsp;作为 **Datawhale 社区面向零基础学习者的「AI 全景总览入口课」**，本项目摒弃“上来先背底层术语”的传统路径，统一锁定 **`llama-server`（`llama.cpp`）、`lemonade-server` 与 `vLLM`** 三大标准推理服务引擎，带你一站式跑通：
-1. **第一步重点首发 · 零代码办公先行**：接入 **WorkBuddy** 完成 `dashi-ppt-skill` 一键生成可编辑 `.pptx`、AI 自动填表与定时处理日常办公，并接入 **`Qoder`** 与 **`Codex`** 辅助编程；
-2. **个人知识库与可共享 MCP**：用 `WorkBuddy + Obsidian` 搭建双链私人笔记库，并用 `FastMCP` 将知识库制作成可给别人调用的 **「知识管理 MCP」**；
-3. **痛点驱动中文微调与量化加速**：完成第一次魔搭纯中文 LoRA 微调（群通知抽取 & `WeClone`/小红书网感分身），再用 **`AMD Quark`** 实测同一模型量化前后速度/大小对比，零 C++ 唤醒融合算子并体验 **`AMD-AGI/Hyperloom`** 全自动优化；
-4. **沉淀简历成果与专精深造导流**：打包五件套简历项目作品，畅玩 **15 个趣味实战案例**，并按一章一课精准导流至 Datawhale 各垂直专精课程继续深造！
+## 📖 项目定位：为什么从 `hello-rocm` 出发？
 
-> &emsp;&emsp;***🚀 零基础推荐起跑线：直接点击阅读 [第 0 章｜导读与体验旅程](./docs/zh/00-guide/index.md) → [第 1 章｜数据类型三本账与三大引擎部署](./docs/zh/01-first-model/index.md) → [第 2.2 节｜WorkBuddy 办公三件套首发实战](./docs/zh/02-connect-tools/workbuddy-office-suite.md)！***
+自 **ROCm 7.10+** 与 **[TheRock](https://github.com/ROCm/TheRock) / ROCm 10.0.0** 模块化重构以来，**Windows 11 与 Ubuntu** 用户都能以极低门槛在 AMD Radeon 独显、Ryzen AI 核显/NPU（或免费 [AMD Radeon Cloud](./docs/zh/cloud/amd-radeon-cloud.md) 云算力）上运行和微调主流开源大模型。
 
-### 🧭 0～9 章全景课程目录与 Datawhale 专精课程引用地图
+作为 **Datawhale 社区面向零基础学习者的「AI 与 Agentic AI 全栈总览先导课」**，本项目告别“上来先背底层术语、面对十几种工具无从下手”的传统痛点，以**真实办公与学习获得感**为主线，做好以下 **三大收敛与闭环**：
 
-| 章节入口 | 核心动手内容与阶段交付物 | 双向引用与进阶导流课程 |
+1. **主体模型收敛为三大黄金主力**：全书主线围绕 **`Gemma 4 E4B`**（8G 端侧全模态轻量王牌）、**`Qwen3.5-9B`**（中文办公、表格抽取与中文微调主力）与 **`Gemma 4 12B`**（强逻辑推理、`Qoder` 编程与复杂 Agent 进阶主力）展开；
+2. **推理服务收敛为三大标准引擎**：统一仅使用 **`llama-server`（`llama.cpp`）**、**`lemonade-server`** 与 **`vLLM`** 拉起本地 OpenAI 兼容服务（`/v1`），配套 [`src/configs/`](./src/configs/README.md) 现成验证配置；
+3. **第一步先用起来，学完精准导流深造**：开篇即接入 **WorkBuddy**（唯一采用开源 **`dashi-ppt-skill` 大师 PPT Skill** 生成可编辑 `.pptx` + AI 自动填表 + 定时处理日常办公）及 **`Qoder` / `Codex`**；随后跑通个人知识库、可共享给别人调用的 **「知识管理 MCP」**、中文 LoRA 微调与 **`AMD Quark` / `Hyperloom`** 量化加速，沉淀简历五件套并一章一课导流至 Datawhale 各专精课程继续深造！
+
+> 🚀 **零基础极速起跑路线**：**[第 0 章导读与硬件自检](./docs/zh/00-guide/index.md)** ➡️ **[第 1 章三大引擎部署](./docs/zh/01-first-model/index.md)** ➡️ **[第 2.2 节 WorkBuddy 办公三件套首发实战](./docs/zh/02-connect-tools/workbuddy-office-suite.md)**！
+
+---
+
+## 🎯 课程三大主体模型与硬件档位选型表
+
+全书所有章节实验、[`src/configs/`](./src/configs/README.md) 配置文件与评测脚本均以以下 **三款最新高性价比开源模型** 为主体构建：
+
+| 主体模型 | 官方权重标识 | 核心特长与课程分工 | 推荐硬件档位 | 主推服务引擎 |
+|:---|:---|:---|:---|:---|
+| **`Gemma 4 E4B`** | `google/gemma-4-E4B-it`<br/>(`Gemma-4-E4B-it-GGUF`) | 有效参数 ~4.5B 原生多模态（文本/图像/音频 + 原生工具调用），极省显存，8G 卡开 32K 上下文依然丝滑 | 🟢 **入门档**（8G–12G 独显 / 16G–32G 锐龙核显 & XDNA2 NPU） | `llama-server` / `lemonade-server` |
+| **`Qwen3.5-9B`** | `Qwen/Qwen3.5-9B`<br/>(`Qwen3.5-9B-GGUF`) | 中文母语级语义理解与结构化 JSON 抽取强项，担纲 **第 2 章中文办公填表** 与 **第 5 章纯中文 LoRA 微调 / `AMD Quark` 量化对比** 主力 | 🔵 **甜点档**（16G–24G 独显） / ☁️ **云算力** | `llama-server` / `vLLM` |
+| **`Gemma 4 12B`** | `google/gemma-4-12B-it`<br/>(`gemma-4-12B-it-GGUF`) | 12B 稠密统一多模态强推理模型，擅长跨文件代码重构、长文献横评与复杂多步 Agent 规划，担纲 **`Qoder` / `Codex` 编程与高阶案例** 主力 | 🔵 **甜点档**（16G–24G 独显） / 🟣 **旗舰统一内存 AI PC** | `vLLM` / `llama-server` / `lemonade-server` |
+
+> 💡 *手头暂时没有 AMD 显卡？* 直接查看 **[AMD Radeon Cloud 免费云算力指南](./docs/zh/cloud/amd-radeon-cloud.md)** 或 **[AUP Learning Cloud 指南](./docs/zh/cloud/aup-learning-cloud.md)**，通过一条 SSH 端口映射命令即可在本地桌面无缝使用云端算力完成全部实操！
+
+---
+
+## 🧭 用户学习体验旅程（6 站成长闭环）
+
+| 旅程站点 | 对应章节 | 解决的学习者痛点 | 亲手做出的核心交付物 |
+|:---:|:---:|:---|:---|
+| **第 1 站：破冰启程** | **第 0～1 章** | 不懂参数量/量化/显存账，怕配崩环境 | 算清显存“三本明白账”，用三大标准引擎之一拉起本地 `/v1` 服务 |
+| **第 2 站：办公提效** | **第 2 章（首发）** | 终端能聊天了，怎么帮我做 PPT、填表、写代码？ | 跑通 **WorkBuddy（`dashi-ppt-skill` 出可编辑 `.pptx` + 自动填表 + 定时办公）** 与 **`Qoder` / `Codex`** |
+| **第 3 站：注入记忆** | **第 3 章** | 模型不懂我的私有课件，爱一本正经瞎编 | 闯关 6 节提示词课，做完菜谱切分实验，搭好 **`WorkBuddy + Obsidian`** 双链笔记库 |
+| **第 4 站：长出手脚** | **第 4 章** | 个人知识库怎么跨软件用、甚至分享给别人调用？ | 用 `FastMCP` 封装可共享的 **「知识管理 MCP Server」** + 省显存办公 `SKILL.md` |
+| **第 5 站：痛点攻坚** | **第 5～6 章** | 中文通知提取偶发写歪、网感不足；长文响应慢 | 完成 **`Qwen3.5-9B` / `Gemma 4 E4B` 中文微调评测** + **`AMD Quark` 单模型量化前后对比与 `Hyperloom` 自动加速** |
+| **第 6 站：收获远航** | **第 7～9 章** | 怎么转化成简历竞争力并选择深造方向？ | 打包个人作品集五件套与简历经历、畅玩 15 个趣味案例、进入专精课程与 AMD 开源生态 |
+
+---
+
+## 📚 完整课程章节目录与 Datawhale 专精课程双向引用关系（第 0～9 章）
+
+作为全景总览入口课，`hello-rocm` 每一章均与 Datawhale 对应垂直王牌课程建立 **「上游精华实验引用 + 下游学完进阶导流」** 的一对一衔接：
+
+| 章节入口 | 本章核心内容与配套仓库代码 | 引用与进阶导流课程 |
 |:---|:---|:---|
-| **[第 0 章｜导读：把 AMD 电脑变成 AI 助手](./docs/zh/00-guide/index.md)** | 6 站学习体验旅程、绿/蓝/紫/云四档硬件 3 分钟对号入座 | 全栈总览先导入口 |
-| **[第 1 章｜直觉认知与三大引擎部署](./docs/zh/01-first-model/index.md)** | 参数/显存/精度“三本明白账” + `llama-server` / `lemonade-server` / `vLLM` 部署 | 🔗 [`self-llm`](https://github.com/datawhalechina/self-llm) |
-| **[第 2 章｜零代码办公先行：WorkBuddy 与 Qoder](./docs/zh/02-connect-tools/index.md)** | 🌟 **首发重点**：`dashi-ppt-skill` 出 PPT + AI 自动填表 + 定时任务 + `Qoder` / `Codex` | 🔗 [Datawhale WorkBuddy 教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage) |
-| **[第 3 章｜让助手读懂你：提示词与个人知识库](./docs/zh/03-prompt-and-rag/index.md)** | 6 关本地提示词闯关 + 黑暗料理菜谱切分实验 + `WorkBuddy + Obsidian` 双链笔记库 | 🔗 [`all-in-rag`](https://github.com/datawhalechina/all-in-rag) |
-| **[第 4 章｜让助手长出手脚：知识管理 MCP 与 Skills](./docs/zh/04-mcp-and-skills/index.md)** | 用 `FastMCP` 将个人知识库封装为可分享给别人调用的 **知识管理 MCP** + 自定义 `SKILL.md` | 🔗 [`hello-agents`](https://github.com/datawhalechina/hello-agents) |
-| **[第 5 章｜能力不够？第一次中文模型微调](./docs/zh/05-fine-tune/index.md)** | 弱智吧破冰 + 中文通知抽取微调 + `WeClone` 微信分身/小红书种草体 + 自建测试集评测 | 🔗 [`happy-llm`](https://github.com/datawhalechina/happy-llm) |
-| **[第 6 章｜速度不够？AMD 量化对比与自动加速](./docs/zh/06-optimize-speed/index.md)** | `AMD Quark` 单模型量化前后速度/体积对比 + 零 C++ 唤醒 `AITER` 算子 + `Hyperloom` 自动寻优 | 🔗 [`hello-gpu`](https://github.com/datawhalechina/hello-gpu) |
-| **[第 7 章｜收获时刻：作品集与简历成果锻造](./docs/zh/07-portfolio-resume/index.md)** | 成功故事纪实模板、个人作品集五件套打包清单、STAR 简历项目示例与面试追问指南 | 毕业深造驿站 |
-| **[第 8 章｜学以致用：15 个趣味实战案例库](./docs/zh/08-fun-cases/index.md)** | 办公三件套置顶，覆盖 8 大场景，统一「五要素规范」与「新手试学 FAQ」 | 全场景实战 |
-| **[第 9 章｜拓展视野：AMD 优秀项目与资源百宝箱](./docs/zh/09-amd-ecosystem/index.md)** | `amd/gaia`、`Hyperloom`、`Quark`、`AITER`、具身智能、推荐系统、HIP 算子实验室与算力字典 | [`every-embodied`](https://github.com/datawhalechina/every-embodied) / [`torch-rechub`](https://github.com/datawhalechina/torch-rechub) |
+| **[第 0 章｜导读：把 AMD 电脑变成 AI 助手](./docs/zh/00-guide/index.md)** | 6 站体验旅程全景、绿/蓝/紫/云四档硬件 3 分钟自查、伴学 Skill 加载 | 全栈总览先导入口 |
+| **[第 1 章｜直觉认知与三大引擎部署](./docs/zh/01-first-model/index.md)** | [数据类型三本账](./docs/zh/01-first-model/index.md) · [极简环境基线](./docs/zh/01-first-model/quick-env.md) · [`llama-server` / `lemonade-server` / `vLLM` 部署](./docs/zh/01-first-model/three-engines-deploy.md) | 🔗 **[`self-llm`（开源大模型食用指南）](https://github.com/datawhalechina/self-llm)** |
+| **[第 2 章｜零代码办公先行：WorkBuddy 与 Qoder](./docs/zh/02-connect-tools/index.md)** | [安全铁律](./docs/zh/02-connect-tools/index.md) · 🌟 [**WorkBuddy 办公三件套**](./docs/zh/02-connect-tools/workbuddy-office-suite.md) · [`Qoder` 与 `Codex` 接入](./docs/zh/02-connect-tools/qoder-and-codex.md) · [已验证配置库 `src/configs/`](./src/configs/README.md) | 🔗 **[Datawhale WorkBuddy 官方教程](https://www.datawhale.cn/learn/content/382/8712?from=homepage)** |
+| **[第 3 章｜让助手读懂你：提示词与个人知识库](./docs/zh/03-prompt-and-rag/index.md)** | [6 关提示词闯关 & 黑暗料理菜谱切分实验](./docs/zh/03-prompt-and-rag/index.md) · [`WorkBuddy + Obsidian` 双链笔记库](./docs/zh/03-prompt-and-rag/workbuddy-obsidian-rag.md) | 🔗 **[`all-in-rag`（RAG 技术全栈指南）](https://github.com/datawhalechina/all-in-rag)** |
+| **[第 4 章｜让助手长出手脚：知识管理 MCP 与 Skills](./docs/zh/04-mcp-and-skills/index.md)** | 封装可共享 **[知识管理 MCP 源码](./src/main-assistant/knowledge_mcp/server.py)** + 自定义 **[周报核对 `SKILL.md`](./src/main-assistant/skills/weekly-office-check/SKILL.md)**，交付「个人学习助手 v2.0」 | 🔗 **[`hello-agents`（从零开始构建智能体）](https://github.com/datawhalechina/hello-agents)** |
+| **[第 5 章｜能力不够？第一次中文模型微调](./docs/zh/05-fine-tune/index.md)** | [弱智吧 5 分钟破冰](./docs/zh/05-fine-tune/index.md) · [中文群通知抽取微调 & `WeClone`/小红书网感分身](./docs/zh/05-fine-tune/chinese-lora-and-persona.md) · [前后评测脚本](./src/main-assistant/eval/eval_before_after_zh.py) | 🔗 **[`happy-llm`（从零开始的大语言模型原理与实践）](https://github.com/datawhalechina/happy-llm)** |
+| **[第 6 章｜速度不够？AMD 量化对比与自动加速](./docs/zh/06-optimize-speed/index.md)** | [`AMD Quark` 单模型量化前后对比](./docs/zh/06-optimize-speed/index.md)（[测速脚本](./src/main-assistant/quant_bench/quark_before_after_bench.py)）· 零 C++ 唤醒 `AITER` · [Prefix Caching & `Hyperloom` 自动寻优](./docs/zh/06-optimize-speed/agent-cache-and-hyperloom.md) | 🔗 **[`hello-gpu`（GPU 架构与算子优化实战）](https://github.com/datawhalechina/hello-gpu)** |
+| **[第 7 章｜收获时刻：作品集与简历成果锻造](./docs/zh/07-portfolio-resume/index.md)** | 成功故事纪实模板、作品集五件套打包清单、STAR 简历项目经历与面试高频追问指南 | 毕业深造驿站 |
+| **[第 8 章｜学以致用：15 个趣味实战案例库](./docs/zh/08-fun-cases/index.md)** | [上辑 Case 01~08（办公/研报/论文/知识库）](./docs/zh/08-fun-cases/office-and-study-cases.md) · [下辑 Case 09~15（语音/Qoder/规划/游戏）](./docs/zh/08-fun-cases/voice-code-agent-game-cases.md) · [五要素模板](./docs/zh/08-fun-cases/_CASE_TEMPLATE.md) | 全覆盖 8 大日常场景 |
+| **[第 9 章｜拓展视野：AMD 优秀项目与资源百宝箱](./docs/zh/09-amd-ecosystem/index.md)** | 官方开源明星（`amd/gaia`、`Hyperloom`、`Quark`、`AITER`、`Primus`）、前沿行业案例与全系 `gfx` 硬件字典 | 🔗 [`every-embodied`](https://github.com/datawhalechina/every-embodied) / [`torch-rechub`](https://github.com/datawhalechina/torch-rechub) |
 
-### hello-rocm Skill：把本项目装进你的 AI 助手
+---
 
-&emsp;&emsp;如果你使用支持 Skills、Rules 或 Agent 配置的 AI 编程工具，可以直接使用本项目内置的 **hello-rocm Skill**。它会根据本仓库的目录结构、Reference 索引、GPU 架构表、部署教程和排障清单，为你定位到具体文档与官方链接。
+## 🗂️ 仓库实际目录结构与专项拓展档案
+
+除上述第 0～9 章主线课程外，本仓库完整保留了多模型专项部署微调实录、底层 HIP 算子编程与前沿行业案例档案：
 
 ```text
-请使用当前仓库的 src/hello-rocm-skill 作为 hello-rocm Skill；如果你的工具支持 Skills、Rules 或 Agent 配置，请把它安装或加载到合适位置（例如 .claude/skills、.cursor/skills 或 .agents/skills），然后根据该 Skill 帮我学习、部署和排查 AMD ROCm。
-```
-
-&emsp;&emsp;你可以这样问：我的 AMD GPU 能不能跑 ROCm？我想最快跑通一个本地大模型应该看哪篇？vLLM / Ollama / llama.cpp / FastFlowLM / Lemonade 在 ROCm 或 NPU 上怎么装？`torch.cuda.is_available()` 返回 False 怎么排查？更多说明见 [hello-rocm Skill 使用指南](./docs/zh/04-references/index.md#hello-rocm-skill)。
-
-### 最新动态
-
-- *2026.8.26:* [*ROCm 10.0.0 Release Notes*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **十年节点大版本**：TheRock 之上补齐 **ROCm.AI**（[AMD Skills](https://github.com/amd/skills) + [Hyperloom](https://rocm.docs.amd.com/projects/hyperloom/en/latest/) + [ROCm CLI](https://github.com/ROCm/rocm-cli)）。本项目解读见 [ROCm 10.0.0 版本说明](./docs/zh/00-environment/rocm-10-0-0-release-notes.md)，官方文档入口 [rocm.docs.amd.com/en/latest](https://rocm.docs.amd.com/en/latest/)。
-
-- *2026.7.15:* [*ROCm 7.14.0 Release Notes*](https://rocm.docs.amd.com/en/latest/about/release-notes.html) — **里程碑版本：ROCm 正式转向 [TheRock](https://github.com/ROCm/TheRock) 模块化构建与发布体系**（精简 Core SDK + 按需扩展 + 模块化安装）。详见 [TheRock 迁移指南](https://rocm.docs.amd.com/en/latest/about/transition-guide-TheRock.html)
-
-- *2026.5.15:* [*ROCm 7.13.0 Release Notes*](https://rocm.docs.amd.com/en/7.13.0-preview/index.html)
-
-- *2026.3.11:* [*ROCm 7.12.0 Release Notes*](https://rocm.docs.amd.com/en/7.12.0-preview/index.html)
-
-- *2025.12.11:* [*ROCm 7.10.0 Release Notes*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)
-
-### 已支持模型
-
-<p align="center">
-  <strong>✨ 主流大模型：环境配置 · 多框架推理 · 微调实践 ✨</strong><br>
-  <em>ROCm 统一环境安装（Windows / Ubuntu）+ ROCm 7+ · 按模型分目录教程（持续扩充）</em><br>
- <a href="./docs/zh/00-environment/index.md">00-环境安装教程</a> 
-</p>
-
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/qwen3/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen3/vllm-rocm7-deploy.md">vLLM部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen3/ollama-rocm7-deploy.md">Ollama部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen3/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md">Qwen3-0.6B LoRA微调</a><br>
-      • <a href="./src/fine-tune/models/qwen3/01-Qwen3-8B-LoRA.ipynb">Qwen3-8B LoRA微调</a><br>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.5</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/qwen3.5/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen3.5/vllm-rocm7-deploy.md">vLLM部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen3.5/ollama-rocm7-deploy.md">Ollama部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen3.5/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md">Qwen3.5-4B LoRA微调</a><br>
-      • <a href="./src/fine-tune/models/qwen3.5/Qwen3.5-4B-LoRA.ipynb">Qwen3.5-4B LoRA微调</a><br>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.6</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/qwen36/qwen36_model.md">Qwen3.6 模型介绍</a><br>
-      • <a href="./docs/zh/01-deploy/qwen36/fastflowlm-npu-deploy.md">FastFlowLM NPU部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen36/lemonade-gpu-deploy.md">Lemonade GPU部署</a><br>
-      • <a href="./docs/zh/01-deploy/qwen36/lemonade-npu-deploy.md">Lemonade NPU部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>Gemma4</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/gemma4/gemma4_model.md">Gemma 4 模型介绍</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/lm-studio-rocm7-deploy.md">LM Studio部署</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/vllm-rocm7-deploy.md">vLLM部署</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/ollama-rocm7-deploy.md">Ollama部署</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/fastflowlm-npu-deploy.md">FastFlowLM NPU部署</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/lemonade-gpu-deploy.md">Lemonade GPU部署</a><br>
-      • <a href="./docs/zh/01-deploy/gemma4/lemonade-npu-deploy.md">Lemonade NPU部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./src/fine-tune/models/gemma4/gemma4_emotion_lora_modelscope_single_gpu.ipynb">Gemma4 - E4B LoRA微调（ModelScope 单卡）</a><br>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM5</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/minicpm/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-V 4.6</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/minicpmv/llamacpp-rocm7-deploy.md">llama.cpp部署</a><br>
-      • <a href="./docs/zh/01-deploy/minicpmv/vllm-rocm7-deploy.md">vLLM部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>MiniCPM-o 4.5</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/01-deploy/minicpm-o/minicpm-o-model.md">MiniCPM-o 4.5 模型介绍</a><br>
-      • <a href="./docs/zh/01-deploy/minicpm-o/llamacpp-omni-rocm7-deploy.md">llama.cpp-omni 部署（语音+视觉+TTS）</a><br>
-      • <a href="./docs/zh/01-deploy/minicpm-o/webdemo-rocm7-deploy.md">Web Demo 全双工部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>DeepSeek-V4-Flash（Strix Halo）</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/05-amd-yes/ds4.md">原生 HIP dflash_server 部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>Qwen3.8-Flash-CIRU（Strix Halo）</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/05-amd-yes/qwen3.8.md">CIRU llama-server 部署</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" style="border: none !important;"><strong>具身智能策略（ACT / SmolVLA / Pi0 / Pi0.5）</strong></td>
-  </tr>
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="./docs/zh/05-amd-yes/every-embodied.md">ROCm 具身智能策略复刻案例</a><br>
-      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/08_act_training_rocm.ipynb">ACT ROCm 训练 Notebook</a><br>
-      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/09_smolvla_training_rocm.ipynb">SmolVLA ROCm 训练 Notebook</a><br>
-    </td>
-    <td valign="top" width="50%" style="border: none !important;">
-      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/10_pi0_training_rocm.ipynb">Pi0 ROCm 训练 Notebook</a><br>
-      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/12_pi0_strict_input_end_to_end.ipynb">Pi0 严格端到端诊断 Notebook</a><br>
-      • <a href="https://github.com/datawhalechina/every-embodied/blob/main/16-%E4%B8%93%E9%A2%98%E7%BB%84%E9%98%9F%E5%AD%A6%E4%B9%A0/04-AMD-ROCm%E7%AD%96%E7%95%A5%E5%A4%8D%E5%88%BB%E4%B8%93%E9%A2%98/notebooks/13_pi05_random_position_eef_delta.ipynb">Pi0.5 EEF-delta 训练 Notebook</a><br>
-    </td>
-  </tr>
-</table>
-
-## 项目意义
-
-&emsp;&emsp;什么是 ROCm？
-
-> ROCm（Radeon Open Compute）是 AMD 推出的开源 GPU 计算平台，旨在为高性能计算和机器学习提供开放的软件栈。它支持 AMD GPU 进行并行计算，是 CUDA 在 AMD 平台上的替代方案。
-
-&emsp;&emsp;百模大战正值火热，开源 LLM 层出不穷。然而，目前大多数大模型教程和开发工具都基于 NVIDIA CUDA 生态。对于想要使用 AMD GPU 的开发者来说，缺乏系统性的学习资源是一个痛点。
-
-&emsp;&emsp;自 ROCm 7.10.0（2025 年 12 月 11 日） 起，AMD 通过 TheRock 项目对 ROCm 底层架构进行了重构，将计算运行时与操作系统解耦，使同一套 ROCm 上层接口可以同时运行在 Linux 与 Windows 上，并支持像 CUDA 一样直接安装到 Python 虚拟环境中使用。这意味着 ROCm 不再是只面向 Linux 的“工程工具”，而是升级为一个真正面向 AI 学习者与开发者的跨平台 GPU 计算平台——无论使用 Windows 还是 Linux，用户都可以更低门槛地使用 AMD GPU 进行训练和推理，大模型与 AI 玩家在硬件选择上不再被 NVIDIA 单一生态所绑定，AMD GPU 正逐步成为一个可以被普通用户真实使用的 AI 计算平台。
-
-&emsp;&emsp;本项目旨在基于核心贡献者的经验，提供 AMD ROCm 平台上大模型部署、微调、训练的完整教程；我们希望充分聚集共创者，一起丰富 AMD AI 生态。
-
-&emsp;&emsp;***我们希望成为 AMD GPU 与普罗大众的桥梁，以自由、平等的开源精神，拥抱更恢弘而辽阔的 AI 世界。***
-
-## 项目受众
-
-&emsp;&emsp;本项目适合以下学习者：
-
-
-* 手头有一张AMD显卡，想体验一下大模型本地运行;
-* 想要使用 AMD GPU 进行大模型开发，但找不到系统教程；
-* 希望低成本、高性价比地部署和运行大模型；
-* 对 ROCm 生态感兴趣，想要亲自上手实践；
-
-## 项目规划及进展
-
-&emsp;&emsp;本项目拟围绕 ROCm 大模型应用全流程组织，包括统一环境基线（00-Environment）、部署应用、微调训练、算子优化等：
-
-
-### 项目结构
-
-```
 hello-rocm/
-├── docs/                           # VitePress 在线教程源文件
-│   ├── zh/                         # 中文教程
-│   │   ├── 00-guide/               # 第0章：导读、体验旅程与硬件选型
-│   │   ├── 01-first-model/         # 第1章：数据类型三本账与三大标准引擎部署
-│   │   ├── 02-connect-tools/       # 第2章：WorkBuddy办公三件套、Qoder与Codex接入
-│   │   ├── 03-prompt-and-rag/      # 第3章：提示词闯关与WorkBuddy+Obsidian个人知识库
-│   │   ├── 04-mcp-and-skills/      # 第4章：可共享「知识管理MCP」、Agent Skills与智能体
-│   │   ├── 05-fine-tune/           # 第5章：中文模型微调与自建测试集前后评估
-│   │   ├── 06-optimize-speed/      # 第6章：AMD Quark量化对比、零C++算子与Hyperloom寻优
+├── docs/                           # VitePress 教程站点源文件
+│   ├── zh/
+│   │   ├── 00-guide/               # 第0章：导读、6站体验旅程与硬件选型
+│   │   ├── 01-first-model/         # 第1章：数据类型三本账与三大引擎部署 (Gemma 4 E4B/12B & Qwen3.5-9B)
+│   │   ├── 02-connect-tools/       # 第2章：WorkBuddy办公三件套(dashi-ppt/填表/定时)、Qoder与Codex
+│   │   ├── 03-prompt-and-rag/      # 第3章：提示词6关闯关与WorkBuddy+Obsidian私人知识库
+│   │   ├── 04-mcp-and-skills/      # 第4章：可共享「知识管理MCP」、Agent Skills与智能体实战
+│   │   ├── 05-fine-tune/           # 第5章：中文模型微调(通知抽取 & WeClone/小红书)与测试集评测
+│   │   ├── 06-optimize-speed/      # 第6章：AMD Quark单模型量化前后对比、零C++算子与Hyperloom寻优
 │   │   ├── 07-portfolio-resume/    # 第7章：成功故事、五件套作品集与简历成果锻造
 │   │   ├── 08-fun-cases/           # 第8章：15个趣味实战案例库（统一五要素+新手试学FAQ）
 │   │   ├── 09-amd-ecosystem/       # 第9章：AMD优秀开源项目、前沿行业案例与资源百宝箱
-│   │   └── 00-environment ~ 05-amd-yes/  # 专项深度档案库（多模型字典、HIP算子、具身/推荐/集群）
-│   └── en/                         # English docs
+│   │   └── 00-environment ~ 05-amd-yes/  # 专项拓展档案库（见下方折叠索引）
+│   └── en/                         # English documentation
 ├── src/
 │   ├── configs/                    # 已验证 WorkBuddy / Qoder / Codex 配置文件模板库
 │   ├── main-assistant/             # 知识管理 MCP Server、中文评测与 AMD Quark 测速源码
 │   ├── hello-rocm-skill/           # 内置 AI 伴学助教 Skill
-│   └── fine-tune / infra / amd-yes # 专项实验源码与 Notebook
-└── tests/                          # 教程死链、配置契约与实战源码自动化测试套件
+│   └── fine-tune / infra / amd-yes / npu  # 专项实验源码、脚本与 Notebook
+└── tests/                          # 路由死链、配置契约与实战源码自动化单元测试套件
 ```
 
-### 00. Environment - ROCm 基础环境
+<details>
+<summary><strong>📂 点击展开：专项模型部署微调、底层 HIP 算子与高阶行业案例档案直达索引</strong></summary>
 
-<p align="center">
-  <strong>🛠️ ROCm 基础环境安装与配置</strong><br>
-  <em>统一环境基线 · ROCm 7.12.0 · Windows / Ubuntu · uv + PyTorch</em><br>
-  📖 <strong><a href="./docs/zh/00-environment/index.md">Getting Started with ROCm Environment</a></strong>
-</p>
+<br/>
 
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;" align="center">
-      • <a href="./docs/zh/00-environment/rocm-gpu-architecture-table.md">GPU 架构与 pip 索引对照表</a><br>
-      • Windows 11 安装、驱动与安全项前置说明<br>
-      • Ubuntu 24.04 安装（uv 方式与备选一键脚本）<br>
-      • 安装校验、卸载与切换其他 GPU 架构<br>
-      • <a href="./docs/zh/00-environment/xdna2-npu.md">Ryzen AI XDNA2 硬件对照</a><br>
-      • <a href="./docs/zh/00-environment/fastflowlm.md">FastFlowLM 环境</a> · <a href="./docs/zh/00-environment/lemonade.md">Lemonade 环境</a>
-    </td>
-  </tr>
-</table>
+- **🛠️ 系统级环境与异构硬件手册（[`00-Environment`](./docs/zh/00-environment/index.md)）**：[ROCm 10.0.0 版本解读](./docs/zh/00-environment/rocm-10-0-0-release-notes.md) · [GPU 架构与 `pip` 索引对照表](./docs/zh/00-environment/rocm-gpu-architecture-table.md) · [Ryzen AI XDNA2 硬件对照](./docs/zh/00-environment/xdna2-npu.md) · [Lemonade 环境](./docs/zh/00-environment/lemonade.md) · [FastFlowLM 环境](./docs/zh/00-environment/fastflowlm.md)
+- **🚀 主体与拓展模型专项记录（[`01-Deploy`](./docs/zh/01-deploy/index.md) & [`02-Fine-tune`](./docs/zh/02-fine-tune/index.md)）**：
+  - **Gemma 4 系列**：[模型详解（E4B / 12B / 26B / 31B）](./docs/zh/01-deploy/gemma4/gemma4_model.md) · [`llama.cpp` 部署](./docs/zh/01-deploy/gemma4/llamacpp-rocm7-deploy.md) · [`Lemonade` GPU/NPU 部署](./docs/zh/01-deploy/gemma4/lemonade-gpu-deploy.md) · [`vLLM` 部署](./docs/zh/01-deploy/gemma4/vllm-rocm7-deploy.md) · [Gemma4-E4B 单卡 LoRA 微调](./docs/zh/02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu.md)
+  - **Qwen3.5 / Qwen3 / Qwen3.6 系列**：[Qwen3.5 `llama.cpp` 部署](./docs/zh/01-deploy/qwen3.5/llamacpp-rocm7-deploy.md) · [Qwen3.5 `vLLM` 部署](./docs/zh/01-deploy/qwen3.5/vllm-rocm7-deploy.md) · [Qwen3.5 LoRA + SwanLab 微调](./docs/zh/02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md) · [Qwen3-0.6B LoRA 微调](./docs/zh/02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md) · [Qwen3.6 Lemonade 部署](./docs/zh/01-deploy/qwen36/lemonade-gpu-deploy.md)
+  - **多模态与全双工语音（MiniCPM 系列）**：[MiniCPM-o 4.5 实时音视频全双工部署](./docs/zh/01-deploy/minicpm-o/index.md) · [MiniCPM-V 4.6 部署](./docs/zh/01-deploy/minicpmv/vllm-rocm7-deploy.md)
+- **🔬 底层算子与高阶行业案例（[`03-Infra`](./docs/zh/03-infra/index.md) & [`05-AMD-YES`](./docs/zh/05-amd-yes/index.md)）**：
+  - [手写 ROCm HIP 算子](./docs/zh/03-infra/handwrite-rocm-operator.md) · [自定义 PyTorch 算子](./docs/zh/03-infra/custom-pytorch-operator.md) · [Every Embodied 具身智能策略复刻](./docs/zh/05-amd-yes/every-embodied.md) · [Torch-RecHub 推荐系统实战](./docs/zh/05-amd-yes/torch-rechub/index.md) · [Happy-LLM 分布式训练](./docs/zh/05-amd-yes/happy-llm/index.md) · [OpenClaw 全隐私助手](./docs/zh/05-amd-yes/openclaw.md) · [Strix Halo 128GB 极限部署（DS4 / Qwen3.8）](./docs/zh/05-amd-yes/ds4.md)
 
-### 01. Deploy - ROCm 大模型部署
+</details>
 
-<p align="center">
-  <strong>🚀 ROCm 大模型部署实践</strong><br>
-  <em>零基础快速上手 AMD GPU 大模型部署</em><br>
-  📖 <strong><a href="./docs/zh/01-deploy/index.md">Getting Started with ROCm Deploy</a></strong>
-</p>
+---
 
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;" align="center">
-      • LM Studio 零基础大模型部署<br>
-      • vLLM 零基础大模型部署<br>
-      • Ollama 零基础大模型部署<br>
-      • llama.cpp 零基础大模型部署<br>
-      • FastFlowLM 零基础 NPU 部署<br>
-      • Lemonade 零基础大模型部署<br>
-      • ATOM 零基础大模型部署
-    </td>
-  </tr>
-</table>
+## 🤖 内置 AI 伴学助教：`hello-rocm Skill`
 
-### 02. Fine-tune - ROCm 大模型微调
+如果你正在使用 **WorkBuddy**、**`Qoder`**、**Codex** 或 Claude Code，可直接加载本仓库内置的 **[`src/hello-rocm-skill`](./src/hello-rocm-skill/SKILL.md)**，让 AI 自动根据你的显卡型号推荐最适合的章节与排障方案：
 
-<p align="center">
-  <strong>🔧 ROCm 大模型微调实践</strong><br>
-  <em>在 AMD GPU 上进行高效模型微调</em><br>
-  📖 <strong><a href="./docs/zh/02-fine-tune/index.md">Getting Started with ROCm Fine-tune</a></strong>
-</p>
+```text
+请使用当前仓库的 src/hello-rocm-skill 作为 hello-rocm Skill，将其加载到你的技能目录（如 .codebuddy/skills 或 .agents/skills），并根据我的硬件配置引导我完成课程学习与排错。
+```
 
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;" align="center">
-      • 大模型零基础微调教程<br>
-      • 大模型单机微调脚本<br>
-      • 大模型多机多卡微调教程
-    </td>
-  </tr>
-</table>
+---
 
-### 03. Infra - ROCm 算子优化与 GPU 编程
+## 📰 ROCm 生态重要动态
 
-<p align="center">
-  <strong>⚙️ ROCm 算子优化与 GPU 编程</strong><br>
-  <em>从 AMD AI 硬件全景到 HIP 算子与性能分析</em><br>
-  📖 <strong><a href="./docs/zh/03-infra/index.md">开始学习 ROCm 算子优化与 GPU 编程</a></strong>
-</p>
+- **2026.08.26** — [*ROCm 10.0.0 Release Notes*](https://rocm.docs.amd.com/en/latest/about/release-notes.html)：十年节点大版本，在 TheRock 基座之上补齐 **ROCm.AI 三件套**（[AMD Skills](https://github.com/amd/skills) + [Hyperloom](https://github.com/AMD-AGI/Hyperloom) + [ROCm CLI](https://github.com/ROCm/rocm-cli)）。详见本项目 [ROCm 10.0.0 版本解读](./docs/zh/00-environment/rocm-10-0-0-release-notes.md)。
+- **2026.07.15** — [*ROCm 7.14.0 Release Notes*](https://rocm.docs.amd.com/en/latest/about/release-notes.html)：正式转向 **[TheRock](https://github.com/ROCm/TheRock)** 模块化构建与发布体系。
+- **2025.12.11** — [*ROCm 7.10.0*](https://rocm.docs.amd.com/en/7.10.0-preview/about/release-notes.html)：正式支持 Windows 平台及直接安装至 Python 虚拟环境。
 
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;" align="center">
-      • AMD AI 硬件全景与 ROCm 生态<br>
-      • GPU 软件栈与硬件架构深度解析<br>
-      • HIP 编程入门与手写 Kernel 实战<br>
-      • 自定义 PyTorch 算子与 Autograd 集成
-    </td>
-  </tr>
-</table>
+---
 
-### 04. References - ROCm 优质参考资料
+## 🤝 参与试学与开源贡献
 
-<p align="center">
-  <strong>📚 ROCm 优质参考资料</strong><br>
-  <em>精选的 AMD 官方与社区资源</em><br>
-  📖 <strong><a href="./docs/zh/04-references/index.md">ROCm References</a></strong>
-</p>
+我们非常欢迎零基础同学与资深开发者共同参与共建！
+- **成为「新手试学官」**：跟做任意章节或案例时遇到卡点，欢迎直接提交 **[🧪 新手试学反馈卡](https://github.com/datawhalechina/hello-rocm/issues/new/choose)**，被收录的排错经验将直接署名计入仓库 Contributors！
+- **贡献新案例或改进教程**：参与前请查阅 **[内容规范指南](./CONTENT_GUIDE.md)**、**[五要素案例模板](./docs/zh/08-fun-cases/_CASE_TEMPLATE.md)** 与 **[CONTRIBUTING.md](./CONTRIBUTING.md)**，提交前可运行 `PYTHONPATH=. python3 tests/test_course_v2.py` 一键完成链接与配置自检。
+- **交流社群与性能榜单**：欢迎加入 **[飞书社区讨论](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**；Strix Halo（Ryzen AI Max+ 395）真机推理速度对照可参考社区联合维护的 **[Strix Arena 性能排行榜](https://strix-arena.web.app/)**。
 
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="100%" align="center" style="border: none !important;">
-      • <a href="https://rocm.docs.amd.com/">ROCm 官方文档</a><br>
-      • <a href="https://github.com/amd">AMD GitHub</a><br>
-      • <a href="https://rocm.docs.amd.com/en/latest/about/release-notes.html">ROCm Release Notes</a><br>
-      • <a href="./docs/zh/04-references/index.md#amd-gpu-架构白皮书">AMD GPU 架构白皮书（CDNA / RDNA）</a><br>
-      • <a href="./docs/zh/04-references/index.md#框架与推理服务rocm-快速安装入口">框架与推理服务 ROCm 快速安装入口</a><br>
-      • 相关新闻
-    </td>
-  </tr>
-</table>
+---
 
-### 05. AMD-YES - AMD 实践案例集合
+## 🙏 致谢与核心贡献者
 
-<p align="center">
-  <strong>✨ AMD 实践案例集合</strong><br>
-  <em>社区驱动的 AMD GPU 项目实践</em><br>
-  📖 <strong><a href="./docs/zh/05-amd-yes/index.md">Getting Started with ROCm AMD-YES</a></strong>
-</p>
+- [宋志学 (不要葱姜蒜) - 项目负责人](https://github.com/KMnO4-zx)（Datawhale 成员，`self-llm`、`happy-llm` 项目负责人）
+- [陈榆 - 项目负责人](https://github.com/lucachen)（内容创作者 - 谷歌开发者机器学习技术专家）
+- [陈思州 - 项目成员](https://github.com/jjyaoao)（Datawhale 成员，`hello-agents` 项目负责人）
+- [潘嘉航 - 项目成员](https://github.com/amdjiahangpan)（内容创作者 - AMD 软件工程师）
+- [刘伟鸿 - 项目成员](https://github.com/Weihong-Liu)（Datawhale 成员）
+- [郝东波 - 项目成员](https://github.com/wlkq151172)（内容创作者 - 江南大学研究生）
+- [柯慕灵 - 项目成员](https://github.com/1985312383)（Datawhale 成员，`Torch-RecHub` 项目负责人）
 
-<table align="center" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none !important;">
-  <tr>
-    <td valign="top" width="50%" style="border: none !important;" align="center">
-      • toy-cli - LLM 轻量化终端助手<br>
-      • Minesweeper Agent - 用本地大模型玩扫雷（Agent 循环实践）<br>
-      • YOLOv10 微信跳一跳 - 游戏 AI 实战（在 ROCm 环境下训练并使用 yolov10）<br>
-      • Chat-甄嬛 - 古风对话大模型<br>
-      • 智能旅行规划助手 - HelloAgents Agent 实战<br>
-      • Torch-RecHub - 推荐系统实战（CTR、召回、多任务、ONNX 导出）<br>
-      • happy-llm - 分布式大模型训练<br>
-      • <a href="./docs/zh/05-amd-yes/every-embodied.md">Every Embodied - ROCm 具身智能策略复刻</a><br>
-      • <a href="./docs/zh/05-amd-yes/ds4.md">DeepSeek-V4-Flash - Strix Halo 原生 HIP 部署</a><br>
-      • <a href="./docs/zh/05-amd-yes/qwen3.8.md">Qwen3.8-Flash-CIRU - Strix Halo llama-server 部署</a><br>
-    </td>
-  </tr>
-</table>
+感谢 **AMD University Program** 对本项目的支持，以及每一位提交 Issue、试学反馈与 PR 的社区伙伴！
 
-## 贡献指南
-
-&emsp;&emsp;我们欢迎所有形式的贡献！无论是：
-
-* 完善或新增教程
-* 修复错误与 Bug
-* 分享你的 AMD 项目
-* 提出建议与想法
-
-&emsp;&emsp;参与前请先阅读 **[内容规范指南](./CONTENT_GUIDE.md)**（目录、命名、配图与文档结构与 **Qwen3 / Qwen3.5** 等教程对齐），再阅读 **[CONTRIBUTING.md](./CONTRIBUTING.md)**（Issue / PR 流程与模型专项目录约定）。
-
-&emsp;&emsp;如果你在使用 ROCm、部署模型或阅读教程时遇到故障排查与常见问题，也欢迎加入我们的 **[社区讨论](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，和社区一起补充经验、反馈问题、完善教程。
-
-&emsp;&emsp;想要深度参与的同学可以联系我们，我们会将你加入到项目的维护者中。
-
-## 友情链接
-
-### [Strix Arena](https://strix-arena.web.app/) — AMD Strix Halo 大模型性能排行榜
-
-&emsp;&emsp;[Strix Arena](https://strix-arena.web.app/) 汇总大模型在 **AMD Strix Halo**（锐龙 AI Max+ 395 / Radeon 8060S / 128GB 统一内存，gfx1151）上的真机推理成绩。数据来自 llama-benchy 实测，公开 YAML 推理配方和统一内存参数，并对照 ROCm llama.cpp、Vulkan RADV、Gufo、vLLM 等运行时的预填充（prefill）与解码（decode）速度。也可以把本机跑分和配方提交上榜。
-
-&emsp;&emsp;它和 **hello-rocm** 落在同一条 AMD 端侧路径上，分工不同：本仓库写环境安装、模型部署、微调训练和 GPU 编程；Strix Arena 给同一类硬件做性能对照和可复现配方。榜单由 Gufo、AMD ROCm vLLM（gfx11）、Datawhale（hello-rocm、hello-gpu）和社区 Strix Halo 工具一起维护。在 Strix Halo 上选模型和运行时，可以先看榜，再回到本仓库里对应的部署教程把环境跑起来。
-
-## 致谢
-### 核心贡献者
-
-
-- [宋志学(不要葱姜蒜)-项目负责人](https://github.com/KMnO4-zx) （Datawhale成员，self-llm, happy-llm 项目负责人）
-- [陈榆-项目负责人](https://github.com/lucachen) （内容创作者-谷歌开发者机器学习技术专家）
-- [陈思州-项目成员](https://github.com/jjyaoao) (Datawhale 成员, hello-agents 项目负责人)
-- [潘嘉航-项目成员](https://github.com/amdjiahangpan) （内容创作者-AMD软件工程师）
-- [刘伟鸿-项目成员](https://github.com/Weihong-Liu) （Datawhale成员）
-- [郝东波-项目成员](https://github.com/wlkq151172) （内容创作者-江南大学研究生）
-- [柯慕灵-项目成员](https://github.com/1985312383)（Datawhale成员，Torch-RecHub 项目负责人）
-> 注：欢迎更多贡献者加入！
-
-### 其他
-
-- 如果有任何想法可以联系我们，也欢迎大家多多提出 issue
-- 特别感谢以下为教程做出贡献的同学！
-- 感谢 AMD University Program 对本项目的支持！！
-
-<div align=center style="margin-top: 30px;">
+<div align="center" style="margin-top: 24px;">
   <a href="https://github.com/datawhalechina/hello-rocm/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=datawhalechina/hello-rocm" />
+    <img src="https://contrib.rocks/image?repo=datawhalechina/hello-rocm" alt="Contributors" />
   </a>
 </div>
-
 
 ## License
 
@@ -461,8 +191,7 @@ hello-rocm/
 
 <div align="center">
 
-**让我们一起构建 AMD AI 的未来！** 💪
-
-Made with ❤️ by the hello-rocm community
+**让我们一起构建更开放、更易用的 AMD AI 学习生态！** 💪  
+Made with ❤️ by the hello-rocm & Datawhale community
 
 </div>

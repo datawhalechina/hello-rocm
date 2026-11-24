@@ -22,8 +22,8 @@
 
 如果把包含 40 亿参数的原版模型全部解冻修改（全量微调），光存梯度和优化器状态就要吃掉 **50 GB+** 显存。  
 而 **LoRA（低秩自适应）** 的聪明之处在于：**冻结原版“大字典”一字不改，只在旁边贴几张极薄的“透明便利贴适配器”（仅占总参数量的 `0.1% ~ 1%`）专门记录新规矩**！
-- **0.6B ~ 1.7B 模型 LoRA 微调**：仅需 **5 GB ~ 7 GB 显存**（🟢 8G 入门卡轻松跑通，详见本仓库实测教程 [Qwen3-0.6B LoRA + SwanLab 记录](../02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md)）；
-- **4B 模型 LoRA / QLoRA 微调**：仅需 **8 GB ~ 14 GB 显存**（🔵 16G 甜点卡丝滑跑通，详见本仓库实测教程 [Qwen3.5-4B LoRA + SwanLab 记录](../02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md) 与 [Gemma4-E4B 单卡微调](../02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu.md)）。
+- **`Gemma 4 E4B` / 轻量模型 LoRA & QLoRA 微调**：仅需 **6 GB ~ 10 GB 显存**（🟢 8G–12G 入门卡可跑 QLoRA，详见本仓库实测教程 [Gemma4-E4B 单卡微调](../02-fine-tune/gemma4/gemma4-e4b-lora-modelscope-single-gpu.md) 与超轻量拓展 [Qwen3-0.6B LoRA + SwanLab 记录](../02-fine-tune/qwen3/qwen3-0.6b-lora-swanlab.md)）；
+- **`Qwen3.5-9B` / `Gemma 4 12B` LoRA & QLoRA 微调**：仅需 **12 GB ~ 22 GB 显存**（🔵 16G–24G 甜点卡与云算力丝滑跑通，亦可对照仓库同系实录 [Qwen3.5 LoRA + SwanLab 记录](../02-fine-tune/qwen3.5/qwen3.5-4b-lora-swanlab.md)）。
 
 ### 🧪 5 分钟中文破冰实验：用「弱智吧（`COIG-CQIA`）」治好小模型被中文双关忽悠
 
@@ -37,7 +37,7 @@
   llamafactory-cli webui
   ```
 - 在浏览器打开 `http://127.0.0.1:7860`：
-  1. 模型填入 `Qwen/Qwen3-0.6B`（8G 卡）或 `Qwen/Qwen3.5-4B`（16G 卡）；
+  1. 模型填入课程主体模型 `google/gemma-4-E4B-it`（8G–12G 卡开启 4-bit QLoRA）或 `Qwen/Qwen3.5-9B`（16G–24G 卡）；
   2. 微调方法选 `lora`，数据集勾选内置 `ruozhiba`（或自定义中文集），开启 `SwanLab` 日志记录；
   3. 点击 **「开始训练」**，只需 **3～5 分钟**，在右侧「Chat 测试」页加载刚训好的适配器再问同一道题，小模型立刻清醒指出：“蓝牙耳机是数码电子产品，坏了应该找售后维修店，不用去医院挂号！”
 

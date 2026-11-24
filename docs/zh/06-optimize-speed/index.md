@@ -19,7 +19,7 @@
 
 ## 6.2 AMD 官方量化直观实战：用 `AMD Quark` 跑同一模型的量化前后对比
 
-想亲眼验证“量化到底能省多少空间、提速多少倍”？我们无需复杂校准流程，直接**找一个开源基准模型（如 `Qwen3.5-4B`），用 AMD 官方量化工具箱 [`AMD Quark`](https://github.com/amd/Quark) 跑一遍量化前（`BF16`）与量化后（`INT4` / `FP8`）的同台实测对比**！
+想亲眼验证“量化到底能省多少空间、提速多少倍”？我们无需复杂校准流程，直接**从课程三大主体模型中选定一个基准模型（如 `Qwen3.5-9B` 或 `Gemma 4 12B`），用 AMD 官方量化工具箱 [`AMD Quark`](https://github.com/amd/Quark) 跑一遍量化前（`BF16`）与量化后（`INT4` / `FP8`）的同台实测对比**！
 
 ### Step 1：安装 `amd-quark` 并执行单模型量化
 
@@ -28,10 +28,10 @@
 ```bash
 uv pip install amd-quark transformers accelerate
 
-# 对指定模型执行对称 INT4 分组量化并导出
+# 对主体模型 Qwen3.5-9B 执行对称 INT4 分组量化并导出
 python3 src/main-assistant/quant_bench/quark_before_after_bench.py \
-  --quantize-model Qwen/Qwen3.5-4B \
-  --output-dir ./quark_qwen3.5_4b_int4
+  --quantize-model Qwen/Qwen3.5-9B \
+  --output-dir ./quark_qwen3.5_9b_int4
 ```
 
 ### Step 2：量化前 vs 量化后速度、体积与显存对比实测
@@ -42,14 +42,14 @@ python3 src/main-assistant/quant_bench/quark_before_after_bench.py \
 python3 src/main-assistant/quant_bench/quark_before_after_bench.py --demo-report
 ```
 
-你将得到一张可直接放进第 7 章简历评估报告的清晰对比表（典型 16G Radeon 独显实测量级参考）：
+你将得到一张可直接放进第 7 章简历评估报告的清晰对比表（以 `Qwen3.5-9B` 在 24G Radeon 独显实测量级为例）：
 
 | 对比维度 | 量化前基线 (`BF16`) | `AMD Quark` 量化后 (`INT4`) | 优化提升幅度 |
 |:---|:---:|:---:|:---:|
-| **权重文件体积** | 8.05 GB | **2.65 GB** | 体积缩减 **67.1%** |
-| **峰值显存占用** | 9.60 GB | **3.85 GB** | 显存节省 **59.9%** |
-| **首字延迟 (TTFT)** | 410 ms | **185 ms** | 等待缩短 **54.9%** |
-| **生成吞吐速度** | 38.4 tok/s | **88.6 tok/s** | 提速 **2.31x** |
+| **权重文件体积** | 18.10 GB | **5.45 GB** | 体积缩减 **69.9%** |
+| **峰值显存占用** | 20.80 GB | **7.20 GB** | 显存节省 **65.4%** |
+| **首字延迟 (TTFT)** | 620 ms | **275 ms** | 等待缩短 **55.6%** |
+| **生成吞吐速度** | 24.5 tok/s | **58.2 tok/s** | 提速 **2.38x** |
 
 ---
 
@@ -77,7 +77,7 @@ def fused_rmsnorm_silu(x: torch.Tensor, weight: torch.Tensor) -> torch.Tensor:
 
 ```bash
 ROCBLAS_USE_HIPBLASLT=1 ./llama-server \
-  -m ~/ai_models/qwen3.5/qwen3.5-4b-q4_k_m.gguf \
+  -m ~/ai_models/gemma4/gemma-4-E4B-it-Q4_K_M.gguf \
   -ngl 99 --ctx-size 32768 --jinja \
   -fa on -ctk q8_0 -ctv q8_0 --no-mmap
 ```

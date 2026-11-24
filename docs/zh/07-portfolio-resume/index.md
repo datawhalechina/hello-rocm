@@ -11,7 +11,7 @@
 ```markdown
 # 我如何用零 API 成本，把自己的 AMD 电脑改造成全天候 AI 办公与学习助手
 
-1. **我的起点与硬件账单**：设备型号（如 RX 7800 XT 16G / Ryzen AI Max+ 395），为什么选择本地部署 `Qwen3.5-4B-Q4_K_M`（显存占用实测仅 X.X GB）。
+1. **我的起点与硬件账单**：设备型号（如 RX 7800 XT 16G / Ryzen AI Max+ 395），为什么选择本地部署 `Gemma 4 E4B` / `Qwen3.5-9B` / `Gemma 4 12B`（显存占用实测仅 X.X GB）。
 2. **办公第一战**：用 `llama-server` / `vLLM` 接入 WorkBuddy，配合 `dashi-ppt-skill` 3 分钟生成可二次编辑 `.pptx`，并配置每日定时自动填表。
 3. **打造可共享的第二大脑**：用 `WorkBuddy + Obsidian` 解决私密课件问答，并用 `FastMCP` 封装成「知识管理 MCP 服务」实现在 `Qoder` 与队友电脑间跨端调用。
 4. **两次关键工程突破（附真实数据表）**：
