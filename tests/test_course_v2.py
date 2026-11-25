@@ -267,6 +267,49 @@ class TestVerifiedConfigsAndDocsLinks(unittest.TestCase):
                 f"文件 {f} 仍包含已删除的 00~05 旧文档路由引用: {m.group(0) if m else ''}",
             )
 
+    def test_all_57_zh_pages_and_15_five_element_cases(self) -> None:
+        """阶段 6 整体验收门控：校验全书 00~09 章节独立教程数量与第 8 章 15 篇五要素标准案例完整性"""
+        expected_counts = {
+            "00-guide": 3,
+            "01-first-model": 6,
+            "02-connect-tools": 6,
+            "03-prompt-and-rag": 4,
+            "04-mcp-and-skills": 4,
+            "05-fine-tune": 5,
+            "06-optimize-speed": 5,
+            "07-portfolio-resume": 3,
+            "08-fun-cases": 17,
+            "09-amd-ecosystem": 3,
+        }
+        total = 1 if (REPO_ROOT / "docs/zh/index.md").exists() else 0
+        for ch, expected in expected_counts.items():
+            files = list((REPO_ROOT / "docs/zh" / ch).glob("*.md"))
+            self.assertEqual(
+                len(files),
+                expected,
+                f"章节 {ch} 独立 Markdown 篇数不符：期望 {expected} 篇，实际 {len(files)} 篇 -> {[p.name for p in files]}",
+            )
+            total += len(files)
+        self.assertEqual(total, 57, f"全书中文核心页面总数应为 57 篇，实际 {total} 篇")
+
+        # 校验第 8 章 case-01 ~ case-15 共 15 篇独立案例均严格包含五要素标题与新手试学 FAQ
+        cases_dir = REPO_ROOT / "docs/zh/08-fun-cases"
+        case_files = sorted(cases_dir.glob("case-*.md"))
+        self.assertEqual(len(case_files), 15, f"第 8 章应有 15 篇独立案例文件，实际 {len(case_files)} 篇")
+        required_sections = [
+            "## 1. 🎬",
+            "## 2. ✅",
+            "## 3. 💻",
+            "## 4. 🔍",
+            "## 5. 🚀",
+            "## ❓",
+        ]
+        for idx, cf in enumerate(case_files, start=1):
+            self.assertTrue(cf.name.startswith(f"case-{idx:02d}-"), f"案例编号不连续: {cf.name}")
+            txt = cf.read_text(encoding="utf-8")
+            for sec in required_sections:
+                self.assertIn(sec, txt, f"独立案例 {cf.name} 缺少五要素标准章节标题: {sec}")
+
 
 if __name__ == "__main__":
     unittest.main()

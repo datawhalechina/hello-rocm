@@ -115,24 +115,41 @@ const zhCourseSidebar: DefaultTheme.SidebarItem[] = [
     text: '第 7 章｜作品集与简历成果锻造',
     collapsed: false,
     items: [
-      { text: '成功故事、五件套与简历面试指南', link: '/zh/07-portfolio-resume/' }
+      { text: '7.1 写下你的本地 AI 改造成功故事', link: '/zh/07-portfolio-resume/' },
+      { text: '7.2 个人 AI 作品集「五件套」打包指南', link: '/zh/07-portfolio-resume/02-portfolio-5-pieces' },
+      { text: '7.3 STAR 简历模板、面试真题与深造驿站', link: '/zh/07-portfolio-resume/03-star-resume-interview' }
     ]
   },
   {
-    text: '第 8 章｜15 个趣味实战案例库',
+    text: '第 8 章｜15 篇趣味实战案例超市',
     collapsed: false,
     items: [
-      { text: '全景矩阵与新手试学机制', link: '/zh/08-fun-cases/' },
-      { text: '上辑 (Case 01~08)：办公、论文与知识库', link: '/zh/08-fun-cases/office-and-study-cases' },
-      { text: '下辑 (Case 09~15)：语音、Qoder编程与游戏', link: '/zh/08-fun-cases/voice-code-agent-game-cases' },
-      { text: '附：五要素标准案例模板', link: '/zh/08-fun-cases/_CASE_TEMPLATE' }
+      { text: '全景选菜矩阵与新手试学机制', link: '/zh/08-fun-cases/' },
+      { text: 'Case 01 🌟 大师 PPT 一键出可编辑课件', link: '/zh/08-fun-cases/case-01-dashi-ppt' },
+      { text: 'Case 02 🌟 AI 零幻觉填表与文件夹归档', link: '/zh/08-fun-cases/case-02-auto-excel-archive' },
+      { text: 'Case 03 🌟 AI 定时任务日常办公值守', link: '/zh/08-fun-cases/case-03-scheduled-office' },
+      { text: 'Case 04 全本地万字深度调研报告专家', link: '/zh/08-fun-cases/case-04-local-deep-research' },
+      { text: 'Case 05 多篇英文论文横评直出组会 PPT', link: '/zh/08-fun-cases/case-05-paper-review-ppt' },
+      { text: 'Case 06 双语公式图表零损精翻神器', link: '/zh/08-fun-cases/case-06-pdf-math-translate' },
+      { text: 'Case 07 Obsidian 双链与可共享知识库 MCP', link: '/zh/08-fun-cases/case-07-obsidian-knowledge-mcp' },
+      { text: 'Case 08 复习讲义秒变双人播客与分身联动', link: '/zh/08-fun-cases/case-08-podcast-and-weclone' },
+      { text: 'Case 09 全离线保密会议与网课纪要神器', link: '/zh/08-fun-cases/case-09-offline-meeting-minutes' },
+      { text: 'Case 10 桌面 Live2D 实时英语口语陪练', link: '/zh/08-fun-cases/case-10-live2d-voice-tutor' },
+      { text: 'Case 11 Qoder 全离线内网重构与单测', link: '/zh/08-fun-cases/case-11-qoder-offline-ide' },
+      { text: 'Case 12 Codex 终端修 Bug 与魔改 toy-cli', link: '/zh/08-fun-cases/case-12-codex-and-toy-cli' },
+      { text: 'Case 13 高德 MCP 智能旅行规划与网页操控', link: '/zh/08-fun-cases/case-13-travel-planner-browser' },
+      { text: 'Case 14 OpenClaw 24h 全隐私飞书管家中枢', link: '/zh/08-fun-cases/case-14-openclaw-hub' },
+      { text: 'Case 15 扫雷挑战赛、Minecraft 与跑团剧场', link: '/zh/08-fun-cases/case-15-minesweeper-and-game-ai' },
+      { text: '附：五要素标准案例贡献模板', link: '/zh/08-fun-cases/_CASE_TEMPLATE' }
     ]
   },
   {
     text: '第 9 章｜AMD 优秀项目与资源百宝箱',
     collapsed: false,
     items: [
-      { text: '官方明星项目、行业案例与算力字典', link: '/zh/09-amd-ecosystem/' }
+      { text: '9.1 AMD 官方明星开源项目全景巡礼', link: '/zh/09-amd-ecosystem/' },
+      { text: '9.2 前沿科研与工业案例精讲 (具身/搜广推)', link: '/zh/09-amd-ecosystem/02-research-and-industry-cases' },
+      { text: '9.3 全系 AMD gfx 硬件大字典与算力福利', link: '/zh/09-amd-ecosystem/03-hardware-dictionary-and-cloud' }
     ]
   }
 ]

@@ -1,63 +1,82 @@
-# 第 9 章｜拓展视野：AMD 优秀开源项目、前沿行业案例与开发者资源百宝箱
+# 第 9 章｜拓展视野：AMD 官方明星开源项目、前沿行业案例与全系硬件百宝箱
 
-> **本章定位（收官宝藏字典）**：当你完成了前 8 章从零到一的入门与实战后，本章为你系统汇集了 **AMD 官方最具代表性的 AI 与 Agent 开源项目**、**本仓库沉淀的科研与工业级高阶实战案例** 以及 **免费云算力与全系硬件速查资源**，助你在 AMD AI 生态中走得更深更远！
-
----
-
-## 9.1 🌟 AMD 官方明星开源 AI 与 Agent 项目巡礼
-
-AMD 正在 GitHub（[`github.com/amd`](https://github.com/amd)、[`github.com/ROCm`](https://github.com/ROCm)、[`github.com/AMD-AGI`](https://github.com/AMD-AGI)）快速构建覆盖端侧 AI PC 到数据中心集群的全栈开源工具链，以下项目最值得收藏关注：
-
-### 一、端侧本地智能体与开发者生产力工具
-
-| 开源项目 | 官方仓库链接 | 核心亮点与适用场景 |
-|:---|:---|:---|
-| **AMD GAIA** | [`amd/gaia`](https://github.com/amd/gaia) | AMD 官方开源的本地隐私 **AI Agent 框架与智能体工厂**，专为 Ryzen AI（NPU + iGPU）与 Radeon 硬件打造，开箱内置代码助手、RAG 问答、邮件摘要与自动评测组件。 |
-| **Lemonade SDK** | [`lemonade-sdk/lemonade`](https://github.com/lemonade-sdk/lemonade) | 本课程三大标准服务引擎之一！一站式统一调度 Radeon GPU（`llama.cpp`）与 Ryzen AI XDNA 2 NPU（`FastFlowLM`），自带模型管理与标准 `/v1` 服务接口。 |
-| **AMD Skills** | [`amd/skills`](https://github.com/amd/skills) | 将 AMD 官方 ROCm 调优、排错与算子最佳实践打包成标准 `SKILL.md`，一行 `npx skills add amd/skills` 即可赋能你的 `Qoder`、Codex 与 WorkBuddy。 |
-| **ROCm CLI** | [`ROCm/rocm-cli`](https://github.com/ROCm/rocm-cli) | ROCm 10 新一代一体化命令行管家，一条命令完成 SDK 安装、硬件体检（`examine`）与模型服务拉起。 |
-
-### 二、自动优化、模型量化与高性能训练/推理底座
-
-| 开源项目 | 官方仓库链接 | 核心亮点与适用场景 |
-|:---|:---|:---|
-| **Hyperloom** | [`AMD-AGI/Hyperloom`](https://github.com/AMD-AGI/Hyperloom) | **多智能体全自动推理与算子优化引擎**（串联 `Magpie` 压测、`TraceLens` 剖析、`Arbor` 参数搜索与 `GEAK` 自动重写融合算子）。 |
-| **TraceLens** | [`AMD-AGI/TraceLens`](https://github.com/AMD-AGI/TraceLens) | 纯 Python 跨框架 GPU 性能剖析报告生成器，自动解析 PyTorch / `vLLM` Trace 揪出性能瓶颈。 |
-| **AMD Quark** | [`amd/Quark`](https://github.com/amd/Quark) | AMD 官方全平台训练后量化（PTQ）与压缩工具箱，支持 `INT4 AWQ/GPTQ`、`FP8`、`MXFP4`，通吃 Radeon、Ryzen AI NPU 与 Instinct。 |
-| **AITER** | [`ROCm/aiter`](https://github.com/ROCm/aiter) | **AI Tensor Engine for ROCm** —— 面向大模型推理极致打磨的高性能融合算子库（`vLLM` 开启 `VLLM_ROCM_USE_AITER=1` 即可调用）。 |
-| **Primus & Primus-Turbo** | [`AMD-AGI/Primus`](https://github.com/AMD-AGI/Primus) | 面向大规模基础模型预训练与后训练的高性能统一训练框架（兼容 Megatron-LM / TorchTitan / JAX）及底层 FP8/MoE 加速库。 |
-| **TheRock** | [`ROCm/TheRock`](https://github.com/ROCm/TheRock) | 新一代模块化跨平台 ROCm 构建与分发基座，让 ROCm 同时支持 Linux 与 Windows 并可直接装入 Python 虚拟环境。 |
+> **本章定位（收官宝藏与案头工具书）**：当你完成了前 8 章从零基础破冰、日常办公提效、私人知识库 MCP、中文微调加速到 15 个趣味应用的全链路通关后，本章为你系统浓缩了 **AMD 官方最具代表性的开源 AI 项目矩阵**、**四大硬核科研与工业落地案例** 以及 **自包含的全系 AMD GPU/APU `gfx` 架构速查大字典与免费算力入口**，陪你在更广阔的 AI 世界里走得更深更远！
 
 ---
 
-## 9.2 🚀 基于 AMD 平台的前沿科研与行业高阶案例集（本仓库硬核资产）
+## 9.1 🌟 AMD 官方明星开源 AI 与 Agent 项目全景巡礼
 
-如果你已经不满足于日常办公和单卡轻量应用，渴望挑战 **机器人具身智能、工业级推荐系统、多卡分布式大模型训练、百亿/千亿模型极限部署或底层 C++ HIP 算子开发**，本仓库为你完整保留并打磨了以下进阶实战专题：
+过去两年里，AMD 在 GitHub 三大官方开源大本营 —— **[`github.com/amd`](https://github.com/amd)**、**[`github.com/ROCm`](https://github.com/ROCm)** 与 **[`github.com/AMD-AGI`](https://github.com/AMD-AGI)** —— 构建起了一套从轻薄本端侧 NPU 直通千卡 Instinct 集群的全开源工具链。
 
-| 进阶方向 | 生态代表项目与复现要点 | 联合生态与进阶深造课程 |
-|:---|:---|:---|
-| 🤖 **具身智能（Embodied AI）** | **Every Embodied 策略复刻**：在 MuJoCo 桌面抓取环境中基于 ROCm 复刻 ACT、SmolVLA、Pi0 与 Pi0.5 训练与闭环评估 | 🔗 [`datawhalechina/every-embodied`](https://github.com/datawhalechina/every-embodied) |
-| 📚 **工业级推荐系统** | **Torch-RecHub 全链路实战**：基于 ROCm + PyTorch 跑通 DeepFM (CTR)、DIN (序列建模)、DSSM (召回)、MMOE (多任务) 与 ONNX 导出 | 🔗 [`datawhalechina/torch-rechub`](https://github.com/datawhalechina/torch-rechub) |
-| 🧠 **分布式从零训练大模型** | **Happy-LLM 多卡集群实战**：亲手搭建 Transformer 大模型架构并在 AMD 多卡环境跑通预训练、SFT 与偏好对齐流程 | 🔗 [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) |
-| ⚡ **旗舰 AI PC 极限部署** | • **Ryzen AI Max+ 395 (Strix Halo 128GB)** 超大统一内存跑通 `Qwen3.6-35B-A3B` 等百亿级 MoE 模型<br/>• **[Strix Arena 性能排行榜](https://strix-arena.web.app/)**（真机推理跑分与可复现配方榜） | 🔗 [`datawhalechina/self-llm`](https://github.com/datawhalechina/self-llm) |
-| 🔬 **底层 GPU 架构与算子编程** | 深入 AMD GPU 计算单元（CU / Wavefront / LDS）底层架构，手写高性能 HIP 与 Triton 融合算子及 PyTorch C++ 扩展 | 🔗 **[`datawhalechina/hello-gpu`](https://github.com/datawhalechina/hello-gpu)** |
+特别是随着 **ROCm 10.0.0** 里程碑发布，以 **「`AMD Skills` + `Hyperloom` + `ROCm CLI`」** 为代表的 Agent-Native（智能体原生）工具让开发者体验迎来了质的飞跃。下面这 **12 个官方高含金量开源仓库** 强烈建议收藏进你的浏览器书签：
+
+```mermaid
+flowchart TB
+    subgraph APP["🖥️ 第一层：端侧 AI PC 智能体与开发者入口"]
+        A1["amd/gaia<br/>本地隐私多Agent应用工厂"]
+        A2["lemonade-sdk/lemonade<br/>GPU + XDNA 2 NPU 双擎管家"]
+        A3["amd/skills<br/>官方 ROCm 调优与排错 SKILL 库"]
+        A4["ROCm/rocm-cli<br/>一体化体检与服务命令行"]
+    end
+
+    subgraph OPT["⚡ 第二层：全自动寻优、模型压缩与高性能算子库"]
+        O1["AMD-AGI/Hyperloom<br/>多智能体自动压测与重写算子"]
+        O2["AMD-AGI/TraceLens<br/>纯 Python 算子瓶颈剖析器"]
+        O3["amd/Quark<br/>INT4 / FP8 / MXFP4 官方量化箱"]
+        O4["ROCm/aiter & hipBLASLt<br/>大模型极致融合算子引擎"]
+    end
+
+    subgraph INFRA["🏗️ 第三层：超大规模训练与模块化跨平台底座"]
+        I1["AMD-AGI/Primus<br/>千卡预训练与后训练统一框架"]
+        I2["ROCm/IRIS<br/>Triton 原生分布式通信加计算融合"]
+        I3["ROCm/TheRock<br/>跨 Linux/Win 模块化 Python Wheel 基座"]
+    end
+
+    APP --> OPT --> INFRA
+```
 
 ---
 
-## 9.3 🧰 AMD 开发者算力福利、架构字典与资源百宝箱
+### 一、端侧本地智能体与开发者生产力工具（个人电脑天天用得上！）
 
-### 1. 免费云端与高校算力资源
-- ☁️ **[AMD Radeon Cloud 使用与 SSH 远程连接指南](../cloud/amd-radeon-cloud.md)**：手头无卡也能免费体验大显存 AMD GPU。
-- 🎓 **[AUP Learning Cloud 端侧算力指南](../cloud/aup-learning-cloud.md)**：AMD 大学计划（AMD University Program）教学与实训算力支持。
+| 官方开源项目 | GitHub 仓库直达 | 核心能力亮点与你的使用时机 |
+|:---|:---|:---|
+| **AMD GAIA** | [`amd/gaia`](https://github.com/amd/gaia) | **Generative AI Is Awesome** —— AMD 官方开源的本地隐私多智能体应用框架，专为 Ryzen AI（NPU + iGPU）与 Radeon 硬件优化，开箱内置代码辅助、RAG 文档问答、会议语音摘要与剪辑智能体示例。 |
+| **Lemonade SDK** | [`lemonade-sdk/lemonade`](https://github.com/lemonade-sdk/lemonade) | 本课程第 1.4 节主力引擎之一！一站式统一调度 Radeon GPU（`llama.cpp`）与 Ryzen AI XDNA 2 NPU（`FastFlowLM`），原生内置魔搭拉取与 OpenAI `/v1` 接口。 |
+| **AMD Skills** | [`amd/skills`](https://github.com/amd/skills) | ROCm 10 三剑客之一！将 AMD 核心工程师的算子编写、性能剖析与环境排障规范封装成标准 `SKILL.md`，一行 `npx skills add amd/skills` 即可赋能你的 `Qoder`、Codex 与 WorkBuddy。 |
+| **ROCm CLI** | [`ROCm/rocm-cli`](https://github.com/ROCm/rocm-cli) | ROCm 10 新一代统一命令行管家，整合硬件体检（`examine`）、SDK 组件按需安装与推理服务快捷拉起。 |
 
-### 2. 权威硬件架构字典与官方文档入口
-- 🗺️ **[ROCm 软件栈交互式全景图谱](/atlas/rocm/index.html)**：一图看清从底层驱动、编译器到上层 AI 框架的全景拼图。
-- 📋 **[硬件体检与 `gfx` 架构对照表](../00-guide/03-hardware-and-cloud.md)** · **[ROCm 10.0.0 环境配置指南](../01-first-model/02-rocm-env-setup.md)**：一秒查清 RDNA 3 (`gfx110X`) / RDNA 3.5 (`gfx115X`) / RDNA 4 (`gfx120X`) / CDNA 3 (`gfx942`) 架构代号与 `pip` 安装源。
-- 📰 **[AMD ROCm 官方文档总站](https://rocm.docs.amd.com/)** 与 **[AMD ROCm 技术博客](https://rocm.blogs.amd.com/)**。
+---
 
-### 3. 已验证配置总索引与开源共建邀请
-- ⚙️ **全书已验证客户端与引擎配置模板库**：[`src/configs/`](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/src/configs/README.md)（含 WorkBuddy、`Qoder`、Codex 标准配置）与 [Lemonade / NPU 引擎部署排错](../01-first-model/04-lemonade-server.md)。
-- 🤝 **加入我们，一起共建更友好的 AMD AI 开源学习生态**！
-  - 提交 **[新手试学反馈卡](https://github.com/datawhalechina/hello-rocm/issues/new/choose)** 帮助打磨零卡点教程；
-  - 参照 **[内容规范指南](https://github.com/datawhalechina/hello-rocm/blob/dev_1.0/CONTENT_GUIDE.md)** 与 **[案例五要素模板](../08-fun-cases/_CASE_TEMPLATE.md)** 提交你的创意案例 PR；
-  - 加入 **[Datawhale × hello-rocm 飞书社区讨论](https://zcnijjcepfie.feishu.cn/docx/R2a4dDRUBoo1R2x7mOjcPpPPnOO)**，与志同道合的伙伴组队同行（参见 **[20 天组队学习计划](../learning/20-day-learning-plan.md)**）！
+### 二、自动优化、模型量化与高性能推理算子底座（发论文与拼吞吐必看！）
+
+| 官方开源项目 | GitHub 仓库直达 | 核心能力亮点与你的使用时机 |
+|:---|:---|:---|
+| **Hyperloom** | [`AMD-AGI/Hyperloom`](https://github.com/AMD-AGI/Hyperloom) | 本书第 6.5 节压轴神器！串联 `Magpie` 基准压测、`TraceLens` 瓶颈定位、`Arbor` 树搜索参数与 `GEAK` 多智能体自动重写融合内核的端到端优化工厂。 |
+| **TraceLens** | [`AMD-AGI/TraceLens`](https://github.com/AMD-AGI/TraceLens) | 纯 Python 跨框架 GPU Trace 自动分析仪，一键把晦涩的 JSON 火焰图转化成清晰的算子耗时占比与带宽利用率报表。 |
+| **AMD Quark** | [`amd/Quark`](https://github.com/amd/Quark) | 本书第 6.2 节实战主角！统一支持 PyTorch 与 ONNX 的官方量化压缩工具箱，通吃 `INT4 AWQ/GPTQ`、对称 `FP8` 与前沿 `MXFP4`。 |
+| **AITER** | [`ROCm/aiter`](https://github.com/ROCm/aiter) | **AI Tensor Engine for ROCm** —— 汇集极致打磨的 PagedAttention、FlashAttention、Fused MoE 与量化内核，`vLLM` 开启 `VLLM_ROCM_USE_AITER=1` 即刻起飞。 |
+| **Composable Kernel (CK)** | [`ROCm/composable_kernel`](https://github.com/ROCm/composable_kernel) | AMD 底层高性能模板化算子编程库（类似 CUTLASS 在生态中的角色），学习底层 C++ 矩阵块流水线设计的权威宝库。 |
+
+---
+
+### 三、大规模分布式大模型训练与跨平台构建底座
+
+| 官方开源项目 | GitHub 仓库直达 | 核心能力亮点与你的使用时机 |
+|:---|:---|:---|
+| **Primus & Primus-Turbo** | [`AMD-AGI/Primus`](https://github.com/AMD-AGI/Primus) | 面向大规模基础模型预训练与强化后训练（兼容 Megatron-LM / TorchTitan / JAX）的旗舰统一训练框架，配套 `Primus-Turbo` 提供极致 FP8 与通信隐藏算子。 |
+| **IRIS** | [`ROCm/iris`](https://github.com/ROCm/iris) | 基于 OpenAI Triton 的细粒度多卡计算与通信重叠（Compute-Communication Overlap）编程库，用纯 Python Triton 写出多 GPU 高速内核。 |
+| **TheRock** | [`ROCm/TheRock`](https://github.com/ROCm/TheRock) | 新一代开源跨平台 ROCm 模块化构建系统——正是它让我们在第 1.2 节只需一行 `uv pip install "torch[device-gfxXXXX]"` 就能在 Windows 和 Linux 虚拟环境里直接用上 ROCm 10！ |
+
+---
+
+## 🗺️ 本章后续两节高能导览
+
+1. 🚀 **[9.2 前沿科研与工业高阶案例精讲（具身智能 · 推荐系统 · 多卡预训练 · Strix Halo 极限部署）](./02-research-and-industry-cases.md)**  
+   *走出单机日常助手，看看研究者和工程师是如何用 AMD ROCm 训练机械臂抓取策略、搭建工业级推荐系统、多卡手搓 Transformer 大模型以及压榨 128GB 统一内存极限的！*
+2. 📋 **[9.3 自包含权威速查百宝箱：全系 AMD GPU/APU `gfx` 架构大字典、免费云算力与共建指南](./03-hardware-dictionary-and-cloud.md)**  
+   *一张完整收录 RDNA 4 / RDNA 3.5 / RDNA 3 / CDNA 3 / XDNA 2 全家族型号与 `pip` 索引的案头速查字典！*
+
+---
+
+👉 先去领略四大硬核科研与工业实战风采：**[9.2 前沿科研与工业高阶案例精讲](./02-research-and-industry-cases.md)**！
